@@ -1,15 +1,19 @@
 {
-  "name": "notion-api",
-  "version": "0.1.0",
+  "name": "hugocorta.com",
+  "version": "1.0.0",
   "private": true,
+  "description": "My personal site",
+  "homepage": "https://hugocorta.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hcorta/hugocorta"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@notionhq/client": "^2.1.1",
-    "axios": "^0.21.1",
     "next": "^12.2.5",
     "notion-client": "^6.13.4",
     "notion-utils": "^6.13.4",

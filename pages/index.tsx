@@ -6,11 +6,11 @@ import { notionClient } from '../lib'
 import { NotionRenderer } from 'react-notion-x'
 
 export const getStaticProps = async () => {
-  const recordMap = await notionClient.getPage(process.env.ROOT_PAGE_ID)
+  const rootRecordMap = await notionClient.getPage(process.env.ROOT_PAGE_ID)
 
   return {
     props: {
-      recordMap
+      recordMap: rootRecordMap
     }
   }
 }
