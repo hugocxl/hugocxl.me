@@ -1,10 +1,15 @@
+import { IoIosPerson } from 'react-icons/io'
+import { CgNotes } from 'react-icons/cg'
+
 export const PAGES = [
   {
     label: 'Blog',
-    path: '/blog'
+    path: '/blog',
+    icon: CgNotes
   },
   {
     label: 'About',
-    path: '/about'
+    path: '/about',
+    icon: IoIosPerson
   }
 ]

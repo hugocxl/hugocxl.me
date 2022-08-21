@@ -36,12 +36,12 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   }, [mode])
 
   const ThemeModeContextValue = useMemo(
-    () => ({
+    () => [
       mode,
-      toggleColorMode: () => {
+      () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
       }
-    }),
+    ],
     [mode]
   )
 

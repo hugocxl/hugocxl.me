@@ -1,7 +1,4 @@
 // Dependencies
-import { createContext } from "react";
+import { createContext } from 'react'
 
-export const ThemeModeContext = createContext({
-	toggleColorMode: () => {},
-	mode: null
-});
+export const ThemeModeContext = createContext(null)

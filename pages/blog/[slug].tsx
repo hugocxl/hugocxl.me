@@ -12,7 +12,6 @@ import { getMetaFromDocsDir } from '../../utils'
 // Constants
 const POSTS_DIR = path.join(process.cwd(), 'docs', 'posts')
 
-// Generating the paths for each post
 export async function getStaticPaths() {
   const posts = getMetaFromDocsDir(POSTS_DIR)
 
