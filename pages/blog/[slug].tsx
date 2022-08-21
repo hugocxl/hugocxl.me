@@ -4,7 +4,7 @@ import * as path from 'path'
 import matter from 'gray-matter'
 
 // Components
-import ReactMarkdown from 'react-markdown'
+import { MarkdownRenderer } from '../../components'
 
 // Utils
 import { getMetaFromDocsDir } from '../../utils'
@@ -54,7 +54,7 @@ export default function Post({ meta, content }) {
       <h3>
         {category} || {tags.join()}
       </h3>
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <MarkdownRenderer>{content}</MarkdownRenderer>
     </main>
   )
 }

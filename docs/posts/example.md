@@ -11,3 +11,5 @@ tags:
 ## This is an example blog post
 
 This is sample content. The section above is called Frontmatter where we can add post metadata like title and author. You can add as little or as many properties in the frontmatter using YAML syntax.
+
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).

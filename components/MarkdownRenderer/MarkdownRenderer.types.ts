@@ -1,3 +1,5 @@
+// Types
+import { ReactNode } from 'react'
 export interface MarkdownRendererProps {
-  content: string
+  children: string
 }
