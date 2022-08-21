@@ -7,27 +7,34 @@ import { PAGES } from '../../constants'
 
 // Components
 import Link from 'next/link'
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, Box } from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
-  return (
-    <div id='container'>
-      <header className='bg-fuchsia-100 mb-8 py-4'>
+  function Header() {
+    return (
+      <Stack
+        component={'header'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
+      >
         <Link href='/'>
           <a>🏡</a>
         </Link>
-        <div className=''>
+
+        <Stack spacing={1}>
           {PAGES.map(({ label, path }) => (
             <Link href={path}>
               <a>{label}</a>
             </Link>
           ))}
-        </div>
-      </header>
+        </Stack>
+      </Stack>
+    )
+  }
 
-      <main className='container mx-auto flex-1'>{children}</main>
-
+  function Footer() {
+    return (
       <Stack
         component={'footer'}
         justifyContent={'space-between'}
@@ -66,6 +73,18 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
           </a>
         </Stack>
       </Stack>
-    </div>
+    )
+  }
+
+  return (
+    <Box
+      display={'grid'}
+      gridTemplateRows={'auto 1fr auto'}
+      minHeight={'100vh'}
+    >
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </Box>
   )
 }
