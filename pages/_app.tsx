@@ -1,8 +1,15 @@
 // Styles
 import '../styles/globals.css'
 
-function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+// Components
+import { Layout } from '../components/Layout'
+
+const App = ({ Component, pageProps }) => {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
 }
 
 export default App
