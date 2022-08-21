@@ -49,8 +49,8 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         justifyContent={'space-between'}
         alignItems={'center'}
       >
-        <Typography variant={'body2'}>
-          Designed and built by <strong>{'@hcorta'}</strong>
+        <Typography variant={'body2'} fontWeight={'bolder'}>
+          {`@hcorta @ ${new Date().getFullYear()}`}
         </Typography>
 
         <Stack spacing={2}>
