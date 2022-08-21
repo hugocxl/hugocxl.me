@@ -25,7 +25,7 @@ export default function Blog({ posts }) {
   return (
     <Page
       title={'Blog'}
-      description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too.`}
+      description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too!`}
     >
       <ArticlesList articles={posts} />
     </Page>
