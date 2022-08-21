@@ -6,27 +6,33 @@ import { FC } from 'react'
 import { PAGES } from '../../constants'
 
 // Components
-import Link from 'next/link'
-import { Stack, Typography, Container } from '@mui/material'
+import NextLink from 'next/link'
+import { Stack, Typography, Container, Link } from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   function Header() {
     return (
       <Stack
+        py={2}
+        position={'sticky'}
+        top={0}
+        borderBottom={1}
+        borderColor={'divider'}
         component={'header'}
+        bgcolor={'background.default'}
         justifyContent={'space-between'}
         alignItems={'center'}
       >
-        <Link href='/'>
-          <a>🏡</a>
-        </Link>
+        <NextLink href='/'>
+          <Typography fontWeight={900}>Hugo C.</Typography>
+        </NextLink>
 
         <Stack spacing={1}>
           {PAGES.map(({ label, path }) => (
-            <Link href={path}>
-              <a>{label}</a>
-            </Link>
+            <NextLink href={path}>
+              <Link>{label}</Link>
+            </NextLink>
           ))}
         </Stack>
       </Stack>
@@ -36,6 +42,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   function Footer() {
     return (
       <Stack
+        py={2}
+        borderTop={1}
+        borderColor={'divider'}
         component={'footer'}
         justifyContent={'space-between'}
         alignItems={'center'}
@@ -44,33 +53,33 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
           Designed and built by <strong>{'@hcorta'}</strong>
         </Typography>
 
-        <Stack>
-          <a
+        <Stack spacing={2}>
+          <Link
             href={`https://github.com/hcorta`}
             title={`GitHub @hcorta`}
             target='_blank'
             rel='noopener noreferrer'
           >
             <BsGithub />
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={`https://twitter.com/hcorta`}
             title={`Twitter @hcorta`}
             target='_blank'
             rel='noopener noreferrer'
           >
             <BsTwitter />
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={`https://www.linkedin.com/in/hugocorta`}
             title={`LinkedIn @hugocorta`}
             target='_blank'
             rel='noopener noreferrer'
           >
             <BsLinkedin />
-          </a>
+          </Link>
         </Stack>
       </Stack>
     )
@@ -78,6 +87,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
 
   return (
     <Container
+      fixed={false}
       sx={{
         display: 'grid',
         gridTemplateRows: 'auto 1fr auto',
