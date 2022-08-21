@@ -1,1 +1,1 @@
-export * from './NotionPage'
+export {}
