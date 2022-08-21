@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 import {
   createTheme,
   CssBaseline,
+  responsiveFontSizes,
   ThemeProvider as MuiThemeProvider
 } from '@mui/material'
 
@@ -29,8 +30,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   const [mode, setMode] = useState(initialMode)
 
   const theme = useMemo(() => {
-    const msTheme = THEMES[mode]
-    return createTheme(msTheme)
+    const themeMode = THEMES[mode]
+    const muiTheme = createTheme(themeMode)
+    return responsiveFontSizes(muiTheme)
   }, [mode])
 
   const ThemeModeContextValue = useMemo(

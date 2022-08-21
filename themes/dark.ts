@@ -10,7 +10,10 @@ import { ThemeOptions } from '@mui/material'
 export const darkTheme: ThemeOptions = deepmerge(
   {
     palette: {
-      mode: 'dark'
+      mode: 'dark',
+      background: {
+        default: '#000000'
+      }
     }
   },
   coreTheme

@@ -7,7 +7,7 @@ import { PAGES } from '../../constants'
 
 // Components
 import Link from 'next/link'
-import { Stack, Typography, Box } from '@mui/material'
+import { Stack, Typography, Container } from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
@@ -77,14 +77,16 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
   }
 
   return (
-    <Box
-      display={'grid'}
-      gridTemplateRows={'auto 1fr auto'}
-      minHeight={'100vh'}
+    <Container
+      sx={{
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr auto',
+        minHeight: '100vh'
+      }}
     >
       <Header />
       <main>{children}</main>
       <Footer />
-    </Box>
+    </Container>
   )
 }
