@@ -10,7 +10,7 @@ export const Page: FC<PageProps> = ({ children, title, description }) => {
   return (
     <Box
       height={'100%'}
-      padding={4}
+      padding={8}
       {...(title && {
         display: 'flex',
         flexDirection: 'column'

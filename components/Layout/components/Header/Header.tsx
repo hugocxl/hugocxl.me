@@ -49,7 +49,7 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
         <Stack spacing={1}>
           {PAGES.map(({ label, path }) => (
             <NextLink href={path}>
-              <Link>{label}</Link>
+              <Link title={label}>{label}</Link>
             </NextLink>
           ))}
         </Stack>
@@ -73,10 +73,10 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
         <Typography fontWeight={'bolder'}>Hugo</Typography>
       </NextLink>
 
-      <Stack spacing={1} direction={'column'} alignItems={'center'}>
+      <Stack spacing={2} direction={'column'} alignItems={'center'}>
         {PAGES.map(({ label, path, icon: Icon }) => (
           <NextLink href={path}>
-            <IconButton>
+            <IconButton title={label}>
               <Icon />
             </IconButton>
           </NextLink>
