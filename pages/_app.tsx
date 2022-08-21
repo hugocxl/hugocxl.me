@@ -2,13 +2,15 @@
 import '../styles/globals.css'
 
 // Components
-import { Layout } from '../components/Layout'
+import { Layout, ThemeProvider } from '../components'
 
 const App = ({ Component, pageProps }) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 
