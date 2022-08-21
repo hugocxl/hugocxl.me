@@ -5,14 +5,7 @@ import * as path from 'path'
 import { getMetaFromDocsDir } from '../../utils'
 
 // Components
-import Link from 'next/link'
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListSubheader,
-  Divider
-} from '@mui/material'
+import { Page, ArticlesList } from '../../components'
 
 // Constants
 const POSTS_DIR = path.join(process.cwd(), 'docs', 'posts')
@@ -30,24 +23,11 @@ export async function getStaticProps() {
 
 export default function Blog({ posts }) {
   return (
-    <List>
-      {posts.map((post) => {
-        const { slug, meta } = post
-        const { title, author, category, date, bannerImage, tags } = meta
-
-        return (
-          <Link href={`/blog/${slug}`}>
-            <ListItem key={title}>
-              <ListItemText>{title}</ListItemText>
-              <ListSubheader>
-                <span>{date}</span>
-                <span>{category}</span>
-                <span>{tags}</span>
-              </ListSubheader>
-            </ListItem>
-          </Link>
-        )
-      })}
-    </List>
+    <Page
+      title={'Blog'}
+      description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too.`}
+    >
+      <ArticlesList articles={posts} />
+    </Page>
   )
 }

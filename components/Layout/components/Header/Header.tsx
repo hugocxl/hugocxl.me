@@ -1,7 +1,7 @@
 // Components
 import { IconButton, Link, Stack, Typography } from '@mui/material'
-import NextLink from 'next/link'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
+import NextLink from 'next/link'
 
 // Constants
 import { PAGES } from '../../../../constants'
@@ -62,10 +62,11 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
       height={'100vh'}
       position={'sticky'}
       borderRight={1}
+      width={'100%'}
       justifyContent={'space-between'}
+      alignItems={'center'}
       direction={'column'}
       py={4}
-      px={2}
       {...commonHeaderProps}
     >
       <NextLink href='/'>

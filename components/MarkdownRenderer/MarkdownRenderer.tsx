@@ -16,7 +16,9 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
         h4: ({ node, ...props }) => <Typography variant={'h4'} {...props} />,
         h5: ({ node, ...props }) => <Typography variant={'h5'} {...props} />,
         h6: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
-        p: ({ node, ...props }) => <Typography variant={'body1'} {...props} />,
+        p: ({ node, ...props }) => (
+          <Typography variant={'body1'} paragraph={true} {...props} />
+        ),
         hr: ({ node, ...props }) => <Divider {...props} />,
         li: ({ node, ...props }) => <ListItem {...props} />,
         ul: ({ node, ...props }) => <List {...props} />,

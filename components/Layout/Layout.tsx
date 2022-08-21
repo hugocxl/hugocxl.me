@@ -10,7 +10,7 @@ import { Container, useMediaQuery, useTheme } from '@mui/material'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.up('lg'))
+  const isVertical = useMediaQuery(theme.breakpoints.up('lg'))
 
   return (
     <Container
@@ -19,13 +19,13 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         display: 'grid',
         gridTemplateRows: 'auto 1fr',
         minHeight: '100vh',
-        ...(matches && {
+        ...(isVertical && {
           gridTemplateRows: '1fr',
-          gridTemplateColumns: 'auto 1fr'
+          gridTemplateColumns: '80px 1fr'
         })
       }}
     >
-      <Header orientation={matches ? 'vertical' : 'horizontal'} />
+      <Header orientation={isVertical ? 'vertical' : 'horizontal'} />
       <main>{children}</main>
       {/* <Footer /> */}
     </Container>
