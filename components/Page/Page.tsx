@@ -21,7 +21,7 @@ export const Page: FC<PageProps> = ({ children, title, description }) => {
       })}
     >
       {hasHeader && (
-        <Stack direction={'column'} mb={4} width={'100%'}>
+        <Stack direction={'column'} mb={8} width={'100%'}>
           {title && <Typography variant={'h4'}>{title}</Typography>}
           {description && <Typography>{description}</Typography>}
         </Stack>

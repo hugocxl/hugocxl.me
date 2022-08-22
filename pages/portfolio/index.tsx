@@ -7,7 +7,7 @@ import { getMetaFromDocsDir } from '../../utils'
 // Components
 import NextImage from 'next/image'
 import NextLink from 'next/link'
-import { Page, ArticlesList } from '../../components'
+import { Page } from '../../components'
 import { Masonry } from '@mui/lab'
 import { Paper, Typography, Chip, Stack } from '@mui/material'
 

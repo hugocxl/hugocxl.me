@@ -29,10 +29,10 @@ export const coreTheme = {
       ...commonHeaderProps
     },
     subtitle1: {
-      fontWeight: 500
+      fontWeight: 700
     },
     subtitle2: {
-      fontWeight: 500
+      fontWeight: 700
     },
     button: {},
     body1: {},
