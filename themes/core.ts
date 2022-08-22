@@ -48,10 +48,14 @@ export const coreTheme = {
           const isHeader =
             ownerState.variant[0] === 'h' ||
             ownerState.variant.includes('subtitle')
+          const isParagraph = ownerState.paragraph
 
           return {
             ...(isHeader && {
               color: theme.palette.primary.main
+            }),
+            ...(isParagraph && {
+              marginBottom: theme.spacing(2.5)
             })
           }
         }

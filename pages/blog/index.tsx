@@ -83,7 +83,7 @@ export default function Blog({ posts, tags }) {
       <List>
         {filteredPosts.map((post) => {
           const { slug, meta } = post
-          const { title, description, tags } = meta
+          const { title, description, tags, date } = meta
 
           return (
             <NextLink href={`/blog/${slug}`}>
@@ -103,11 +103,19 @@ export default function Blog({ posts, tags }) {
                   }
                 }}
               >
-                <Stack alignItems={'flex-start'} spacing={1}>
-                  <Typography variant={'subtitle1'}>{title}</Typography>
-                  <IconButton size={'small'} color={'secondary'}>
-                    <VscArrowRight />
-                  </IconButton>
+                <Stack
+                  alignItems={'center'}
+                  justifyContent={'space-between'}
+                  width={'100%'}
+                >
+                  <Stack alignItems={'flex-start'} spacing={1}>
+                    <Typography variant={'subtitle1'}>{title}</Typography>
+                    <IconButton size={'small'} color={'secondary'}>
+                      <VscArrowRight />
+                    </IconButton>
+                  </Stack>
+
+                  <Typography variant={'body2'}>{date}</Typography>
                 </Stack>
                 <Stack
                   spacing={2}

@@ -37,7 +37,7 @@ export const Page: FC<PageProps> = ({
       >
         {hasHeader && (
           <Stack direction={'column'} mb={8} width={'100%'}>
-            {title && <Typography variant={'h4'}>{title}</Typography>}
+            {title && <Typography variant={'h3'}>{title}</Typography>}
             {description && <Typography>{description}</Typography>}
           </Stack>
         )}

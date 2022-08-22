@@ -2,11 +2,12 @@ import {
   VscAccount,
   VscArchive,
   VscFolderLibrary,
-  VscRocket,
+  VscSymbolEvent,
   VscOutput,
   VscLibrary,
   VscNote
 } from 'react-icons/vsc'
+import { AiOutlineUser } from 'react-icons/ai'
 
 export const PAGES = [
   {
@@ -22,11 +23,11 @@ export const PAGES = [
   {
     label: 'Stack',
     path: '/stack',
-    icon: VscRocket
+    icon: VscSymbolEvent
   },
   {
     label: 'About',
     path: '/about',
-    icon: VscAccount
+    icon: AiOutlineUser
   }
 ]
