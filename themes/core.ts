@@ -67,6 +67,13 @@ export const coreTheme = {
         color: 'secondary',
         underline: 'hover'
       }
+    },
+    MuiChip: {
+      defaultProps: {
+        variant: 'outlined',
+        size: 'small',
+        color: 'secondary'
+      }
     }
   }
 }

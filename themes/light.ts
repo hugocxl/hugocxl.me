@@ -20,7 +20,6 @@ export const lightTheme: ThemeOptions = deepmerge(
       text: {
         primary: '#535358',
         secondary: '#8e8e99',
-        header: '#000000',
         disabled: '#aeaeb4'
       }
     }
