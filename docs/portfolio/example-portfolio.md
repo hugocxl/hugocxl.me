@@ -1,6 +1,6 @@
 ---
 title: "This is an example post"
-description: "This is an example dejpasjdlfñj ñlasdjfñlk ajlasjdlgfkajsdñ ljasdñlgjañlskdfj lñk post"
+description: "This is an example dejpasjdlfñj ñlasdjfñlk ajlasjdlgfkajsdñ ljasdñlgjañlskdfj lñk post asdfsadlkfj  ñlajsdñlfj ñljsdf asdf"
 category: "food"
 date: "2022-03-13"
 bannerImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
