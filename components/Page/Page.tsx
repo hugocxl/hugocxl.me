@@ -1,5 +1,5 @@
 // Components
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 
 // Types
 import { PageProps } from './Page.types'
@@ -13,18 +13,17 @@ export const Page: FC<PageProps> = ({ children, title, description }) => {
       overflow={'auto'}
       height={'100%'}
       width={'100%'}
-      padding={6}
+      py={6}
+      pl={12}
       {...(hasHeader && {
         display: 'flex',
         flexDirection: 'column'
       })}
     >
       {hasHeader && (
-        <Stack direction={'column'} mb={8} width={'100%'}>
+        <Stack direction={'column'} mb={4} width={'100%'}>
           {title && <Typography variant={'h4'}>{title}</Typography>}
-          {description && (
-            <Typography color={'textSecondary'}>{description}</Typography>
-          )}
+          {description && <Typography>{description}</Typography>}
         </Stack>
       )}
       {children}

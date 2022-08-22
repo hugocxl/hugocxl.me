@@ -6,7 +6,7 @@ import { FC } from 'react'
 
 // Components
 import { Header, Footer } from './components'
-import { Container, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Container, useMediaQuery, useTheme } from '@mui/material'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   const theme = useTheme()
@@ -18,7 +18,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       sx={{
         display: 'grid',
         gridTemplateRows: 'auto 1fr',
-        minHeight: '100vh',
+        height: '100vh',
         ...(isVertical && {
           gridTemplateRows: '1fr',
           gridTemplateColumns: '80px 1fr'
@@ -26,7 +26,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       }}
     >
       <Header orientation={isVertical ? 'vertical' : 'horizontal'} />
-      <main>{children}</main>
+      <Box component={'main'} sx={{ overflow: 'auto', height: '100%' }}>
+        {children}
+      </Box>
       {/* <Footer /> */}
     </Container>
   )
