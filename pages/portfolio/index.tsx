@@ -5,11 +5,10 @@ import * as path from 'path'
 import { getMetaFromDocsDir } from '../../utils'
 
 // Components
-import NextImage from 'next/image'
 import NextLink from 'next/link'
 import { Page } from '../../components'
 import { Masonry } from '@mui/lab'
-import { Paper, Typography, Chip, Stack } from '@mui/material'
+import { Paper, Typography, Chip, Stack, Box } from '@mui/material'
 
 // Constants
 const BASE_PORTFOLIO_PATH = 'portfolio'
@@ -39,20 +38,28 @@ export default function Portfolio({ projects }) {
               key={project.slug}
               elevation={2}
               sx={{
+                boxShadow: '0 8px 12px 0 rgb(0 0 0 / 8%)',
                 cursor: 'pointer',
                 display: 'flex',
                 flexDirection: 'column',
                 padding: 2
               }}
             >
-              <img src={project.meta.bannerImage} alt={project.meta.title} />
+              <Box
+                border={1}
+                borderColor={'divider'}
+                borderRadius={1}
+                component={'img'}
+                src={project.meta.bannerImage}
+                alt={project.meta.title}
+              />
               <Typography variant={'h6'} mt={2}>
                 {project.meta.title}
               </Typography>
               <Typography variant={'body2'}>
                 {project.meta.description}
               </Typography>
-              <Stack spacing={1} mt={1}>
+              <Stack spacing={1} mt={4}>
                 {project.meta.tags.map((tag) => (
                   <Chip label={tag} />
                 ))}
