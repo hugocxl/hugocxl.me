@@ -22,7 +22,7 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
         img: ({ node, ...props }) => (
           <Box component={'img'} width={'100%'} {...props} />
         ),
-        hr: ({ node, ...props }) => <Divider {...props} />,
+        hr: ({ node, ...props }) => <Divider sx={{ mb: 4 }} {...props} />,
         li: ({ node, ...props }) => (
           <li>
             <Typography {...props} />

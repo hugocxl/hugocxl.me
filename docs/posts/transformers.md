@@ -23,10 +23,6 @@ Let's take a look! 🚀
 
 * * *
 
-\[toc\]
-
-* * *
-
 ## What is the Longformer model?
 
 Ever since Transformer models have been introduced in 2017, they have brought about change in the world of NLP. With a variety of architectures, such as [BERT](https://www.machinecurve.com/index.php/2021/01/04/intuitive-introduction-to-bert/) and [GPT](https://www.machinecurve.com/index.php/2021/01/02/intuitive-introduction-to-openai-gpt/), a wide range of language tasks have been improved to sometimes human-level quality... and in addition, with libraries like HuggingFace Transformers, applying them has been democratized significantly.
@@ -45,7 +41,7 @@ That's why **Longformer** was introduced. It changes the attention mechanism by 
 
 To show you that Longformer works with really long tasks in a variety of tasks, we'll use some segments from the [Wikipedia page about Germany](https://en.wikipedia.org/wiki/Germany) (Wikipedia, 2001). More specifically, we will be using this text:
 
-```
+```js
 Germany (German: Deutschland, German pronunciation: [ˈdɔʏtʃlant]), officially the Federal Republic of Germany,[e] is a country at the intersection of Central and Western Europe. It is situated between the Baltic and North seas to the north, and the Alps to the south; covering an area of 357,022 square kilometres (137,847 sq mi), with a population of over 83 million within its 16 constituent states. It borders Denmark to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west. Germany is the second-most populous country in Europe after Russia, as well as the most populous member state of the European Union. Its capital and largest city is Berlin, and its financial centre is Frankfurt; the largest urban area is the Ruhr.
 
 Various Germanic tribes have inhabited the northern parts of modern Germany since classical antiquity. A region named Germania was documented before AD 100. In the 10th century, German territories formed a central part of the Holy Roman Empire. During the 16th century, northern German regions became the centre of the Protestant Reformation. Following the Napoleonic Wars and the dissolution of the Holy Roman Empire in 1806, the German Confederation was formed in 1815. In 1871, Germany became a nation-state when most of the German states unified into the Prussian-dominated German Empire. After World War I and the German Revolution of 1918–1919, the Empire was replaced by the semi-presidential Weimar Republic. The Nazi seizure of power in 1933 led to the establishment of a dictatorship, World War II, and the Holocaust. After the end of World War II in Europe and a period of Allied occupation, Germany was divided into the Federal Republic of Germany, generally known as West Germany, and the German Democratic Republic, East Germany. The Federal Republic of Germany was a founding member of the European Economic Community and the European Union, while the German Democratic Republic was a communist Eastern Bloc state and member of the Warsaw Pact. After the fall of communism, German reunification saw the former East German states join the Federal Republic of Germany on 3 October 1990—becoming a federal parliamentary republic led by a chancellor.
@@ -87,7 +83,7 @@ Creating the code involves the following steps:
 6. **Getting the predictions**. Once we have tokenized our input and retrieved the atetntion mask, we can get the predictions.
 7. **Converting the predictions into the answer, and printing the answer on screen.** The seventh and final step is to actually convert the identifiers to tokens, which we then decode and print on our screen.
 
-```
+```bash
 import torch
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
