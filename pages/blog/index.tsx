@@ -118,13 +118,7 @@ export default function Blog({ posts, tags }) {
                   <Typography variant={'body2'}>{description}</Typography>
                   <Stack spacing={1}>
                     {tags.map((tag) => (
-                      <Chip
-                        label={tag}
-                        onClick={(ev) => {
-                          ev.stopPropagation()
-                          setTag(tag)
-                        }}
-                      />
+                      <Chip label={tag} />
                     ))}
                   </Stack>
                 </Stack>

@@ -4,7 +4,7 @@ import * as path from 'path'
 import matter from 'gray-matter'
 
 // Components
-import { MarkdownRenderer, Page } from '../../components'
+import { ArticlePage, MarkdownRenderer, Page } from '../../components'
 
 // Utils
 import { getMetaFromDocsDir } from '../../utils'
@@ -41,19 +41,9 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export default function Post({ meta, content }) {
-  const { title, author, category, date, bannerImage, tags, description } = meta
-
   return (
-    <Page title={title} description={description}>
-      {/* <img src={bannerImage} />
-      <h1>{title}</h1>
-      <h2>
-        {author} || {date}
-      </h2>
-      <h3>
-        {category} || {tags.join()}
-      </h3> */}
+    <ArticlePage {...meta}>
       <MarkdownRenderer>{content}</MarkdownRenderer>
-    </Page>
+    </ArticlePage>
   )
 }

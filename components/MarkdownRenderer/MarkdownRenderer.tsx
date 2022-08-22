@@ -1,6 +1,6 @@
 // Components
 import ReactMarkdown from 'react-markdown'
-import { Typography, Divider, Link } from '@mui/material'
+import { Typography, Divider, Link, Box } from '@mui/material'
 
 // Types
 import { FC } from 'react'
@@ -18,6 +18,9 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
         h6: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
         p: ({ node, ...props }) => (
           <Typography variant={'body1'} paragraph={true} {...props} />
+        ),
+        img: ({ node, ...props }) => (
+          <Box component={'img'} width={'100%'} {...props} />
         ),
         hr: ({ node, ...props }) => <Divider {...props} />,
         li: ({ node, ...props }) => (
