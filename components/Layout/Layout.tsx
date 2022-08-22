@@ -21,7 +21,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         height: '100vh',
         ...(isVertical && {
           gridTemplateRows: '1fr',
-          gridTemplateColumns: '80px 1fr'
+          gridTemplateColumns: '80px 1fr 80px'
         })
       }}
     >
@@ -29,7 +29,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
       <Box component={'main'} sx={{ overflow: 'auto', height: '100%' }}>
         {children}
       </Box>
-      {/* <Footer /> */}
+      <Footer />
     </Container>
   )
 }

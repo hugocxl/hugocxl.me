@@ -14,7 +14,7 @@ export const Page: FC<PageProps> = ({ children, title, description }) => {
       height={'100%'}
       width={'100%'}
       py={6}
-      pl={12}
+      px={12}
       {...(hasHeader && {
         display: 'flex',
         flexDirection: 'column'

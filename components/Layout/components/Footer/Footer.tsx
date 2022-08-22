@@ -1,49 +1,45 @@
 // Components
-import { Stack, Typography, Link } from '@mui/material'
+import { Stack, Typography, Link, IconButton } from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 export function Footer() {
+  function SideButton({ icon: Icon, ...rest }) {
+    return (
+      <Link {...rest} target='_blank' rel='noopener noreferrer'>
+        <IconButton>
+          <Icon />
+        </IconButton>
+      </Link>
+    )
+  }
+
   return (
     <Stack
-      py={2}
+      py={6}
+      direction={'column'}
       borderTop={1}
       borderColor={'divider'}
       component={'footer'}
-      justifyContent={'space-between'}
+      justifyContent={'flex-end'}
       alignItems={'center'}
     >
-      <Typography variant={'body2'} fontWeight={'bolder'}>
-        {`@hcorta @ ${new Date().getFullYear()}`}
-      </Typography>
+      <SideButton
+        icon={BsGithub}
+        href={`https://github.com/hcorta`}
+        title={`GitHub @hcorta`}
+      />
 
-      <Stack spacing={2}>
-        <Link
-          href={`https://github.com/hcorta`}
-          title={`GitHub @hcorta`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <BsGithub />
-        </Link>
+      <SideButton
+        icon={BsTwitter}
+        href={`https://twitter.com/hcorta`}
+        title={`Twitter @hcorta`}
+      />
 
-        <Link
-          href={`https://twitter.com/hcorta`}
-          title={`Twitter @hcorta`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <BsTwitter />
-        </Link>
-
-        <Link
-          href={`https://www.linkedin.com/in/hugocorta`}
-          title={`LinkedIn @hugocorta`}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <BsLinkedin />
-        </Link>
-      </Stack>
+      <SideButton
+        icon={BsLinkedin}
+        href={`https://www.linkedin.com/in/hugocorta`}
+        title={`LinkedIn @hugocorta`}
+      />
     </Stack>
   )
 }

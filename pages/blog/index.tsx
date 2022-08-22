@@ -5,8 +5,8 @@ import * as path from 'path'
 import { getMetaFromDocsDir } from '../../utils'
 
 // Components
-import { Page, ArticlesList } from '../../components'
-import { Chip, Link, List, ListItem, Stack, Typography } from '@mui/material'
+import { Page } from '../../components'
+import { Chip, List, ListItem, Stack, Typography } from '@mui/material'
 import NextLink from 'next/link'
 
 // Constants
