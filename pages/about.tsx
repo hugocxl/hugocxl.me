@@ -4,7 +4,7 @@ import { Page } from 'components'
 
 const About = () => {
   return (
-    <Page title='About me'>
+    <Page title='About' description='Get to know a little bit more about me!'>
       <Stack direction={'column'}>
         <Typography paragraph>
           I'm an experienced Software Engineer with a demonstrated history of

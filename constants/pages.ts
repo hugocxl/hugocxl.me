@@ -15,8 +15,8 @@ export const PAGES = [
     icon: VscNote
   },
   {
-    label: 'Projects',
-    path: '/projects',
+    label: 'Portfolio',
+    path: '/portfolio',
     icon: VscLibrary
   },
   {

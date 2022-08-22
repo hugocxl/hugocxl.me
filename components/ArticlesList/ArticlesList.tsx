@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import NextLink from 'next/link'
 
-export const ArticlesList = ({ articles }) => {
+export const ArticlesList = ({ articles, baseUrl }) => {
   return (
     <List>
       {articles.map((post) => {
@@ -18,7 +18,7 @@ export const ArticlesList = ({ articles }) => {
         const { title, description, tags } = meta
 
         return (
-          <NextLink href={`/blog/${slug}`}>
+          <NextLink href={`/${baseUrl}/${slug}`}>
             <Link>
               <ListItem
                 key={title}

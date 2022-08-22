@@ -27,7 +27,7 @@ export default function Blog({ posts }) {
       title={'Blog'}
       description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too!`}
     >
-      <ArticlesList articles={posts} />
+      <ArticlesList articles={posts} baseUrl={'blog'} />
     </Page>
   )
 }

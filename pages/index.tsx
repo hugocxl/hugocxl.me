@@ -2,14 +2,14 @@
 import * as React from 'react'
 
 // Components
-import { Link, Stack, Typography } from '@mui/material'
+import { Link, Stack, TextField, Typography } from '@mui/material'
 import { Page } from '../components'
 
 const Home = () => {
   return (
     <Page>
-      <Stack direction={'column'} mt={20}>
-        <Typography variant={'h3'}>{`Hi 👋 – I’m Hugo`}</Typography>
+      <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
+        <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
         <Typography color={'textSecondary'}>
           Software developer at @Metasoccer
         </Typography>
