@@ -1,5 +1,5 @@
-const fontFamilyHeader = 'Monument, Helvetica, Arial, sans-serif'
-const fontFamilyBody = 'Space Grotesk, Helvetica, Arial, sans-serif'
+const fontFamilyHeader = 'Inter, sans-serif'
+const fontFamilyBody = 'Inter, sans-serif'
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
@@ -29,16 +29,34 @@ export const coreTheme = {
       ...commonHeaderProps
     },
     subtitle1: {
-      fontWeight: 700
+      fontWeight: 500
     },
     subtitle2: {
-      fontWeight: 700
+      fontWeight: 500
     },
     button: {},
     body1: {},
     body2: {}
   },
   components: {
+    MuiTypography: {
+      defaultProps: {
+        gutterBottom: true
+      },
+      styleOverrides: {
+        root: ({ ownerState, theme }) => {
+          const isHeader =
+            ownerState.variant[0] === 'h' ||
+            ownerState.variant.includes('subtitle')
+
+          return {
+            ...(isHeader && {
+              color: theme.palette.primary.main
+            })
+          }
+        }
+      }
+    },
     MuiStack: {
       defaultProps: {
         direction: 'row'
@@ -46,6 +64,7 @@ export const coreTheme = {
     },
     MuiLink: {
       defaultProps: {
+        color: 'secondary',
         underline: 'hover'
       }
     }

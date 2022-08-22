@@ -10,7 +10,19 @@ import { ThemeOptions } from '@mui/material'
 export const lightTheme: ThemeOptions = deepmerge(
   {
     palette: {
-      mode: 'light'
+      mode: 'light',
+      primary: {
+        main: '#000000'
+      },
+      secondary: {
+        main: '#3291ff'
+      },
+      text: {
+        primary: '#535358',
+        secondary: '#8e8e99',
+        header: '#000000',
+        disabled: '#aeaeb4'
+      }
     }
   },
   coreTheme
