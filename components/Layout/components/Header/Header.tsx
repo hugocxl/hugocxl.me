@@ -12,9 +12,26 @@ import { HeaderProps } from './Header.types'
 
 // Hooks
 import { useThemeMode } from '../../../../hooks'
+import { useRouter } from 'next/router'
+
+function NavLink({ href, exact, children, ...props }) {
+  const { pathname } = useRouter()
+  const isActive = exact ? pathname === href : pathname.startsWith(href)
+
+  if (isActive) {
+    props.className += ' active'
+  }
+
+  return (
+    <Link href={href}>
+      <a {...props}>{children}</a>
+    </Link>
+  )
+}
 
 export const Header: FC<HeaderProps> = ({ orientation }) => {
   const [mode, toggleMode] = useThemeMode()
+  const { pathname } = useRouter()
   const isDarkMode = mode === 'dark'
 
   const commonHeaderProps = {
@@ -66,7 +83,7 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
       justifyContent={'space-between'}
       alignItems={'center'}
       direction={'column'}
-      py={4}
+      py={6}
       {...commonHeaderProps}
     >
       <NextLink href='/'>
@@ -74,13 +91,20 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
       </NextLink>
 
       <Stack spacing={2} direction={'column'} alignItems={'center'}>
-        {PAGES.map(({ label, path, icon: Icon }) => (
-          <NextLink href={path}>
-            <IconButton title={label}>
-              <Icon />
-            </IconButton>
-          </NextLink>
-        ))}
+        {PAGES.map(({ label, path, icon: Icon }) => {
+          const isActive = pathname.startsWith(path)
+
+          return (
+            <NextLink href={path}>
+              <IconButton
+                title={label}
+                {...(isActive && { color: 'secondary' })}
+              >
+                <Icon />
+              </IconButton>
+            </NextLink>
+          )
+        })}
       </Stack>
       <SwitchThemeButton />
     </Stack>
