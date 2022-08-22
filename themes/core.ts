@@ -73,6 +73,11 @@ export const coreTheme = {
         variant: 'outlined',
         size: 'small',
         color: 'secondary'
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 4
+        }
       }
     }
   }

@@ -5,7 +5,7 @@ import { FC } from 'react'
 // Constants
 
 // Components
-import { Header, Footer } from './components'
+import { NavBar } from './components'
 import { Box, Container, useMediaQuery, useTheme } from '@mui/material'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
@@ -25,11 +25,10 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
         })
       }}
     >
-      <Header orientation={isVertical ? 'vertical' : 'horizontal'} />
+      <NavBar orientation={isVertical ? 'vertical' : 'horizontal'} />
       <Box component={'main'} sx={{ overflow: 'auto', height: '100%' }}>
         {children}
       </Box>
-      <Footer />
     </Container>
   )
 }

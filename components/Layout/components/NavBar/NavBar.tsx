@@ -8,33 +8,18 @@ import { PAGES } from '../../../../constants'
 
 // Types
 import { FC } from 'react'
-import { HeaderProps } from './Header.types'
+import { NavBarProps } from './NavBar.types'
 
 // Hooks
 import { useThemeMode } from '../../../../hooks'
 import { useRouter } from 'next/router'
 
-function NavLink({ href, exact, children, ...props }) {
-  const { pathname } = useRouter()
-  const isActive = exact ? pathname === href : pathname.startsWith(href)
-
-  if (isActive) {
-    props.className += ' active'
-  }
-
-  return (
-    <Link href={href}>
-      <a {...props}>{children}</a>
-    </Link>
-  )
-}
-
-export const Header: FC<HeaderProps> = ({ orientation }) => {
+export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   const [mode, toggleMode] = useThemeMode()
   const { pathname } = useRouter()
   const isDarkMode = mode === 'dark'
 
-  const commonHeaderProps = {
+  const commonNavBarProps = {
     component: 'header',
     top: 0,
     zIndex: 1,
@@ -57,7 +42,7 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
         position={'sticky'}
         borderBottom={1}
         justifyContent={'space-between'}
-        {...commonHeaderProps}
+        {...commonNavBarProps}
       >
         <NextLink href='/'>
           <Typography fontWeight={'bolder'}>Hugo C.</Typography>
@@ -84,7 +69,7 @@ export const Header: FC<HeaderProps> = ({ orientation }) => {
       alignItems={'center'}
       direction={'column'}
       py={6}
-      {...commonHeaderProps}
+      {...commonNavBarProps}
     >
       <NextLink href='/'>
         <Typography fontWeight={'bolder'}>Hugo</Typography>

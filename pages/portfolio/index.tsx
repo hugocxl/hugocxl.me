@@ -53,7 +53,7 @@ export default function Portfolio({ projects }) {
                 src={project.meta.bannerImage}
                 alt={project.meta.title}
               />
-              <Typography variant={'h6'} mt={2}>
+              <Typography variant={'subtitle1'} mt={2}>
                 {project.meta.title}
               </Typography>
               <Typography variant={'body2'}>

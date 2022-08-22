@@ -1,3 +1,3 @@
-export interface HeaderProps {
+export interface NavBarProps {
   orientation?: 'horizontal' | 'vertical'
 }
