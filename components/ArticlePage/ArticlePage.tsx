@@ -2,7 +2,14 @@
 import { Page } from '../Page'
 
 // Components
-import { Stack, Typography, Link, IconButton, Divider } from '@mui/material'
+import {
+  Stack,
+  Typography,
+  Link,
+  IconButton,
+  Divider,
+  Skeleton
+} from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Types
@@ -46,7 +53,7 @@ export const ArticlePage: FC<ArticlePageProps> = ({
       >
         <SideButton
           icon={BsTwitter}
-          href={`https://twitter.com/intent/tweet/?text=${pageTitle}&url=${pageUrl}}`}
+          href={`https://twitter.com/intent/tweet/?text=${pageTitle}&url=${pageUrl}`}
           title={`Share ${pageTitle} on Twitter`}
         />
 

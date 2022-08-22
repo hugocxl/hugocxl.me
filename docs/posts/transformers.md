@@ -7,8 +7,6 @@ tags:
   - "code-examples"
   - "deep-learning"
   - "longformer"
-  - "machine-learning"
-  - "transformer"
 ---
 
 Transformer models have been boosting NLP for a few years now. Every now and then, new additions make them even more performant. Longformer is one such extension, as it can be used for long texts.
