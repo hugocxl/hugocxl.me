@@ -29,10 +29,7 @@ export const Page: FC<PageProps> = ({
         height={'100%'}
         width={'100%'}
         py={6}
-        pl={12}
-        {...(hasSidebar && {
-          px: 12
-        })}
+        px={12}
         {...(hasHeader && {
           display: 'flex',
           flexDirection: 'column'

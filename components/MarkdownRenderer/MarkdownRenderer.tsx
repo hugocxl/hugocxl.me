@@ -1,6 +1,6 @@
 // Components
 import ReactMarkdown from 'react-markdown'
-import { Typography, Divider, Link, List, ListItem } from '@mui/material'
+import { Typography, Divider, Link } from '@mui/material'
 
 // Types
 import { FC } from 'react'
@@ -10,19 +10,21 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
   return (
     <ReactMarkdown
       components={{
-        h1: ({ node, ...props }) => <Typography variant={'h1'} {...props} />,
-        h2: ({ node, ...props }) => <Typography variant={'h2'} {...props} />,
-        h3: ({ node, ...props }) => <Typography variant={'h3'} {...props} />,
-        h4: ({ node, ...props }) => <Typography variant={'h4'} {...props} />,
-        h5: ({ node, ...props }) => <Typography variant={'h5'} {...props} />,
+        h1: ({ node, ...props }) => <Typography variant={'h4'} {...props} />,
+        h2: ({ node, ...props }) => <Typography variant={'h5'} {...props} />,
+        h3: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
+        h4: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
+        h5: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
         h6: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
         p: ({ node, ...props }) => (
           <Typography variant={'body1'} paragraph={true} {...props} />
         ),
         hr: ({ node, ...props }) => <Divider {...props} />,
-        li: ({ node, ...props }) => <ListItem {...props} />,
-        ul: ({ node, ...props }) => <List {...props} />,
-        ol: ({ node, ...props }) => <List {...props} />,
+        li: ({ node, ...props }) => (
+          <li>
+            <Typography {...props} />
+          </li>
+        ),
         a: ({ node, ...props }) => (
           <Link {...props} target='_blank' rel='noopener noreferrer' />
         )
