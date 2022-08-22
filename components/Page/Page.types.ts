@@ -1,5 +1,6 @@
 export interface PageProps {
   title?: string
   description?: string
-  sidebar?: React.ReactNode
+  sidebar?: React.ComponentType<{}>
+  children: React.ReactNode
 }

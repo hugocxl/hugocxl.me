@@ -2,8 +2,6 @@
 import { LayoutProps } from './Layout.types'
 import { FC } from 'react'
 
-// Constants
-
 // Components
 import { NavBar } from './components'
 import { Box, Container, useMediaQuery, useTheme } from '@mui/material'

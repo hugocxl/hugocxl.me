@@ -26,6 +26,7 @@ const POSTS_DIR = path.join(process.cwd(), 'docs', BASE_POST_PATH)
 export async function getStaticProps() {
   const posts = getMetaFromDocsDir(POSTS_DIR)
   const tags = posts.reduce((acc, { meta }) => {
+    // @ts-ignore:next-line
     meta.tags.forEach((tag) => {
       if (!acc.includes(tag)) acc.push(tag)
     }),
