@@ -8,7 +8,8 @@ import {
   Link,
   IconButton,
   Divider,
-  Skeleton
+  Skeleton,
+  Box
 } from '@mui/material'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
@@ -20,11 +21,10 @@ import { ArticlePageProps } from './ArticlePage.types'
 import { useRouter } from 'next/router'
 
 export const ArticlePage: FC<ArticlePageProps> = ({
-  title,
-  description,
   bannerImage,
-  date,
-  children
+  title,
+  children,
+  ...rest
 }) => {
   const router = useRouter()
   const baseUrl = 'https://hugocorta.com'
@@ -44,11 +44,13 @@ export const ArticlePage: FC<ArticlePageProps> = ({
 
     return (
       <Stack
+        px={1}
+        spacing={1}
         height={'100%'}
         direction={'column'}
         borderTop={1}
         borderColor={'divider'}
-        justifyContent={'flex-end'}
+        justifyContent={'center'}
         alignItems={'center'}
       >
         <SideButton
@@ -84,12 +86,8 @@ export const ArticlePage: FC<ArticlePageProps> = ({
   }
 
   return (
-    <Page title={title} description={description} sidebar={Sidebar}>
-      <Divider />
-      <Stack spacing={2} mb={4}>
-        <Typography>{date}</Typography>
-      </Stack>
-      <img src={bannerImage} />
+    <Page {...rest} title={title} sidebar={Sidebar}>
+      <Box component={'img'} mb={6} src={bannerImage} />
       {children}
     </Page>
   )

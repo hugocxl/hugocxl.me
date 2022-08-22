@@ -1,5 +1,12 @@
 // Components
-import { Stack, Typography, Box, useMediaQuery, useTheme } from '@mui/material'
+import {
+  Stack,
+  Typography,
+  Box,
+  useMediaQuery,
+  useTheme,
+  Chip
+} from '@mui/material'
 
 // Types
 import { PageProps } from './Page.types'
@@ -9,6 +16,8 @@ export const Page: FC<PageProps> = ({
   children,
   title,
   description,
+  date,
+  tags,
   sidebar: Sidebar
 }) => {
   const theme = useTheme()
@@ -34,9 +43,22 @@ export const Page: FC<PageProps> = ({
         })}
       >
         {hasHeader && (
-          <Stack direction={'column'} mb={8} width={'100%'}>
+          <Stack direction={'column'} mb={6} width={'100%'}>
             {title && <Typography variant={'h3'}>{title}</Typography>}
             {description && <Typography>{description}</Typography>}
+            {date && <Typography variant={'body2'}>{date}</Typography>}
+            {tags && (
+              <Stack spacing={1}>
+                {tags.map((tag) => (
+                  <Chip
+                    label={tag}
+                    color={'secondary'}
+                    size={'small'}
+                    variant={'outlined'}
+                  />
+                ))}
+              </Stack>
+            )}
           </Stack>
         )}
         {children}

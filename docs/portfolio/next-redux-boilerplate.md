@@ -20,8 +20,6 @@ tags:
 - ⚙️ **Bundle Analyzer** – [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer) for anaylizing builds.
 - 🎨 **Styles/Components lib** – Unopinionated! Why? 👉 [Read this](#Styles)
 
-![https://raw.githubusercontent.com/hcorta/next-redux-boilerplate/main/public/cover.png](https://raw.githubusercontent.com/hcorta/next-redux-boilerplate/main/public/cover.png)
-
 ## Motivation
 
 **Redux** is one of the de facto library for managing large single-state React applications.
@@ -32,10 +30,7 @@ This is where this boilerplate comes in handy, bringing Next.js and Redux togeth
 
 The primary aim of this project is to eliminate all preliminary setup with one simple install so you can focus in developing your application.
 
-<aside>
-⚠️ Please, note that this template is intended for **building medium-large applications with complex state management**. If that is not your case, you'll probably be OK with some of the [examples provided by the Next.js team](https://github.com/vercel/next.js/tree/canary/examples).
-
-</aside>
+>⚠️ Please, note that this template is intended for **building medium-large applications with complex state management**. If that is not your case, you'll probably be OK with some of the [examples provided by the Next.js team](https://github.com/vercel/next.js/tree/canary/examples).
 
 ## Installation
 
@@ -97,10 +92,7 @@ duck/
 
 NOTE: Each concept/module from your app will have a similar folder.
 
-<aside>
-⚠️ If you are interested in knowing more about the reasons behind this organization, you may [read this article](https://betterprogramming.pub/scaling-your-redux-app-with-ducks-6115955638be#.4ppptx7oq).
-
-</aside>
+>⚠️ If you are interested in knowing more about the reasons behind this organization, you may [read this article](https://betterprogramming.pub/scaling-your-redux-app-with-ducks-6115955638be#.4ppptx7oq).
 
 ### Styles
 

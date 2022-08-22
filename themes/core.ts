@@ -1,5 +1,7 @@
-const fontFamilyHeader = 'Inter, sans-serif'
-const fontFamilyBody = 'Inter, sans-serif'
+const fontFamilyHeader =
+  'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji'
+const fontFamilyBody =
+  'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji'
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
@@ -55,7 +57,7 @@ export const coreTheme = {
               color: theme.palette.primary.main
             }),
             ...(isParagraph && {
-              marginBottom: theme.spacing(2.5)
+              marginBottom: theme.spacing(3)
             })
           }
         }
