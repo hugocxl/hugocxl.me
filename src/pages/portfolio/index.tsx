@@ -13,7 +13,7 @@ import { Grid, Fade } from '@mui/material'
 const BASE_PORTFOLIO_PATH = 'portfolio'
 const PORTFOLIO_DIR = path.join(process.cwd(), 'docs', BASE_PORTFOLIO_PATH)
 
-export async function getStaticProps() {
+export async function getStaticProps () {
   const projects = getMetaFromDocsDir(PORTFOLIO_DIR)
 
   return {
@@ -24,7 +24,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Portfolio({ projects }) {
+export default function Portfolio ({ projects }) {
   return (
     <Page
       title={'Portfolio'}
@@ -40,7 +40,7 @@ export default function Portfolio({ projects }) {
               href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
               key={slug}
             >
-              <Fade in timeout={i * 250}>
+              <Fade in timeout={i * 300 + 300}>
                 <Grid item xs={12} sm={6} md={4}>
                   <Card
                     sx={{ height: '100%' }}

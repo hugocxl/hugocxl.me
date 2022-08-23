@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 // Components
-import { Fade, Link, Stack, TextField, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 import { Page } from '../components'
 
 const Home = () => {
@@ -10,8 +10,8 @@ const Home = () => {
     <Page>
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
         <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
-        <Typography color={'textSecondary'}>
-          Software developer at @Metasoccer
+        <Typography variant={'subtitle1'}>
+          Software developer
         </Typography>
         <Typography marginTop={4}>
           {'I love creating useful products.'}
