@@ -1,16 +1,17 @@
 ---
-title: "Next-Redux Boilerplate"
-description: "Opinionated Next.js+Redux project boilerplate for building super-performant SSR React websites."
-category: "Open Source"
-link: "https://github.com/hcorta/next-boilerplate"
-bannerImage: "https://raw.githubusercontent.com/hcorta/next-redux-boilerplate/main/public/cover.png"
+title: 'Next-Redux Boilerplate'
+description: 'Opinionated Next.js+Redux project boilerplate for building super-performant SSR React websites.'
+date: '2021'
+category: 'Open Source'
+link: 'https://github.com/hcorta/next-boilerplate'
+bannerImage: 'https://raw.githubusercontent.com/hcorta/next-redux-boilerplate/main/public/cover.png'
 tags:
-    - Next
-    - React
-    - Redux
+  - Next
+  - React
+  - Redux
 ---
 
-# Features
+## Features
 
 - 🔥 **SSR** – [Next](https://nextjs.org) for Static Site Generator.
 - ⚛️ **State Management** – [Redux](https://react-redux.js.org) for managing and centralizing application state.
@@ -30,7 +31,7 @@ This is where this boilerplate comes in handy, bringing Next.js and Redux togeth
 
 The primary aim of this project is to eliminate all preliminary setup with one simple install so you can focus in developing your application.
 
->⚠️ Please, note that this template is intended for **building medium-large applications with complex state management**. If that is not your case, you'll probably be OK with some of the [examples provided by the Next.js team](https://github.com/vercel/next.js/tree/canary/examples).
+> ⚠️ Please, note that this template is intended for **building medium-large applications with complex state management**. If that is not your case, you'll probably be OK with some of the [examples provided by the Next.js team](https://github.com/vercel/next.js/tree/canary/examples).
 
 ## Installation
 
@@ -92,7 +93,7 @@ duck/
 
 NOTE: Each concept/module from your app will have a similar folder.
 
->⚠️ If you are interested in knowing more about the reasons behind this organization, you may [read this article](https://betterprogramming.pub/scaling-your-redux-app-with-ducks-6115955638be#.4ppptx7oq).
+> ⚠️ If you are interested in knowing more about the reasons behind this organization, you may [read this article](https://betterprogramming.pub/scaling-your-redux-app-with-ducks-6115955638be#.4ppptx7oq).
 
 ### Styles
 

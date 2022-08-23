@@ -1,12 +1,13 @@
 ---
-title: "React to Image"
-description: "A React hook for converting any component into image format"
-category: "Open Source"
-link: "https://github.com/hcorta/react-to-image"
-bannerImage: "https://raw.githubusercontent.com/hcorta/react-to-image/master/public/cover.png"
+title: 'React to Image'
+description: 'A React hook for converting any component into image format'
+date: '2020'
+category: 'Open Source'
+link: 'https://github.com/hcorta/react-to-image'
+bannerImage: 'https://raw.githubusercontent.com/hcorta/react-to-image/master/public/cover.png'
 tags:
-    - React
-    - NPM
+  - React
+  - NPM
 ---
 
 [html-to-image](https://github.com/bubkoo/html-to-image) is a free utility library that generates an image from a DOM node using HTML5 canvas and SVG.
