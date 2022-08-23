@@ -1,12 +1,17 @@
 // Dependencies
 import * as React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
-export default class MyDocument extends Document {
-  render () {
+const DOCUMENT_TITLE = '@hcorta 🚀 '
+
+class Document extends NextDocument {
+  render() {
     return (
       <Html lang='en'>
         <Head>
+          <meta property='og:site_name' content={DOCUMENT_TITLE} />
+          <meta property='og:title' content={DOCUMENT_TITLE} />
+          {/* <title>{DOCUMENT_TITLE}</title> */}
           <link rel='shortcut icon' href='/favicon.png' />
           <link
             rel='apple-touch-icon'
@@ -34,11 +39,13 @@ export default class MyDocument extends Document {
           <link rel='manifest' href='/manifest.json' />
         </Head>
         <body>
-          <script async src='https://cdn.splitbee.io/sb.js'></script>
           <Main />
           <NextScript />
+          <script async src='https://cdn.splitbee.io/sb.js'></script>
         </body>
       </Html>
     )
   }
 }
+
+export default Document
