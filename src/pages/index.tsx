@@ -18,7 +18,7 @@ const HomePage: NextPage = (props) => {
     >
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
         <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
-        <Typography variant={'subtitle1'}>Software developer</Typography>
+        <Typography variant={'subtitle1'}>{HOME_PAGE_DESCRIPTION}</Typography>
         <Typography marginTop={4}>
           {'I love creating useful products.'}
         </Typography>

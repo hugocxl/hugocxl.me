@@ -9,7 +9,7 @@ export const List: FC<ListProps> = ({ items }) => {
   return (
     <ul>
       {items.map((item) => (
-        <li>
+        <li key={item.description}>
           <Stack
             spacing={1}
             mb={1}

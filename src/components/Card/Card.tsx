@@ -50,7 +50,7 @@ export const Card: FC<CardProps> = ({
         <Typography variant={'body2'}>{description}</Typography>
         <Stack flexWrap={'wrap'}>
           {tags.map((tag) => (
-            <Chip sx={{ mr: 1, mt: 1 }} label={tag} />
+            <Chip key={tag} sx={{ mr: 1, mt: 1 }} label={tag} />
           ))}
         </Stack>
       </Stack>

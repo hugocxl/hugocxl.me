@@ -49,8 +49,8 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
 
           return (
             <NextLink
-              href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
               key={slug}
+              href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
             >
               <Fade in timeout={i * 300 + 300}>
                 <Grid item xs={12} sm={6} md={4}>

@@ -55,6 +55,7 @@ export const Page: FC<PageProps> = ({
                 <Stack spacing={1}>
                   {tags.map((tag) => (
                     <Chip
+                      key={path}
                       label={tag}
                       color={'secondary'}
                       size={'small'}

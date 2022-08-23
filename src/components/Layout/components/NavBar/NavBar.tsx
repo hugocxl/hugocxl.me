@@ -50,7 +50,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
 
         <Stack spacing={1}>
           {PAGES.map(({ label, path }) => (
-            <NextLink href={path}>
+            <NextLink key={path} href={path}>
               <Link title={label}>{label}</Link>
             </NextLink>
           ))}
@@ -80,7 +80,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
           const isActive = pathname.startsWith(path)
 
           return (
-            <NextLink href={path}>
+            <NextLink href={path} key={path}>
               <IconButton
                 title={label}
                 {...(isActive && { color: 'secondary' })}
