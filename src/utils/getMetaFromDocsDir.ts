@@ -2,9 +2,10 @@
 import * as fs from 'fs'
 import matter from 'gray-matter'
 
-export function getMetaFromDocsDir(
-  dir: string
-): { slug: string; meta: unknown }[] {
+// Types
+import { Article } from 'src/types'
+
+export function getMetaFromDocsDir(dir: string): Article[] {
   try {
     const files = fs.readdirSync(dir)
 

@@ -1,1 +1,5 @@
 export * from './getMetaFromDocsDir'
+export * from './readFileFromDir'
+export * from './parseMatterFromFile'
+export * from './getPathsFromArticles'
+export * from './getTagsFromArticles'
