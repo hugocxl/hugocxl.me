@@ -1,3 +1,5 @@
+import { ThemeOptions } from '@mui/material'
+
 const fontFamilyHeader =
   'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji'
 const fontFamilyBody =
@@ -9,7 +11,7 @@ const commonHeaderProps = {
   letterSpacing: '-1px'
 }
 
-export const coreTheme = {
+export const coreTheme: ThemeOptions = {
   typography: {
     fontFamily: fontFamilyBody,
     h1: {

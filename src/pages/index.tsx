@@ -1,18 +1,16 @@
-// Dependencies
-import * as React from 'react'
-
 // Components
 import { Link, Stack, Typography } from '@mui/material'
-import { Page } from '../components'
+import { Page } from 'src/components'
 
-const Home = () => {
+// Types
+import { NextPage } from 'next'
+
+const HomePage: NextPage = (props) => {
   return (
     <Page>
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
         <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
-        <Typography variant={'subtitle1'}>
-          Software developer
-        </Typography>
+        <Typography variant={'subtitle1'}>Software developer</Typography>
         <Typography marginTop={4}>
           {'I love creating useful products.'}
         </Typography>
@@ -41,4 +39,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage

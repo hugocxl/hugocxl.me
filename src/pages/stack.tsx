@@ -1,8 +1,11 @@
 // Components
 import { Typography } from '@mui/material'
-import { Page, List } from '../components'
+import { Page, List } from 'src/components'
 
-const Stack = () => {
+// Types
+import { NextPage } from 'next'
+
+const StackPage: NextPage = (props) => {
   return (
     <Page
       title='Stack'
@@ -47,4 +50,4 @@ const Stack = () => {
   )
 }
 
-export default Stack
+export default StackPage

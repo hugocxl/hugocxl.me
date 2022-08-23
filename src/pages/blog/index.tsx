@@ -3,7 +3,7 @@ import * as path from 'path'
 import { useMemo, useState } from 'react'
 
 // Utils
-import { getMetaFromDocsDir } from '../../utils'
+import { getMetaFromDocsDir, getTagsFromArticles } from '../../utils'
 
 // Components
 import { Page, Card } from '../../components'
@@ -11,20 +11,26 @@ import { Chip, Stack } from '@mui/material'
 import { Masonry } from '@mui/lab'
 import NextLink from 'next/link'
 
+// Types
+import { GetStaticProps, GetStaticPropsResult, NextPage } from 'next'
+import { Article, ArticleTags } from '../../types'
+
 // Constants
 const BASE_POST_PATH = 'posts'
 const POSTS_DIR = path.join(process.cwd(), 'docs', BASE_POST_PATH)
+const BLOG_PAGE_TITLE = 'Blog'
+const BLOG_PAGE_DESCRIPTION = `I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too`
 
-export async function getStaticProps() {
+interface BlogPageProps {
+  posts: Article[]
+  tags: ArticleTags
+}
+
+const getStaticProps: GetStaticProps = async (
+  props
+): Promise<GetStaticPropsResult<BlogPageProps>> => {
   const posts = getMetaFromDocsDir(POSTS_DIR)
-  const tags = posts.reduce((acc, { meta }) => {
-    // @ts-ignore:next-line
-    meta.tags.forEach((tag) => {
-      if (!acc.includes(tag)) acc.push(tag)
-    }),
-      {}
-    return acc
-  }, [])
+  const tags = getTagsFromArticles(posts)
 
   return {
     revalidate: 60,
@@ -35,7 +41,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Blog({ posts, tags }) {
+const BlogPage: NextPage<BlogPageProps> = ({ posts, tags }) => {
   const [selectedTag, setTag] = useState('')
   const filteredPosts = useMemo(() => {
     if (!selectedTag) return posts
@@ -44,33 +50,30 @@ export default function Blog({ posts, tags }) {
     })
   }, [selectedTag])
 
-  function Sidebar() {
-    return (
-      <Stack
-        // height={'100%'}
-        // direction={'column'}
-        spacing={1}
-        marginBottom={4}
-      >
-        {tags.map((tag) => (
-          <Chip
-            label={tag}
-            onClick={() => setTag(selectedTag === tag ? '' : tag)}
-            color={tag === selectedTag ? 'secondary' : 'primary'}
-            size={'small'}
-            variant={'outlined'}
-          />
-        ))}
-      </Stack>
-    )
-  }
+  // function Sidebar() {
+  //   return (
+  //     <Stack
+  //       // height={'100%'}
+  //       // direction={'column'}
+  //       spacing={1}
+  //       marginBottom={4}
+  //     >
+  //       {tags.map((tag) => (
+  //         <Chip
+  //           label={tag}
+  //           onClick={() => setTag(selectedTag === tag ? '' : tag)}
+  //           color={tag === selectedTag ? 'secondary' : 'primary'}
+  //           size={'small'}
+  //           variant={'outlined'}
+  //         />
+  //       ))}
+  //     </Stack>
+  //   )
+  // }
 
   return (
-    <Page
-      title={'Blog'}
-      description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too!`}
-    >
-      <Sidebar />
+    <Page title={BLOG_PAGE_TITLE} description={BLOG_PAGE_DESCRIPTION}>
+      {/* <Sidebar /> */}
       <Masonry columns={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }} spacing={4}>
         {filteredPosts.map((post, i) => {
           const { slug, meta } = post
@@ -92,3 +95,6 @@ export default function Blog({ posts, tags }) {
     </Page>
   )
 }
+
+export { getStaticProps }
+export default BlogPage

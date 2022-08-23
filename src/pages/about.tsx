@@ -1,17 +1,12 @@
 // Components
-import { Link, Typography } from '@mui/material'
 import NextLink from 'next/link'
-import { Page, List } from '../components'
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineContent,
-  TimelineConnector
-} from '@mui/lab'
+import { Link, Typography } from '@mui/material'
+import { Page, List } from 'src/components'
 
-const About = () => {
+// Types
+import { NextPage } from 'next'
+
+const AboutPage: NextPage = (props) => {
   function Section({ title, children }) {
     return (
       <>
@@ -65,52 +60,20 @@ const About = () => {
                 'As a software engineer, I enjoy building open-source software and libraries.'
             },
             {
-              title: '✍️ Blog',
-              description:
-                'On this website I write articles about diverse stuff that I find interesting.'
-            },
-            {
               title: '👨🏻‍🏫 Teaching',
               description:
                 'I teach sometimes about web development at Ironhack BCN.'
+            },
+            {
+              title: '✍️ Blog',
+              description:
+                'On this website I write articles about diverse stuff that I find interesting.'
             }
           ]}
         />
-      </Section>
-
-      <Section title={'Timeline'}>
-        <Timeline position='right'>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Eat</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Code</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Sleep</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineSeparator>
-              <TimelineDot />
-            </TimelineSeparator>
-            <TimelineContent>Repeat</TimelineContent>
-          </TimelineItem>
-        </Timeline>
       </Section>
     </Page>
   )
 }
 
-export default About
+export default AboutPage

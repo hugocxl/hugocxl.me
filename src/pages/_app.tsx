@@ -1,10 +1,14 @@
-// Styles
-import '../styles/globals.css'
-
 // Components
 import { Layout, ThemeProvider } from '../components'
 
-const App = ({ Component, pageProps }) => {
+// Types
+import { AppProps } from 'next/app'
+import { FC } from 'react'
+
+// Styles
+import 'src/styles/globals.css'
+
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <Layout>

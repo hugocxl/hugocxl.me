@@ -1,49 +1,69 @@
 // Depedencies
-import * as fs from 'fs'
 import * as path from 'path'
-import matter from 'gray-matter'
 
 // Components
-import { ArticlePage, MarkdownRenderer } from '../../components'
+import { ArticlePage, MarkdownRenderer } from 'src/components'
 
 // Utils
-import { getMetaFromDocsDir } from '../../utils'
+import {
+  getMetaFromDocsDir,
+  getPathsFromArticles,
+  parseMatterFromFile,
+  readFileFromDir
+} from 'src/utils'
+
+// Types
+import {
+  GetStaticPaths,
+  GetStaticPathsResult,
+  GetStaticProps,
+  GetStaticPropsResult,
+  NextPage
+} from 'next'
+import { ArticleMetadata } from 'src/types'
 
 // Constants
 const PORTFOLIO_DIR = path.join(process.cwd(), 'docs', 'portfolio')
 
-export async function getStaticPaths() {
-  const projects = getMetaFromDocsDir(PORTFOLIO_DIR)
-
-  const paths = projects.map(({ slug }) => ({
-    params: {
-      slug
-    }
-  }))
-
-  return {
-    paths,
-    fallback: false
-  }
+interface PortfolioArticlePageProps {
+  meta: ArticleMetadata
+  content: string
 }
 
-export async function getStaticProps({ params: { slug } }) {
-  const fileName = fs.readFileSync(`${PORTFOLIO_DIR}/${slug}.md`, 'utf-8')
-  const { data: meta, content } = matter(fileName)
+const getStaticPaths: GetStaticPaths =
+  async (): Promise<GetStaticPathsResult> => {
+    const projects = getMetaFromDocsDir(PORTFOLIO_DIR)
+    const paths = getPathsFromArticles(projects)
+
+    return {
+      paths,
+      fallback: false
+    }
+  }
+
+const getStaticProps: GetStaticProps = async (
+  props
+): Promise<GetStaticPropsResult<PortfolioArticlePageProps>> => {
+  const fileName = `${PORTFOLIO_DIR}/${props.params.slug}.md`
+  const file = readFileFromDir(fileName)
+  const pageProps = parseMatterFromFile(file)
 
   return {
     revalidate: 60,
-    props: {
-      meta,
-      content
-    }
+    props: pageProps
   }
 }
 
-export default function Post({ meta, content }) {
+const PortfolioArticlePage: NextPage<PortfolioArticlePageProps> = ({
+  meta,
+  content
+}) => {
   return (
     <ArticlePage {...meta}>
       <MarkdownRenderer>{content}</MarkdownRenderer>
     </ArticlePage>
   )
 }
+
+export { getStaticPaths, getStaticProps }
+export default PortfolioArticlePage
