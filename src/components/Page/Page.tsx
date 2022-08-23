@@ -49,13 +49,15 @@ export const Page: FC<PageProps> = ({
           {hasHeader && (
             <Stack direction={'column'} mb={6} width={'100%'}>
               {title && <Typography variant={'h3'}>{title}</Typography>}
-              {description && <Typography>{description}</Typography>}
+              {description && (
+                <Typography variant={'subtitle2'}>{description}</Typography>
+              )}
               {date && <Typography variant={'body2'}>{date}</Typography>}
               {tags && (
                 <Stack spacing={1}>
                   {tags.map((tag) => (
                     <Chip
-                      key={path}
+                      key={tag}
                       label={tag}
                       color={'secondary'}
                       size={'small'}
