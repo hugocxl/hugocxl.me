@@ -6,6 +6,10 @@ import { Page, List } from 'src/components'
 // Types
 import { NextPage } from 'next'
 
+// Constants
+const ABOUT_PAGE_TITLE = `About`
+const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more.`
+
 const AboutPage: NextPage = (props) => {
   function Section({ title, children }) {
     return (
@@ -18,7 +22,7 @@ const AboutPage: NextPage = (props) => {
     )
   }
   return (
-    <Page title='About' description='Get to know a little bit more about me!'>
+    <Page title={ABOUT_PAGE_TITLE} description={ABOUT_PAGE_DESCRIPTION}>
       <Typography paragraph>
         I'm an experienced Software Engineer with a demonstrated history of
         working in the computer software industry. Skilled in Mobile, Web and

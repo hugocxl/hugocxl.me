@@ -5,4 +5,5 @@ export interface PageProps {
   sidebar?: React.ComponentType<{}>
   children: React.ReactNode
   tags?: string[]
+  showHeader?: boolean
 }

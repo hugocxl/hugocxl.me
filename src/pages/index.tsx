@@ -5,9 +5,17 @@ import { Page } from 'src/components'
 // Types
 import { NextPage } from 'next'
 
+// Constants
+const HOME_PAGE_TITLE = `Hugo Corta`
+const HOME_PAGE_DESCRIPTION = `Software developer and open source author`
+
 const HomePage: NextPage = (props) => {
   return (
-    <Page>
+    <Page
+      title={HOME_PAGE_TITLE}
+      description={HOME_PAGE_DESCRIPTION}
+      showHeader={false}
+    >
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
         <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
         <Typography variant={'subtitle1'}>Software developer</Typography>

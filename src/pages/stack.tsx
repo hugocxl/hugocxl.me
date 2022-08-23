@@ -5,12 +5,13 @@ import { Page, List } from 'src/components'
 // Types
 import { NextPage } from 'next'
 
+// Constants
+const STACK_PAGE_TITLE = `Stack`
+const STACK_PAGE_DESCRIPTION = `Here's what tech I'm currently using for coding and working.`
+
 const StackPage: NextPage = (props) => {
   return (
-    <Page
-      title='Stack'
-      description={`Here's what tech I'm currently using for coding and working. Most of these have been accumulated over the past few years. `}
-    >
+    <Page title={STACK_PAGE_TITLE} description={STACK_PAGE_DESCRIPTION}>
       <Typography variant={'h4'}>{'Office'}</Typography>
       <List
         items={[
