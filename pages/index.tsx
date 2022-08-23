@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 // Components
-import { Link, Stack, TextField, Typography } from '@mui/material'
+import { Fade, Link, Stack, TextField, Typography } from '@mui/material'
 import { Page } from '../components'
 
 const Home = () => {

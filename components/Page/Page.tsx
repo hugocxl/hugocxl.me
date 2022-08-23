@@ -5,7 +5,8 @@ import {
   Box,
   useMediaQuery,
   useTheme,
-  Chip
+  Chip,
+  Fade
 } from '@mui/material'
 
 // Types
@@ -68,11 +69,9 @@ export const Page: FC<PageProps> = ({
         <Box
           position={'sticky'}
           top={0}
-          borderLeft={1}
-          borderColor={'divider'}
-          overflow={'auto'}
+          // borderLeft={1}
+          // borderColor={'divider'}
           height={'100%'}
-          width={'100%'}
           py={6}
           px={2}
         >

@@ -6,18 +6,10 @@ import { useMemo, useState } from 'react'
 import { getMetaFromDocsDir } from '../../utils'
 
 // Components
-import { Page } from '../../components'
-import {
-  Button,
-  Chip,
-  IconButton,
-  List,
-  ListItem,
-  Stack,
-  Typography
-} from '@mui/material'
+import { Page, Card } from 'components'
+import { Chip, Stack } from '@mui/material'
+import { Masonry } from '@mui/lab'
 import NextLink from 'next/link'
-import { VscArrowRight } from 'react-icons/vsc'
 
 // Constants
 const BASE_POST_PATH = 'posts'
@@ -55,13 +47,11 @@ export default function Blog({ posts, tags }) {
   function Sidebar() {
     return (
       <Stack
-        height={'100%'}
-        direction={'column'}
+        // height={'100%'}
+        // direction={'column'}
         spacing={1}
-        alignItems={'flex-start'}
-        justifyContent={'flex-end'}
+        marginBottom={4}
       >
-        <Typography variant={'subtitle1'}>Tags</Typography>
         {tags.map((tag) => (
           <Chip
             label={tag}
@@ -79,63 +69,26 @@ export default function Blog({ posts, tags }) {
     <Page
       title={'Blog'}
       description={`I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too!`}
-      sidebar={Sidebar}
     >
-      <List>
-        {filteredPosts.map((post) => {
+      <Sidebar />
+      <Masonry columns={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }} spacing={4}>
+        {filteredPosts.map((post, i) => {
           const { slug, meta } = post
           const { title, description, tags, date } = meta
 
           return (
-            <NextLink href={`/blog/${slug}`}>
-              <ListItem
+            <NextLink href={`/${BASE_POST_PATH}/${slug}`} key={slug}>
+              <Card
+                title={title}
+                description={description}
+                tags={tags}
+                date={date}
                 key={title}
-                sx={{
-                  borderBottom: 1,
-                  px: 0,
-                  py: 2,
-                  borderColor: 'divider',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    bgcolor: 'background.paper'
-                  }
-                }}
-              >
-                <Stack
-                  alignItems={'center'}
-                  justifyContent={'space-between'}
-                  width={'100%'}
-                >
-                  <Stack alignItems={'flex-start'} spacing={1}>
-                    <Typography variant={'subtitle1'}>{title}</Typography>
-                    <IconButton size={'small'} color={'secondary'}>
-                      <VscArrowRight />
-                    </IconButton>
-                  </Stack>
-
-                  <Typography variant={'body2'}>{date}</Typography>
-                </Stack>
-                <Stack
-                  spacing={2}
-                  direction={'column'}
-                  justifyContent={'space-between'}
-                  width={'100%'}
-                >
-                  <Typography variant={'body2'}>{description}</Typography>
-                  <Stack spacing={1}>
-                    {tags.map((tag) => (
-                      <Chip label={tag} />
-                    ))}
-                  </Stack>
-                </Stack>
-              </ListItem>
+              />
             </NextLink>
           )
         })}
-      </List>
+      </Masonry>
     </Page>
   )
 }
