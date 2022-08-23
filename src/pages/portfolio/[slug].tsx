@@ -4,7 +4,7 @@ import * as path from 'path'
 import matter from 'gray-matter'
 
 // Components
-import { ArticlePage, MarkdownRenderer, Page } from '../../components'
+import { ArticlePage, MarkdownRenderer } from '../../components'
 
 // Utils
 import { getMetaFromDocsDir } from '../../utils'

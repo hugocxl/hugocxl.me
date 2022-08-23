@@ -1,6 +1,6 @@
 // Components
 import { Typography } from '@mui/material'
-import { Page, List } from 'components'
+import { Page, List } from '../components'
 
 const Stack = () => {
   return (

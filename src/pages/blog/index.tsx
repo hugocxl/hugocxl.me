@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react'
 import { getMetaFromDocsDir } from '../../utils'
 
 // Components
-import { Page, Card } from 'components'
+import { Page, Card } from '../../components'
 import { Chip, Stack } from '@mui/material'
 import { Masonry } from '@mui/lab'
 import NextLink from 'next/link'

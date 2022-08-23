@@ -1,7 +1,7 @@
 // Components
-import { Link, Stack, Typography } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 import NextLink from 'next/link'
-import { Page, List } from 'components'
+import { Page, List } from '../components'
 import {
   Timeline,
   TimelineItem,
