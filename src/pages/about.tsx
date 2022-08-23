@@ -1,10 +1,11 @@
 // Components
 import NextLink from 'next/link'
 import { Link, Typography } from '@mui/material'
-import { Page, List } from 'src/components'
+import { Page, List, LinkIconButton } from 'src/components'
 
 // Types
 import { NextPage } from 'next'
+import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Constants
 const ABOUT_PAGE_TITLE = `About`
@@ -76,6 +77,24 @@ const AboutPage: NextPage = (props) => {
           ]}
         />
       </Section>
+
+      <LinkIconButton
+        icon={BsGithub}
+        href={`https://github.com/hcorta`}
+        title={`GitHub @hcorta`}
+      />
+
+      <LinkIconButton
+        icon={BsTwitter}
+        href={`https://twitter.com/`}
+        title={`Twitter @hcorta`}
+      />
+
+      <LinkIconButton
+        icon={BsLinkedin}
+        href={`https://www.linkedin.com/in/hugocorta`}
+        title={`LinkedIn @hugocorta`}
+      />
     </Page>
   )
 }

@@ -23,7 +23,8 @@ import {
 } from 'next'
 
 // Constants
-const POSTS_DIR = path.join(process.cwd(), 'docs', 'posts')
+const BASE_BLOG_PATH = 'blog'
+const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
 
 interface PostArticlePageProps {
   meta: ArticleMetadata
@@ -32,7 +33,7 @@ interface PostArticlePageProps {
 
 const getStaticPaths: GetStaticPaths =
   async (): Promise<GetStaticPathsResult> => {
-    const posts = getMetaFromDocsDir(POSTS_DIR)
+    const posts = getMetaFromDocsDir(BLOG_DIR)
     const paths = getPathsFromArticles(posts)
 
     return {
@@ -44,7 +45,7 @@ const getStaticPaths: GetStaticPaths =
 const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<PostArticlePageProps>> => {
-  const fileName = `${POSTS_DIR}/${props.params.slug}.md`
+  const fileName = `${BLOG_DIR}/${props.params.slug}.md`
   const file = readFileFromDir(fileName)
   const pageProps = parseMatterFromFile(file)
 

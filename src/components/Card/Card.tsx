@@ -1,6 +1,5 @@
 // Components
-import { Paper, Stack, Typography, IconButton, Chip } from '@mui/material'
-import { VscArrowRight } from 'react-icons/vsc'
+import { Paper, Stack, Typography, Chip } from '@mui/material'
 
 // Types
 import { CardProps } from './Card.types'
@@ -18,41 +17,35 @@ export const Card: FC<CardProps> = ({
       sx={{
         ...sx,
         p: 4,
+        border: 1,
+        borderColor: 'rgba(120,120,120,0.1)',
         display: 'flex',
         boxShadow: '0 8px 12px 0 rgb(0 0 0 / 8%)',
         flexDirection: 'column',
         alignItems: 'flex-start',
+        justifyContent: 'space-between',
         cursor: 'pointer',
+        transition: 'all 0.18s ease-in-out',
         '&:hover': {
-          bgcolor: 'background.paper'
+          borderColor: 'rgba(120,120,120,0.25)',
+          transform: 'translateY(-6px)'
         }
       }}
     >
-      <Stack
-        alignItems={'center'}
-        justifyContent={'space-between'}
-        width={'100%'}
-      >
-        <Stack alignItems={'flex-start'} spacing={1}>
-          <Typography variant={'subtitle1'}>{title}</Typography>
-          <IconButton size={'small'} color={'secondary'}>
-            <VscArrowRight />
-          </IconButton>
-        </Stack>
-      </Stack>
-      <Stack
-        spacing={2}
-        direction={'column'}
-        justifyContent={'space-between'}
-        width={'100%'}
-      >
-        <Typography variant={'body2'}>{date}</Typography>
+      <Stack direction={'column'}>
+        <Typography variant={'body2'} color={'secondary'}>
+          {date}
+        </Typography>
+        <Typography variant={'subtitle1'} component={'span'}>
+          {title}
+        </Typography>
         <Typography variant={'body2'}>{description}</Typography>
-        <Stack flexWrap={'wrap'}>
-          {tags.map((tag) => (
-            <Chip key={tag} sx={{ mr: 1, mt: 1 }} label={tag} />
-          ))}
-        </Stack>
+      </Stack>
+
+      <Stack flexWrap={'wrap-reverse'} mt={3}>
+        {tags.map((tag) => (
+          <Chip variant='filled' key={tag} sx={{ mr: 1, mt: 1 }} label={tag} />
+        ))}
       </Stack>
     </Paper>
   )

@@ -1,8 +1,12 @@
-export interface PageProps {
+// Types
+import { BoxProps } from '@mui/material'
+
+export interface PageProps extends BoxProps {
   title?: string
   description?: string
   date?: string
-  sidebar?: React.ComponentType<{}>
+  sidebar?: React.ReactNode
+  header?: React.ReactNode
   children: React.ReactNode
   tags?: string[]
   showHeader?: boolean

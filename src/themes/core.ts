@@ -42,6 +42,33 @@ export const coreTheme: ThemeOptions = {
     body1: {},
     body2: {}
   },
+  shadows: [
+    'none',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)',
+    '0 8px 12px 0 rgb(0 0 0 / 8%)'
+  ],
   components: {
     MuiTypography: {
       defaultProps: {
@@ -74,6 +101,11 @@ export const coreTheme: ThemeOptions = {
       defaultProps: {
         color: 'secondary',
         underline: 'hover'
+      }
+    },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true
       }
     },
     MuiChip: {

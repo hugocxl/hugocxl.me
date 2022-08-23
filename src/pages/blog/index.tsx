@@ -7,7 +7,7 @@ import { getMetaFromDocsDir, getTagsFromArticles } from '../../utils'
 
 // Components
 import { Page, Card } from '../../components'
-import { Chip, Stack } from '@mui/material'
+import { Chip, Grow, Stack } from '@mui/material'
 import { Masonry } from '@mui/lab'
 import NextLink from 'next/link'
 
@@ -16,8 +16,8 @@ import { GetStaticProps, GetStaticPropsResult, NextPage } from 'next'
 import { Article, ArticleTags } from '../../types'
 
 // Constants
-const BASE_POST_PATH = 'posts'
-const POSTS_DIR = path.join(process.cwd(), 'docs', BASE_POST_PATH)
+const BASE_BLOG_PATH = 'blog'
+const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
 const BLOG_PAGE_TITLE = 'Blog'
 const BLOG_PAGE_DESCRIPTION = `I like to blog about the stuff I'm interested in. Hopefully you'll find some of it interesting too`
 
@@ -29,7 +29,7 @@ interface BlogPageProps {
 const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<BlogPageProps>> => {
-  const posts = getMetaFromDocsDir(POSTS_DIR)
+  const posts = getMetaFromDocsDir(BLOG_DIR)
   const tags = getTagsFromArticles(posts)
 
   return {
@@ -80,14 +80,18 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, tags }) => {
           const { title, description, tags, date } = meta
 
           return (
-            <NextLink href={`/${BASE_POST_PATH}/${slug}`} key={slug}>
-              <Card
-                title={title}
-                description={description}
-                tags={tags}
-                date={date}
-                key={title}
-              />
+            <NextLink href={`/${BASE_BLOG_PATH}/${slug}`} key={slug}>
+              <Grow in timeout={i * 200 + 200}>
+                <div>
+                  <Card
+                    title={title}
+                    description={description}
+                    tags={tags}
+                    date={date}
+                    key={title}
+                  />
+                </div>
+              </Grow>
             </NextLink>
           )
         })}

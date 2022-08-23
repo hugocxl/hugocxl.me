@@ -4,7 +4,7 @@ import * as path from 'path'
 // Components
 import NextLink from 'next/link'
 import { Card, Page } from 'src/components'
-import { Grid, Fade } from '@mui/material'
+import { Grid, Grow } from '@mui/material'
 
 // Utils
 import { getMetaFromDocsDir, getTagsFromArticles } from 'src/utils'
@@ -42,7 +42,7 @@ const getStaticProps: GetStaticProps = async (
 const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
   return (
     <Page title={PORTFOLIO_PAGE_TITLE} description={PORTFOLIO_PAGE_DESCRIPTION}>
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {projects.map((project, i) => {
           const { slug, meta } = project
           const { title, description, tags, date } = meta
@@ -52,8 +52,8 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
               key={slug}
               href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
             >
-              <Fade in timeout={i * 300 + 300}>
-                <Grid item xs={12} sm={6} md={4}>
+              <Grow in timeout={i * 200 + 200}>
+                <Grid item xs={12} sm={6} md={6} lg={4}>
                   <Card
                     sx={{ height: '100%' }}
                     title={title}
@@ -63,7 +63,7 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
                     key={title}
                   />
                 </Grid>
-              </Fade>
+              </Grow>
             </NextLink>
           )
         })}
