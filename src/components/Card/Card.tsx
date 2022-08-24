@@ -18,7 +18,7 @@ export const Card: FC<CardProps> = ({
     <Paper
       sx={{
         ...sx,
-        p: 4,
+        p: 3,
         border: 1,
         borderColor: 'rgba(80,80,80,0.15)',
         display: 'flex',

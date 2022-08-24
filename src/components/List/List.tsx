@@ -1,5 +1,11 @@
 // Components
-import { Stack, Typography } from '@mui/material'
+import {
+  Typography,
+  Table,
+  TableRow,
+  TableCell,
+  TableContainer
+} from '@mui/material'
 import { FC } from 'react'
 
 // Types
@@ -7,26 +13,23 @@ import { ListProps } from './List.types'
 
 export const List: FC<ListProps> = ({ items }) => {
   return (
-    <ul>
-      {items.map((item) => (
-        <li key={item.description}>
-          <Stack
-            spacing={1}
-            mb={1}
-            key={item.title || item.description}
-            alignItems={'center'}
-          >
+    <TableContainer>
+      <Table padding={'none'}>
+        {items.map((item) => (
+          <TableRow>
             {item.title && (
-              <Typography gutterBottom={false} variant='subtitle1'>
-                {`${item.title} -`}
-              </Typography>
+              <TableCell sx={{ borderBottom: 0 }}>
+                <Typography variant='subtitle1'>{item.title}</Typography>
+              </TableCell>
             )}
             {item.description && (
-              <Typography gutterBottom={false}>{item.description}</Typography>
+              <TableCell sx={{ borderBottom: 0 }}>
+                <Typography>{item.description}</Typography>
+              </TableCell>
             )}
-          </Stack>
-        </li>
-      ))}
-    </ul>
+          </TableRow>
+        ))}
+      </Table>
+    </TableContainer>
   )
 }

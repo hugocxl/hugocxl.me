@@ -1,6 +1,6 @@
 // Components
 import NextLink from 'next/link'
-import { Link, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 import { Page, List, LinkIconButton } from 'src/components'
 
 // Types
@@ -15,7 +15,7 @@ const AboutPage: NextPage = (props) => {
   function Section({ title, children }) {
     return (
       <>
-        <Typography variant='h4' mt={8}>
+        <Typography variant='h4' mt={12}>
           {title}
         </Typography>
         {children}
@@ -55,22 +55,22 @@ const AboutPage: NextPage = (props) => {
         <List
           items={[
             {
-              title: '👷🏻‍♂️ Work',
+              title: 'Work',
               description:
                 'I am currently working at MetaSoccer as full-stack developer.'
             },
             {
-              title: '💻 Open Source',
+              title: 'Open Source',
               description:
                 'As a software engineer, I enjoy building open-source software and libraries.'
             },
             {
-              title: '👨🏻‍🏫 Teaching',
+              title: 'Teaching',
               description:
                 'I teach sometimes about web development at Ironhack BCN.'
             },
             {
-              title: '✍️ Blog',
+              title: 'Blog',
               description:
                 'On this website I write articles about diverse stuff that I find interesting.'
             }
@@ -78,23 +78,25 @@ const AboutPage: NextPage = (props) => {
         />
       </Section>
 
-      <LinkIconButton
-        icon={BsGithub}
-        href={`https://github.com/hcorta`}
-        title={`GitHub @hcorta`}
-      />
-
-      <LinkIconButton
-        icon={BsTwitter}
-        href={`https://twitter.com/`}
-        title={`Twitter @hcorta`}
-      />
-
-      <LinkIconButton
-        icon={BsLinkedin}
-        href={`https://www.linkedin.com/in/hugocorta`}
-        title={`LinkedIn @hugocorta`}
-      />
+      <Section title={`Get in touch`}>
+        <Stack>
+          <LinkIconButton
+            icon={BsGithub}
+            href={`https://github.com/hcorta`}
+            title={`GitHub @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsTwitter}
+            href={`https://twitter.com/`}
+            title={`Twitter @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsLinkedin}
+            href={`https://www.linkedin.com/in/hugocorta`}
+            title={`LinkedIn @hugocorta`}
+          />
+        </Stack>
+      </Section>
     </Page>
   )
 }
