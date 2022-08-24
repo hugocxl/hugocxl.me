@@ -1,12 +1,5 @@
 // Components
-import {
-  Typography,
-  Table,
-  TableRow,
-  TableCell,
-  TableContainer,
-  Stack
-} from '@mui/material'
+import { Typography, Stack } from '@mui/material'
 import { FC } from 'react'
 
 // Types
