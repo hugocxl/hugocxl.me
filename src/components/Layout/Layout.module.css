@@ -1,5 +1,5 @@
 .container {
-  display: grid;
+  display: grid !important;
   grid-template-rows: 1fr;
   grid-template-columns: 80px 1fr;
   height: 100vh;

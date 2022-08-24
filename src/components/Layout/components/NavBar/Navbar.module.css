@@ -1,16 +1,8 @@
-.desktopNavBar {
-  display: flex;
-}
-
-.mobileNavBar {
-  display: none !important;
-}
-
 @media screen and (max-width: 900px) {
   .desktopNavBar {
     display: none !important;
   }
   .mobileNavBar {
-    display: flex;
+    display: flex !important;
   }
 }

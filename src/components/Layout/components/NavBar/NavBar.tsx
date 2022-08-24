@@ -53,10 +53,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
           return (
             <NextLink href={path} key={path}>
               <Tooltip title={label} placement={'left'}>
-                <IconButton
-                  title={label}
-                  {...(isActive && { color: 'secondary' })}
-                >
+                <IconButton {...(isActive && { color: 'secondary' })}>
                   <Icon />
                 </IconButton>
               </Tooltip>
@@ -70,7 +67,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function SwitchThemeButton() {
     return (
       <Tooltip title={'Toggle theme'} placement={'left'}>
-        <IconButton onClick={toggleMode} title='Toggle theme mode'>
+        <IconButton onClick={toggleMode}>
           {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
@@ -82,6 +79,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
       <Stack
         py={2}
         px={2}
+        display={'none'}
         className={styles.mobileNavBar}
         position={'sticky'}
         borderBottom={1}
