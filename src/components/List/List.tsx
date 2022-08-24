@@ -4,7 +4,8 @@ import {
   Table,
   TableRow,
   TableCell,
-  TableContainer
+  TableContainer,
+  Stack
 } from '@mui/material'
 import { FC } from 'react'
 
@@ -13,23 +14,23 @@ import { ListProps } from './List.types'
 
 export const List: FC<ListProps> = ({ items }) => {
   return (
-    <TableContainer>
-      <Table padding={'none'}>
-        {items.map((item) => (
-          <TableRow>
-            {item.title && (
-              <TableCell sx={{ borderBottom: 0 }}>
-                <Typography variant='subtitle1'>{item.title}</Typography>
-              </TableCell>
-            )}
-            {item.description && (
-              <TableCell sx={{ borderBottom: 0 }}>
-                <Typography>{item.description}</Typography>
-              </TableCell>
-            )}
-          </TableRow>
-        ))}
-      </Table>
-    </TableContainer>
+    <Stack direction={'column'} spacing={2}>
+      {items.map((item) => (
+        <Stack spacing={2} alignItems={'center'}>
+          {item.title && (
+            <Typography
+              fontWeight={'bold'}
+              gutterBottom={false}
+              color={'primary'}
+            >
+              {item.title}
+            </Typography>
+          )}
+          {item.description && (
+            <Typography gutterBottom={false}>{item.description}</Typography>
+          )}
+        </Stack>
+      ))}
+    </Stack>
   )
 }
