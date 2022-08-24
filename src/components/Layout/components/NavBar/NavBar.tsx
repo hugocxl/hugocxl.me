@@ -15,6 +15,9 @@ import { NavBarProps } from './NavBar.types'
 import { useThemeMode } from 'src/hooks'
 import { useRouter } from 'next/router'
 
+// Styles
+import styles from './Navbar.module.css'
+
 export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   const [mode, toggleMode] = useThemeMode()
   const { pathname } = useRouter()
@@ -29,51 +32,8 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
     borderColor: 'divider'
   }
 
-  function SwitchThemeButton() {
+  function PersonalIcon() {
     return (
-      <Tooltip title={'Toggle theme'} placement={'left'}>
-        <IconButton onClick={toggleMode} title='Toggle theme mode'>
-          {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
-        </IconButton>
-      </Tooltip>
-    )
-  }
-
-  if (orientation === 'horizontal') {
-    return (
-      <Stack
-        position={'sticky'}
-        borderBottom={1}
-        justifyContent={'space-between'}
-        {...commonNavBarProps}
-      >
-        <NextLink href='/'>
-          <Typography fontWeight={'bolder'}>Hugo C.</Typography>
-        </NextLink>
-
-        <Stack spacing={1}>
-          {PAGES.map(({ label, path }) => (
-            <NextLink key={path} href={path}>
-              <Link title={label}>{label}</Link>
-            </NextLink>
-          ))}
-        </Stack>
-      </Stack>
-    )
-  }
-
-  return (
-    <Stack
-      height={'100vh'}
-      position={'sticky'}
-      borderRight={1}
-      width={'100%'}
-      justifyContent={'space-between'}
-      alignItems={'center'}
-      direction={'column'}
-      py={6}
-      {...commonNavBarProps}
-    >
       <NextLink href='/'>
         <Image
           height={'40x'}
@@ -81,8 +41,12 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
           src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
         />
       </NextLink>
+    )
+  }
 
-      <Stack spacing={2} direction={'column'} alignItems={'center'}>
+  function PagesIcons() {
+    return (
+      <>
         {PAGES.map(({ label, path, icon: Icon }) => {
           const isActive = pathname.startsWith(path)
 
@@ -99,8 +63,67 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
             </NextLink>
           )
         })}
+      </>
+    )
+  }
+
+  function SwitchThemeButton() {
+    return (
+      <Tooltip title={'Toggle theme'} placement={'left'}>
+        <IconButton onClick={toggleMode} title='Toggle theme mode'>
+          {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+        </IconButton>
+      </Tooltip>
+    )
+  }
+
+  function MobileNavBar() {
+    return (
+      <Stack
+        py={2}
+        px={2}
+        className={styles.mobileNavBar}
+        position={'sticky'}
+        borderBottom={1}
+        justifyContent={'space-between'}
+        {...commonNavBarProps}
+      >
+        <PersonalIcon />
+
+        <Stack spacing={1}>
+          <PagesIcons />
+        </Stack>
       </Stack>
-      <SwitchThemeButton />
-    </Stack>
+    )
+  }
+
+  function DesktopNavbar() {
+    return (
+      <Stack
+        className={styles.desktopNavBar}
+        height={'100vh'}
+        position={'sticky'}
+        borderRight={1}
+        width={'100%'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        direction={'column'}
+        py={6}
+        {...commonNavBarProps}
+      >
+        <PersonalIcon />
+        <Stack spacing={2} direction={'column'} alignItems={'center'}>
+          <PagesIcons />
+        </Stack>
+        <SwitchThemeButton />
+      </Stack>
+    )
+  }
+
+  return (
+    <>
+      <MobileNavBar />
+      <DesktopNavbar />
+    </>
   )
 }

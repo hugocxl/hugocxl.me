@@ -6,6 +6,9 @@ import { PageHead } from './components'
 import { PageProps } from './Page.types'
 import { FC } from 'react'
 
+// Styles
+import styles from './Page.module.css'
+
 export const Page: FC<PageProps> = ({
   children,
   title,
@@ -14,8 +17,6 @@ export const Page: FC<PageProps> = ({
   showHeader = true,
   ...rest
 }) => {
-  const theme = useTheme()
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const hasHeader = showHeader && !!title
 
   function renderHeader() {
@@ -37,6 +38,7 @@ export const Page: FC<PageProps> = ({
     <>
       <PageHead title={title} description={description} date={date} />
       <Box
+        className={styles.page}
         overflow={'auto'}
         height={'100%'}
         width={'100%'}

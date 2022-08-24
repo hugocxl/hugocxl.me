@@ -1,0 +1,16 @@
+.desktopNavBar {
+  display: flex;
+}
+
+.mobileNavBar {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .desktopNavBar {
+    display: none;
+  }
+  .mobileNavBar {
+    display: flex;
+  }
+}

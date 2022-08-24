@@ -1,0 +1,8 @@
+.page {
+}
+
+@media screen and (max-width: 900px) {
+  .page {
+    padding: 20px;
+  }
+}
