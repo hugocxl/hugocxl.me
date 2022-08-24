@@ -2,16 +2,17 @@
 import { IconButton, Link, Stack, Typography } from '@mui/material'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import NextLink from 'next/link'
+import Image from 'next/image'
 
 // Constants
-import { PAGES } from '../../../../constants'
+import { PAGES } from 'src/constants'
 
 // Types
 import { FC } from 'react'
 import { NavBarProps } from './NavBar.types'
 
 // Hooks
-import { useThemeMode } from '../../../../hooks'
+import { useThemeMode } from 'src/hooks'
 import { useRouter } from 'next/router'
 
 export const NavBar: FC<NavBarProps> = ({ orientation }) => {
@@ -31,7 +32,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function SwitchThemeButton() {
     return (
       <IconButton onClick={toggleMode} title='Toggle theme mode'>
-        {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+        {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
       </IconButton>
     )
   }
@@ -72,9 +73,12 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
       {...commonNavBarProps}
     >
       <NextLink href='/'>
-        <Typography fontWeight={'bolder'}>Hugo</Typography>
+        <Image
+          height={'40x'}
+          width={'40x'}
+          src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
+        />
       </NextLink>
-
       <Stack spacing={2} direction={'column'} alignItems={'center'}>
         {PAGES.map(({ label, path, icon: Icon }) => {
           const isActive = pathname.startsWith(path)
