@@ -1,5 +1,6 @@
 // Components
-import { Paper, Stack, Typography, Chip } from '@mui/material'
+import { Paper, Stack, Typography, Chip, Box } from '@mui/material'
+import NextImage from 'next/image'
 
 // Types
 import { CardProps } from './Card.types'
@@ -10,7 +11,8 @@ export const Card: FC<CardProps> = ({
   date,
   description,
   tags,
-  sx = {}
+  sx = {},
+  bannerImage
 }) => {
   return (
     <Paper
@@ -18,7 +20,7 @@ export const Card: FC<CardProps> = ({
         ...sx,
         p: 4,
         border: 1,
-        borderColor: 'rgba(120,120,120,0.1)',
+        borderColor: 'rgba(80,80,80,0.15)',
         display: 'flex',
         boxShadow: '0 8px 12px 0 rgb(0 0 0 / 8%)',
         flexDirection: 'column',
@@ -27,12 +29,31 @@ export const Card: FC<CardProps> = ({
         cursor: 'pointer',
         transition: 'all 0.18s ease-in-out',
         '&:hover': {
-          borderColor: 'rgba(120,120,120,0.25)',
+          borderColor: 'rgba(80,80,80,0.2)',
           transform: 'translateY(-6px)'
         }
       }}
     >
       <Stack direction={'column'}>
+        {bannerImage && (
+          <Box
+            display={'block'}
+            width={'100%'}
+            height={'100px'}
+            position={'relative'}
+            mb={2}
+          >
+            <NextImage
+              layout='fill'
+              objectFit='cover'
+              placeholder={'blur'}
+              alt={title}
+              title={title}
+              src={bannerImage}
+              blurDataURL={bannerImage}
+            />
+          </Box>
+        )}
         <Typography variant={'body2'} color={'secondary'}>
           {date}
         </Typography>
@@ -42,7 +63,7 @@ export const Card: FC<CardProps> = ({
         <Typography variant={'body2'}>{description}</Typography>
       </Stack>
 
-      <Stack flexWrap={'wrap-reverse'} mt={3}>
+      <Stack flexWrap={'wrap-reverse'} mt={1}>
         {tags.map((tag) => (
           <Chip
             variant='outlined'

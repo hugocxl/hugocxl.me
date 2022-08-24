@@ -10,12 +10,24 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
   return (
     <ReactMarkdown
       components={{
-        h1: ({ node, ...props }) => <Typography variant={'h4'} {...props} />,
-        h2: ({ node, ...props }) => <Typography variant={'h5'} {...props} />,
-        h3: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
-        h4: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
-        h5: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
-        h6: ({ node, ...props }) => <Typography variant={'h6'} {...props} />,
+        h1: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h4'} {...props} />
+        ),
+        h2: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h5'} {...props} />
+        ),
+        h3: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h6'} {...props} />
+        ),
+        h4: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h6'} {...props} />
+        ),
+        h5: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h6'} {...props} />
+        ),
+        h6: ({ node, ...props }) => (
+          <Typography mt={8} variant={'h6'} {...props} />
+        ),
         p: ({ node, ...props }) => (
           <Typography variant={'body1'} paragraph={true} {...props} />
         ),
@@ -32,7 +44,7 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
           <Link {...props} target='_blank' rel='noopener noreferrer' />
         ),
         blockquote: ({ node, key, children, ...rest }) => (
-          <Paper elevation={2} sx={{ pt: 2, px: 2, mb: 4 }} key={key}>
+          <Paper elevation={2} sx={{ pb: 1, pt: 4, px: 2, mb: 4 }} key={key}>
             {children}
           </Paper>
         ),

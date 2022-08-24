@@ -1,5 +1,6 @@
 // Components
 import { Box, Stack, Typography } from '@mui/material'
+import NextImage from 'next/image'
 
 // Types
 import { FC } from 'react'
@@ -26,12 +27,22 @@ export const ArticlePageHeader: FC<ArticlePageHeaderProps> = ({
 
       {bannerImage && (
         <Box
-          component={'img'}
-          my={6}
+          mt={6}
+          display={'block'}
           width={'100%'}
-          src={bannerImage}
-          borderRadius={2}
-        />
+          height={'320px'}
+          position={'relative'}
+        >
+          <NextImage
+            layout='fill'
+            objectFit='cover'
+            placeholder={'blur'}
+            alt={title}
+            title={title}
+            src={bannerImage}
+            blurDataURL={bannerImage}
+          />
+        </Box>
       )}
     </Stack>
   )

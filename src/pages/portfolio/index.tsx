@@ -4,37 +4,41 @@ import * as path from 'path'
 // Components
 import NextLink from 'next/link'
 import { Card, Page } from 'src/components'
-import { Grid, Grow } from '@mui/material'
+import { Grow } from '@mui/material'
+import { Masonry } from '@mui/lab'
 
 // Utils
-import { getMetaFromDocsDir, getTagsFromArticles } from 'src/utils'
+import { getMetaFromDocsDir } from 'src/utils'
 
 // Types
-import { Article, ArticleTags } from 'src/types'
+import { Article } from 'src/types'
 import { GetStaticProps, GetStaticPropsResult, NextPage } from 'next'
 
 // Constants
 const BASE_PORTFOLIO_PATH = 'portfolio'
 const PORTFOLIO_DIR = path.join(process.cwd(), 'docs', BASE_PORTFOLIO_PATH)
 const PORTFOLIO_PAGE_TITLE = 'Portfolio'
-const PORTFOLIO_PAGE_DESCRIPTION = `Software developer and open source author, I believe in proof of work. These are my popular works.`
+const PORTFOLIO_PAGE_DESCRIPTION = `Software developer and open source author, I believe in proof of work. These are some of my works.`
 
 interface PortfolioPageProps {
   projects: Article[]
-  tags: ArticleTags
 }
 
 const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<PortfolioPageProps>> => {
   const projects = getMetaFromDocsDir(PORTFOLIO_DIR)
-  const tags = getTagsFromArticles(projects)
+  const sortedProjects = projects.sort((a, b) => {
+    if (a.meta.date > b.meta.date) {
+      return -1
+    }
+    return 1
+  })
 
   return {
     revalidate: 60,
     props: {
-      projects,
-      tags
+      projects: sortedProjects
     }
   }
 }
@@ -42,10 +46,16 @@ const getStaticProps: GetStaticProps = async (
 const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
   return (
     <Page title={PORTFOLIO_PAGE_TITLE} description={PORTFOLIO_PAGE_DESCRIPTION}>
-      <Grid container spacing={4}>
+      <Masonry
+        columns={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
+        spacing={3}
+        defaultHeight={360}
+        defaultColumns={3}
+        defaultSpacing={2}
+      >
         {projects.map((project, i) => {
           const { slug, meta } = project
-          const { title, description, tags, date } = meta
+          const { title, description, tags, date, bannerImage } = meta
 
           return (
             <NextLink
@@ -53,21 +63,21 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
               href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
             >
               <Grow in timeout={i * 200 + 200}>
-                <Grid item xs={12} sm={6} md={6} lg={4}>
+                <div>
                   <Card
-                    sx={{ height: '100%' }}
+                    bannerImage={bannerImage}
                     title={title}
                     description={description}
                     tags={tags}
                     date={date}
                     key={title}
                   />
-                </Grid>
+                </div>
               </Grow>
             </NextLink>
           )
         })}
-      </Grid>
+      </Masonry>
     </Page>
   )
 }

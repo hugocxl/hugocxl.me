@@ -5,4 +5,5 @@ export interface CardProps extends PaperProps {
   description?: string
   tags?: string[]
   title?: string
+  bannerImage?: string
 }

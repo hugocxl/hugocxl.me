@@ -12,6 +12,7 @@ import {
 } from '@mui/material'
 import { BsTwitter } from 'react-icons/bs'
 import NextLink from 'next/link'
+import { VscChevronLeft } from 'react-icons/vsc'
 
 // Types
 import { FC } from 'react'
@@ -29,15 +30,15 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({ title }) => {
         position={'sticky'}
         top={0}
         pt={6}
-        px={4}
+        px={10}
         pb={2}
-        spacing={2}
+        spacing={1}
         alignItems={'center'}
         borderBottom={1}
         borderColor={'divider'}
       >
         <IconButton onClick={router.back}>
-          <BsTwitter />
+          <VscChevronLeft />
         </IconButton>
 
         <Breadcrumbs aria-label='breadcrumb'>
