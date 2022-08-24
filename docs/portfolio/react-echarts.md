@@ -4,7 +4,7 @@ description: 'Abstraction wrapper built with React on top of Apache ECharts'
 date: '2020'
 category: 'Open Source'
 link: 'https://github.com/hcorta/react-to-image'
-bannerImage: 'https://raw.githubusercontent.com/hcorta/react-echarts/master/public/cover.png'
+bannerImage: '/img/portfolio/react-echarts.png'
 tags:
   - React
   - ECharts
@@ -17,7 +17,9 @@ tags:
 
 ## Motivation
 
-While there are some other wrappers around ECharts for React already published, I could not find anyone that really implemented some of the core concepts of React. My intention was creating an easy-to-use React component that’d expose most of ECharts functionalities through props.
+While there are some other wrappers around ECharts for React already published, I could not find a proper one that would really implement some of the core concepts of React. My intention was creating an easy-to-use React component that’d expose most of ECharts functionalities through props.
+
+***
 
 More info about this project:
 
