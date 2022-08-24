@@ -1,19 +1,12 @@
-import {
-  VscAccount,
-  VscArchive,
-  VscFolderLibrary,
-  VscSymbolEvent,
-  VscOutput,
-  VscLibrary,
-  VscNote
-} from 'react-icons/vsc'
-import { AiOutlineUser } from 'react-icons/ai'
+// Components
+import { VscLibrary, VscLayers } from 'react-icons/vsc'
+import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
 
 export const PAGES = [
   {
     label: 'Blog',
     path: '/blog',
-    icon: VscNote
+    icon: AiOutlineEdit
   },
   {
     label: 'Portfolio',
@@ -23,7 +16,7 @@ export const PAGES = [
   {
     label: 'Stack',
     path: '/stack',
-    icon: VscSymbolEvent
+    icon: VscLayers
   },
   {
     label: 'About',

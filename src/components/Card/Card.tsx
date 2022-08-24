@@ -44,7 +44,12 @@ export const Card: FC<CardProps> = ({
 
       <Stack flexWrap={'wrap-reverse'} mt={3}>
         {tags.map((tag) => (
-          <Chip variant='filled' key={tag} sx={{ mr: 1, mt: 1 }} label={tag} />
+          <Chip
+            variant='outlined'
+            key={tag}
+            sx={{ mr: 1, mt: 1 }}
+            label={tag}
+          />
         ))}
       </Stack>
     </Paper>

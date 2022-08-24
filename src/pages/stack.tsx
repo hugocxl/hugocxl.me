@@ -23,7 +23,9 @@ const StackPage: NextPage = (props) => {
         ]}
       />
 
-      <Typography variant={'subtitle1'}>{'Coding'}</Typography>
+      <Typography mt={6} variant={'subtitle1'}>
+        {'Coding'}
+      </Typography>
       <List
         items={[
           { description: 'Editor: VSCode' },
@@ -32,7 +34,7 @@ const StackPage: NextPage = (props) => {
         ]}
       />
 
-      <Typography mt={4} variant={'subtitle1'}>
+      <Typography mt={6} variant={'subtitle1'}>
         {'Software'}
       </Typography>
       <List
@@ -45,7 +47,7 @@ const StackPage: NextPage = (props) => {
         ]}
       />
 
-      <Typography mt={4} variant={'subtitle1'}>
+      <Typography mt={6} variant={'subtitle1'}>
         {'Other Tech'}
       </Typography>
       <List

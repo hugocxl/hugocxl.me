@@ -11,15 +11,15 @@ export const darkTheme: ThemeOptions = deepmerge(
   {
     palette: {
       mode: 'dark',
-      background: {
-        default: '#000000',
-        paper: '#020202'
-      },
       primary: {
         main: '#ffffff'
       },
       secondary: {
-        main: '#32daff'
+        main: '#3292ff'
+      },
+      background: {
+        default: '#000000',
+        paper: '#020202'
       },
       text: {
         primary: '#a3a3a3',
