@@ -20,7 +20,7 @@ export const ArticlePageHeader: FC<ArticlePageHeaderProps> = ({
         {description}
       </Typography>
 
-      <Typography color={'primary'} gutterBottom={false}>
+      <Typography variant={'body2'} color={'primary'} gutterBottom={false}>
         {date}
       </Typography>
 

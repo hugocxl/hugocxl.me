@@ -1,5 +1,5 @@
 // Components
-import { IconButton, Link, Stack, Typography } from '@mui/material'
+import { IconButton, Link, Stack, Tooltip, Typography } from '@mui/material'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import NextLink from 'next/link'
 import Image from 'next/image'
@@ -31,9 +31,11 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
 
   function SwitchThemeButton() {
     return (
-      <IconButton onClick={toggleMode} title='Toggle theme mode'>
-        {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
-      </IconButton>
+      <Tooltip title={'Toggle theme'} placement={'left'}>
+        <IconButton onClick={toggleMode} title='Toggle theme mode'>
+          {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+        </IconButton>
+      </Tooltip>
     )
   }
 
@@ -79,18 +81,21 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
           src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
         />
       </NextLink>
+
       <Stack spacing={2} direction={'column'} alignItems={'center'}>
         {PAGES.map(({ label, path, icon: Icon }) => {
           const isActive = pathname.startsWith(path)
 
           return (
             <NextLink href={path} key={path}>
-              <IconButton
-                title={label}
-                {...(isActive && { color: 'secondary' })}
-              >
-                <Icon />
-              </IconButton>
+              <Tooltip title={label} placement={'left'}>
+                <IconButton
+                  title={label}
+                  {...(isActive && { color: 'secondary' })}
+                >
+                  <Icon />
+                </IconButton>
+              </Tooltip>
             </NextLink>
           )
         })}
