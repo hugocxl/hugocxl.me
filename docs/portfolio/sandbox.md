@@ -1,7 +1,7 @@
 ---
 title: 'Sandbox'
 description: 'A collection of sample projects and experiments.'
-date: '2020'
+date: '2019'
 category: 'Experiments'
 link: 'https://github.com/hcorta/sandbox'
 bannerImage: ''
