@@ -12,39 +12,48 @@ const STACK_PAGE_DESCRIPTION = `Here's what tech I'm currently using for coding 
 const StackPage: NextPage = (props) => {
   return (
     <Page title={STACK_PAGE_TITLE} description={STACK_PAGE_DESCRIPTION}>
-      <Typography variant={'h4'}>{'Office'}</Typography>
+      <Typography variant={'subtitle1'}>{'Computer / Office'}</Typography>
       <List
         items={[
-          { description: '💻 MacBook Pro (13-inch, 2017)' },
-          { description: '🎛 Mac Mini (2021)' },
-          { description: '⌨️ Apple Magic Keyboard' },
-          { description: '🖥 31.5" LG UltraFine 32UN880' },
-          { description: '🖱 Logitech MX Master 3 Mouse' }
+          { description: 'MacBook Pro (13-inch, 2017)' },
+          { description: 'Mac Mini (2021)' },
+          { description: 'Apple Magic Keyboard' },
+          { description: '31.5" LG UltraFine 32UN880' },
+          { description: 'Logitech MX Master 3 Mouse' }
         ]}
       />
 
-      <Typography mt={4} variant={'h4'}>
-        {'Apps'}
-      </Typography>
+      <Typography variant={'subtitle1'}>{'Coding'}</Typography>
       <List
         items={[
-          { description: '🔐 1Password' },
-          { description: '🎸 Spotify' },
-          { description: '🕹 Raycast' },
-          { description: '📝 Notion' },
-          { description: '💽 Google Drive' }
+          { description: 'Editor: VSCode' },
+          { description: 'Theme: Haramosh' },
+          { description: 'Terminal: macOS terminal / zsh' }
         ]}
       />
 
-      <Typography mt={4} variant={'h4'}>
-        {'Other'}
+      <Typography mt={4} variant={'subtitle1'}>
+        {'Software'}
       </Typography>
       <List
         items={[
-          { description: '👂 Apple Airpods Pro' },
-          { description: '📱 Apple iPhone 11 Pro' },
-          { description: '📚 Kindle Oasis' },
-          { description: '⌚️ Polar Vantage M' }
+          { description: '1Password' },
+          { description: 'Spotify' },
+          { description: 'Raycast' },
+          { description: 'Notion' },
+          { description: 'Google Drive' }
+        ]}
+      />
+
+      <Typography mt={4} variant={'subtitle1'}>
+        {'Other Tech'}
+      </Typography>
+      <List
+        items={[
+          { description: 'Apple Airpods Pro' },
+          { description: 'Apple iPhone 11 Pro' },
+          { description: 'Kindle Oasis' },
+          { description: 'Polar Vantage M' }
         ]}
       />
     </Page>
