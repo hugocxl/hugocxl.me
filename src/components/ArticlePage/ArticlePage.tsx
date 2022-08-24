@@ -26,9 +26,10 @@ export const ArticlePage: FC<ArticlePageProps> = ({
 }) => {
   const router = useRouter()
   const baseUrl = 'https://hugocorta.com'
-  const pageUrl = encodeURI(`${baseUrl}${router.asPath}`)
-  const pageTitle = encodeURI(title)
-  const pageDescription = encodeURI(description)
+  const pageUrl = `${baseUrl}${router.asPath}`
+  const encodedPageUrl = encodeURI(pageUrl)
+  const encodedTitle = encodeURI(title)
+  const encodedDescription = encodeURI(description)
 
   return (
     <Box height={'100%'} display={'grid'} gridTemplateColumns={'1fr auto'}>
@@ -57,9 +58,12 @@ export const ArticlePage: FC<ArticlePageProps> = ({
         </Page>
       </Box>
       <ArticlePageSidebar
-        title={pageTitle}
+        title={title}
         pageUrl={pageUrl}
-        description={pageDescription}
+        description={description}
+        encodedTitle={encodedTitle}
+        encodedDescription={encodedDescription}
+        encodedPageUrl={encodedPageUrl}
       />
     </Box>
   )
