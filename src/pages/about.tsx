@@ -1,6 +1,6 @@
 // Components
 import NextLink from 'next/link'
-import { Link, Stack, Typography } from '@mui/material'
+import { Alert, Link, Stack, Typography } from '@mui/material'
 import { Page, List, LinkIconButton } from 'src/components'
 
 // Types
@@ -76,6 +76,93 @@ const AboutPage: NextPage = (props) => {
             }
           ]}
         />
+      </Section>
+
+      <Section title={`My experience`}>
+        <Typography mt={4} variant={'h6'}>
+          2017
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'Ironhack',
+              description: 'Full Stack Bootcamp'
+            },
+            {
+              title: 'NPAW',
+              description: 'Junior FrontEnd Developer'
+            }
+          ]}
+        />
+        <Typography mt={4} variant={'h6'}>
+          2018
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'NPAW',
+              description: 'FrontEnd Developer'
+            }
+          ]}
+        />
+        <Typography mt={4} variant={'h6'}>
+          2019
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'Ironhack',
+              description: 'Design Implementation Course T.A. x2'
+            },
+            {
+              title: 'NPAW',
+              description: 'Lead FrontEnd Developer'
+            }
+          ]}
+        />
+        <Typography mt={4} variant={'h6'}>
+          2020
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'NPAW',
+              description: 'Lead FrontEnd Developer'
+            }
+          ]}
+        />
+        <Typography mt={4} variant={'h6'}>
+          2021
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'Ironhack',
+              description: 'Design Implementation Course Lead Teacher'
+            },
+            {
+              title: 'NPAW',
+              description: 'Lead FrontEnd Developer'
+            }
+          ]}
+        />
+        <Typography mt={4} variant={'h6'}>
+          2022
+        </Typography>
+        <List
+          items={[
+            {
+              title: 'MetaSoccer',
+              description: 'Full-stack developer'
+            }
+          ]}
+        />
+
+        <Alert sx={{ mt: 4 }} severity='info'>
+          <Link download href={'/docs/Resume of Hugo Corta.pdf'}>
+            Download my CV here!
+          </Link>
+        </Alert>
       </Section>
 
       <Section title={`Get in touch`}>
