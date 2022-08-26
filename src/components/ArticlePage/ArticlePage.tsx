@@ -9,7 +9,7 @@ import {
 } from './components'
 
 // Types
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { ArticlePageProps } from './ArticlePage.types'
 
 // Hooks
@@ -22,6 +22,7 @@ export const ArticlePage: FC<ArticlePageProps> = ({
   description,
   date,
   children,
+  slug,
   ...rest
 }) => {
   const router = useRouter()
@@ -32,6 +33,12 @@ export const ArticlePage: FC<ArticlePageProps> = ({
   const encodedDescription = encodeURI(description)
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
+  useEffect(() => {
+    fetch(`/api/views/${slug}`, {
+      method: 'POST'
+    })
+  }, [slug])
 
   return (
     <Box height={'100%'} display={'grid'} gridTemplateColumns={'1fr auto'}>
@@ -67,6 +74,7 @@ export const ArticlePage: FC<ArticlePageProps> = ({
           encodedTitle={encodedTitle}
           encodedDescription={encodedDescription}
           encodedPageUrl={encodedPageUrl}
+          slug={slug}
         />
       )}
     </Box>

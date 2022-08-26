@@ -5,4 +5,5 @@ export interface ArticlePageSidebarProps {
   encodedTitle?: string
   encodedDescription?: string
   encodedPageUrl?: string
+  slug: string
 }

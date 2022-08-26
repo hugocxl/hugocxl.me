@@ -5,4 +5,5 @@ export interface ArticlePageProps extends PageProps {
   date?: string
   tags?: string[]
   children: React.ReactNode
+  slug: string
 }

@@ -29,6 +29,7 @@ const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
 interface PostArticlePageProps {
   meta: ArticleMetadata
   content: string
+  slug: string
 }
 
 const getStaticPaths: GetStaticPaths =
@@ -45,19 +46,27 @@ const getStaticPaths: GetStaticPaths =
 const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<PostArticlePageProps>> => {
-  const fileName = `${BLOG_DIR}/${props.params.slug}.md`
+  const { slug } = props.params
+  const fileName = `${BLOG_DIR}/${slug}.md`
   const file = readFileFromDir(fileName)
   const pageProps = parseMatterFromFile(file)
 
   return {
     revalidate: 60,
-    props: pageProps
+    props: {
+      ...pageProps,
+      slug: slug as string
+    }
   }
 }
 
-const PostArticlePage: NextPage<PostArticlePageProps> = ({ meta, content }) => {
+const PostArticlePage: NextPage<PostArticlePageProps> = ({
+  meta,
+  content,
+  slug
+}) => {
   return (
-    <ArticlePage {...meta}>
+    <ArticlePage {...meta} slug={slug}>
       <MarkdownRenderer>{content}</MarkdownRenderer>
     </ArticlePage>
   )

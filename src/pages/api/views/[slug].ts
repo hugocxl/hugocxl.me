@@ -12,7 +12,7 @@ export default async function handler(
     const slug = req.query.slug.toString()
 
     if (req.method === 'POST') {
-      const newOrUpdatedViews = await prisma.views.upsert({
+      const newOrUpdatedViews = await prisma.analytics.upsert({
         where: { slug },
         create: {
           slug
@@ -25,18 +25,18 @@ export default async function handler(
       })
 
       return res.status(200).json({
-        total: newOrUpdatedViews.count.toString()
+        total: newOrUpdatedViews.count
       })
     }
 
     if (req.method === 'GET') {
-      const views = await prisma.views.findUnique({
+      const views = await prisma.analytics.findUnique({
         where: {
           slug
         }
       })
 
-      return res.status(200).json({ total: views.count.toString() })
+      return res.status(200).json({ total: views.count })
     }
   } catch (e) {
     return res.status(500).json({ message: e.message })

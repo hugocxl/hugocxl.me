@@ -20,3 +20,7 @@ export interface PageParam {
     slug: string
   }
 }
+
+export interface ArticleViews {
+  total: number
+}

@@ -1,12 +1,26 @@
+// Dependencies
+import useSWR from 'swr'
+
 // Components
-import { IconButton, Snackbar, Stack, Tooltip } from '@mui/material'
+import {
+  Divider,
+  IconButton,
+  Snackbar,
+  Stack,
+  Tooltip,
+  Typography
+} from '@mui/material'
 import { LinkIconButton } from 'src/components'
 import { BsTwitter, BsLinkedin } from 'react-icons/bs'
 import { AiOutlineLink } from 'react-icons/ai'
 
+// Lib
+import { fetcher } from 'src/lib'
+
 // Types
 import { FC, useState } from 'react'
 import { ArticlePageSidebarProps } from './ArticlePageSidebar.types'
+import { ArticleViews } from 'src/types'
 
 export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
   title,
@@ -14,9 +28,13 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
   pageUrl,
   encodedTitle,
   encodedDescription,
-  encodedPageUrl
+  encodedPageUrl,
+  slug
 }) => {
   const [open, setOpen] = useState(false)
+  const { data } = useSWR<ArticleViews>(`/api/views/${slug}`, fetcher)
+  const views = new Number(data?.total)
+  const viewsInLocale = views.toLocaleString()
 
   async function onClickToClipboard() {
     await navigator.clipboard.writeText(pageUrl)
@@ -55,6 +73,12 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedPageUrl}&title=${title}&summary=${encodedDescription}&source=${pageUrl}`}
         title={`Share ${title} on LinkedIn`}
       />
+
+      <Divider flexItem />
+
+      <Typography variant={'subtitle2'}>{`${
+        views > 0 ? viewsInLocale : 0
+      } views`}</Typography>
 
       <Snackbar
         open={open}
