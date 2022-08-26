@@ -1,0 +1,6 @@
+CREATE TABLE `Views` (
+  `count` int NOT NULL AUTO_INCREMENT,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`count`),
+  UNIQUE KEY `Page_slug_key` (`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
