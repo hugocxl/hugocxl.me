@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn update:db && next build",
     "start": "next start",
     "update:db": "npx prisma db pull && npx prisma generate"
   },
