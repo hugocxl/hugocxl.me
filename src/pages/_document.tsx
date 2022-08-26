@@ -1,6 +1,7 @@
 // Dependencies
 import * as React from 'react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 const DOCUMENT_TITLE = '@hcorta 🚀 '
 
@@ -41,7 +42,20 @@ class Document extends NextDocument {
         <body>
           <Main />
           <NextScript />
-          <script async src='https://cdn.splitbee.io/sb.js'></script>
+          <Script
+            strategy='afterInteractive'
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <Script strategy='afterInteractive'>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+              });
+            `}
+          </Script>
         </body>
       </Html>
     )
