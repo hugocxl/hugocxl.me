@@ -19,6 +19,8 @@
     "@mui/lab": "^5.0.0-alpha.95",
     "@mui/material": "^5.10.1",
     "@mui/utils": "^5.9.3",
+    "@tanstack/react-query": "^4.2.3",
+    "googleapis": "^107.0.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.1",
     "next": "^12.2.5",
