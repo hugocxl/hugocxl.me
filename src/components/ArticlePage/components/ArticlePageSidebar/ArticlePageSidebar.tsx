@@ -33,7 +33,7 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
   slug
 }) => {
   const [open, setOpen] = useState(false)
-  const viewsQuery = useQuery([encodedPageUrl], () => {
+  const viewsQuery = useQuery<ArticleViews>([encodedPageUrl], () => {
     return fetch(`/api/views/${slug}`).then((res) => res.json())
   })
 
@@ -45,7 +45,7 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
   function Analytics() {
     const views = new Number(viewsQuery.data?.total)
     const viewsInLocale = views.toLocaleString()
-    const display = views > 0 ? viewsInLocale : 0
+    const display = !viewsQuery.isSuccess ? '-' : views > 0 ? viewsInLocale : 0
 
     return (
       <Tooltip
@@ -53,7 +53,7 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
         placement={'right'}
       >
         <Stack direction={'column'} alignItems={'center'}>
-          <SvgIcon>
+          <SvgIcon color={'action'}>
             <AiOutlineEye />
           </SvgIcon>
           <Typography variant={'body2'} color={'text.secondary'}>
@@ -86,7 +86,7 @@ export const ArticlePageSidebar: FC<ArticlePageSidebarProps> = ({
         onClose={() => setOpen(false)}
         message={'URL copied to clipboard'}
       />
-      {viewsQuery.isSuccess && <Analytics />}
+      {<Analytics />}
       <Divider flexItem />
 
       <Tooltip title={'Copy to clipboard'} placement={'right'}>
