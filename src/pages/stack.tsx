@@ -1,6 +1,7 @@
 // Components
-import { Typography } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 import { Page, List } from 'src/components'
+import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
@@ -13,51 +14,49 @@ const StackPage: NextPage = (props) => {
   return (
     <Page title={STACK_PAGE_TITLE} description={STACK_PAGE_DESCRIPTION}>
       <Typography variant={'subtitle1'}>{'Computer / Office'}</Typography>
-      <List
-        items={[
-          { description: 'MacBook Pro (13-inch, 2017)' },
-          { description: 'Mac Mini (2021)' },
-          { description: 'Apple Magic Keyboard' },
-          { description: '31.5" LG UltraFine 32UN880' },
-          { description: 'Logitech MX Master 3 Mouse' }
-        ]}
-      />
+      <ul>
+        <Typography component={'li'}>MacBook Pro (13-inch, 2017)</Typography>
+        <Typography component={'li'}>Mac Mini (2021)</Typography>
+        <Typography component={'li'}>Apple Magic Keyboard</Typography>
+        <Typography component={'li'}>31.5" LG UltraFine 32UN880</Typography>
+        <Typography component={'li'}>Logitech MX Master 3 Mouse</Typography>
+      </ul>
 
       <Typography mt={6} variant={'subtitle1'}>
         {'Coding'}
       </Typography>
-      <List
-        items={[
-          { description: 'Editor: VSCode' },
-          { description: 'Theme: Haramosh' },
-          { description: 'Terminal: macOS terminal / zsh' }
-        ]}
-      />
+      <ul>
+        <Typography component={'li'}>Editor: VSCode</Typography>
+        <Typography component={'li'}>
+          Theme:{' '}
+          <NextLink href={'/portfolio/haramosh'}>
+            <Link>Haramosh</Link>
+          </NextLink>
+        </Typography>
+        <Typography component={'li'}>Terminal: macOS terminal / zsh</Typography>
+      </ul>
 
       <Typography mt={6} variant={'subtitle1'}>
         {'Software'}
       </Typography>
-      <List
-        items={[
-          { description: '1Password' },
-          { description: 'Spotify' },
-          { description: 'Raycast' },
-          { description: 'Notion' },
-          { description: 'Google Drive' }
-        ]}
-      />
+      <ul>
+        <Typography component={'li'}>1 Password</Typography>
+        <Typography component={'li'}>Spotify</Typography>
+        <Typography component={'li'}>Raycast</Typography>
+        <Typography component={'li'}>Notion</Typography>
+        <Typography component={'li'}>Google Drive</Typography>
+        <Typography component={'li'}>Lunar</Typography>
+      </ul>
 
       <Typography mt={6} variant={'subtitle1'}>
         {'Other Tech'}
       </Typography>
-      <List
-        items={[
-          { description: 'Apple Airpods Pro' },
-          { description: 'Apple iPhone 11 Pro' },
-          { description: 'Kindle Oasis' },
-          { description: 'Polar Vantage M' }
-        ]}
-      />
+      <ul>
+        <Typography component={'li'}>Apple Airpods Pro</Typography>
+        <Typography component={'li'}>Apple iPhone 11 Pro</Typography>
+        <Typography component={'li'}>Kindle Oasis</Typography>
+        <Typography component={'li'}>Polar Vantage M</Typography>
+      </ul>
     </Page>
   )
 }
