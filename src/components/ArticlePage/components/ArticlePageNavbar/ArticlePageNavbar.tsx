@@ -3,14 +3,12 @@ import { useRouter } from 'next/router'
 
 // Components
 import {
-  Box,
   Breadcrumbs,
   IconButton,
   Link,
   Stack,
   Typography
 } from '@mui/material'
-import { BsTwitter } from 'react-icons/bs'
 import NextLink from 'next/link'
 import { VscChevronLeft } from 'react-icons/vsc'
 
@@ -32,9 +30,8 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({ title }) => {
         bgcolor={'background.default'}
         position={'sticky'}
         top={0}
-        pt={6}
+        py={3}
         px={16}
-        pb={2}
         alignItems={'center'}
         borderBottom={1}
         borderColor={'divider'}

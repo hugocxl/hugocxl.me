@@ -1,6 +1,6 @@
 // Components
 import { Link, Typography } from '@mui/material'
-import { Page, List } from 'src/components'
+import { Page } from 'src/components'
 import NextLink from 'next/link'
 
 // Types
@@ -10,7 +10,7 @@ import { NextPage } from 'next'
 const STACK_PAGE_TITLE = `Stack`
 const STACK_PAGE_DESCRIPTION = `Here's what tech I'm currently using for coding and working.`
 
-const StackPage: NextPage = (props) => {
+const StackPage: NextPage = () => {
   return (
     <Page title={STACK_PAGE_TITLE} description={STACK_PAGE_DESCRIPTION}>
       <Typography variant={'subtitle1'}>{'Computer / Office'}</Typography>

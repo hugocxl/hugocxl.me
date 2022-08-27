@@ -69,7 +69,7 @@ const AboutPage: NextPage = (props) => {
         </NextLink>
       </Typography>
 
-      <Section title={`What I'm working on`}>
+      <Section title={`What I'm doing now`}>
         <ul>
           <Li name={'Work'}>
             I am currently working at MetaSoccer as full-stack developer.

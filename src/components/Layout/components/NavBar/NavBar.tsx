@@ -1,5 +1,5 @@
 // Components
-import { IconButton, Stack, Tooltip } from '@mui/material'
+import { Box, IconButton, Stack, Tooltip } from '@mui/material'
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
@@ -35,14 +35,16 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function PersonalIcon() {
     return (
       <NextLink href='/'>
-        <NextImage
-          height={'40x'}
-          width={'40x'}
-          src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
-          blurDataURL={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
-          placeholder={'blur'}
-          alt={'Hugo Corta'}
-        />
+        <Box sx={{ mb: 8 }}>
+          <NextImage
+            height={'40x'}
+            width={'40x'}
+            src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
+            blurDataURL={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
+            placeholder={'blur'}
+            alt={'Hugo Corta'}
+          />
+        </Box>
       </NextLink>
     )
   }
@@ -70,7 +72,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function SwitchThemeButton() {
     return (
       <Tooltip title={'Toggle theme'} placement={'left'}>
-        <IconButton onClick={toggleMode}>
+        <IconButton sx={{ mt: 8 }} onClick={toggleMode}>
           {!isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
@@ -106,10 +108,9 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
         position={'sticky'}
         borderRight={1}
         width={'100%'}
-        justifyContent={'space-between'}
+        justifyContent={'center'}
         alignItems={'center'}
         direction={'column'}
-        py={6}
         {...commonNavBarProps}
       >
         <PersonalIcon />
