@@ -7,8 +7,8 @@ const fontFamilyBody =
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
-  fontWeight: 500
-  // letterSpacing: '-1px'
+  fontWeight: 500,
+  letterSpacing: '-1px'
 }
 
 export const coreTheme: ThemeOptions = {

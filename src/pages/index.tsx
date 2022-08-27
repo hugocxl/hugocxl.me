@@ -9,7 +9,7 @@ import { NextPage } from 'next'
 const HOME_PAGE_TITLE = `Hugo Corta`
 const HOME_PAGE_DESCRIPTION = `Software developer and open source author`
 
-const HomePage: NextPage = (props) => {
+const HomePage: NextPage = () => {
   return (
     <Page
       title={HOME_PAGE_TITLE}
@@ -17,8 +17,14 @@ const HomePage: NextPage = (props) => {
       showHeader={false}
     >
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
-        <Typography variant={'h3'}>{`Hi – I’m Hugo`}</Typography>
-        <Typography variant={'subtitle1'}>{HOME_PAGE_DESCRIPTION}</Typography>
+        <Typography
+          variant={'h3'}
+          component={'h1'}
+        >{`Hi – I’m Hugo`}</Typography>
+        <Typography variant={'subtitle1'} component={'h2'}>
+          {HOME_PAGE_DESCRIPTION}
+        </Typography>
+
         <Typography marginTop={4}>
           {'I love creating useful products.'}
         </Typography>

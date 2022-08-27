@@ -2,7 +2,7 @@
 import { IconButton, Link, Stack, Tooltip, Typography } from '@mui/material'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import NextLink from 'next/link'
-import Image from 'next/image'
+import NextImage from 'next/image'
 
 // Constants
 import { PAGES } from 'src/constants'
@@ -35,10 +35,13 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function PersonalIcon() {
     return (
       <NextLink href='/'>
-        <Image
+        <NextImage
           height={'40x'}
           width={'40x'}
           src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
+          blurDataURL={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
+          placeholder={'blur'}
+          alt={'Hugo Corta'}
         />
       </NextLink>
     )
