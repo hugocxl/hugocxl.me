@@ -1,5 +1,5 @@
 // Components
-import { Stack, Typography, Box, useMediaQuery, useTheme } from '@mui/material'
+import { Stack, Typography, Box, Divider } from '@mui/material'
 import { PageHead } from './components'
 
 // Types
@@ -31,13 +31,16 @@ export const Page: FC<PageProps> = ({
         )}
         {description && (
           <Typography
+            component={'span'}
             color={'text.secondary'}
             fontWeight={'normal'}
-            variant={'subtitle2'}
+            variant={'h6'}
           >
             {description}
           </Typography>
         )}
+
+        <Divider sx={{ mt: 4, width: '60px' }} />
       </Stack>
     )
   }

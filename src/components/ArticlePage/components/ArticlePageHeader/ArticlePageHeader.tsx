@@ -1,5 +1,5 @@
 // Components
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 import NextImage from 'next/image'
 
 // Types
@@ -21,9 +21,16 @@ export const ArticlePageHeader: FC<ArticlePageHeaderProps> = ({
         {description}
       </Typography>
 
-      <Typography variant={'body2'} color={'text.primary'} gutterBottom={false}>
+      <Typography
+        variant={'body2'}
+        color={'text.primary'}
+        gutterBottom={false}
+        mt={2}
+      >
         {date}
       </Typography>
+
+      <Divider sx={{ mt: 4, width: '60px' }} />
 
       {bannerImage && (
         <Box

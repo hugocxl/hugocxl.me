@@ -64,7 +64,7 @@ export const Card: FC<CardProps> = ({
     return (
       <Tooltip
         title={`This page has received ${display} visits`}
-        placement={'right'}
+        placement={'bottom'}
       >
         <Stack alignItems={'center'} spacing={1} mt={2}>
           <SvgIcon color={'inherit'}>
@@ -91,12 +91,13 @@ export const Card: FC<CardProps> = ({
         }),
         '&:hover': {
           transform: 'scale(1.05)'
-        }
+        },
+        ...sx
       }}
     >
       <Box
         sx={{
-          ...sx,
+          height: '100%',
           borderRadius: 2,
           p: 3,
           bgcolor: 'background.paper',
