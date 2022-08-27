@@ -23,27 +23,29 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({ title }) => {
   const [_, section] = router.asPath.split('/')
 
   return (
-    <Stack direction={'column'}>
+    <Stack direction={'column'} position={'relative'}>
       <Stack
         zIndex={1}
         bgcolor={'background.default'}
         position={'sticky'}
         top={0}
         pt={6}
-        px={10}
+        px={16}
         pb={2}
         spacing={1}
         alignItems={'center'}
         borderBottom={1}
         borderColor={'divider'}
       >
-        <IconButton onClick={router.back}>
+        <IconButton
+          onClick={router.back}
+          sx={{ position: 'absolute', left: 80 }}
+        >
           <VscChevronLeft />
         </IconButton>
-
         <Breadcrumbs aria-label='breadcrumb'>
           <NextLink href={`/${section}`}>
-            <Link color='inherit'>{section}</Link>
+            <Link color='text.secondary'>{section}</Link>
           </NextLink>
           <Typography noWrap gutterBottom={false} color='text.primary'>
             {title}

@@ -24,9 +24,17 @@ export const Page: FC<PageProps> = ({
 
     return (
       <Stack direction={'column'} mb={6}>
-        {title && <Typography variant={'h3'}>{title}</Typography>}
+        {title && (
+          <Typography variant={'h4'} component={'h1'}>
+            {title}
+          </Typography>
+        )}
         {description && (
-          <Typography fontWeight={'normal'} variant={'subtitle2'}>
+          <Typography
+            color={'text.secondary'}
+            fontWeight={'normal'}
+            variant={'subtitle2'}
+          >
             {description}
           </Typography>
         )}
@@ -43,7 +51,7 @@ export const Page: FC<PageProps> = ({
         height={'100%'}
         width={'100%'}
         py={6}
-        px={12}
+        px={16}
         {...rest}
       >
         {renderHeader()}

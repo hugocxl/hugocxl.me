@@ -15,7 +15,7 @@ const AboutPage: NextPage = (props) => {
   function Section({ title, children }) {
     return (
       <>
-        <Typography variant='h4' mt={12}>
+        <Typography variant='h5' component={'h2'} mt={12}>
           {title}
         </Typography>
         {children}
@@ -50,6 +50,26 @@ const AboutPage: NextPage = (props) => {
           <Link>my portfolio section.</Link>
         </NextLink>
       </Typography>
+
+      <Section title={`Get in touch`}>
+        <Stack>
+          <LinkIconButton
+            icon={BsGithub}
+            href={`https://github.com/hcorta`}
+            title={`GitHub @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsTwitter}
+            href={`https://twitter.com/`}
+            title={`Twitter @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsLinkedin}
+            href={`https://www.linkedin.com/in/hugocorta`}
+            title={`LinkedIn @hugocorta`}
+          />
+        </Stack>
+      </Section>
 
       <Section title={`What I'm working on`}>
         <List
@@ -163,26 +183,6 @@ const AboutPage: NextPage = (props) => {
             Download my CV here!
           </Link>
         </Alert>
-      </Section>
-
-      <Section title={`Get in touch`}>
-        <Stack>
-          <LinkIconButton
-            icon={BsGithub}
-            href={`https://github.com/hcorta`}
-            title={`GitHub @hcorta`}
-          />
-          <LinkIconButton
-            icon={BsTwitter}
-            href={`https://twitter.com/`}
-            title={`Twitter @hcorta`}
-          />
-          <LinkIconButton
-            icon={BsLinkedin}
-            href={`https://www.linkedin.com/in/hugocorta`}
-            title={`LinkedIn @hugocorta`}
-          />
-        </Stack>
       </Section>
     </Page>
   )

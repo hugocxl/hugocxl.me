@@ -14,14 +14,14 @@ export const ArticlePageHeader: FC<ArticlePageHeaderProps> = ({
 }) => {
   return (
     <Stack direction={'column'} mb={6}>
-      <Typography component={'h1'} variant={'h3'}>
+      <Typography component={'h1'} variant={'h4'} gutterBottom={false}>
         {title}
       </Typography>
-      <Typography color={'text.primary'} component={'h2'} variant={'h5'}>
+      <Typography color={'text.secondary'} component={'h2'} variant={'body1'}>
         {description}
       </Typography>
 
-      <Typography variant={'body2'} color={'primary'} gutterBottom={false}>
+      <Typography variant={'body2'} color={'text.primary'} gutterBottom={false}>
         {date}
       </Typography>
 

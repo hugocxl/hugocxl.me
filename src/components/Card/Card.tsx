@@ -22,7 +22,7 @@ export const Card: FC<CardProps> = ({
         border: 1,
         borderColor: 'rgba(80,80,80,0.15)',
         display: 'flex',
-        boxShadow: '0 8px 12px 0 rgb(0 0 0 / 8%)',
+        boxShadow: '0 8px 12px 0 rgb(0 0 0 / 0.05)',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
@@ -35,13 +35,22 @@ export const Card: FC<CardProps> = ({
       }}
     >
       <Stack direction={'column'}>
+        <Typography variant={'body2'} color={'secondary'}>
+          {date}
+        </Typography>
+        <Typography variant={'subtitle1'} component={'span'}>
+          {title}
+        </Typography>
+        <Typography variant={'body2'}>{description}</Typography>
         {bannerImage && (
           <Box
+            border={1}
+            borderColor={'divider'}
             display={'block'}
             width={'100%'}
             height={'100px'}
             position={'relative'}
-            mb={2}
+            my={2}
           >
             <NextImage
               layout='fill'
@@ -54,13 +63,6 @@ export const Card: FC<CardProps> = ({
             />
           </Box>
         )}
-        <Typography variant={'body2'} color={'secondary'}>
-          {date}
-        </Typography>
-        <Typography variant={'subtitle1'} component={'span'}>
-          {title}
-        </Typography>
-        <Typography variant={'body2'}>{description}</Typography>
       </Stack>
 
       <Stack flexWrap={'wrap-reverse'} mt={1}>

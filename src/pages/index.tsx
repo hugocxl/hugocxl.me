@@ -18,9 +18,10 @@ const HomePage: NextPage = () => {
     >
       <Stack direction={'column'} height={'100%'} justifyContent={'center'}>
         <Typography
-          variant={'h3'}
+          gutterBottom={false}
+          variant={'h4'}
           component={'h1'}
-        >{`Hi – I’m Hugo`}</Typography>
+        >{`Hi 👋 – I’m Hugo`}</Typography>
         <Typography variant={'subtitle1'} component={'h2'}>
           {HOME_PAGE_DESCRIPTION}
         </Typography>
@@ -47,6 +48,7 @@ const HomePage: NextPage = () => {
           >
             {'Twitter'}
           </Link>
+          {'.'}
         </Typography>
       </Stack>
     </Page>

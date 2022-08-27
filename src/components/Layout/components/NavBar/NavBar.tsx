@@ -1,6 +1,6 @@
 // Components
-import { IconButton, Link, Stack, Tooltip, Typography } from '@mui/material'
-import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
+import { IconButton, Stack, Tooltip } from '@mui/material'
+import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
 
@@ -71,7 +71,7 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
     return (
       <Tooltip title={'Toggle theme'} placement={'left'}>
         <IconButton onClick={toggleMode}>
-          {!isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+          {!isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
     )
