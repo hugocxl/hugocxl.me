@@ -18,6 +18,9 @@ import { VscChevronLeft } from 'react-icons/vsc'
 import { FC } from 'react'
 import { ArticlePageNavbarProps } from './ArticlePageNavbar.types'
 
+// Styles
+import styles from './ArticlePageNavbar.module.css'
+
 export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({ title }) => {
   const router = useRouter()
   const [_, section] = router.asPath.split('/')
@@ -32,20 +35,21 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({ title }) => {
         pt={6}
         px={16}
         pb={2}
-        spacing={1}
         alignItems={'center'}
         borderBottom={1}
         borderColor={'divider'}
       >
         <IconButton
           onClick={router.back}
-          sx={{ position: 'absolute', left: 80 }}
+          sx={{ position: 'absolute', left: 75 }}
         >
           <VscChevronLeft />
         </IconButton>
-        <Breadcrumbs aria-label='breadcrumb'>
+        <Breadcrumbs aria-label={'breadcrumb'} sx={{ marginBottom: 0 }}>
           <NextLink href={`/${section}`}>
-            <Link color='text.secondary'>{section}</Link>
+            <Link color='text.secondary' className={styles.textCapitalize}>
+              {section}
+            </Link>
           </NextLink>
           <Typography noWrap gutterBottom={false} color='text.primary'>
             {title}
