@@ -4,7 +4,7 @@ import * as path from 'path'
 // Components
 import NextLink from 'next/link'
 import { Card, Page } from 'src/components'
-import { Grow } from '@mui/material'
+import { Grow, Link } from '@mui/material'
 import { Masonry } from '@mui/lab'
 
 // Utils
@@ -63,16 +63,17 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
               href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
             >
               <Grow in timeout={i * 200 + 200}>
-                <div>
+                <Link color={'inherit'} underline={'none'}>
                   <Card
+                    position={i}
                     bannerImage={bannerImage}
                     title={title}
                     description={description}
                     tags={tags}
-                    date={date}
                     key={title}
+                    slug={project.slug}
                   />
-                </div>
+                </Link>
               </Grow>
             </NextLink>
           )

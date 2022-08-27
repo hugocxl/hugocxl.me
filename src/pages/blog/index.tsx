@@ -7,7 +7,7 @@ import { getMetaFromDocsDir, getTagsFromArticles } from 'src/utils'
 
 // Components
 import { Page, Card } from 'src/components'
-import { Grow } from '@mui/material'
+import { Grow, Link } from '@mui/material'
 import { Masonry } from '@mui/lab'
 import NextLink from 'next/link'
 
@@ -52,15 +52,17 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, tags }) => {
           return (
             <NextLink href={`/${BASE_BLOG_PATH}/${slug}`} key={slug}>
               <Grow in timeout={i * 200 + 200}>
-                <div>
+                <Link color={'inherit'} underline={'none'}>
                   <Card
+                    position={i}
                     title={title}
                     description={description}
                     tags={tags}
                     date={date}
                     key={title}
+                    slug={slug}
                   />
-                </div>
+                </Link>
               </Grow>
             </NextLink>
           )

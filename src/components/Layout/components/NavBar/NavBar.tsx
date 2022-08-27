@@ -19,8 +19,8 @@ import { useRouter } from 'next/router'
 import styles from './Navbar.module.css'
 
 export const NavBar: FC<NavBarProps> = ({ orientation }) => {
-  const [mode, toggleMode] = useThemeMode()
   const { pathname } = useRouter()
+  const [mode, toggleMode] = useThemeMode()
   const isDarkMode = mode === 'dark'
 
   const commonNavBarProps = {

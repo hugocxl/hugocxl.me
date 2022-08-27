@@ -6,4 +6,6 @@ export interface CardProps extends PaperProps {
   tags?: string[]
   title?: string
   bannerImage?: string
+  slug?: string
+  position?: number
 }
