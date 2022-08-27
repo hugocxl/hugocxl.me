@@ -1,7 +1,7 @@
 // Components
 import NextLink from 'next/link'
 import { Alert, Link, Stack, Typography } from '@mui/material'
-import { Page, List, LinkIconButton } from 'src/components'
+import { Page, LinkIconButton } from 'src/components'
 
 // Types
 import { NextPage } from 'next'
@@ -9,7 +9,7 @@ import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Constants
 const ABOUT_PAGE_TITLE = `About`
-const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more.`
+const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more`
 
 const AboutPage: NextPage = (props) => {
   function Section({ title, children }) {
@@ -22,12 +22,30 @@ const AboutPage: NextPage = (props) => {
       </>
     )
   }
+
+  function Li({ name, children }) {
+    return (
+      <li>
+        <Stack spacing={1} alignItems={'center'} mb={1}>
+          <Typography
+            gutterBottom={false}
+            variant='subtitle1'
+            component={'span'}
+          >
+            {name}
+          </Typography>
+          <Typography gutterBottom={false}>{children}</Typography>
+        </Stack>
+      </li>
+    )
+  }
+
   return (
     <Page title={ABOUT_PAGE_TITLE} description={ABOUT_PAGE_DESCRIPTION}>
       <Typography paragraph>
-        I'm an experienced Software Engineer with a demonstrated history of
-        working in the computer software industry. Skilled in Mobile, Web and
-        Server Application Development.
+        I'm an experienced <b>Software Engineer</b> with a demonstrated history
+        of working in the computer software industry.{' '}
+        <b>Skilled in Mobile, Web and Server Application Development.</b>
       </Typography>
       <Typography paragraph>
         I am fortunate to develop myself through my career, fulfilling my
@@ -51,8 +69,99 @@ const AboutPage: NextPage = (props) => {
         </NextLink>
       </Typography>
 
+      <Section title={`What I'm working on`}>
+        <ul>
+          <Li name={'Work'}>
+            I am currently working at MetaSoccer as full-stack developer.
+          </Li>
+
+          <Li name={'Open Source'}>
+            As a software developer, I enjoy building{' '}
+            <NextLink href={'/portfolio'}>
+              <Link>open-source software and libraries.</Link>
+            </NextLink>
+          </Li>
+
+          <Li name={'Teaching'}>
+            Sometimes I teach about web development at{' '}
+            <Link href={'https://ironhack.com'}>Ironhack</Link>
+          </Li>
+
+          <Li name={'Blog'}>
+            On this website{' '}
+            <NextLink href={'/blog'}>
+              <Link>I write articles</Link>
+            </NextLink>{' '}
+            about diverse stuff that I find interesting.
+          </Li>
+        </ul>
+      </Section>
+
+      <Section title={`My experience timeline`}>
+        <ul>
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2022
+          </Typography>
+          <ul>
+            <Li name={'@MetaSoccer'}>Full-stack developer</Li>
+          </ul>
+
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2021
+          </Typography>
+          <ul>
+            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+            <Li name={'@Ironhack'}>
+              Design Implementation Course Lead Teacher
+            </Li>
+          </ul>
+
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2020
+          </Typography>
+          <ul>
+            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+          </ul>
+
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2019
+          </Typography>
+          <ul>
+            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+            <Li name={'@Ironhack'}>Design Implementation Course T.A. x2</Li>
+          </ul>
+
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2018
+          </Typography>
+          <ul>
+            <Li name={'@NPAW'}>FrontEnd Developer</Li>
+          </ul>
+
+          <Typography variant={'h5'} component={'h3'} mt={4}>
+            2017
+          </Typography>
+          <ul>
+            <Li name={'@NPAW'}>JR. FrontEnd Developer</Li>
+            <Li name={'@Ironhack'}>Full Stack Developer Bootcamp</Li>
+          </ul>
+        </ul>
+
+        <Alert sx={{ mt: 4 }} severity='info'>
+          <Link download href={'/docs/Resume of Hugo Corta.pdf'}>
+            Download my CV here!
+          </Link>
+        </Alert>
+      </Section>
+
       <Section title={`Get in touch`}>
-        <Stack>
+        <Typography>
+          You can reach me out{' '}
+          <Link href='mailto:corta.hugo@gmail.com'>through mail</Link> or, if
+          you prefer so, you may leave me a message in any of the main social
+          plaforms. I'll get back to you as soon as I can.
+        </Typography>
+        <Stack mt={4} spacing={2}>
           <LinkIconButton
             icon={BsGithub}
             href={`https://github.com/hcorta`}
@@ -69,120 +178,6 @@ const AboutPage: NextPage = (props) => {
             title={`LinkedIn @hugocorta`}
           />
         </Stack>
-      </Section>
-
-      <Section title={`What I'm working on`}>
-        <List
-          items={[
-            {
-              title: 'Work',
-              description:
-                'I am currently working at MetaSoccer as full-stack developer.'
-            },
-            {
-              title: 'Open Source',
-              description:
-                'As a software engineer, I enjoy building open-source software and libraries.'
-            },
-            {
-              title: 'Teaching',
-              description:
-                'I teach sometimes about web development at Ironhack BCN.'
-            },
-            {
-              title: 'Blog',
-              description:
-                'On this website I write articles about diverse stuff that I find interesting.'
-            }
-          ]}
-        />
-      </Section>
-
-      <Section title={`My experience`}>
-        <Typography mt={4} variant={'h6'}>
-          2017
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'Ironhack',
-              description: 'Full Stack Bootcamp'
-            },
-            {
-              title: 'NPAW',
-              description: 'Junior FrontEnd Developer'
-            }
-          ]}
-        />
-        <Typography mt={4} variant={'h6'}>
-          2018
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'NPAW',
-              description: 'FrontEnd Developer'
-            }
-          ]}
-        />
-        <Typography mt={4} variant={'h6'}>
-          2019
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'Ironhack',
-              description: 'Design Implementation Course T.A. x2'
-            },
-            {
-              title: 'NPAW',
-              description: 'Lead FrontEnd Developer'
-            }
-          ]}
-        />
-        <Typography mt={4} variant={'h6'}>
-          2020
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'NPAW',
-              description: 'Lead FrontEnd Developer'
-            }
-          ]}
-        />
-        <Typography mt={4} variant={'h6'}>
-          2021
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'Ironhack',
-              description: 'Design Implementation Course Lead Teacher'
-            },
-            {
-              title: 'NPAW',
-              description: 'Lead FrontEnd Developer'
-            }
-          ]}
-        />
-        <Typography mt={4} variant={'h6'}>
-          2022
-        </Typography>
-        <List
-          items={[
-            {
-              title: 'MetaSoccer',
-              description: 'Full-stack developer'
-            }
-          ]}
-        />
-
-        <Alert sx={{ mt: 4 }} severity='info'>
-          <Link download href={'/docs/Resume of Hugo Corta.pdf'}>
-            Download my CV here!
-          </Link>
-        </Alert>
       </Section>
     </Page>
   )
