@@ -71,7 +71,7 @@ export const NavBar: FC<NavBarProps> = () => {
   function SwitchThemeButton() {
     return (
       <Tooltip title={'Toggle theme'} placement={'left'}>
-        <IconButton sx={{ mt: 8 }} onClick={toggleMode}>
+        <IconButton onClick={toggleMode}>
           {!isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
@@ -94,6 +94,7 @@ export const NavBar: FC<NavBarProps> = () => {
 
         <Stack spacing={1}>
           <PagesIcons />
+          <SwitchThemeButton />
         </Stack>
       </Stack>
     )
