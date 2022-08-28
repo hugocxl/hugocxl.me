@@ -69,6 +69,32 @@ const AboutPage: NextPage = (props) => {
         </NextLink>
       </Typography>
 
+      <Section title={`Get in touch`}>
+        <Typography>
+          You can reach me out{' '}
+          <Link href='mailto:corta.hugo@gmail.com'>through mail</Link> or, if
+          you prefer so, you may leave me a message in any of the main social
+          plaforms. I'll get back to you as soon as I can.
+        </Typography>
+        <Stack mt={2} spacing={2}>
+          <LinkIconButton
+            icon={BsGithub}
+            href={`https://github.com/hcorta`}
+            title={`GitHub @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsTwitter}
+            href={`https://twitter.com/`}
+            title={`Twitter @hcorta`}
+          />
+          <LinkIconButton
+            icon={BsLinkedin}
+            href={`https://www.linkedin.com/in/hugocorta`}
+            title={`LinkedIn @hugocorta`}
+          />
+        </Stack>
+      </Section>
+
       <Section title={`What I'm doing now`}>
         <ul>
           <Li name={'Work'}>
@@ -99,85 +125,71 @@ const AboutPage: NextPage = (props) => {
 
       <Section title={`My experience timeline`}>
         <ul>
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2022
-          </Typography>
-          <ul>
-            <Li name={'@MetaSoccer'}>Full-stack developer</Li>
-          </ul>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2022
+            </Typography>
+            <ul>
+              <Li name={'@MetaSoccer'}>Full-stack developer</Li>
+            </ul>
+          </li>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2021
+            </Typography>
+            <ul>
+              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+              <Li name={'@Ironhack'}>
+                Design Implementation Course Lead Teacher
+              </Li>
+            </ul>
+          </li>
 
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2021
-          </Typography>
-          <ul>
-            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-            <Li name={'@Ironhack'}>
-              Design Implementation Course Lead Teacher
-            </Li>
-          </ul>
-
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2020
-          </Typography>
-          <ul>
-            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-          </ul>
-
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2019
-          </Typography>
-          <ul>
-            <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-            <Li name={'@Ironhack'}>Design Implementation Course T.A. x2</Li>
-          </ul>
-
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2018
-          </Typography>
-          <ul>
-            <Li name={'@NPAW'}>FrontEnd Developer</Li>
-          </ul>
-
-          <Typography variant={'h5'} component={'h3'} mt={4}>
-            2017
-          </Typography>
-          <ul>
-            <Li name={'@NPAW'}>JR. FrontEnd Developer</Li>
-            <Li name={'@Ironhack'}>Full Stack Developer Bootcamp</Li>
-          </ul>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2020
+            </Typography>
+            <ul>
+              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+            </ul>
+          </li>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2019
+            </Typography>
+            <ul>
+              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
+              <Li name={'@Ironhack'}>Design Implementation Course T.A. x2</Li>
+            </ul>
+          </li>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2018
+            </Typography>
+            <ul>
+              <Li name={'@NPAW'}>FrontEnd Developer</Li>
+            </ul>
+          </li>
+          <li>
+            <Typography variant={'h6'} component={'h3'} mt={4}>
+              2017
+            </Typography>
+            <ul>
+              <Li name={'@NPAW'}>JR. FrontEnd Developer</Li>
+              <Li name={'@Ironhack'}>Full Stack Developer Bootcamp</Li>
+            </ul>
+          </li>
         </ul>
 
-        <Alert sx={{ mt: 4 }} severity='info'>
-          <Link download href={'/docs/Resume of Hugo Corta.pdf'}>
+        <Alert sx={{ mt: 8 }} severity='info'>
+          <Link
+            download
+            href={'/docs/Resume of Hugo Corta.pdf'}
+            sx={{ fontSize: '16px' }}
+          >
             Download my CV here!
           </Link>
         </Alert>
-      </Section>
-
-      <Section title={`Get in touch`}>
-        <Typography>
-          You can reach me out{' '}
-          <Link href='mailto:corta.hugo@gmail.com'>through mail</Link> or, if
-          you prefer so, you may leave me a message in any of the main social
-          plaforms. I'll get back to you as soon as I can.
-        </Typography>
-        <Stack mt={4} spacing={2}>
-          <LinkIconButton
-            icon={BsGithub}
-            href={`https://github.com/hcorta`}
-            title={`GitHub @hcorta`}
-          />
-          <LinkIconButton
-            icon={BsTwitter}
-            href={`https://twitter.com/`}
-            title={`Twitter @hcorta`}
-          />
-          <LinkIconButton
-            icon={BsLinkedin}
-            href={`https://www.linkedin.com/in/hugocorta`}
-            title={`LinkedIn @hugocorta`}
-          />
-        </Stack>
       </Section>
     </Page>
   )
