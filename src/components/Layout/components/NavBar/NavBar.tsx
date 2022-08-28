@@ -18,7 +18,7 @@ import { useRouter } from 'next/router'
 // Styles
 import styles from './Navbar.module.css'
 
-export const NavBar: FC<NavBarProps> = ({ orientation }) => {
+export const NavBar: FC<NavBarProps> = () => {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
   const isDarkMode = mode === 'dark'
@@ -35,10 +35,9 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
   function PersonalIcon() {
     return (
       <NextLink href='/'>
-        <Box sx={{ mb: 8 }}>
+        <Box height={'40px'} width={'40px'} position={'relative'}>
           <NextImage
-            height={'40x'}
-            width={'40x'}
+            layout='fill'
             src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
             blurDataURL={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
             placeholder={'blur'}
@@ -108,7 +107,8 @@ export const NavBar: FC<NavBarProps> = ({ orientation }) => {
         position={'sticky'}
         borderRight={1}
         width={'100%'}
-        justifyContent={'center'}
+        py={3}
+        justifyContent={'space-between'}
         alignItems={'center'}
         direction={'column'}
         {...commonNavBarProps}
