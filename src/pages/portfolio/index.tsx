@@ -56,8 +56,8 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
               key={slug}
               href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
             >
-              <Grid item xs={12} sm={6} md={4} lg={4}>
-                <Grow in timeout={i * 200 + 200}>
+              <Grow in timeout={i * 200 + 200}>
+                <Grid item xs={12} sm={6} md={4} lg={4}>
                   <Link color={'inherit'} underline={'none'}>
                     <Card
                       sx={{ height: '100%' }}
@@ -70,8 +70,8 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
                       slug={project.slug}
                     />
                   </Link>
-                </Grow>
-              </Grid>
+                </Grid>
+              </Grow>
             </NextLink>
           )
         })}
