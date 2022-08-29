@@ -10,9 +10,11 @@
   },
   "scripts": {
     "dev": "next dev",
+    "start": "yarn build && next start",
     "build": "yarn update:db && next build",
-    "start": "next start",
-    "update:db": "npx prisma db pull && npx prisma generate"
+    "update:db": "npx prisma db pull && npx prisma generate",
+    "update:release": "yarn version --allow-same-version=false --git-tag-version=true --new-version $v",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -22,9 +24,7 @@
     "@mui/utils": "^5.9.3",
     "@prisma/client": "^4.2.1",
     "@tanstack/react-query": "^4.2.3",
-    "googleapis": "^107.0.0",
     "gray-matter": "^4.0.3",
-    "markdown-it": "^13.0.1",
     "next": "^12.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
