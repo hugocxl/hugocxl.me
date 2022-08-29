@@ -35,6 +35,7 @@ One of the most interesting aspects of owning a personal website is that you hav
 Setting up your own website allows you to showcase your work and provide proof about your abilities. This is a must if you are in one of the creative fields such as writing, designing, art, music, etc. While you can list out your skills on your resume, having a portfolio lets people see exactly what you did.
 
 ## Takeaway
+
 Absolutely anyone can own a personal website, and it can be about anything you want. The only question you are probably left with is when/how to start one. There are many options available to you in this regard and I'm sure that a quick search online will help you with it.
 
 Hope that helps.

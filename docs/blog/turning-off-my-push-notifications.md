@@ -42,3 +42,5 @@ I have turned off all my notifications. All of them.
 For work-related issues, I periodically check my main communication channels, mainly in the morning, midday, and before leaving. Messaging apps are secondary channels of communication that are meant to be used for non-important cases.
 
 Trust me: if it is that important, they will call.
+
+Hugo
