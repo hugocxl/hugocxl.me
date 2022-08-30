@@ -35,7 +35,12 @@ export const NavBar: FC<NavBarProps> = () => {
   function PersonalIcon() {
     return (
       <NextLink href='/'>
-        <Box height={'40px'} width={'40px'} position={'relative'}>
+        <Box
+          height={'40px'}
+          width={'40px'}
+          position={'relative'}
+          sx={{ cursor: 'pointer' }}
+        >
           <NextImage
             layout='fill'
             src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
