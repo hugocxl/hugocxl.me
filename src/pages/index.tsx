@@ -1,8 +1,7 @@
 // Components
-import { Box, Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import { Button, Fade, Link, Stack, Typography } from '@mui/material'
 import { Page } from 'src/components'
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 
 // Types
 import { NextPage } from 'next'
@@ -19,19 +18,13 @@ const HomePage: NextPage = () => {
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Grid
-        container
-        spacing={0}
-        alignItems={'center'}
-        justifyContent={'space-between'}
-        height={'100%'}
-      >
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={9}
-          sx={{ display: 'flex', flexDirection: 'column' }}
+      <Fade in={true} timeout={1000}>
+        <Stack
+          spacing={0}
+          alignItems={'flex-end'}
+          justifyContent={'center'}
+          height={'100%'}
+          direction={'column'}
         >
           <Typography
             gutterBottom={false}
@@ -67,36 +60,17 @@ const HomePage: NextPage = () => {
             {'.'}
           </Typography>
 
-          <Stack spacing={1} mt={4}>
+          <Stack spacing={1} mt={1}>
             {PAGES.map(({ path, label }) => (
               <NextLink href={path}>
-                <Link>{label}</Link>
+                <Button size={'small'} variant={'outlined'}>
+                  {label}
+                </Button>
               </NextLink>
             ))}
           </Stack>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={3}>
-          <Box
-            borderRadius={'400px'}
-            overflow={'hidden'}
-            display={'block'}
-            width={'240px'}
-            height={'240px'}
-            position={'relative'}
-          >
-            <NextImage
-              layout={'fill'}
-              objectFit={'cover'}
-              placeholder={'blur'}
-              alt={'Hugo Corta'}
-              title={'Hugo Corta'}
-              src={'/img/personal-portrait.png'}
-              blurDataURL={'/img/personal-portrait.png'}
-            />
-          </Box>
-        </Grid>
-      </Grid>
+        </Stack>
+      </Fade>
     </Page>
   )
 }
