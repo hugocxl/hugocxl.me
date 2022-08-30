@@ -33,13 +33,12 @@ const gradients = [
 
 const containerSx = {
   display: 'grid',
-  px: 0.5,
-  pb: 1.5,
-  pt: 0.5,
+  pt: 0.2,
+  px: 0.2,
+  pb: 1,
   borderRadius: 4,
-  boxShadow: '0 8px 12px 0 rgb(0 0 0 / 0.1)',
   transition: 'all 0.18s ease-in-out',
-  bgcolor: 'background.paper',
+  bgcolor: 'divider',
   '&:hover': {
     transform: 'scale(1.05)'
   }
@@ -73,7 +72,7 @@ export const Card: FC<CardProps> = ({
         title={`This page has received ${display} visits`}
         placement={'bottom'}
       >
-        <Stack alignItems={'center'} spacing={1} mt={2}>
+        <Stack alignItems={'center'} spacing={1} mt={1}>
           <SvgIcon color={'inherit'}>
             <AiOutlineEye />
           </SvgIcon>
@@ -85,29 +84,20 @@ export const Card: FC<CardProps> = ({
     )
   }
 
-  function ImageHeader() {
+  function Tags() {
     return (
-      <Box
-        sx={{
-          borderTopLeftRadius: 14,
-          borderTopRightRadius: 14
-        }}
-        overflow={'hidden'}
-        display={'block'}
-        width={'100%'}
-        height={'100px'}
-        position={'relative'}
-      >
-        <NextImage
-          layout='fill'
-          objectFit='cover'
-          placeholder={'blur'}
-          alt={title}
-          title={title}
-          src={bannerImage}
-          blurDataURL={bannerImage}
-        />
-      </Box>
+      <Stack flexWrap={'wrap-reverse'} mt={3}>
+        {tags.map((tag) => (
+          <Chip
+            size={'small'}
+            color={'primary'}
+            variant={'filled'}
+            key={tag}
+            sx={{ mr: 1, mt: 1, fontSize: '11px' }}
+            label={tag}
+          />
+        ))}
+      </Stack>
     )
   }
 
@@ -115,15 +105,12 @@ export const Card: FC<CardProps> = ({
     <Box
       sx={{
         ...containerSx,
-        gridTemplateRows: !hasImage ? '1fr' : 'auto 1fr',
         ...(isDarkMode && {
           backgroundImage: gradients[position]
         }),
         ...sx
       }}
     >
-      {hasImage && <ImageHeader />}
-
       <Box
         sx={{
           height: '100%',
@@ -133,11 +120,7 @@ export const Card: FC<CardProps> = ({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          ...(hasImage && {
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0
-          })
+          justifyContent: 'space-between'
         }}
       >
         <Stack direction={'column'}>
@@ -150,20 +133,10 @@ export const Card: FC<CardProps> = ({
           <Typography variant={'body2'}>{description}</Typography>
         </Stack>
 
-        <Stack flexWrap={'wrap-reverse'} mt={2}>
-          {tags.map((tag) => (
-            <Chip
-              size={'small'}
-              color={'primary'}
-              variant={'filled'}
-              key={tag}
-              sx={{ mr: 1, mt: 1, fontSize: '11px' }}
-              label={tag}
-            />
-          ))}
+        <Stack direction={'column'}>
+          <Tags />
+          <Analytics />
         </Stack>
-
-        <Analytics />
       </Box>
     </Box>
   )
