@@ -35,6 +35,10 @@
   background-color: rgba(140, 140, 140, 0.5);
 }
 
+*::selection {
+  background-color: rgb(0, 221, 255);
+}
+
 pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */

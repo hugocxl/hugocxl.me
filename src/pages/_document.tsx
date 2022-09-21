@@ -12,7 +12,7 @@ class Document extends NextDocument {
         <Head>
           <meta property='og:site_name' content={DOCUMENT_TITLE} />
           <meta property='og:title' content={DOCUMENT_TITLE} />
-          {/* <title>{DOCUMENT_TITLE}</title> */}
+          <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
           <link rel='shortcut icon' href='/favicon.png' />
           <link
             rel='apple-touch-icon'

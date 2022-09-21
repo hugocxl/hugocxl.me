@@ -15,7 +15,7 @@ export const darkTheme: ThemeOptions = deepmerge(
         main: '#ffffff'
       },
       secondary: {
-        main: '#3292ff'
+        main: '#36a3ff'
       },
       background: {
         default: '#000000',
