@@ -46,7 +46,7 @@ const getStaticProps: GetStaticProps = async (
 const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
   return (
     <Page title={PORTFOLIO_PAGE_TITLE} description={PORTFOLIO_PAGE_DESCRIPTION}>
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {projects.map((project, i) => {
           const { slug, meta } = project
           const { title, description, tags, date, bannerImage } = meta
