@@ -14,6 +14,9 @@ import { ArticleViews } from 'src/types'
 // Hooks
 import { useThemeMode } from 'src/hooks'
 
+// Styles
+import styles from './Card.module.css'
+
 const gradients = [
   'linear-gradient(to bottom right, rgb(246,16,178), rgb(0,180,236))',
   'linear-gradient(to bottom right, rgb(85,171,4), rgb(41,194,251))',
@@ -31,18 +34,7 @@ const gradients = [
   'linear-gradient(to bottom right, rgb(56,202,194), rgb(250,23,147))'
 ]
 
-const containerSx = {
-  display: 'grid',
-  pt: 0.2,
-  px: 0.2,
-  pb: 1,
-  borderRadius: 4,
-  transition: 'all 0.18s ease-in-out',
-  bgcolor: 'divider',
-  '&:hover': {
-    transform: 'scale(1.05)'
-  }
-}
+const containerSx = {}
 
 export const Card: FC<CardProps> = ({
   title,
@@ -103,8 +95,19 @@ export const Card: FC<CardProps> = ({
 
   return (
     <Box
+      className={styles.card}
       sx={{
-        ...containerSx,
+        display: 'grid',
+        p: 0.65,
+        borderRadius: 4,
+        transition: 'all 0.18s ease-in-out',
+        bgcolor: 'divider',
+        '&:hover': {
+          transform: 'scale(1.05)'
+        },
+        ':after': {
+          backgroundImage: gradients[position]
+        },
         ...(isDarkMode && {
           backgroundImage: gradients[position]
         }),
@@ -112,15 +115,11 @@ export const Card: FC<CardProps> = ({
       }}
     >
       <Box
+        className={styles.info}
         sx={{
-          height: '100%',
           borderRadius: 3.5,
           p: 3,
-          bgcolor: 'background.paper',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between'
+          bgcolor: 'background.paper'
         }}
       >
         <Stack direction={'column'}>
