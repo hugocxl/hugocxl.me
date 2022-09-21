@@ -18,17 +18,11 @@ const HOME_PAGE_DESCRIPTION = `Software developer and open source author`
 const HomePage: NextPage = () => {
   return (
     <Page
-      height={'100%'}
       title={HOME_PAGE_TITLE}
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Stack
-        spacing={0}
-        justifyContent={'center'}
-        height={'80%'}
-        direction={'column'}
-      >
+      <Stack justifyContent={'center'} direction={'column'} pt={12}>
         <Typography
           gutterBottom={false}
           variant={'h2'}
@@ -38,7 +32,7 @@ const HomePage: NextPage = () => {
         <Typography variant={'h4'} component={'span'}>
           {HOME_PAGE_DESCRIPTION}
         </Typography>
-        <Typography fontSize={'20px'} lineHeight={'32px'}>
+        <Typography fontSize={'20px'} lineHeight={'32px'} mt={4}>
           This website is supposed to be part portfolio, part rambling space. A
           place where I’ll try show my skills and projects, check it out!
         </Typography>
