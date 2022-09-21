@@ -7,7 +7,7 @@ const fontFamilyBody =
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
-  fontWeight: 600
+  fontWeight: 700
   // letterSpacing: '-1px'
 }
 
@@ -95,6 +95,13 @@ export const coreTheme: ThemeOptions = {
               marginBottom: theme.spacing(3)
             })
           }
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
         }
       }
     },

@@ -20,25 +20,22 @@ const HomePage: NextPage = () => {
     >
       <Stack
         spacing={0}
-        alignItems={'flex-end'}
         justifyContent={'center'}
         height={'100%'}
         direction={'column'}
       >
         <Typography
           gutterBottom={false}
-          variant={'h4'}
-          component={'h1'}
-        >{`Hi 👋 – I’m Hugo`}</Typography>
-        <Typography variant={'subtitle1'} component={'h2'}>
+          variant={'h2'}
+          component={'span'}
+          className={'gradient-text'}
+        >{`Hi!– I’m Hugo`}</Typography>
+        <Typography variant={'h4'} component={'span'}>
           {HOME_PAGE_DESCRIPTION}
         </Typography>
 
-        <Typography marginTop={4}>
-          {'I love creating useful products.'}
-        </Typography>
-        <Typography>
-          Wanna reach out? You can find me on{' '}
+        <Typography marginTop={1} fontSize={'24px'} lineHeight={'40px'}>
+          I love creating useful products. Wanna reach out? You can find me on{' '}
           <Link
             href={`https://github.com/hcorta`}
             title={`GitHub @hcorta`}
@@ -59,12 +56,10 @@ const HomePage: NextPage = () => {
           {'.'}
         </Typography>
 
-        <Stack spacing={1} mt={1}>
+        <Stack spacing={1} mt={4}>
           {PAGES.map(({ path, label }) => (
-            <NextLink href={path}>
-              <Button size={'small'} variant={'outlined'}>
-                {label}
-              </Button>
+            <NextLink href={path} key={path}>
+              <Button variant={'contained'}>{label}</Button>
             </NextLink>
           ))}
         </Stack>
