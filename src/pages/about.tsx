@@ -2,10 +2,10 @@
 import NextLink from 'next/link'
 import { Alert, Link, Stack, Typography } from '@mui/material'
 import { Page, LinkIconButton } from 'src/components'
+import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Types
 import { NextPage } from 'next'
-import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Constants
 const ABOUT_PAGE_TITLE = `About`

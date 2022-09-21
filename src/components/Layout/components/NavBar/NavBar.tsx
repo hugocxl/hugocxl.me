@@ -71,7 +71,8 @@ export const NavBar: FC<NavBarProps> = () => {
 
   return (
     <Stack
-      p={4}
+      px={4}
+      py={6}
       component={'header'}
       alignItems={'center'}
       display={'flex'}

@@ -1,13 +1,17 @@
 // Components
-import { Button, Link, Stack, Typography } from '@mui/material'
-import { Page } from 'src/components'
-import NextLink from 'next/link'
+import { Stack, Typography } from '@mui/material'
+import { LinkIconButton, Page } from 'src/components'
+import {
+  BsFillEnvelopeFill,
+  BsGithub,
+  BsTwitter,
+  BsLinkedin
+} from 'react-icons/bs'
 
 // Types
 import { NextPage } from 'next'
 
 // Constants
-import { PAGES } from 'src/constants'
 const HOME_PAGE_TITLE = `Hugo Corta`
 const HOME_PAGE_DESCRIPTION = `Software developer and open source author`
 
@@ -22,7 +26,7 @@ const HomePage: NextPage = () => {
       <Stack
         spacing={0}
         justifyContent={'center'}
-        height={'100%'}
+        height={'80%'}
         direction={'column'}
       >
         <Typography
@@ -30,39 +34,35 @@ const HomePage: NextPage = () => {
           variant={'h2'}
           component={'span'}
           className={'gradient-text'}
-        >{`Hi!– I’m Hugo`}</Typography>
+        >{`Hi, I’m Hugo`}</Typography>
         <Typography variant={'h4'} component={'span'}>
           {HOME_PAGE_DESCRIPTION}
         </Typography>
-
-        <Typography marginTop={1} fontSize={'24px'} lineHeight={'40px'}>
-          I love creating useful products. Wanna reach out? You can find me on{' '}
-          <Link
+        <Typography fontSize={'20px'} lineHeight={'32px'}>
+          This website is supposed to be part portfolio, part rambling space. A
+          place where I’ll try show my skills and projects, check it out!
+        </Typography>
+        <Stack spacing={1}>
+          <LinkIconButton
+            icon={BsFillEnvelopeFill}
+            href={`mailto: corta.hugo@gmail.com`}
+            title={`Mail corta.hugo@gmail.com`}
+          />
+          <LinkIconButton
+            icon={BsGithub}
             href={`https://github.com/hcorta`}
             title={`GitHub @hcorta`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {'GitHub'}
-          </Link>{' '}
-          or{' '}
-          <Link
-            href={`https://twitter.com/hcorta`}
+          />
+          <LinkIconButton
+            icon={BsTwitter}
+            href={`https://twitter.com/`}
             title={`Twitter @hcorta`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            {'Twitter'}
-          </Link>
-          {'.'}
-        </Typography>
-
-        <Stack spacing={1} mt={4}>
-          {PAGES.map(({ path, label }) => (
-            <NextLink href={path} key={path}>
-              <Button variant={'contained'}>{label}</Button>
-            </NextLink>
-          ))}
+          />
+          <LinkIconButton
+            icon={BsLinkedin}
+            href={`https://www.linkedin.com/in/hugocorta`}
+            title={`LinkedIn @hugocorta`}
+          />
         </Stack>
       </Stack>
     </Page>
