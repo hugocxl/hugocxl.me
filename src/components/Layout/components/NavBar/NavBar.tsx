@@ -1,8 +1,15 @@
 // Components
-import { Box, IconButton, Stack, Tooltip } from '@mui/material'
+import {
+  IconButton,
+  Link,
+  Stack,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 
 // Constants
 import { PAGES } from 'src/constants'
@@ -15,123 +22,70 @@ import { NavBarProps } from './NavBar.types'
 import { useThemeMode } from 'src/hooks'
 import { useRouter } from 'next/router'
 
-// Styles
-import styles from './Navbar.module.css'
-
 export const NavBar: FC<NavBarProps> = () => {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const isDarkMode = mode === 'dark'
 
-  const commonNavBarProps = {
-    component: 'header',
-    top: 0,
-    zIndex: 1,
-    bgcolor: 'background.default',
-    alignItems: 'center',
-    borderColor: 'divider'
-  }
-
-  function PersonalIcon() {
+  function PagesLinks() {
     return (
-      <NextLink href='/'>
-        <Box
-          height={'40px'}
-          width={'40px'}
-          position={'relative'}
-          sx={{ cursor: 'pointer' }}
-        >
-          <NextImage
-            layout='fill'
-            src={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
-            blurDataURL={!isDarkMode ? '/icon-dark.svg' : '/icon.svg'}
-            placeholder={'blur'}
-            alt={'Hugo Corta'}
-          />
-        </Box>
-      </NextLink>
-    )
-  }
-
-  function PagesIcons() {
-    return (
-      <>
+      <Stack spacing={3} alignItems={'center'}>
         {PAGES.map(({ label, path, icon: Icon }) => {
           const isActive = pathname.startsWith(path)
 
           return (
             <NextLink href={path} key={path}>
-              <Tooltip title={label} placement={'left'}>
-                <IconButton {...(isActive && { color: 'secondary' })}>
-                  <Icon />
-                </IconButton>
+              <Tooltip title={label} placement={'bottom'}>
+                {isSmallScreen ? (
+                  <IconButton {...(isActive && { color: 'secondary' })}>
+                    <Icon />
+                  </IconButton>
+                ) : (
+                  <Link
+                    variant={'subtitle1'}
+                    color={'inherit'}
+                    gutterBottom={false}
+                  >
+                    {label}
+                  </Link>
+                )}
               </Tooltip>
             </NextLink>
           )
         })}
-      </>
+      </Stack>
     )
   }
 
-  function SwitchThemeButton() {
+  function ThemeButton() {
     return (
-      <Tooltip title={'Toggle theme'} placement={'left'}>
-        <IconButton onClick={toggleMode}>
+      <Tooltip title={'Toggle theme'} placement={'bottom'}>
+        <IconButton onClick={toggleMode} sx={{ bgcolor: 'action.hover' }}>
           {!isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
     )
   }
 
-  function MobileNavBar() {
-    return (
-      <Stack
-        py={2}
-        px={2}
-        display={'none'}
-        className={styles.mobileNavBar}
-        position={'sticky'}
-        borderBottom={1}
-        justifyContent={'space-between'}
-        {...commonNavBarProps}
-      >
-        <PersonalIcon />
-
-        <Stack spacing={1}>
-          <PagesIcons />
-          <SwitchThemeButton />
-        </Stack>
-      </Stack>
-    )
-  }
-
-  function DesktopNavbar() {
-    return (
-      <Stack
-        className={styles.desktopNavBar}
-        height={'100vh'}
-        position={'sticky'}
-        borderRight={1}
-        width={'100%'}
-        py={3}
-        justifyContent={'space-between'}
-        alignItems={'center'}
-        direction={'column'}
-        {...commonNavBarProps}
-      >
-        <PersonalIcon />
-        <Stack spacing={2} direction={'column'} alignItems={'center'}>
-          <PagesIcons />
-        </Stack>
-        <SwitchThemeButton />
-      </Stack>
-    )
-  }
-
   return (
-    <>
-      <MobileNavBar />
-      <DesktopNavbar />
-    </>
+    <Stack
+      p={4}
+      component={'header'}
+      alignItems={'center'}
+      display={'flex'}
+      justifyContent={'space-between'}
+    >
+      <NextLink href='/'>
+        <Link variant={'h6'} color={'primary'} gutterBottom={false}>
+          Hugo Corta
+        </Link>
+      </NextLink>
+      <Stack spacing={2}>
+        <PagesLinks />
+        <ThemeButton />
+      </Stack>
+    </Stack>
   )
 }

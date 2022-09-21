@@ -11,7 +11,7 @@ export const LinkIconButton: FC<LinkIconButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Tooltip title={title} placement={'right'}>
+    <Tooltip title={title} placement={'bottom'}>
       <Link
         {...rest}
         title={title}

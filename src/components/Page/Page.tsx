@@ -1,6 +1,7 @@
 // Components
 import { Stack, Typography, Box, Divider } from '@mui/material'
 import { PageHead } from './components'
+import NextImage from 'next/image'
 
 // Types
 import { PageProps } from './Page.types'
@@ -15,17 +16,20 @@ export const Page: FC<PageProps> = ({
   description,
   date,
   showHeader = true,
+  bannerImage,
   ...rest
 }) => {
-  const hasHeader = showHeader && !!title
-
-  function renderHeader() {
-    if (!hasHeader) return null
+  function Header() {
+    if (!showHeader) return null
 
     return (
       <Stack direction={'column'} mb={6}>
         {title && (
-          <Typography variant={'h4'} component={'h1'}>
+          <Typography
+            variant={'h4'}
+            component={'h1'}
+            className={'gradient-text'}
+          >
             {title}
           </Typography>
         )}
@@ -39,8 +43,28 @@ export const Page: FC<PageProps> = ({
             {description}
           </Typography>
         )}
-
-        <Divider sx={{ mt: 4, width: '60px' }} />
+        {bannerImage && (
+          <Box
+            boxShadow={1}
+            borderRadius={4}
+            overflow={'hidden'}
+            mt={4}
+            display={'block'}
+            width={'100%'}
+            height={'400px'}
+            position={'relative'}
+          >
+            <NextImage
+              layout={'fill'}
+              objectFit={'cover'}
+              placeholder={'blur'}
+              alt={title}
+              title={title}
+              src={bannerImage}
+              blurDataURL={bannerImage}
+            />
+          </Box>
+        )}
       </Stack>
     )
   }
@@ -50,14 +74,11 @@ export const Page: FC<PageProps> = ({
       <PageHead title={title} description={description} date={date} />
       <Box
         className={styles.page}
-        overflow={'auto'}
-        height={'100%'}
-        width={'100%'}
         py={6}
-        px={16}
+        px={10}
         {...rest}
       >
-        {renderHeader()}
+        <Header />
         {children}
       </Box>
     </>

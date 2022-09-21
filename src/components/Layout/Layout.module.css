@@ -1,14 +1,5 @@
 .container {
-  display: grid !important;
-  grid-template-rows: 1fr;
-  grid-template-columns: 80px 1fr;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-}
-
-@media (max-width: 900px) {
-  .container {
-    padding: 0 !important;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr;
-  }
 }

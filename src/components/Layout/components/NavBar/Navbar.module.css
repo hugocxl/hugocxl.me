@@ -1,8 +1,0 @@
-@media screen and (max-width: 900px) {
-  .desktopNavBar {
-    display: none !important;
-  }
-  .mobileNavBar {
-    display: flex !important;
-  }
-}

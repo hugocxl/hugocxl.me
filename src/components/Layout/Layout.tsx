@@ -11,7 +11,7 @@ import styles from './Layout.module.css'
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <Container className={styles.container} fixed={false}>
+    <Container className={styles.container}>
       <NavBar />
       {children}
     </Container>

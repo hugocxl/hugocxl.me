@@ -10,4 +10,5 @@ export interface PageProps extends BoxProps {
   children: React.ReactNode
   tags?: string[]
   showHeader?: boolean
+  bannerImage?: string
 }

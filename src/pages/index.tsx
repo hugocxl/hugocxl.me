@@ -14,6 +14,7 @@ const HOME_PAGE_DESCRIPTION = `Software developer and open source author`
 const HomePage: NextPage = () => {
   return (
     <Page
+      height={'100%'}
       title={HOME_PAGE_TITLE}
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
