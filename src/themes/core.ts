@@ -33,16 +33,14 @@ export const coreTheme: ThemeOptions = {
       ...commonHeaderProps
     },
     subtitle1: {
-      fontWeight: 600,
-      letterSpacing: '0px'
+      ...commonHeaderProps
     },
     subtitle2: {
-      fontWeight: 600,
-      letterSpacing: '0px'
+      ...commonHeaderProps
     },
     button: {},
     body1: {
-      lineHeight: 1.75
+      lineHeight: 2
     },
     body2: {
       // fontSize: '0.7rem'
@@ -82,14 +80,16 @@ export const coreTheme: ThemeOptions = {
       },
       styleOverrides: {
         root: ({ ownerState, theme }) => {
-          const isHeader =
-            ownerState.variant[0] === 'h' ||
-            ownerState.variant.includes('subtitle')
+          const isHeader = ownerState.variant[0] === 'h'
+          const isSubtitle = ownerState.variant.includes('subtitle')
           const isParagraph = ownerState.paragraph
 
           return {
-            ...(isHeader && {
+            ...((isHeader || isSubtitle) && {
               color: theme.palette.primary.main
+            }),
+            ...(isHeader && {
+              marginBottom: theme.spacing(2)
             }),
             ...(isParagraph && {
               marginBottom: theme.spacing(3)
@@ -129,7 +129,7 @@ export const coreTheme: ThemeOptions = {
       },
       styleOverrides: {
         root: {
-          borderRadius: 4
+          borderRadius: 6
         }
       }
     }
