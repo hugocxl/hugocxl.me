@@ -89,7 +89,7 @@ export const Card: FC<CardProps> = ({
       sx={{
         transition: 'all 0.17s ease-in-out',
         border: 2,
-        borderRadius: 6.5,
+        borderRadius: 7,
         borderColor: 'transparent',
         height: '100%',
         p: '4px',
@@ -102,7 +102,7 @@ export const Card: FC<CardProps> = ({
         className={styles.card}
         sx={{
           display: 'grid',
-          p: 0.5,
+          p: '1px',
           borderRadius: 5,
           transition: 'all 0.18s ease-in-out',
           bgcolor: 'divider',
@@ -116,21 +116,21 @@ export const Card: FC<CardProps> = ({
         <Box
           className={styles.info}
           sx={{
-            borderRadius: 4,
+            borderRadius: 5,
             p: 3,
             bgcolor: 'background.paper'
           }}
         >
           <Stack direction={'column'}>
             <Typography variant={'body2'}>{date}</Typography>
-            <Typography variant={'subtitle1'} component={'span'}>
+            <Typography variant={'h6'} component={'span'} mb={0}>
               {title}
             </Typography>
             <Typography variant={'body2'}>{description}</Typography>
           </Stack>
 
           <Stack direction={'column'}>
-            <Tags />
+            {Boolean(tags) && <Tags />}
             <Analytics />
           </Stack>
         </Box>

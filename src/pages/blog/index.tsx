@@ -1,14 +1,12 @@
 // Dependencies
 import * as path from 'path'
-import { useMemo, useState } from 'react'
 
 // Utils
 import { getMetaFromDocsDir, getTagsFromArticles } from 'src/utils'
 
 // Components
 import { Page, Card } from 'src/components'
-import { Grow, Link } from '@mui/material'
-import { Masonry } from '@mui/lab'
+import { Link } from '@mui/material'
 import NextLink from 'next/link'
 
 // Types
@@ -43,31 +41,32 @@ const getStaticProps: GetStaticProps = async (
 
 const BlogPage: NextPage<BlogPageProps> = ({ posts, tags }) => {
   return (
-    <Page title={BLOG_PAGE_TITLE} description={BLOG_PAGE_DESCRIPTION}>
-      <Masonry columns={{ xs: 1, sm: 2, md: 2, lg: 3, xl: 3 }} spacing={4}>
-        {posts.map((post, i) => {
-          const { slug, meta } = post
-          const { title, description, tags, date } = meta
+    <Page
+      title={BLOG_PAGE_TITLE}
+      description={BLOG_PAGE_DESCRIPTION}
+      display={'flex'}
+      flexDirection={'column'}
+    >
+      {posts.map((post, i) => {
+        const { slug, meta } = post
+        const { title, description, tags, date } = meta
 
-          return (
-            <NextLink href={`/${BASE_BLOG_PATH}/${slug}`} key={slug}>
-              <Grow in timeout={i * 200 + 200}>
-                <Link color={'inherit'} underline={'none'}>
-                  <Card
-                    position={i}
-                    title={title}
-                    description={description}
-                    tags={tags}
-                    date={date}
-                    key={title}
-                    slug={slug}
-                  />
-                </Link>
-              </Grow>
-            </NextLink>
-          )
-        })}
-      </Masonry>
+        return (
+          <NextLink href={`/${BASE_BLOG_PATH}/${slug}`} key={slug}>
+            <Link color={'inherit'} underline={'none'}>
+              <Card
+                position={i}
+                title={title}
+                description={description}
+                // tags={tags}
+                date={date}
+                key={title}
+                slug={slug}
+              />
+            </Link>
+          </NextLink>
+        )
+      })}
     </Page>
   )
 }
