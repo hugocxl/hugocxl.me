@@ -1,6 +1,14 @@
 // Components
 import NextLink from 'next/link'
-import { Alert, Box, Link, Stack, Typography } from '@mui/material'
+import {
+  Alert,
+  Box,
+  Link,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
 import { Page, LinkIconButton } from 'src/components'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
@@ -12,6 +20,9 @@ const ABOUT_PAGE_TITLE = `About`
 const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more`
 
 const AboutPage: NextPage = () => {
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
+
   function Section({ title, children }) {
     return (
       <>
@@ -20,6 +31,41 @@ const AboutPage: NextPage = () => {
         </Typography>
         {children}
       </>
+    )
+  }
+
+  function Item({ title, description, weee = '' }) {
+    return (
+      <Box
+        display={'grid'}
+        gap={2}
+        mb={2}
+        {...(isSmallScreen
+          ? { gridTemplateRows: 'auto 1fr auto' }
+          : { gridTemplateColumns: 'auto 1fr auto' })}
+      >
+        <Stack spacing={1} alignItems={'center'}>
+          <Typography
+            gutterBottom={false}
+            variant={'subtitle1'}
+            component={'span'}
+          >
+            {title}
+          </Typography>
+          <Typography gutterBottom={false}>{weee}</Typography>
+        </Stack>
+
+        <Box
+          component={'hr'}
+          sx={{
+            border: 0,
+            width: '100%',
+            borderBottom: '2px dotted',
+            borderColor: 'divider'
+          }}
+        />
+        <Typography gutterBottom={false}>{description}</Typography>
+      </Box>
     )
   }
 
@@ -164,34 +210,6 @@ const AboutPage: NextPage = () => {
         </Stack>
       </Section>
     </Page>
-  )
-}
-
-function Item({ title, description, weee = '' }) {
-  return (
-    <Box display={'grid'} gridTemplateColumns={'auto 1fr auto'} gap={2} mb={2}>
-      <Stack spacing={1} alignItems={'center'}>
-        <Typography
-          gutterBottom={false}
-          variant={'subtitle1'}
-          component={'span'}
-        >
-          {title}
-        </Typography>
-        <Typography gutterBottom={false}>{weee}</Typography>
-      </Stack>
-
-      <Box
-        component={'hr'}
-        sx={{
-          border: 0,
-          width: '100%',
-          borderBottom: '2px dotted',
-          borderColor: 'divider'
-        }}
-      />
-      <Typography gutterBottom={false}>{description}</Typography>
-    </Box>
   )
 }
 

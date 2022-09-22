@@ -4,7 +4,6 @@ import {
   Link,
   Stack,
   Tooltip,
-  Typography,
   useMediaQuery,
   useTheme
 } from '@mui/material'
