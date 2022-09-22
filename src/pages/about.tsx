@@ -1,6 +1,6 @@
 // Components
 import NextLink from 'next/link'
-import { Alert, Link, Stack, Typography } from '@mui/material'
+import { Alert, Box, Link, Stack, Typography } from '@mui/material'
 import { Page, LinkIconButton } from 'src/components'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
@@ -11,7 +11,7 @@ import { NextPage } from 'next'
 const ABOUT_PAGE_TITLE = `About`
 const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more`
 
-const AboutPage: NextPage = (props) => {
+const AboutPage: NextPage = () => {
   function Section({ title, children }) {
     return (
       <>
@@ -20,23 +20,6 @@ const AboutPage: NextPage = (props) => {
         </Typography>
         {children}
       </>
-    )
-  }
-
-  function Li({ name, children }) {
-    return (
-      <li>
-        <Stack spacing={1} alignItems={'center'} mb={1}>
-          <Typography
-            gutterBottom={false}
-            variant='subtitle1'
-            component={'span'}
-          >
-            {name}
-          </Typography>
-          <Typography gutterBottom={false}>{children}</Typography>
-        </Stack>
-      </li>
     )
   }
 
@@ -69,6 +52,92 @@ const AboutPage: NextPage = (props) => {
         </NextLink>
       </Typography>
 
+      <Section title={`What I'm doing now`}>
+        <Item
+          title={'Work'}
+          description={
+            'I am currently working at MetaSoccer as full-stack developer.'
+          }
+        />
+
+        <Item
+          title={'Open Source'}
+          description={
+            <>
+              As a software developer, I enjoy building{' '}
+              <NextLink href={'/portfolio'}>
+                <Link>open-source software and libraries.</Link>
+              </NextLink>
+            </>
+          }
+        />
+
+        <Item
+          title={'Teaching'}
+          description={
+            <>
+              Sometimes I teach about web development at{' '}
+              <Link href={'https://ironhack.com'}>Ironhack</Link>
+            </>
+          }
+        />
+
+        <Item
+          title={'Blog'}
+          description={
+            <>
+              On this website{' '}
+              <NextLink href={'/blog'}>
+                <Link>I write articles</Link>
+              </NextLink>{' '}
+              about diverse stuff that I find interesting.
+            </>
+          }
+        />
+      </Section>
+
+      <Section title={`Experience`}>
+        <Item
+          title={'MetaSoccer'}
+          description={'Feb 2022 - Present'}
+          weee={'Full-stack developer'}
+        />
+
+        <Item
+          title={'Ironhack'}
+          description={'September 2021 - October 2021'}
+          weee={'Lead Instructor - Design Implementation Course'}
+        />
+
+        <Item
+          title={'NPAW'}
+          description={'June 2019 - February 2022'}
+          weee={'Lead FrontEnd Developer'}
+        />
+
+        <Item
+          title={'Ironhack'}
+          description={'October 2019 - November 2019'}
+          weee={'Design Implementation Course T.A. x2'}
+        />
+
+        <Item
+          title={'NPAW'}
+          description={'June 2017 - June 2019'}
+          weee={'FrontEnd Developer'}
+        />
+
+        <Alert sx={{ mt: 4 }} severity='info'>
+          <Link
+            download
+            href={'/docs/Resume of Hugo Corta.pdf'}
+            sx={{ fontSize: '16px' }}
+          >
+            Download my CV here!
+          </Link>
+        </Alert>
+      </Section>
+
       <Section title={`Get in touch`}>
         <Typography>
           You can reach me out{' '}
@@ -76,7 +145,7 @@ const AboutPage: NextPage = (props) => {
           you prefer so, you may leave me a message in any of the main social
           plaforms. I'll get back to you as soon as I can.
         </Typography>
-        <Stack mt={2} spacing={2}>
+        <Stack mt={2} spacing={1}>
           <LinkIconButton
             icon={BsGithub}
             href={`https://github.com/hcorta`}
@@ -94,104 +163,35 @@ const AboutPage: NextPage = (props) => {
           />
         </Stack>
       </Section>
-
-      <Section title={`What I'm doing now`}>
-        <ul>
-          <Li name={'Work'}>
-            I am currently working at MetaSoccer as full-stack developer.
-          </Li>
-
-          <Li name={'Open Source'}>
-            As a software developer, I enjoy building{' '}
-            <NextLink href={'/portfolio'}>
-              <Link>open-source software and libraries.</Link>
-            </NextLink>
-          </Li>
-
-          <Li name={'Teaching'}>
-            Sometimes I teach about web development at{' '}
-            <Link href={'https://ironhack.com'}>Ironhack</Link>
-          </Li>
-
-          <Li name={'Blog'}>
-            On this website{' '}
-            <NextLink href={'/blog'}>
-              <Link>I write articles</Link>
-            </NextLink>{' '}
-            about diverse stuff that I find interesting.
-          </Li>
-        </ul>
-      </Section>
-
-      <Section title={`My experience timeline`}>
-        <ul>
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2022
-            </Typography>
-            <ul>
-              <Li name={'@MetaSoccer'}>Full-stack developer</Li>
-            </ul>
-          </li>
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2021
-            </Typography>
-            <ul>
-              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-              <Li name={'@Ironhack'}>
-                Design Implementation Course Lead Teacher
-              </Li>
-            </ul>
-          </li>
-
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2020
-            </Typography>
-            <ul>
-              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-            </ul>
-          </li>
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2019
-            </Typography>
-            <ul>
-              <Li name={'@NPAW'}>Lead FrontEnd Developer</Li>
-              <Li name={'@Ironhack'}>Design Implementation Course T.A. x2</Li>
-            </ul>
-          </li>
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2018
-            </Typography>
-            <ul>
-              <Li name={'@NPAW'}>FrontEnd Developer</Li>
-            </ul>
-          </li>
-          <li>
-            <Typography variant={'h6'} component={'h3'} mt={4}>
-              2017
-            </Typography>
-            <ul>
-              <Li name={'@NPAW'}>JR. FrontEnd Developer</Li>
-              <Li name={'@Ironhack'}>Full Stack Developer Bootcamp</Li>
-            </ul>
-          </li>
-        </ul>
-
-        <Alert sx={{ mt: 8 }} severity='info'>
-          <Link
-            download
-            href={'/docs/Resume of Hugo Corta.pdf'}
-            sx={{ fontSize: '16px' }}
-          >
-            Download my CV here!
-          </Link>
-        </Alert>
-      </Section>
     </Page>
+  )
+}
+
+function Item({ title, description, weee = '' }) {
+  return (
+    <Box display={'grid'} gridTemplateColumns={'auto 1fr auto'} gap={2} mb={2}>
+      <Stack spacing={1} alignItems={'center'}>
+        <Typography
+          gutterBottom={false}
+          variant={'subtitle1'}
+          component={'span'}
+        >
+          {title}
+        </Typography>
+        <Typography gutterBottom={false}>{weee}</Typography>
+      </Stack>
+
+      <Box
+        component={'hr'}
+        sx={{
+          border: 0,
+          width: '100%',
+          borderBottom: '2px dotted',
+          borderColor: 'divider'
+        }}
+      />
+      <Typography gutterBottom={false}>{description}</Typography>
+    </Box>
   )
 }
 
