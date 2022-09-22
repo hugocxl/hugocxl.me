@@ -123,7 +123,7 @@ export const Card: FC<CardProps> = ({
         >
           <Stack direction={'column'}>
             <Typography variant={'body2'}>{date}</Typography>
-            <Typography variant={'h6'} component={'span'} mb={0}>
+            <Typography variant={'h6'} component={'span'} mb={1}>
               {title}
             </Typography>
             <Typography variant={'body2'}>{description}</Typography>

@@ -73,7 +73,7 @@ export const Page: FC<PageProps> = ({
   return (
     <>
       <PageHead title={title} description={description} date={date} />
-      <Box className={styles.page} py={6} px={10} height={'100%'} {...rest}>
+      <Box className={styles.page} py={6} px={10} {...rest}>
         <Header />
         {children}
       </Box>
