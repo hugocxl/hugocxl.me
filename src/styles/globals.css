@@ -1,5 +1,5 @@
 :root {
-  --app-gradient: -webkit-linear-gradient(130deg, #bd34fe 80%, #41d1ff);
+  --app-gradient: -webkit-linear-gradient(80deg, #41d1ff, #bd34fe);
 }
 
 .gradient-text {
