@@ -1,9 +1,12 @@
 // Components
-import { IconButton, Link, Tooltip } from '@mui/material'
+import { IconButton, Link, LinkProps, Tooltip } from '@mui/material'
 
 // Types
 import { FC } from 'react'
-import { LinkIconButtonProps } from './LinkIconButton.types'
+
+export interface LinkIconButtonProps extends LinkProps {
+  icon: FC<any>
+}
 
 export const LinkIconButton: FC<LinkIconButtonProps> = ({
   icon: Icon,
@@ -12,12 +15,7 @@ export const LinkIconButton: FC<LinkIconButtonProps> = ({
 }) => {
   return (
     <Tooltip title={title} placement={'bottom'}>
-      <Link
-        {...rest}
-        title={title}
-        target={'_blank'}
-        rel={'noopener noreferrer'}
-      >
+      <Link {...rest} target={'_blank'} rel={'noopener noreferrer'}>
         <IconButton>
           <Icon />
         </IconButton>

@@ -26,6 +26,7 @@ export const Page: FC<PageProps> = ({
       <Stack direction={'column'} mb={6}>
         {title && (
           <Typography
+            mb={0}
             variant={'h4'}
             component={'h1'}
             className={'gradient-text'}
@@ -72,12 +73,7 @@ export const Page: FC<PageProps> = ({
   return (
     <>
       <PageHead title={title} description={description} date={date} />
-      <Box
-        className={styles.page}
-        py={6}
-        px={10}
-        {...rest}
-      >
+      <Box className={styles.page} py={6} px={10} {...rest}>
         <Header />
         {children}
       </Box>

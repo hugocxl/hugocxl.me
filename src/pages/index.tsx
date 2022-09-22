@@ -32,10 +32,11 @@ const HomePage: NextPage = () => {
         <Typography variant={'h4'} component={'span'}>
           {HOME_PAGE_DESCRIPTION}
         </Typography>
-        <Typography fontSize={'20px'} lineHeight={'32px'} mt={4}>
+        <Typography fontSize={'20px'} lineHeight={'32px'} mb={4}>
           This website is supposed to be part portfolio, part rambling space. A
-          place where I’ll try show my skills and projects, check it out!
+          place where I’ll try to show my skills and projects, check it out!
         </Typography>
+
         <Stack spacing={1}>
           <LinkIconButton
             icon={BsFillEnvelopeFill}

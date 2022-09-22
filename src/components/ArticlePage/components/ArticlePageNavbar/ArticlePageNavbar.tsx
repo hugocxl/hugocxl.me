@@ -21,7 +21,16 @@ import {
 
 // Types
 import { FC } from 'react'
-import { ArticlePageNavbarProps } from './ArticlePageNavbar.types'
+
+export interface ArticlePageNavbarProps {
+  title?: string
+  pageUrl?: string
+  description?: string
+  encodedTitle?: string
+  encodedDescription?: string
+  encodedPageUrl?: string
+  slug: string
+}
 
 // Styles
 import { ArticleViews } from 'src/types'
@@ -73,7 +82,7 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({
     return (
       <NextLink href={`/${section}`}>
         <Link color={'primary'}>
-          <Stack alignItems={'center'} spacing={2} onClick={router.back}>
+          <Stack alignItems={'center'} spacing={2}>
             <VscArrowLeft />
             <Typography
               component={'span'}
