@@ -9,56 +9,6 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model dbc8e3_33a5_5d12_853c_9e19419e272f_20220826225739_vrepl {
-  slug  Int    @id
-  count String @db.VarChar(255)
-
-  @@map("_13dbc8e3_33a5_5d12_853c_9e19419e272f_20220826225739_vrepl")
-}
-
-model d004e9b8_b6e3_5d90_b76f_e8da227af23d_20220826230228_vrepl {
-  slug  String @id @db.VarChar(255)
-  count Int
-
-  @@map("_d004e9b8_b6e3_5d90_b76f_e8da227af23d_20220826230228_vrepl")
-}
-
-model vt_HOLD_aa1b9c0bdd6a5894aa2c7ef0740ea063_20220827225018 {
-  count Int    @id @default(autoincrement())
-  slug  String @unique(map: "Page_slug_key")
-
-  @@map("_vt_HOLD_aa1b9c0bdd6a5894aa2c7ef0740ea063_20220827225018")
-}
-
-model vt_HOLD_fc8c118e148854b388a3090ebad08b8d_20220827225017 {
-  id    Int     @id @default(autoincrement())
-  email String  @unique(map: "User_email_key")
-  name  String?
-
-  @@map("_vt_HOLD_fc8c118e148854b388a3090ebad08b8d_20220827225017")
-}
-
-model ff27_1f2f_596a_97bb_fa552769f6b3_20220826231746_vrepl {
-  slug  String @id @db.VarChar(255)
-  count Int    @default(0)
-
-  @@map("_1490ff27_1f2f_596a_97bb_fa552769f6b3_20220826231746_vrepl")
-}
-
-model f3ce675_b698_5b24_8926_db6044f4dc3a_20220826231218_vrepl {
-  slug  String @id @db.VarChar(255)
-  count Int    @default(0)
-
-  @@map("_2f3ce675_b698_5b24_8926_db6044f4dc3a_20220826231218_vrepl")
-}
-
-model vt_HOLD_54f4313a902b5709b1e0421d97c80ffd_20220827232006 {
-  slug  String @id @db.VarChar(255)
-  count Int?
-
-  @@map("_vt_HOLD_54f4313a902b5709b1e0421d97c80ffd_20220827232006")
-}
-
 model analytics {
   slug  String @id @db.VarChar(255)
   count Int    @default(0)

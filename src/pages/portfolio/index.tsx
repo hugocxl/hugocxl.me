@@ -5,7 +5,6 @@ import * as path from 'path'
 import NextLink from 'next/link'
 import { Card, Page } from 'src/components'
 import { Grid, Grow, Link } from '@mui/material'
-import { Masonry } from '@mui/lab'
 
 // Utils
 import { getMetaFromDocsDir } from 'src/utils'
@@ -63,7 +62,6 @@ const PortfolioPage: NextPage<PortfolioPageProps> = ({ projects }) => {
                       date={date}
                       sx={{ height: '100%' }}
                       position={i}
-                      bannerImage={bannerImage}
                       title={title}
                       description={description}
                       tags={tags}
