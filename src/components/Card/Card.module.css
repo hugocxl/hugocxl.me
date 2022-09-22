@@ -7,7 +7,7 @@
 .card::after {
   position: absolute;
   content: '';
-  top: 30px;
+  top: 20px;
   left: 0;
   right: 0;
   z-index: -1;
@@ -15,7 +15,7 @@
   width: 100%;
   transform: scale(0.8);
   filter: blur(25px);
-  transition: opacity 0.5s;
+  transition: all 0.17s ease-in-out;
 }
 
 .info {
@@ -28,5 +28,6 @@
 }
 
 .card:hover::after {
-  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(30px);
 }

@@ -19,7 +19,7 @@ export const darkTheme: ThemeOptions = deepmerge(
       },
       background: {
         default: '#000000',
-        paper: '#020202'
+        paper: '#111111'
       },
       text: {
         primary: '#a3a3a3',
