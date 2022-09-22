@@ -16,7 +16,9 @@ import {
   Stack,
   SvgIcon,
   Tooltip,
-  Typography
+  Typography,
+  useMediaQuery,
+  useTheme
 } from '@mui/material'
 
 // Types
@@ -47,6 +49,8 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({
   const router = useRouter()
   const [_, section] = router.asPath.split('/')
   const [open, setOpen] = useState(false)
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const viewsQuery = useQuery<ArticleViews>([encodedPageUrl], () => {
     return fetch(`/api/views/${slug}`).then((res) => res.json())
   })
@@ -95,7 +99,14 @@ export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({
   }
 
   return (
-    <Stack py={4} px={10} justifyContent={'space-between'}>
+    <Stack
+      spacing={1}
+      py={4}
+      px={10}
+      direction={isSmallScreen ? 'column' : 'row'}
+      {...(isSmallScreen && { px: 2, py: 2 })}
+      justifyContent={'space-between'}
+    >
       <BackButton />
       <Stack spacing={2} alignItems={'center'}>
         <Analytics />
