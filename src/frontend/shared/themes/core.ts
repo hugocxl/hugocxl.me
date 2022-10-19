@@ -23,19 +23,19 @@ export const coreTheme: ThemeOptions = {
     },
     h3: {
       ...commonHeaderProps,
-      letterSpacing: '-1.5px'
+      letterSpacing: '-0.5px'
     },
     h4: {
       ...commonHeaderProps,
-      letterSpacing: '-1.5px'
+      letterSpacing: '-0.5px'
     },
     h5: {
       ...commonHeaderProps,
-      letterSpacing: '-1.5px'
+      letterSpacing: '-0.5px'
     },
     h6: {
       ...commonHeaderProps,
-      letterSpacing: '-1.5px'
+      letterSpacing: '-0.5px'
     },
     subtitle1: {
       ...commonHeaderProps
@@ -106,7 +106,10 @@ export const coreTheme: ThemeOptions = {
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none'
+          borderRadius: '100px',
+          padding: '12px 20px',
+          textTransform: 'none',
+          fontSize: '1rem'
         }
       }
     },

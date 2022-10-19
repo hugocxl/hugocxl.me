@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import matter from 'gray-matter'
 
 // Types
-import { Article } from '@/shared/types'
+import { Article } from '@/frontend/shared/types'
 
 export function getMetaFromDocsDir(dir: string): Article[] {
   try {

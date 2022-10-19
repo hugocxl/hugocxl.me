@@ -8,21 +8,23 @@ import {
   useMediaQuery,
   useTheme,
   Typography,
-  Divider
+  Divider,
+  Box
 } from '@mui/material'
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5'
 import NextLink from 'next/link'
+import NextImage from 'next/image'
 import { VscMenu } from 'react-icons/vsc'
 
 // Constants
-import { PAGES } from '@/shared/constants'
+import { PAGES } from '@/frontend/shared/constants'
 
 // Types
 import { FC, useState } from 'react'
 import { NavBarProps } from './NavBar.types'
 
 // Hooks
-import { useThemeMode } from '@/shared/hooks'
+import { useThemeMode } from '@/frontend/shared/hooks'
 import { useRouter } from 'next/router'
 
 export const NavBar: FC<NavBarProps> = () => {
@@ -39,7 +41,7 @@ export const NavBar: FC<NavBarProps> = () => {
 
   function PagesLinks() {
     return (
-      <Stack spacing={3} alignItems={'center'}>
+      <Stack spacing={4} alignItems={'center'}>
         {PAGES.map(({ label, path, icon: Icon }) => {
           const isActive = pathname.startsWith(path)
 
@@ -115,7 +117,7 @@ export const NavBar: FC<NavBarProps> = () => {
   return (
     <Stack
       px={4}
-      py={6}
+      py={2}
       {...(isSmallScreen && { px: 1, py: 3 })}
       component={'header'}
       alignItems={'center'}
@@ -123,7 +125,31 @@ export const NavBar: FC<NavBarProps> = () => {
       justifyContent={'space-between'}
     >
       <NextLink href='/'>
-        <Link variant={'h6'} color={'primary'} mb={0}>
+        <Link
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            m: 0,
+            color: 'text.secondary'
+          }}
+        >
+          <Box
+            mr={1}
+            display={'block'}
+            width={'48px'}
+            height={'48px'}
+            position={'relative'}
+          >
+            <NextImage
+              layout={'fill'}
+              objectFit={'cover'}
+              placeholder={'blur'}
+              alt={'Hugo Corta'}
+              title={'Hugo Corta'}
+              src={'/img/avatar.png'}
+              blurDataURL={'/img/avatar.png'}
+            />
+          </Box>
           Hugo Corta
         </Link>
       </NextLink>

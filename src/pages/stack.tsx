@@ -1,6 +1,6 @@
 // Components
 import { Link, Typography } from '@mui/material'
-import { Page } from '@/shared/components'
+import { Page } from '@/frontend/shared/components'
 import NextLink from 'next/link'
 
 // Types

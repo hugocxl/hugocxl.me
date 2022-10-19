@@ -46,6 +46,10 @@
   color: #fff;
 }
 
+html {
+  font-size: 18px;
+}
+
 pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
@@ -56,4 +60,5 @@ pre {
 
 a {
   cursor: pointer;
+  font-weight: 600;
 }

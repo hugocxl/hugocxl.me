@@ -1,5 +1,5 @@
 // Types
-import { Article, PageParam } from '@/shared/types'
+import { Article, PageParam } from '@/frontend/shared/types'
 
 export function getPathsFromArticles(articles: Article[]): PageParam[] {
   try {

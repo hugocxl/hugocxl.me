@@ -1,5 +1,5 @@
 // Dependencies
-import { prisma } from '@/shared/lib'
+import { prisma } from '@/frontend/shared/lib'
 
 // Types
 import type { NextApiRequest, NextApiResponse } from 'next'

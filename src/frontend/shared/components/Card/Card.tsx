@@ -8,10 +8,10 @@ import { Stack, Typography, Chip, Box, SvgIcon, Tooltip } from '@mui/material'
 import { CardProps } from './Card.types'
 import { FC } from 'react'
 import { AiOutlineEye } from 'react-icons/ai'
-import { ArticleViews } from '@/shared/types'
+import { ArticleViews } from '@/frontend/shared/types'
 
 // Hooks
-import { useThemeMode } from '@/shared/hooks'
+import { useThemeMode } from '@/frontend/shared/hooks'
 
 // Styles
 import styles from './Card.module.css'

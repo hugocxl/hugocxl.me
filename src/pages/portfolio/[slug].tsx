@@ -2,7 +2,7 @@
 import * as path from 'path'
 
 // Components
-import { ArticlePage, MarkdownRenderer } from '@/shared/components'
+import { ArticlePage, MarkdownRenderer } from '@/frontend/shared/components'
 
 // Utils
 import {
@@ -10,7 +10,7 @@ import {
   getPathsFromArticles,
   parseMatterFromFile,
   readFileFromDir
-} from '@/shared/utils'
+} from '@/frontend/shared/utils'
 
 // Types
 import {
@@ -20,7 +20,7 @@ import {
   GetStaticPropsResult,
   NextPage
 } from 'next'
-import { ArticleMetadata } from '@/shared/types'
+import { ArticleMetadata } from '@/frontend/shared/types'
 
 // Constants
 const PORTFOLIO_DIR = path.join(process.cwd(), 'docs', 'portfolio')

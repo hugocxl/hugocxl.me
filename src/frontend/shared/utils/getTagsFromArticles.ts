@@ -1,5 +1,5 @@
 // Types
-import { Article, ArticleTags } from '@/shared/types'
+import { Article, ArticleTags } from '@/frontend/shared/types'
 
 export function getTagsFromArticles(articles: Article[]) {
   try {

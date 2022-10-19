@@ -9,7 +9,7 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material'
-import { Page, LinkIconButton } from '@/shared/components'
+import { Page, LinkIconButton } from '@/frontend/shared/components'
 import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs'
 
 // Types
