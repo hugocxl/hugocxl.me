@@ -2,7 +2,7 @@
 import * as path from 'path'
 
 // Components
-import { MarkdownRenderer, ArticlePage } from 'src/components'
+import { MarkdownRenderer, ArticlePage } from '@/shared/components'
 
 // Utils
 import {
@@ -10,10 +10,10 @@ import {
   getPathsFromArticles,
   parseMatterFromFile,
   readFileFromDir
-} from 'src/utils'
+} from '@/shared/utils'
 
 // Types
-import { ArticleMetadata } from 'src/types'
+import { ArticleMetadata } from '@/shared/types'
 import {
   GetStaticPaths,
   GetStaticPathsResult,

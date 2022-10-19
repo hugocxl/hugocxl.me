@@ -1,6 +1,6 @@
 // Dependencies
 import matter from 'gray-matter'
-import { ArticleMetadata } from 'src/types'
+import { ArticleMetadata } from '@/shared/types'
 
 export function parseMatterFromFile(file: string): {
   content: string

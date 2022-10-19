@@ -2,16 +2,16 @@
 import * as path from 'path'
 
 // Utils
-import { getMetaFromDocsDir, getTagsFromArticles } from 'src/utils'
+import { getMetaFromDocsDir, getTagsFromArticles } from '@/shared/utils'
 
 // Components
-import { Page, Card } from 'src/components'
+import { Page, Card } from '@/shared/components'
 import { Link } from '@mui/material'
 import NextLink from 'next/link'
 
 // Types
 import { GetStaticProps, GetStaticPropsResult, NextPage } from 'next'
-import { Article, ArticleTags } from 'src/types'
+import { Article, ArticleTags } from '@/shared/types'
 
 // Constants
 const BASE_BLOG_PATH = 'blog'

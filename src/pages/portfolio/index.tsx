@@ -3,14 +3,14 @@ import * as path from 'path'
 
 // Components
 import NextLink from 'next/link'
-import { Card, Page } from 'src/components'
+import { Card, Page } from '@/shared/components'
 import { Grid, Grow, Link } from '@mui/material'
 
 // Utils
-import { getMetaFromDocsDir } from 'src/utils'
+import { getMetaFromDocsDir } from '@/shared/utils'
 
 // Types
-import { Article } from 'src/types'
+import { Article } from '@/shared/types'
 import { GetStaticProps, GetStaticPropsResult, NextPage } from 'next'
 
 // Constants

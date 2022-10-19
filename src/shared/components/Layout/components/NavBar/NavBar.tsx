@@ -15,14 +15,14 @@ import NextLink from 'next/link'
 import { VscMenu } from 'react-icons/vsc'
 
 // Constants
-import { PAGES } from 'src/constants'
+import { PAGES } from '@/shared/constants'
 
 // Types
 import { FC, useState } from 'react'
 import { NavBarProps } from './NavBar.types'
 
 // Hooks
-import { useThemeMode } from 'src/hooks'
+import { useThemeMode } from '@/shared/hooks'
 import { useRouter } from 'next/router'
 
 export const NavBar: FC<NavBarProps> = () => {
@@ -46,7 +46,7 @@ export const NavBar: FC<NavBarProps> = () => {
           return (
             <NextLink href={path} key={path}>
               <Link
-                variant={'subtitle1'}
+                // variant={'subtitle1'}
                 color={!isActive ? 'inherit' : 'secondary'}
                 gutterBottom={false}
               >

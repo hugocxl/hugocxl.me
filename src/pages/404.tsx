@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 
 // Components
 import Link from 'next/link'
-import { Page } from 'src/components'
+import { Page } from '@/shared/components'
 
 // Constants
 const NOTFOUND_PAGE_TITLE = `404 – Hugo Corta`

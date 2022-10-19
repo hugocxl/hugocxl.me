@@ -1,6 +1,6 @@
 // Components
 import { Box, Stack, Typography } from '@mui/material'
-import { LinkIconButton, Page } from 'src/components'
+import { LinkIconButton, Page } from '@/shared/components'
 import {
   BsFillEnvelopeFill,
   BsGithub,

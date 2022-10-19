@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 
 // Components
-import { LinkIconButton } from 'src/components'
+import { LinkIconButton } from '@/shared/components'
 import { BsTwitter, BsLinkedin } from 'react-icons/bs'
 import { AiOutlineLink, AiOutlineEye } from 'react-icons/ai'
 import { VscArrowLeft } from 'react-icons/vsc'
@@ -35,7 +35,7 @@ export interface ArticlePageNavbarProps {
 }
 
 // Styles
-import { ArticleViews } from 'src/types'
+import { ArticleViews } from '@/shared/types'
 
 export const ArticlePageNavbar: FC<ArticlePageNavbarProps> = ({
   title,

@@ -1,5 +1,5 @@
 // Types
-import { Article, PageParam } from 'src/types'
+import { Article, PageParam } from '@/shared/types'
 
 export function getPathsFromArticles(articles: Article[]): PageParam[] {
   try {
