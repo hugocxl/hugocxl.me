@@ -7,30 +7,35 @@ const fontFamilyBody =
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
-  fontWeight: 700
-  // letterSpacing: '-1px'
+  fontWeight: 600
 }
 
 export const coreTheme: ThemeOptions = {
   typography: {
     fontFamily: fontFamilyBody,
     h1: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-3px'
     },
     h2: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-3px'
     },
     h3: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-1.5px'
     },
     h4: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-1.5px'
     },
     h5: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-1.5px'
     },
     h6: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      letterSpacing: '-1.5px'
     },
     subtitle1: {
       ...commonHeaderProps

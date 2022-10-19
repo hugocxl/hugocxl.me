@@ -1,5 +1,11 @@
 :root {
-  --app-gradient: -webkit-linear-gradient(80deg, #41d1ff, #bd34fe);
+  --app-gradient: linear-gradient(
+    135deg,
+    #0e73cc 1.93%,
+    #41d1ff 14.86%,
+    #bd34fe 77.82%,
+    #624bbb 97.3%
+  );
 }
 
 .gradient-text {
@@ -36,7 +42,8 @@
 }
 
 *::selection {
-  background-color: rgb(0, 221, 255);
+  background: #bd34fe;
+  color: #fff;
 }
 
 pre {
