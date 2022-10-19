@@ -52,8 +52,8 @@ export const Home: NextPage = () => {
 
       <Box
         display={'block'}
-        width={'320px'}
-        height={'320px'}
+        width={'360px'}
+        height={'360px'}
         position={'relative'}
       >
         <NextImage

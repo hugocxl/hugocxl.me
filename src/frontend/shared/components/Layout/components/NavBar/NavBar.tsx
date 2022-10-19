@@ -153,9 +153,10 @@ export const NavBar: FC<NavBarProps> = () => {
           Hugo Corta
         </Link>
       </NextLink>
-      <Stack spacing={4}>
-        {isSmallScreen ? <Menu /> : <PagesLinks />}
+      {!isSmallScreen && <PagesLinks />}
+      <Stack spacing={2}>
         <ThemeButton />
+        {isSmallScreen && <Menu />}
       </Stack>
     </Stack>
   )

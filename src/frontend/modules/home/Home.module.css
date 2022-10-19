@@ -2,12 +2,12 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container {
     grid-template-rows: 1fr auto;
     grid-template-columns: 1fr;
+    padding: 20px !important;
   }
 }
