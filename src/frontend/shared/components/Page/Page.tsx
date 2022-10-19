@@ -27,7 +27,7 @@ export const Page: FC<PageProps> = ({
         {title && (
           <Typography
             mb={0}
-            variant={'h4'}
+            variant={'h3'}
             component={'h1'}
             className={'gradient-text'}
           >

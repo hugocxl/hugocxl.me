@@ -117,7 +117,7 @@ export const NavBar: FC<NavBarProps> = () => {
   return (
     <Stack
       px={4}
-      py={2}
+      py={4}
       {...(isSmallScreen && { px: 1, py: 3 })}
       component={'header'}
       alignItems={'center'}
@@ -130,7 +130,7 @@ export const NavBar: FC<NavBarProps> = () => {
             display: 'flex',
             alignItems: 'center',
             m: 0,
-            color: 'text.secondary'
+            color: 'primary.main'
           }}
         >
           <Box
@@ -153,7 +153,7 @@ export const NavBar: FC<NavBarProps> = () => {
           Hugo Corta
         </Link>
       </NextLink>
-      <Stack spacing={2}>
+      <Stack spacing={4}>
         {isSmallScreen ? <Menu /> : <PagesLinks />}
         <ThemeButton />
       </Stack>

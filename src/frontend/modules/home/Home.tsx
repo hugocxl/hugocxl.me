@@ -1,14 +1,8 @@
 // Components
 import { Box, Button, Stack, Typography, Link } from '@mui/material'
-import { LinkIconButton, Page } from '@/frontend/shared/components'
+import { Page } from '@/frontend/shared/components'
 import NextImage from 'next/image'
 import NextLink from 'next/link'
-import {
-  BsFillEnvelopeFill,
-  BsGithub,
-  BsTwitter,
-  BsLinkedin
-} from 'react-icons/bs'
 
 // Types
 import { NextPage } from 'next'
@@ -35,7 +29,7 @@ export const Home: NextPage = () => {
         </Typography>
         <Typography
           m={0}
-          variant={'h6'}
+          variant={'subtitle1'}
           color={'text.primary'}
           component={'span'}
         >
@@ -43,18 +37,23 @@ export const Home: NextPage = () => {
         </Typography>
 
         <Stack spacing={2} my={8}>
-          <Button variant={'contained'}>Read the blog</Button>
-          <Button variant={'outlined'}>See my projects</Button>
+          <NextLink href={'/blog'}>
+            <Button variant={'contained'}>Read the blog</Button>
+          </NextLink>
+          <NextLink href={'/portfolio'}>
+            <Button variant={'outlined'}>See my projects</Button>
+          </NextLink>
         </Stack>
 
         <NextLink href={'/about'}>
           <Link color={'primary'}>{'Learn more about me ->'}</Link>
         </NextLink>
       </Stack>
+
       <Box
         display={'block'}
-        width={'500px'}
-        height={'500px'}
+        width={'320px'}
+        height={'320px'}
         position={'relative'}
       >
         <NextImage
