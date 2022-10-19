@@ -41,13 +41,13 @@
   background-color: rgba(140, 140, 140, 0.5);
 }
 
-*::selection {
+/* *::selection {
   background: #bd34fe;
   color: #fff;
-}
+} */
 
 html {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 pre {

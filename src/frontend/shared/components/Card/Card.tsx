@@ -55,10 +55,10 @@ export const Card: FC<CardProps> = ({
         title={`This page has received ${display} visits`}
         placement={'bottom'}
       >
-        <Stack alignItems={'center'} spacing={1} mt={1}>
-          <SvgIcon color={'inherit'}>
-            <AiOutlineEye />
-          </SvgIcon>
+        <Stack alignItems={'center'} spacing={1} mt={2}>
+          {/* <SvgIcon color={'inherit'}> */}
+          <AiOutlineEye />
+          {/* </SvgIcon> */}
           <Typography gutterBottom={false} variant={'body2'}>
             {display}
           </Typography>
@@ -89,9 +89,9 @@ export const Card: FC<CardProps> = ({
       sx={{
         transition: 'all 0.17s ease-in-out',
         border: 2,
-        borderRadius: 7,
+        borderRadius: 8,
         borderColor: 'transparent',
-        height: '100%',
+        // height: '100%',
         p: '4px',
         '&:hover': {
           borderColor: 'rgba(140,140,140,0.6)'
@@ -102,8 +102,8 @@ export const Card: FC<CardProps> = ({
         className={styles.card}
         sx={{
           display: 'grid',
-          p: '1px',
-          borderRadius: 5,
+          p: '4px',
+          borderRadius: 7,
           transition: 'all 0.18s ease-in-out',
           bgcolor: 'divider',
           backgroundImage,
@@ -116,14 +116,14 @@ export const Card: FC<CardProps> = ({
         <Box
           className={styles.info}
           sx={{
-            borderRadius: 5,
+            borderRadius: 6,
             p: 3,
             bgcolor: 'background.paper'
           }}
         >
           <Stack direction={'column'}>
             <Typography variant={'body2'}>{date}</Typography>
-            <Typography variant={'h6'} component={'span'} mb={1}>
+            <Typography variant={'subtitle1'} component={'span'} mb={1}>
               {title}
             </Typography>
             <Typography variant={'body2'}>{description}</Typography>

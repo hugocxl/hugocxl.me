@@ -116,8 +116,8 @@ export const NavBar: FC<NavBarProps> = () => {
 
   return (
     <Stack
-      px={4}
-      py={4}
+      px={0}
+      py={6}
       {...(isSmallScreen && { px: 1, py: 3 })}
       component={'header'}
       alignItems={'center'}

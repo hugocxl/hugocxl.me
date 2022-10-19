@@ -8,10 +8,13 @@ import {
 } from '@mui/material'
 
 // Contexts
-import { ThemeModeContext } from '../../contexts'
+import { ThemeModeContext } from '@/frontend/shared/contexts'
 
 // Themes
-import { darkTheme as dark, lightTheme as light } from '../../themes'
+import {
+  darkTheme as dark,
+  lightTheme as light
+} from '@/frontend/shared/styles'
 
 // Types
 import { FC } from 'react'

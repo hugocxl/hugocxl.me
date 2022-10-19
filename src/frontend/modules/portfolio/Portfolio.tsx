@@ -9,7 +9,7 @@ import { PortfolioPageProps } from './Portfolio.types'
 
 // Constants
 const BASE_PORTFOLIO_PATH = 'portfolio'
-const PORTFOLIO_PAGE_TITLE = 'Port'
+const PORTFOLIO_PAGE_TITLE = 'Portfolio'
 const PORTFOLIO_PAGE_DESCRIPTION = `Software developer and open source author, I believe in proof of work. These are some of my works.`
 
 export const Portfolio: NextPage<PortfolioPageProps> = ({ projects }) => {
