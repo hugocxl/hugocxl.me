@@ -35,11 +35,7 @@ const HomePage: NextPage = () => {
         className={'gradient-text'}
         component={'span'}
       >{`Hi, I’m Hugo`}</Typography>
-      <Typography
-        variant={'h4'}
-        component={'span'}
-        align={'center'}
-      >
+      <Typography variant={'h4'} component={'span'} align={'center'}>
         {HOME_PAGE_DESCRIPTION}
       </Typography>
       <Typography fontSize={'20px'} lineHeight={'32px'} mb={4} align={'center'}>
@@ -69,37 +65,6 @@ const HomePage: NextPage = () => {
           title={`LinkedIn @hugocorta`}
         />
       </Stack>
-
-      <Box
-        sx={{
-          overflow: 'hidden',
-          zIndex: -1,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          filter: 'blur(140px)',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          height: '100%',
-          width: '100%'
-        }}
-      >
-        <Box
-          sx={{
-            rotate: '20deg',
-            borderRadius: '100%',
-            backgroundImage: 'linear-gradient(45deg,#41d1ff,#bd34fe)'
-          }}
-          position={'absolute'}
-          className='rotate'
-          bgcolor={'#41d1ff'}
-          height={'20%'}
-          width={'100%'}
-        />
-      </Box>
     </Page>
   )
 }
