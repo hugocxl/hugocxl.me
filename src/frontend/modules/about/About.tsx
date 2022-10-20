@@ -144,8 +144,14 @@ export const About: NextPage = () => {
 
       <Section title={`Experience`}>
         <Item
+          title={'CoverWallet'}
+          description={'October 2022 - Present'}
+          weee={'Full-stack developer'}
+        />
+
+        <Item
           title={'MetaSoccer'}
-          description={'Feb 2022 - Present'}
+          description={'February 2022 - October 2022'}
           weee={'Full-stack developer'}
         />
 
