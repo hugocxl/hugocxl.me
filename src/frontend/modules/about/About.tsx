@@ -17,7 +17,7 @@ import { NextPage } from 'next'
 
 // Constants
 const ABOUT_PAGE_TITLE = `About`
-const ABOUT_PAGE_DESCRIPTION = `Get to know me a little bit more`
+const ABOUT_PAGE_DESCRIPTION = `Get to know more about me`
 
 export const About: NextPage = () => {
   const theme = useTheme()
@@ -71,21 +71,21 @@ export const About: NextPage = () => {
 
   return (
     <Page title={ABOUT_PAGE_TITLE} description={ABOUT_PAGE_DESCRIPTION}>
-      <Typography paragraph>
-        I'm an experienced <b>Software Engineer</b> with a demonstrated history
-        of working in the computer software industry.{' '}
-        <b>Skilled in Mobile, Web and Server Application Development.</b>
+      <Typography variant='subtitle1' component={'span'} gutterBottom>
+        Hi everyone 👋
       </Typography>
       <Typography paragraph>
-        I am fortunate to develop myself through my career, fulfilling my
-        interests by growing professionally.
+        I'm Hugo Corta, an experienced <b>Software Engineer</b> with a
+        demonstrated history of working in the computer software industry.{' '}
+        Skilled in <b>Mobile, Web and Server Application Development</b>, I am
+        fortunate to develop myself through my career, fulfilling my interests
+        by growing professionally.
       </Typography>
       <Typography paragraph>
         I love using my technical skills to build cool and interesting things.
-        My superpower is to deliver high-quality products by being able to
-        contribute value across different ladders of abstraction, all the way
+        Contributing value across different ladders of abstraction, all the way
         from the highest levels of definition down to the lowest levels of
-        implementation details.
+        implementation details, it's where you'll' find me at my best.
       </Typography>
       <Typography paragraph>
         If you want to know more, you may{' '}
@@ -102,7 +102,10 @@ export const About: NextPage = () => {
         <Item
           title={'Work'}
           description={
-            'I am currently working at MetaSoccer as full-stack developer.'
+            <span>
+              I am currently working at <Link>CoverWallet</Link> as a Full Stack
+              Developer.
+            </span>
           }
         />
 
@@ -146,13 +149,13 @@ export const About: NextPage = () => {
         <Item
           title={'CoverWallet'}
           description={'October 2022 - Present'}
-          weee={'Full-stack developer'}
+          weee={'Full Stack developer'}
         />
 
         <Item
           title={'MetaSoccer'}
           description={'February 2022 - October 2022'}
-          weee={'Full-stack developer'}
+          weee={'Full Stack developer'}
         />
 
         <Item
