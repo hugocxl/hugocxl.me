@@ -56,8 +56,7 @@ export const Page: FC<PageProps> = ({
             position={'relative'}
           >
             <NextImage
-              layout={'fill'}
-              objectFit={'cover'}
+              fill={true}
               placeholder={'blur'}
               alt={title}
               title={title}

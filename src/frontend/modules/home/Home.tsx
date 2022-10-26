@@ -57,8 +57,7 @@ export const Home: NextPage = () => {
         position={'relative'}
       >
         <NextImage
-          layout={'fill'}
-          objectFit={'cover'}
+          fill={true}
           placeholder={'blur'}
           alt={'Hugo Corta'}
           title={'Hugo Corta'}

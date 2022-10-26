@@ -21,27 +21,23 @@ export const Portfolio: NextPage<PortfolioPageProps> = ({ projects }) => {
           const { title, description, tags, date, bannerImage } = meta
 
           return (
-            <NextLink
-              key={slug}
-              href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
-            >
-              <Grow in timeout={i * 200 + 200}>
-                <Grid item xs={12} sm={6} md={4} lg={4}>
-                  <Link color={'inherit'} underline={'none'}>
-                    <Card
-                      date={date}
-                      sx={{ height: '100%' }}
-                      position={i}
-                      title={title}
-                      description={description}
-                      tags={tags}
-                      key={title}
-                      slug={project.slug}
-                    />
-                  </Link>
-                </Grid>
-              </Grow>
-            </NextLink>
+            <Grid item xs={12} sm={6} md={4} lg={4}>
+              <NextLink
+                key={slug}
+                href={`/${BASE_PORTFOLIO_PATH}/${project.slug}`}
+              >
+                <Card
+                  date={date}
+                  sx={{ height: '100%' }}
+                  position={i}
+                  title={title}
+                  description={description}
+                  tags={tags}
+                  key={title}
+                  slug={project.slug}
+                />
+              </NextLink>
+            </Grid>
           )
         })}
       </Grid>

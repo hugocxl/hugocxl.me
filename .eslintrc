@@ -18,8 +18,7 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "standard",
-    "standard-react",
-    "plugin:prettier/recommended"
+    "standard-react"
   ],
   "env": { "browser": true, "node": true },
   "rules": {

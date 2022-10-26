@@ -117,7 +117,7 @@ export const NavBar: FC<NavBarProps> = () => {
   return (
     <Stack
       px={0}
-      py={6}
+      py={4}
       {...(isSmallScreen && { px: 1, py: 3 })}
       component={'header'}
       alignItems={'center'}
@@ -141,8 +141,7 @@ export const NavBar: FC<NavBarProps> = () => {
             position={'relative'}
           >
             <NextImage
-              layout={'fill'}
-              objectFit={'cover'}
+              fill={true}
               placeholder={'blur'}
               alt={'Hugo Corta'}
               title={'Hugo Corta'}
