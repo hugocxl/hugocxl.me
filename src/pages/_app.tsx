@@ -1,5 +1,6 @@
 // Dependencies
 import { QueryClientProvider } from '@tanstack/react-query'
+import { Analytics } from '@vercel/analytics/react'
 
 // Components
 import { Layout, ThemeProvider } from '@/frontend/shared/components'
@@ -16,13 +17,16 @@ import '@/frontend/shared/styles/globals.css'
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider>
-      <QueryClientProvider client={queryClient}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <>
+      <ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </QueryClientProvider>
+      </ThemeProvider>
+      <Analytics />
+    </>
   )
 }
 
