@@ -26,6 +26,7 @@ import { NavBarProps } from './NavBar.types'
 // Hooks
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useRouter } from 'next/router'
+import { Container } from '@mui/system'
 
 export const NavBar: FC<NavBarProps> = () => {
   const { pathname } = useRouter()
@@ -64,7 +65,11 @@ export const NavBar: FC<NavBarProps> = () => {
   function ThemeButton() {
     return (
       <Tooltip title={'Toggle theme'} placement={'bottom'}>
-        <IconButton onClick={toggleMode} sx={{ bgcolor: 'action.hover' }}>
+        <IconButton
+          onClick={toggleMode}
+          sx={{ bgcolor: 'action.hover' }}
+          size={'medium'}
+        >
           {!isDarkMode ? <IoMoonOutline /> : <IoSunnyOutline />}
         </IconButton>
       </Tooltip>
@@ -116,47 +121,60 @@ export const NavBar: FC<NavBarProps> = () => {
 
   return (
     <Stack
-      px={0}
-      py={4}
-      {...(isSmallScreen && { px: 1, py: 3 })}
       component={'header'}
-      alignItems={'center'}
-      display={'flex'}
-      justifyContent={'space-between'}
+      zIndex={10}
+      top={0}
+      position={'sticky'}
+      sx={{ backdropFilter: 'saturate(180%) blur(5px)' }}
+      borderBottom={1}
+      borderColor={'divider'}
+      width={'100%'}
+      px={2}
+      py={2}
+      bgcolor={isDarkMode ? '#11111185' : 'rgba(255,255,255,0.35)'}
+      {...(isSmallScreen && { px: 1, py: 1 })}
     >
-      <NextLink href='/'>
-        <Link
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            m: 0,
-            color: 'primary.main'
-          }}
-        >
-          <Box
-            mr={1}
-            display={'block'}
-            width={'48px'}
-            height={'48px'}
-            position={'relative'}
+      <Container
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        <NextLink href='/'>
+          <Link
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              m: 0,
+              color: 'primary.main'
+            }}
           >
-            <NextImage
-              fill={true}
-              placeholder={'blur'}
-              alt={'Hugo Corta'}
-              title={'Hugo Corta'}
-              src={'/img/avatar.png'}
-              blurDataURL={'/img/avatar.png'}
-            />
-          </Box>
-          Hugo Corta
-        </Link>
-      </NextLink>
-      {!isSmallScreen && <PagesLinks />}
-      <Stack spacing={2}>
-        <ThemeButton />
-        {isSmallScreen && <Menu />}
-      </Stack>
+            <Box
+              mr={1}
+              display={'block'}
+              width={'40px'}
+              height={'40px'}
+              position={'relative'}
+            >
+              <NextImage
+                fill={true}
+                placeholder={'blur'}
+                alt={'Hugo Corta'}
+                title={'Hugo Corta'}
+                src={'/img/avatar.png'}
+                blurDataURL={'/img/avatar.png'}
+              />
+            </Box>
+            Hugo Corta
+          </Link>
+        </NextLink>
+        {!isSmallScreen && <PagesLinks />}
+        <Stack spacing={2}>
+          <ThemeButton />
+          {isSmallScreen && <Menu />}
+        </Stack>
+      </Container>
     </Stack>
   )
 }

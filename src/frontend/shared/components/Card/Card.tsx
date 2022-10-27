@@ -13,33 +13,15 @@ import { ArticleViews } from '@/frontend/shared/types'
 // Hooks
 import { useThemeMode } from '@/frontend/shared/hooks'
 
-// Styles
-import styles from './Card.module.css'
-
-const gradients = [
-  'linear-gradient(135deg, #bd34fe, #41d1ff)',
-  'linear-gradient(to bottom right, rgb(240,187,31), rgb(191,34,168))',
-  'linear-gradient(to bottom right, rgb(85,171,4), rgb(41,194,251))'
-]
-
 export const Card: FC<CardProps> = ({
   title,
   date,
   description,
   tags,
-  sx = {},
-  position,
   slug
 }) => {
   const [mode] = useThemeMode()
   const isDarkMode = mode === 'dark'
-  const gradient = gradients[position % 3]
-  const backgroundImage = isDarkMode
-    ? gradient
-    : 'linear-gradient(135deg, #ececec, #dddddd)'
-  const afterBackgroundImage = isDarkMode
-    ? gradient
-    : 'linear-gradient(135deg, #ececec, #999999)'
 
   const viewsQuery = useQuery<ArticleViews>([slug], () => {
     return fetch(`/api/views/${slug}`).then((res) => res.json())
@@ -56,9 +38,7 @@ export const Card: FC<CardProps> = ({
         placement={'bottom'}
       >
         <Stack alignItems={'center'} spacing={1} mt={2}>
-          {/* <SvgIcon color={'inherit'}> */}
           <AiOutlineEye />
-          {/* </SvgIcon> */}
           <Typography gutterBottom={false} variant={'body2'}>
             {display}
           </Typography>
@@ -87,11 +67,10 @@ export const Card: FC<CardProps> = ({
   return (
     <Box
       sx={{
-        transition: 'all 0.17s ease-in-out',
         border: 2,
-        borderRadius: 8,
+        borderRadius: 7,
         borderColor: 'transparent',
-        // height: '100%',
+        height: '100%',
         p: '4px',
         '&:hover': {
           borderColor: 'rgba(140,140,140,0.6)'
@@ -99,41 +78,37 @@ export const Card: FC<CardProps> = ({
       }}
     >
       <Box
-        className={styles.card}
+        boxShadow={1}
+        border={1}
+        borderColor={'divider'}
         sx={{
-          display: 'grid',
-          p: '4px',
-          borderRadius: 7,
-          transition: 'all 0.18s ease-in-out',
-          bgcolor: 'divider',
-          backgroundImage,
-          '::after': {
-            backgroundImage: afterBackgroundImage
-          },
-          ...sx
+          height: '100%',
+          borderRadius: 6,
+          p: 3,
+          bgcolor: 'background.paper',
+          ...(isDarkMode && {
+            background:
+              'linear-gradient(190deg,rgba(50,50,50,0.5),rgba(20,20,20,0.5))'
+          })
         }}
       >
-        <Box
-          className={styles.info}
-          sx={{
-            borderRadius: 6,
-            p: 3,
-            bgcolor: 'background.paper'
-          }}
-        >
-          <Stack direction={'column'}>
-            <Typography variant={'body2'}>{date}</Typography>
-            <Typography variant={'subtitle1'} component={'span'} mb={1}>
-              {title}
-            </Typography>
-            <Typography variant={'body2'}>{description}</Typography>
-          </Stack>
+        <Stack direction={'column'}>
+          <Typography variant={'body2'}>{date}</Typography>
+          <Typography
+            className={'gradient-text'}
+            variant={'h5'}
+            component={'span'}
+            mb={1}
+          >
+            {title}
+          </Typography>
+          <Typography variant={'body2'}>{description}</Typography>
+        </Stack>
 
-          <Stack direction={'column'}>
-            {Boolean(tags) && <Tags />}
-            <Analytics />
-          </Stack>
-        </Box>
+        <Stack direction={'column'}>
+          {Boolean(tags) && <Tags />}
+          <Analytics />
+        </Stack>
       </Box>
     </Box>
   )

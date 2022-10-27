@@ -1,6 +1,6 @@
 // Components
 import { NavBar } from './components'
-import { Container } from '@mui/material'
+import { Box, Container } from '@mui/material'
 
 // Types
 import { FC } from 'react'
@@ -14,9 +14,9 @@ export interface LayoutProps {
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <Container className={styles.container}>
+    <Box className={styles.container}>
       <NavBar />
       {children}
-    </Container>
+    </Box>
   )
 }

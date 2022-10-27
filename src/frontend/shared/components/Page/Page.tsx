@@ -1,5 +1,5 @@
 // Components
-import { Stack, Typography, Box, Divider } from '@mui/material'
+import { Stack, Typography, Box, Container } from '@mui/material'
 import { PageHead } from './components'
 import NextImage from 'next/image'
 
@@ -27,7 +27,7 @@ export const Page: FC<PageProps> = ({
         {title && (
           <Typography
             mb={0}
-            variant={'h3'}
+            variant={'h2'}
             component={'h1'}
             className={'gradient-text'}
           >
@@ -70,12 +70,12 @@ export const Page: FC<PageProps> = ({
   }
 
   return (
-    <>
+    <Container>
       <PageHead title={title} description={description} date={date} />
-      <Box className={styles.page} py={6} px={10} {...rest}>
+      <Box className={styles.page} py={6} px={6} height={'100%'} {...rest}>
         <Header />
         {children}
       </Box>
-    </>
+    </Container>
   )
 }

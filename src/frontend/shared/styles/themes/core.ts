@@ -7,7 +7,7 @@ const fontFamilyBody =
 
 const commonHeaderProps = {
   fontFamily: fontFamilyHeader,
-  fontWeight: 600
+  fontWeight: 800
 }
 
 export const coreTheme: ThemeOptions = {
@@ -15,11 +15,13 @@ export const coreTheme: ThemeOptions = {
     fontFamily: fontFamilyBody,
     h1: {
       ...commonHeaderProps,
-      letterSpacing: '-3px'
+      letterSpacing: '-2px',
+      fontSize: '4.35rem'
     },
     h2: {
       ...commonHeaderProps,
-      letterSpacing: '-3px'
+      letterSpacing: '-2px',
+      fontSize: '3.35rem'
     },
     h3: {
       ...commonHeaderProps,
@@ -38,10 +40,12 @@ export const coreTheme: ThemeOptions = {
       letterSpacing: '-0.5px'
     },
     subtitle1: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      fontWeight: 600
     },
     subtitle2: {
-      ...commonHeaderProps
+      ...commonHeaderProps,
+      fontWeight: 600
     },
     button: {},
     body1: {
@@ -107,7 +111,7 @@ export const coreTheme: ThemeOptions = {
       styleOverrides: {
         root: {
           borderRadius: '100px',
-          padding: '12px 20px',
+          padding: '10px 24px',
           textTransform: 'none',
           fontSize: '1rem'
         }
@@ -121,7 +125,16 @@ export const coreTheme: ThemeOptions = {
     MuiLink: {
       defaultProps: {
         color: 'secondary',
-        underline: 'hover'
+        underline: 'none'
+      },
+      styleOverrides: {
+        root: ({ ownerState, theme }) => {
+          return {
+            '&:hover': {
+              color: theme.palette.primary.main
+            }
+          }
+        }
       }
     },
     MuiTooltip: {

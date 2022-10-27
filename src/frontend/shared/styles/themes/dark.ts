@@ -19,10 +19,11 @@ export const darkTheme: ThemeOptions = deepmerge(
       },
       background: {
         default: '#111',
-        paper: '#222'
+        paper: '#1e1e1e'
       },
+      divider: '#8a8a8a1c',
       text: {
-        primary: '#a3a3a3',
+        primary: '#b8b8b8',
         secondary: '#ffffff',
         disabled: '#aeaeb4'
       }
