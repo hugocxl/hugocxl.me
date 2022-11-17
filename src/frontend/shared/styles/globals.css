@@ -1,20 +1,3 @@
-:root {
-  --app-gradient: linear-gradient(
-    135deg,
-    #0e73cc 1.93%,
-    #41d1ff 14.86%,
-    #bd34fe 77.82%,
-    #624bbb 97.3%
-  );
-}
-
-.gradient-text {
-  background: var(--app-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 *::-webkit-scrollbar-track {
   border-radius: 10px;
 }
@@ -41,10 +24,11 @@
   background-color: rgba(140, 140, 140, 0.5);
 }
 
-/* *::selection {
-  background: #bd34fe;
-  color: #fff;
-} */
+a {
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+}
 
 pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
@@ -52,11 +36,4 @@ pre {
   white-space: -pre-wrap; /* Opera 4-6 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
-}
-
-a {
-  cursor: pointer;
-  font-weight: 500;
-  text-decoration: none;
-  color: inherit;
 }

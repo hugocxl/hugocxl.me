@@ -1,10 +1,10 @@
 // Components
-import { Link, Typography } from '@mui/material'
 import { Page } from '@/frontend/shared/components'
 import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
+import { Title } from '@mantine/core'
 
 // Constants
 const STACK_PAGE_TITLE = `Stack`
@@ -13,49 +13,46 @@ const STACK_PAGE_DESCRIPTION = `Here's what tech I'm currently using for coding 
 export const Stack: NextPage = () => {
   return (
     <Page title={STACK_PAGE_TITLE} description={STACK_PAGE_DESCRIPTION}>
-      <Typography variant={'subtitle1'}>{'Computer / Office'}</Typography>
+      <Title order={2}>{'Computer / Office'}</Title>
       <ul>
-        <Typography component={'li'}>MacBook Pro (13-inch, 2017)</Typography>
-        <Typography component={'li'}>Mac Mini (2021)</Typography>
-        <Typography component={'li'}>Apple Magic Keyboard</Typography>
-        <Typography component={'li'}>31.5" LG UltraFine 32UN880</Typography>
-        <Typography component={'li'}>Logitech MX Master 3 Mouse</Typography>
+        <li>MacBook Pro (13-inch, 2017)</li>
+        <li>Mac Mini (2021)</li>
+        <li>Apple Magic Keyboard</li>
+        <li>31.5" LG UltraFine 32UN880</li>
+        <li>Logitech MX Master 3 Mouse</li>
       </ul>
 
-      <Typography mt={6} variant={'subtitle1'}>
+      <Title mt={6} order={2}>
         {'Coding'}
-      </Typography>
+      </Title>
       <ul>
-        <Typography component={'li'}>Editor: VSCode</Typography>
-        <Typography component={'li'}>
-          Theme:{' '}
-          <NextLink href={'/portfolio/haramosh'}>
-            <Link>Haramosh</Link>
-          </NextLink>
-        </Typography>
-        <Typography component={'li'}>Terminal: macOS terminal / zsh</Typography>
+        <li>Editor: VSCode</li>
+        <li>
+          Theme: <NextLink href={'/portfolio/haramosh'}>Haramosh</NextLink>
+        </li>
+        <li>Terminal: macOS terminal / zsh</li>
       </ul>
 
-      <Typography mt={6} variant={'subtitle1'}>
+      <Title mt={6} order={2}>
         {'Software'}
-      </Typography>
+      </Title>
       <ul>
-        <Typography component={'li'}>1 Password</Typography>
-        <Typography component={'li'}>Spotify</Typography>
-        <Typography component={'li'}>Raycast</Typography>
-        <Typography component={'li'}>Notion</Typography>
-        <Typography component={'li'}>Google Drive</Typography>
-        <Typography component={'li'}>Lunar</Typography>
+        <li>1 Password</li>
+        <li>Spotify</li>
+        <li>Raycast</li>
+        <li>Notion</li>
+        <li>Google Drive</li>
+        <li>Lunar</li>
       </ul>
 
-      <Typography mt={6} variant={'subtitle1'}>
+      <Title mt={6} order={2}>
         {'Other Tech'}
-      </Typography>
+      </Title>
       <ul>
-        <Typography component={'li'}>Apple Airpods Pro</Typography>
-        <Typography component={'li'}>Apple iPhone 11 Pro</Typography>
-        <Typography component={'li'}>Kindle Oasis</Typography>
-        <Typography component={'li'}>Polar Vantage M</Typography>
+        <li>Apple Airpods Pro</li>
+        <li>Apple iPhone 11 Pro</li>
+        <li>Kindle Oasis</li>
+        <li>Polar Vantage M</li>
       </ul>
     </Page>
   )

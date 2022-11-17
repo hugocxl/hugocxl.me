@@ -1,81 +1,46 @@
 // Components
-import { Stack, Typography, Box, Container } from '@mui/material'
 import { PageHead } from './components'
-import NextImage from 'next/image'
 
 // Types
-import { PageProps } from './Page.types'
 import { FC } from 'react'
 
 // Styles
-import styles from './Page.module.css'
+import { Stack, Text, Container, Title } from '@mantine/core'
+
+export interface PageProps {
+  title?: string
+  description?: string
+  children: React.ReactNode
+  showHeader?: boolean
+  withContainer?: boolean
+}
 
 export const Page: FC<PageProps> = ({
   children,
   title,
   description,
-  date,
-  showHeader = true,
-  bannerImage,
-  ...rest
+  showHeader = true
 }) => {
   function Header() {
     if (!showHeader) return null
 
     return (
-      <Stack direction={'column'} mb={6}>
+      <Stack mb={'40px'} spacing={0}>
         {title && (
-          <Typography
-            mb={0}
-            variant={'h2'}
-            component={'h1'}
-            className={'gradient-text'}
-          >
+          <Title variant='gradient' order={1} m={'0 !important'}>
             {title}
-          </Typography>
+          </Title>
         )}
-        {description && (
-          <Typography
-            component={'span'}
-            color={'text.secondary'}
-            fontWeight={'normal'}
-            variant={'h6'}
-          >
-            {description}
-          </Typography>
-        )}
-        {bannerImage && (
-          <Box
-            boxShadow={1}
-            borderRadius={4}
-            overflow={'hidden'}
-            mt={4}
-            display={'block'}
-            width={'100%'}
-            height={'400px'}
-            position={'relative'}
-          >
-            <NextImage
-              fill={true}
-              placeholder={'blur'}
-              alt={title}
-              title={title}
-              src={bannerImage}
-              blurDataURL={bannerImage}
-            />
-          </Box>
-        )}
+        {description && <Text size={'xl'}>{description}</Text>}
       </Stack>
     )
   }
 
   return (
-    <Container>
-      <PageHead title={title} description={description} date={date} />
-      <Box className={styles.page} py={6} px={6} height={'100%'} {...rest}>
-        <Header />
-        {children}
-      </Box>
+    <Container sx={{ paddingTop: '40px', height: '100%' }}>
+      <PageHead title={title} description={description} />
+      <Header />
+      {children}
     </Container>
   )
 }

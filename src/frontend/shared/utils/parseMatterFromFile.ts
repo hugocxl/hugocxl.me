@@ -1,10 +1,10 @@
 // Dependencies
 import matter from 'gray-matter'
-import { ArticleMetadata } from '@/frontend/shared/types'
+import { PostMetadata } from '@/frontend/shared/types'
 
 export function parseMatterFromFile(file: string): {
   content: string
-  meta: ArticleMetadata
+  meta: PostMetadata
 } {
   const { data: meta, content } = matter(file)
 

@@ -1,11 +1,16 @@
 // Dependencies
+
 import * as React from 'react'
+import { createGetInitialProps } from '@mantine/next'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 // Constants
 const DOCUMENT_TITLE = 'Hugo Corta'
 
+const getInitialProps = createGetInitialProps()
 class Document extends NextDocument {
+  static getInitialProps = getInitialProps
+
   render() {
     return (
       <Html lang='en'>

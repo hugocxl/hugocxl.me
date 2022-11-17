@@ -2,18 +2,19 @@
 import * as path from 'path'
 
 // Components
-import { MarkdownRenderer, ArticlePage } from '@/frontend/shared/components'
+import { MarkdownRenderer, PagePost } from '@/frontend/shared/components'
 
 // Utils
 import {
+  createTableOfContentsFromMd,
   getMetaFromDocsDir,
-  getPathsFromArticles,
+  getPathsFromPosts,
   parseMatterFromFile,
   readFileFromDir
 } from '@/frontend/shared/utils'
 
 // Types
-import { ArticleMetadata } from '@/frontend/shared/types'
+import { PostMetadata, PostTableOfContents } from '@/frontend/shared/types'
 import {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -26,16 +27,17 @@ import {
 const BASE_BLOG_PATH = 'blog'
 const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
 
-interface PostArticlePageProps {
-  meta: ArticleMetadata
+interface BlogPostPageProps {
+  meta: PostMetadata
   content: string
   slug: string
+  tableOfContents: PostTableOfContents
 }
 
 const getStaticPaths: GetStaticPaths =
   async (): Promise<GetStaticPathsResult> => {
     const posts = getMetaFromDocsDir(BLOG_DIR)
-    const paths = getPathsFromArticles(posts)
+    const paths = getPathsFromPosts(posts)
 
     return {
       paths,
@@ -45,32 +47,40 @@ const getStaticPaths: GetStaticPaths =
 
 const getStaticProps: GetStaticProps = async (
   props
-): Promise<GetStaticPropsResult<PostArticlePageProps>> => {
+): Promise<GetStaticPropsResult<BlogPostPageProps>> => {
   const { slug } = props.params
   const fileName = `${BLOG_DIR}/${slug}.md`
   const file = readFileFromDir(fileName)
-  const pageProps = parseMatterFromFile(file)
+  const { content, meta } = parseMatterFromFile(file)
+  const tableOfContents = createTableOfContentsFromMd(content)
 
   return {
     revalidate: 60,
     props: {
-      ...pageProps,
+      content,
+      meta,
+      tableOfContents,
       slug: slug as string
     }
   }
 }
 
-const PostArticlePage: NextPage<PostArticlePageProps> = ({
+const BlogPostPage: NextPage<BlogPostPageProps> = ({
   meta,
   content,
-  slug
+  slug,
+  tableOfContents
 }) => {
   return (
-    <ArticlePage {...meta} slug={slug}>
+    <PagePost
+      title={meta.title}
+      description={meta.description}
+      tableOfContents={tableOfContents}
+    >
       <MarkdownRenderer>{content}</MarkdownRenderer>
-    </ArticlePage>
+    </PagePost>
   )
 }
 
 export { getStaticPaths, getStaticProps }
-export default PostArticlePage
+export default BlogPostPage

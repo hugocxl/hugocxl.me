@@ -1,9 +1,0 @@
-.container {
-  display: grid !important;
-  grid-template-rows: auto 1fr;
-  height: 100vh;
-}
-
-.container header a {
-  font-size: 14px;
-}

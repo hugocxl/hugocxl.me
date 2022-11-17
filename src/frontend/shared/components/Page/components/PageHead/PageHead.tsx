@@ -3,9 +3,13 @@ import Head from 'next/head'
 
 // Types
 import { FC } from 'react'
-import { PageHeadProps } from './PageHead.types'
 
-export const PageHead: FC<PageHeadProps> = ({ title, description, date }) => {
+export interface PageHeadProps {
+  title: string
+  description?: string
+}
+
+export const PageHead: FC<PageHeadProps> = ({ title, description }) => {
   return (
     <Head>
       <meta charSet='utf-8' />
@@ -23,12 +27,6 @@ export const PageHead: FC<PageHeadProps> = ({ title, description, date }) => {
         <>
           <meta name='description' content={description} />
           <meta property='og:description' content={description} />
-        </>
-      )}
-      {date && (
-        <>
-          <meta name='date' content={date} />
-          <meta property='og:date' content={date} />
         </>
       )}
       <title>{title}</title>

@@ -3,9 +3,9 @@ import * as fs from 'fs'
 import matter from 'gray-matter'
 
 // Types
-import { Article } from '@/frontend/shared/types'
+import { Post } from '@/frontend/shared/types'
 
-export function getMetaFromDocsDir(dir: string): Article[] {
+export function getMetaFromDocsDir(dir: string): Post[] {
   try {
     const files = fs.readdirSync(dir)
 

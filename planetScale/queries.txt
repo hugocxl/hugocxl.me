@@ -1,4 +1,0 @@
-CREATE TABLE `analytics` (
-  `slug` varchar(255) NOT NULL PRIMARY KEY,
-  `count` int NOT NULL DEFAULT 0
-);

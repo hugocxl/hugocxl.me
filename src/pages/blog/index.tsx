@@ -4,7 +4,7 @@ import * as path from 'path'
 // Utils
 import {
   getMetaFromDocsDir,
-  getTagsFromArticles
+  getTagsFromPosts
 } from '@/frontend/shared/utils'
 
 // Types
@@ -19,7 +19,7 @@ const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<BlogPageProps>> => {
   const posts = getMetaFromDocsDir(BLOG_DIR)
-  const tags = getTagsFromArticles(posts)
+  const tags = getTagsFromPosts(posts)
 
   return {
     revalidate: 60,

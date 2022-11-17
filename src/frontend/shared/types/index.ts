@@ -1,18 +1,18 @@
-export type ArticleTags = string[]
+export type PostTags = string[]
 
-export interface ArticleMetadata {
+export interface PostMetadata {
   title?: string
   description?: string
   category?: string
   date?: string
   link?: string
   bannerImage?: string
-  tags?: ArticleTags
+  tags?: PostTags
 }
 
-export interface Article {
+export interface Post {
   slug: string
-  meta: ArticleMetadata
+  meta: PostMetadata
 }
 
 export interface PageParam {
@@ -21,6 +21,8 @@ export interface PageParam {
   }
 }
 
-export interface ArticleViews {
-  total: number
-}
+export type PostTableOfContents = {
+  label: string
+  link: string
+  order: number
+}[]
