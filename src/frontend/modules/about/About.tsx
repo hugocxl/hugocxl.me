@@ -45,13 +45,13 @@ export const About: NextPage = () => {
       </p>
       <p>
         If you want to know more, you may{' '}
-        <NextLink href={'/stack'}>
+        <NextLink href={'/more/stack'}>
           <Text span variant='link'>
             check out my stack
           </Text>
         </NextLink>{' '}
         or visit{' '}
-        <NextLink href={'/portfolio'}>
+        <NextLink href={'/projects'}>
           <Text span variant='link'>
             my portfolio section.
           </Text>

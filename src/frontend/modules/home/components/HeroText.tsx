@@ -5,7 +5,8 @@ import {
   Button,
   Container,
   Stack,
-  Group
+  Group,
+  Box
 } from '@mantine/core'
 import { Dots } from './Dots'
 import NextLink from 'next/link'
@@ -44,35 +45,41 @@ export function HeroText() {
   const { classes } = useStyles()
 
   return (
-    <Container className={classes.wrapper}>
-      <Dots className={classes.dots} style={{ left: 0, top: 400 }} />
-      <Dots className={classes.dots} style={{ left: 60, top: 180 }} />
-      <Dots className={classes.dots} style={{ right: 120, top: 240 }} />
-      <Dots className={classes.dots} style={{ right: 0, top: 400 }} />
+    <Box className={classes.wrapper}>
+      <Container pos={'relative'} w={'100%'}>
+        <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
+        <Dots
+          className={classes.dots}
+          style={{ left: 0, top: 0, transform: 'translateY(200px)' }}
+        />
+        <Dots className={classes.dots} style={{ right: 0, top: 0 }} />
+        <Dots
+          className={classes.dots}
+          style={{ right: 0, top: 0, transform: 'translateY(-200px)' }}
+        />
 
-      <Stack spacing={0} align='center'>
-        <Title order={1}>
-          Hi! I'm Hugo.{' '}
-          <Text component='span' variant={'gradient'} inherit>
-            Software Craftman
-          </Text>
-        </Title>
+        <Stack spacing={0} align='center'>
+          <Title order={1}>
+            Hi  I'm Hugo.{' '}
+            <Text component='span' variant={'gradient'} inherit>
+              Software Craftman
+            </Text>
+          </Title>
 
-        <Container p={0} size={600}>
           <Text size='lg' color='dimmed' align='center'>
             I help companies to turn ideas into real-life products.
           </Text>
-        </Container>
 
-        <Group mt={'xl'}>
-          <NextLink href='/blog'>
-            <Button variant='default'>Read my blog</Button>
-          </NextLink>
-          <NextLink href='/projects'>
-            <Button>See my projects</Button>
-          </NextLink>
-        </Group>
-      </Stack>
-    </Container>
+          <Group mt={'xl'}>
+            <NextLink href='/blog'>
+              <Button variant='default'>Read my blog</Button>
+            </NextLink>
+            <NextLink href='/projects'>
+              <Button>See my projects</Button>
+            </NextLink>
+          </Group>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

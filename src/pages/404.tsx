@@ -18,7 +18,9 @@ const NotFound: NextPage = () => {
       description={NOTFOUND_PAGE_DESCRIPTION}
     >
       <Stack align={'flex-start'} h={'100%'} justify={'center'}>
-        <Title order={2}>404 – Page not found</Title>
+        <Title order={2} variant={'gradient'}>
+          404 – Page not found
+        </Title>
         <p>
           Why show a generic 404 when I can make it sound mysterious? It seems
           you've found something that used to exist, or you spelled something
