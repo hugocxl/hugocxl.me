@@ -62,7 +62,7 @@ export function HeroText() {
           <Title order={1}>
             Hi  I'm Hugo.{' '}
             <Text component='span' variant={'gradient'} inherit>
-              Software Craftman
+              Software Craftsman
             </Text>
           </Title>
 
