@@ -1,6 +1,6 @@
 // Components
-import { Header } from './components'
-import { AppShell as AppShellMantine } from '@mantine/core'
+import { Header, Footer } from './components'
+import { AppShell as MnAppShell } from '@mantine/core'
 import { RouterTransition } from '../RouterTransition'
 import { SpotlightAction, SpotlightProvider } from '@mantine/spotlight'
 import {
@@ -31,12 +31,6 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
   const isDarkMode = mode === 'dark'
 
   const actions: SpotlightAction[] = [
-    // {
-    //   title: 'Home',
-    //   description: 'Get to home page',
-    //   icon: <IconHome />,
-    //   onTrigger: () => router.push('/')
-    // },
     {
       title: 'Blog',
       description: 'Go to blog page',
@@ -83,22 +77,11 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
         )
       }
     >
-      <AppShellMantine
-      // header={}
-      // styles={(theme) => ({
-      //   main: {
-      //     backgroundColor:
-      //       theme.colorScheme === 'dark'
-      //         ? theme.colors.dark[8]
-      //         : theme.colors.white
-      //   }
-      // })}
-      >
-        <Header />
+      <MnAppShell footer={<Footer />} header={<Header />}>
         <RouterTransition />
 
         {children}
-      </AppShellMantine>
+      </MnAppShell>
     </SpotlightProvider>
   )
 }

@@ -7,7 +7,7 @@ import { HeroText } from './components/HeroText'
 
 // Constants
 const HOME_PAGE_TITLE = `Hugo Corta`
-const HOME_PAGE_DESCRIPTION = `Software developer at @CoverWallet`
+const HOME_PAGE_DESCRIPTION = `Software Craftsman`
 
 export const Home: NextPage = () => {
   return (

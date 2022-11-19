@@ -10,6 +10,7 @@ import {
 } from '@mantine/core'
 import { Dots } from './Dots'
 import NextLink from 'next/link'
+import NextImage from 'next/image'
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -21,10 +22,7 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // background: 'red',
-    maxWidth: 'none',
-    background:
-      theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.white
+    maxWidth: 'none'
   },
 
   dots: {
@@ -48,22 +46,26 @@ export function HeroText() {
     <Box className={classes.wrapper}>
       <Container pos={'relative'} w={'100%'}>
         <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-        <Dots
-          className={classes.dots}
-          style={{ left: 0, top: 0, transform: 'translateY(200px)' }}
-        />
-        <Dots className={classes.dots} style={{ right: 0, top: 0 }} />
-        <Dots
-          className={classes.dots}
-          style={{ right: 0, top: 0, transform: 'translateY(-200px)' }}
-        />
+        <Dots className={classes.dots} style={{ left: 80, top: 0 }} />
+        <Dots className={classes.dots} style={{ right: 0, bottom: 0 }} />
+        <Dots className={classes.dots} style={{ right: 0, bottom: 100 }} />
 
         <Stack spacing={0} align='center'>
-          <Title order={1}>
-            Hi  I'm Hugo.{' '}
-            <Text component='span' variant={'gradient'} inherit>
-              Software Craftsman
-            </Text>
+          <NextImage
+            alt='Mountains'
+            src={'/img/avatar.png'}
+            width={160}
+            height={160}
+          />
+          <Title sx={{ marginBottom: '0 !important' }} order={2} span>
+            Hi – I'm Hugo
+          </Title>
+          <Title
+            sx={{ marginTop: '0 !important' }}
+            order={1}
+            variant={'gradient'}
+          >
+            Software Craftsman
           </Title>
 
           <Text size='lg' color='dimmed' align='center'>

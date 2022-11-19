@@ -18,8 +18,7 @@ import {
   IconArrowLeft,
   IconBrandLinkedin,
   IconBrandTwitter,
-  IconClipboard,
-  IconMoon
+  IconClipboard
 } from '@tabler/icons'
 
 // Types
@@ -40,7 +39,6 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
   const baseUrl = 'https://hugocorta.com'
   const pageUrl = `${baseUrl}${router.asPath}`
   const encodedPageUrl = encodeURI(pageUrl)
-  const encodedTitle = encodeURI(title)
   const encodedDescription = encodeURI(description)
 
   async function onClickToClipboard() {

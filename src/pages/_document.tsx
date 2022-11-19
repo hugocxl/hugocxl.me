@@ -1,5 +1,4 @@
 // Dependencies
-
 import * as React from 'react'
 import { createGetInitialProps } from '@mantine/next'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
@@ -17,7 +16,6 @@ class Document extends NextDocument {
         <Head>
           <meta property='og:site_name' content={DOCUMENT_TITLE} />
           <meta property='og:title' content={DOCUMENT_TITLE} />
-          <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
           <link rel='shortcut icon' href='/favicon.png' />
           <link
             rel='apple-touch-icon'
@@ -41,7 +39,6 @@ class Document extends NextDocument {
         <body>
           <Main />
           <NextScript />
-          <script async src='https://cdn.splitbee.io/sb.js'></script>
         </body>
       </Html>
     )

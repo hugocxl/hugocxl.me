@@ -1,5 +1,5 @@
 // Components
-import { Group, Badge, Card, Text } from '@mantine/core'
+import { Group, Badge, Card, Text, useMantineTheme } from '@mantine/core'
 
 // Types
 import { FC } from 'react'
@@ -18,19 +18,21 @@ export const CardBox: FC<CardBoxProps> = ({
   description,
   tags
 }) => {
+  const theme = useMantineTheme()
+  const isDarkMode = theme.colorScheme === 'dark'
   return (
     <Card
-      withBorder
-      sx={(theme) => ({
+      withBorder={!isDarkMode}
+      sx={{
         height: '100%',
         justifyContent: 'space-between',
         minHeight: '200px',
         flexDirection: 'column',
         display: 'flex'
-      })}
+      }}
     >
       <Card.Section
-        p={'lg'}
+        p={'xl'}
         mt={'md'}
         sx={{
           borderBottom: 1
@@ -46,17 +48,17 @@ export const CardBox: FC<CardBoxProps> = ({
       </Card.Section>
 
       <Card.Section
-        sx={(theme) => ({
+        withBorder
+        px={'xl'}
+        py={'sm'}
+        sx={{
           display: 'flex',
           flexWrap: 'wrap',
           backgroundColor:
             theme.colorScheme === 'dark'
-              ? theme.colors.dark[7]
+              ? theme.colors.dark[5]
               : theme.colors.gray[0]
-        })}
-        withBorder
-        px={'md'}
-        py={'sm'}
+        }}
       >
         {tags.map((tag) => (
           <Badge

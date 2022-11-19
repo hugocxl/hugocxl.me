@@ -38,18 +38,18 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         theme={{
           primaryColor: isDarkMode ? 'violet' : 'blue',
           colorScheme: mode,
-          black: '#222',
+          black: '#000',
           white: '#fff',
           defaultRadius: 'md',
           defaultGradient: isDarkMode
             ? {
-                from: '#6841d9',
-                to: '#ff3ed2',
+                to: '#6741d9',
+                from: '#bd34fe',
                 deg: 135
               }
             : {
-                from: '#41d1ff',
-                to: '#bd34fe',
+                to: '#41d1ff',
+                from: '#bd34fe',
                 deg: 135
               },
           components: {
@@ -57,7 +57,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               styles: {
                 root: {
                   letterSpacing: -1,
-                  // fontWeight: 800,
                   width: 'fit-content',
                   color: isDarkMode ? 'white' : 'black'
                 }

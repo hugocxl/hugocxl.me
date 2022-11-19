@@ -25,5 +25,7 @@ export function RouterTransition() {
     }
   }, [router.asPath])
 
-  return <NavigationProgress autoReset={true} />
+  return (
+    <NavigationProgress progressLabel='Navigation progress' autoReset={true} />
+  )
 }

@@ -84,7 +84,7 @@ export const About: NextPage = () => {
           </Button>
         </Anchor>
         <Anchor
-          href={`https://twitter.com/`}
+          href={`https://twitter.com/hcorta`}
           title={`Twitter @hcorta`}
           target={'_blank'}
         >
@@ -153,7 +153,6 @@ export const About: NextPage = () => {
           </Text>
         </li>
       </ul>
-
       <Divider variant='dotted' mt={'xl'} />
       <Title order={2}>Experience</Title>
       <Timeline active={-1} bulletSize={16} lineWidth={2}>
@@ -222,6 +221,43 @@ export const About: NextPage = () => {
           Click here to download a PDF version of my resume.
         </Anchor>
       </Alert>
+      <Divider variant='dotted' mt={'xl'} />
+      <Title order={2}>Random Facts</Title>
+      <ul>
+        <li>
+          I practice sports daily. My favourite practice is powerlifting, though
+          I also enjoy running and cycling.
+        </li>
+        <li>
+          I have two degrees in construction (Architectural Engineer and Civil
+          Engineer) and worked in the field for a few years before becoming a
+          developer.
+        </li>
+        <li>
+          I like sci-fi books, like Dune, The Foundation, and The Three Body
+          Problem series.
+        </li>
+        <li>
+          I am kind of good with{' '}
+          <a
+            target={'_blank'}
+            href='https://www.youtube.com/watch?v=l1rjJUkylXw'
+          >
+            Photoshop
+          </a>
+          .
+        </li>
+        <li>
+          I love playing the guitar, which I learned to play aged 13. Through my
+          teenage years I tried on some groups but (thankfully) I didn't make it
+          very far. Nowadays, just some Metallica songs remains as remanent of
+          my early heavy metal manners. Shame on me.
+        </li>
+        <li>
+          One of my ever-favorite hobbies when I was young was making electronic
+          music. I stopped a few years ago to focus on other interests though.
+        </li>
+      </ul>
     </Page>
   )
 }

@@ -23,7 +23,8 @@ import {
   Menu,
   Switch,
   Flex,
-  Box
+  Box,
+  Title
 } from '@mantine/core'
 
 // Hooks
@@ -88,7 +89,7 @@ export function Header() {
     const isActive = pathname.startsWith(href)
 
     const linkProps = {
-      color: isActive ? 'initial' : 'dimmed',
+      color: isActive ? 'inherit' : 'dimmed',
       weight: 500,
       onClick: isMenuOpenCx.close,
       sx: {
@@ -136,6 +137,7 @@ export function Header() {
   function ThemeButton() {
     return (
       <Switch
+        aria-label={isDarkMode ? 'Dark mode' : 'Light mode'}
         sx={{
           display: 'flex',
           alignItems: 'center'
@@ -173,9 +175,10 @@ export function Header() {
     >
       <Container
         sx={(theme) => ({
-          borderRadius: 16,
+          border: '1px solid rgba(100, 100, 100, 0.1)',
+          boxShadow: 'rgb(0 0 0 / 10%) 0px 2px 4px',
+          borderRadius: 12,
           padding: '8px 20px',
-          border: '1px solid rgba(140, 140, 140, 0.2)',
           backdropFilter: 'blur(10px)',
           background: 'rgba(255, 255, 255, 0.05)'
         })}
@@ -190,9 +193,9 @@ export function Header() {
         >
           <Group spacing={'xl'}>
             <NextLink href={'/'}>
-              <Text weight={600} color={'initial'}>
+              <Title order={4} span sx={{ margin: '0 !important' }}>
                 @hcorta
-              </Text>
+              </Title>
             </NextLink>
             <Divider size='sm' orientation='vertical' />
 

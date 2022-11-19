@@ -1,7 +1,7 @@
 // Components
 import { Page } from '@/frontend/shared/components'
+import { Box, Card, Paper, Stack, Table, Text, Title } from '@mantine/core'
 import NextLink from 'next/link'
-import { Card, Table, Text } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -20,50 +20,37 @@ export interface BlogPageProps {
 export const Blog: NextPage<BlogPageProps> = ({ posts, tags }) => {
   return (
     <Page title={BLOG_PAGE_TITLE} description={BLOG_PAGE_DESCRIPTION}>
-      <Card
-        withBorder
-        p={'xl'}
-        sx={(theme) => ({
-          backgroundColor:
-            theme.colorScheme === 'dark'
-              ? theme.colors.dark[6]
-              : theme.colors.gray[0]
-        })}
-      >
-        <Table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Tags</th>
-            </tr>
-          </thead>
-          <tbody>
-            {posts.map((post, i) => {
-              const { slug, meta } = post
-              const { title, description, tags, date } = meta
+      {posts.map((post, i) => {
+        const { slug, meta } = post
+        const { title, description, tags, date } = meta
+        const jsDate = new Date(date)
+        const dateLabel = `${jsDate.getMonth()} - ${jsDate.getFullYear()}`
 
-              return (
-                <tr>
-                  <td>
-                    <Text size={'xs'}>{date}</Text>
-                  </td>
-                  <td>
-                    <NextLink href={`/${BASE_BLOG_PATH}/${slug}`} key={slug}>
-                      <Text variant={'link'}>{title}</Text>
-                    </NextLink>
-                  </td>
-                  <td>
-                    <Text maw={'280px'}>{description}</Text>
-                  </td>
-                  <td>{tags}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </Table>
-      </Card>
+        return (
+          <NextLink
+            href={`/${BASE_BLOG_PATH}/${slug}`}
+            key={slug}
+            style={{ color: 'inherit' }}
+          >
+            <Paper
+              withBorder
+              py={'lg'}
+              radius={0}
+              sx={{ borderLeft: 0, borderTop: 0, borderRight: 0 }}
+            >
+              <Stack spacing={0}>
+                <Text variant='link' size={'xs'}>
+                  {dateLabel}
+                </Text>
+                <Text weight={'bold'}>{title}</Text>
+                <Text size={'sm'} color={'dimmed'}>
+                  {description}
+                </Text>
+              </Stack>
+            </Paper>
+          </NextLink>
+        )
+      })}
     </Page>
   )
 }

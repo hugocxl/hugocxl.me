@@ -1,20 +1,9 @@
 import { PostTableOfContents } from '@/frontend/shared/types'
+import { getFragmentFromString } from '@/frontend/shared/utils/getFragmentFromString'
 
 const HEADINGS_REGEX = /^(#{1,6}[ \t].+)$|^(.+[\r\n][=-]{3,})$/gm
 const HEADING_REGEX = /^(#+)[ \t](.+)$|^(.+)[\r\n]([=-])/
-const WHITESPACE_REGEX = /\s/
-const INVALID_FRAGMENT_REGEX = /[^a-zA-Z0-9_-]/g
-
-const SPACE = ' '
 const HYPHEN = '-'
-
-function getFragment(heading: string): string {
-  return heading
-    .toLowerCase()
-    .split(WHITESPACE_REGEX)
-    .join('-')
-    .replace(INVALID_FRAGMENT_REGEX, '')
-}
 
 export function createTableOfContentsFromMd(
   markdown: string
@@ -55,7 +44,7 @@ export function createTableOfContentsFromMd(
 
     previousLevel = currentLevel
 
-    const fragment = getFragment(headingText)
+    const fragment = getFragmentFromString(headingText)
 
     output.push({
       label: headingText,
