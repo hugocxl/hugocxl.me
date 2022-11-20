@@ -52,7 +52,7 @@ export function HeroText() {
 
         <Stack spacing={0} align='center'>
           <NextImage
-            alt='Mountains'
+            alt='Hugo Corta'
             src={'/img/avatar.png'}
             width={160}
             height={160}
