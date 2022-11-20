@@ -26,3 +26,11 @@ export type PostTableOfContents = {
   link: string
   order: number
 }[]
+
+export interface RepoItem {
+  name: string
+  path: string
+  children?: RepoItem[]
+}
+
+export type RepoTree = RepoItem[]
