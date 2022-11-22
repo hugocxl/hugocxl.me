@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-import { MantineProvider } from '@mantine/core'
+import { Global, MantineProvider } from '@mantine/core'
 import { TypographyStylesProvider } from '@mantine/core'
 
 // Contexts
@@ -36,15 +36,39 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          primaryColor: isDarkMode ? 'violet' : 'blue',
+          fontFamily: 'iA Writer Duo, monospace',
+          fontFamilyMonospace: 'monospace',
+          headings: { fontFamily: 'iA Writer Duo, sans-serif' },
+          fontSizes: {
+            xs: 12,
+            sm: 14,
+            md: 18,
+            lg: 20,
+            xl: 24
+          },
+          primaryColor: isDarkMode ? 'yellow' : 'violet',
           colorScheme: mode,
           black: '#000',
           white: '#fff',
           defaultRadius: 'md',
+          colors: {
+            yellow: [
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D',
+              '#FBD38D'
+            ]
+          },
           defaultGradient: isDarkMode
             ? {
-                to: '#6741d9',
-                from: '#bd34fe',
+                from: '#FBD38D',
+                to: '#FBD38D',
                 deg: 135
               }
             : {
@@ -53,6 +77,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
                 deg: 135
               },
           components: {
+            Container: {
+              styles: {
+                root: {
+                  maxWidth: '800px'
+                }
+              }
+            },
             Title: {
               styles: {
                 root: {
@@ -72,6 +103,50 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         }}
       >
         <TypographyStylesProvider>{children}</TypographyStylesProvider>
+        <Global
+          styles={[
+            {
+              '@font-face': {
+                fontFamily: 'iA Writer Duo',
+                fontWeight: 'normal',
+                fontStyle: 'normal',
+                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Regular.eot") format("embedded-opentype"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Regular.woff2") format("woff2"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Regular.woff") format("woff")`
+              }
+            },
+            {
+              '@font-face': {
+                fontFamily: 'iA Writer Duo',
+                fontWeight: 'normal',
+                fontStyle: 'italic',
+                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Italic.eot") format("embedded-opentype"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Italic.woff2") format("woff2"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Italic.woff") format("woff")`
+              }
+            },
+            {
+              '@font-face': {
+                fontFamily: 'iA Writer Duo',
+                fontWeight: 'bold',
+                fontStyle: 'normal',
+                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Bold.eot") format("embedded-opentype"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Bold.woff2") format("woff2"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-Bold.woff") format("woff")`
+              }
+            },
+            {
+              '@font-face': {
+                fontFamily: 'iA Writer Duo',
+                fontWeight: 'bold',
+                fontStyle: 'italic',
+                src: `url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.eot") format("embedded-opentype"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.woff2") format("woff2"),
+                      url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.woff") format("woff")`
+              }
+            }
+          ]}
+        />
       </MantineProvider>
     </ThemeModeContext.Provider>
   )

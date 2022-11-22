@@ -31,7 +31,7 @@ export const Page: FC<PageProps> = ({
             {title}
           </Title>
         )}
-        {description && <Text size={'xl'}>{description}</Text>}
+        {description && <Text size={'lg'}>{description}</Text>}
       </Stack>
     )
   }

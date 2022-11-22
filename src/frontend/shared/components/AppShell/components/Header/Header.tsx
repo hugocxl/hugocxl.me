@@ -163,24 +163,16 @@ export function Header() {
 
   return (
     <MantineHeader
-      withBorder={false}
+      withBorder={true}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        background: 'transparent',
-        top: 20,
-        [theme.fn.smallerThan('lg')]: {
-          padding: '0 12px'
-        }
+        backdropFilter: 'blur(10px)',
+        background: 'rgba(255, 255, 255, 0.035)'
       })}
     >
       <Container
         sx={(theme) => ({
-          border: '1px solid rgba(100, 100, 100, 0.1)',
-          boxShadow: 'rgb(0 0 0 / 10%) 0px 2px 4px',
-          borderRadius: 12,
-          padding: '8px 20px',
-          backdropFilter: 'blur(10px)',
-          background: 'rgba(255, 255, 255, 0.05)'
+          height: '100%'
         })}
       >
         <SimpleGrid
@@ -188,7 +180,8 @@ export function Header() {
           sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
-            height: '100%'
+            height: '100%',
+            gridTemplateColumns: 'auto auto'
           }}
         >
           <Group spacing={'xl'}>
