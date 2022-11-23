@@ -19,11 +19,11 @@ const FOOTER_HEIGHT = 40
 export function Footer() {
   return (
     <MnFooter
-      withBorder
+      withBorder={false}
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
         backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0.035)'
+        background: 'rgba(255, 255, 255, 0.0)'
       })}
     >
       <Container h={'100%'}>

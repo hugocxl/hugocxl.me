@@ -48,11 +48,3 @@ pre {
     margin-bottom: 2rem !important;
   }
 }
-
-p {
-  opacity: 0.75;
-}
-
-p:hover {
-  opacity: 1;
-}

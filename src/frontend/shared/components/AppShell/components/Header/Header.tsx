@@ -7,7 +7,8 @@ import {
   IconX,
   IconMenu2,
   IconChevronDown,
-  IconMoonStars
+  IconMoonStars,
+  IconSearch
 } from '@tabler/icons'
 import {
   Header as MantineHeader,
@@ -136,38 +137,39 @@ export function Header() {
 
   function ThemeButton() {
     return (
-      <Switch
-        aria-label={isDarkMode ? 'Dark mode' : 'Light mode'}
-        sx={{
-          display: 'flex',
-          alignItems: 'center'
-        }}
-        checked={isDarkMode}
-        onChange={toggleMode}
-        size='lg'
-        onLabel={<IconSun color={theme.white} size={20} />}
-        offLabel={
-          <IconMoonStars color={theme.colors.gray[6]} size={20} stroke={1.5} />
-        }
-      />
+      <ActionIcon variant='subtle' onClick={toggleMode}>
+        {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={18} />}
+      </ActionIcon>
     )
   }
 
   function BurgerButton() {
     return (
-      <ActionIcon onClick={isMenuOpenCx.toggle}>
-        {!isMenuOpen ? <IconMenu2 size={20} /> : <IconX size={20} />}
+      <ActionIcon
+        variant='subtle'
+        onClick={isMenuOpenCx.toggle}
+        sx={responsiveStyles.mobile}
+      >
+        {!isMenuOpen ? <IconMenu2 size={18} /> : <IconX size={18} />}
+      </ActionIcon>
+    )
+  }
+
+  function SearchButton() {
+    return (
+      <ActionIcon variant='subtle' onClick={spotlight.openSpotlight}>
+        {<IconSearch size={16} />}
       </ActionIcon>
     )
   }
 
   return (
     <MantineHeader
-      withBorder={true}
+      withBorder={false}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
         backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0.035)'
+        background: 'rgba(255, 255, 255, 0)'
       })}
     >
       <Container
@@ -176,42 +178,34 @@ export function Header() {
         })}
       >
         <SimpleGrid
-          cols={2}
+          cols={3}
           sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
             height: '100%',
-            gridTemplateColumns: 'auto auto'
+            gridTemplateColumns: 'auto auto auto'
           }}
         >
-          <Group spacing={'xl'}>
-            <NextLink href={'/'}>
-              <Title order={4} span sx={{ margin: '0 !important' }}>
-                @hcorta
-              </Title>
-            </NextLink>
-            <Divider size='sm' orientation='vertical' />
+          <NextLink href={'/'}>
+            <Title order={4} span sx={{ margin: '0 !important' }}>
+              @hcorta
+            </Title>
+          </NextLink>
 
-            <Group spacing={'xl'} sx={responsiveStyles.desktop}>
-              {items}
-            </Group>
+          <Group spacing={'xl'} sx={responsiveStyles.desktop}>
+            {items}
           </Group>
 
           <Group
             align={'center'}
-            sx={{ justifyContent: 'flex-end', ...responsiveStyles.desktop }}
-            spacing={'xs'}
+            sx={{ justifyContent: 'flex-end' }}
+            spacing={0}
           >
-            <SearchControl onClick={spotlight.openSpotlight} />
-            <ThemeButton />
-          </Group>
+            {/* <SearchControl onClick={spotlight.openSpotlight} /> */}
 
-          <Group
-            spacing={'xs'}
-            sx={{ justifyContent: 'flex-end', ...responsiveStyles.mobile }}
-          >
-            <ThemeButton />
             <BurgerButton />
+            <SearchButton />
+            <ThemeButton />
           </Group>
 
           <Transition

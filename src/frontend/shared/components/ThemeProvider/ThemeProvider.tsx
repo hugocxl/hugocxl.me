@@ -48,7 +48,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
           },
           primaryColor: isDarkMode ? 'yellow' : 'violet',
           colorScheme: mode,
-          black: '#000',
+          black: '#555',
           white: '#fff',
           defaultRadius: 'md',
           colors: {
