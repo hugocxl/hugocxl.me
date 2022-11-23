@@ -1,3 +1,7 @@
+* {
+  text-rendering: optimizeLegibility;
+}
+
 *::-webkit-scrollbar-track {
   border-radius: 10px;
 }
@@ -36,4 +40,11 @@ pre {
   white-space: -pre-wrap; /* Opera 4-6 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    line-height: 2.2rem !important;
+    margin-bottom: 2rem !important;
+  }
 }

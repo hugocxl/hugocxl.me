@@ -51,12 +51,6 @@ export function HeroText() {
         <Dots className={classes.dots} style={{ right: 0, bottom: 100 }} />
 
         <Stack spacing={0} align='center'>
-          <NextImage
-            alt='Hugo Corta'
-            src={'/img/avatar.png'}
-            width={160}
-            height={160}
-          />
           <Title sx={{ marginBottom: '0 !important' }} order={2} span>
             Hi – I'm Hugo
           </Title>
@@ -77,7 +71,7 @@ export function HeroText() {
               <Button variant='default'>Read my blog</Button>
             </NextLink>
             <NextLink href='/projects'>
-              <Button>See my projects</Button>
+              <Button variant='outline'>See my projects</Button>
             </NextLink>
           </Group>
         </Stack>

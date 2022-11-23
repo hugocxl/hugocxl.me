@@ -20,7 +20,7 @@ export const Projects: NextPage<ProjectsPageProps> = ({ projects }) => {
   return (
     <Page title={PROJECTS_PAGE_TITLE} description={PROJECTS_PAGE_DESCRIPTION}>
       <SimpleGrid
-        cols={3}
+        cols={2}
         spacing={'lg'}
         breakpoints={[
           { maxWidth: 'sm', cols: 2, spacing: 'sm' },

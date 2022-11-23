@@ -19,18 +19,17 @@ const FOOTER_HEIGHT = 40
 export function Footer() {
   return (
     <MnFooter
+      withBorder={false}
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
-        background:
-          theme.colorScheme === 'dark'
-            ? theme.colors.dark[8]
-            : theme.colors.gray[0]
+        backdropFilter: 'blur(10px)',
+        background: 'rgba(255, 255, 255, 0.0)'
       })}
     >
       <Container h={'100%'}>
         <Flex align={'center'} justify={'space-between'} h={'100%'}>
           <Text color={'dimmed'} size={'xs'}>
-            {`© ${new Date().getFullYear()} Hugo Corta`}
+            {`© ${new Date().getFullYear()} Hugo Corta. All Rights Reserved.`}
           </Text>
           <Group spacing={0}>
             <Anchor

@@ -109,7 +109,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         <Title variant='gradient' order={1} m={'0 !important'}>
           {title}
         </Title>
-        <Text size={'xl'} pb={'md'}>
+        <Text size={'md'} pb={'md'}>
           {description}
         </Text>
         <Divider variant={'dotted'} />

@@ -64,6 +64,7 @@ export function TableOfContents({ links }: TableOfContentsProps) {
         right: 0,
         top: 0,
         height: '100%',
+        paddingTop: '80px !important',
         [theme.fn.smallerThan('xl')]: {
           display: 'none'
         }
