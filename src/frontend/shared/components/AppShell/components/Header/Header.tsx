@@ -1,9 +1,7 @@
 // Components
 import NextLink from 'next/link'
-import { SearchControl } from '@mantine/ds'
 import {
   IconSun,
-  IconMoon,
   IconX,
   IconMenu2,
   IconChevronDown,
@@ -19,12 +17,8 @@ import {
   Text,
   ActionIcon,
   SimpleGrid,
-  Divider,
   Group,
   Menu,
-  Switch,
-  Flex,
-  Box,
   Title
 } from '@mantine/core'
 
@@ -33,6 +27,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { useRouter } from 'next/router'
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
+import { useEffect, useState } from 'react'
 
 const HEADER_HEIGHT = 60
 
@@ -69,6 +64,8 @@ const links: Link[] = [
 export function Header() {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
+  const [windowScroll, setWindowScroll] = useState(0)
+  const [showHeader, setShowHeader] = useState(true)
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const spotlight = useSpotlight()
   const theme = useMantineTheme()
@@ -135,9 +132,25 @@ export function Header() {
     )
   })
 
+  useEffect(() => {
+    window.addEventListener('scroll', onWindowScroll)
+
+    return () => {
+      window.removeEventListener('scroll', onWindowScroll)
+    }
+  }, [windowScroll])
+
+  function onWindowScroll() {
+    const currentScroll = window.pageYOffset
+    const isScrollingUp = currentScroll < windowScroll
+
+    setWindowScroll(window.scrollY)
+    setShowHeader(isScrollingUp)
+  }
+
   function ThemeButton() {
     return (
-      <ActionIcon variant='subtle' onClick={toggleMode}>
+      <ActionIcon variant='filled' color={'yellow'} onClick={toggleMode}>
         {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={18} />}
       </ActionIcon>
     )
@@ -168,8 +181,10 @@ export function Header() {
       withBorder={false}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
+        transition: 'transform 0.3s ease',
+        transform: `translateY(${showHeader ? 0 : -100}%)`,
         backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0)'
+        background: 'transparent'
       })}
     >
       <Container
@@ -179,6 +194,8 @@ export function Header() {
       >
         <SimpleGrid
           cols={3}
+          spacing={0}
+          breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 0 }]}
           sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -199,10 +216,8 @@ export function Header() {
           <Group
             align={'center'}
             sx={{ justifyContent: 'flex-end' }}
-            spacing={0}
+            spacing={'xs'}
           >
-            {/* <SearchControl onClick={spotlight.openSpotlight} /> */}
-
             <BurgerButton />
             <SearchButton />
             <ThemeButton />

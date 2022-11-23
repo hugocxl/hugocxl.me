@@ -23,7 +23,7 @@ export function Footer() {
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
         backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0.0)'
+        background: 'transparent'
       })}
     >
       <Container h={'100%'}>

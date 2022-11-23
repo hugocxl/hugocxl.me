@@ -158,14 +158,14 @@ export const About: NextPage = () => {
       <Timeline active={-1} bulletSize={16} lineWidth={2}>
         <Timeline.Item title={'Frontend Developer at NPAW'}>
           <Text size={'xs'}>Sep 2017 - Sep 2019</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Development and maintenance of UI company products.
           </Text>
         </Timeline.Item>
 
         <Timeline.Item title={'Instructor Assistant at Ironhack'}>
           <Text size={'xs'}>Apr 2019 - May 2019</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Support students during the learning experience through the design
             implementation course.
           </Text>
@@ -173,14 +173,14 @@ export const About: NextPage = () => {
 
         <Timeline.Item title={'Lead Frontend Developer at NPAW'}>
           <Text size={'xs'}>Sep 2019 - Feb 2022</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Development and maintenance of UI company products.
           </Text>
         </Timeline.Item>
 
         <Timeline.Item title={'Instructor Assistant at Ironhack'}>
           <Text size={'xs'}>Oct 2019 - Nov 2019</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Support students during the learning experience through the design
             implementation course.
           </Text>
@@ -188,25 +188,25 @@ export const About: NextPage = () => {
 
         <Timeline.Item title={'Lead Instructor at Ironhack'}>
           <Text size={'xs'}>Sep 2021 - Oct 2021</Text>
-          <Text color='dimmed'>
-            <li>Overseeing the whole academic experience of the course.</li>
-            <li>
+          <Text color='dimmed' size={'sm'}>
+            <span>Overseeing the whole academic experience of the course.</span>
+            <span>
               Produce my own curriculum for the lessons, that you may consult at
               my Notion.
-            </li>
+            </span>
           </Text>
         </Timeline.Item>
 
         <Timeline.Item title={'Full Stack Developer at Champion Games'}>
           <Text size={'xs'}>Feb 2022 - Sep 2022</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Development and maintenance of company products.
           </Text>
         </Timeline.Item>
 
         <Timeline.Item title={'Full Stack Developer at CoverWallet'}>
           <Text size={'xs'}>Oct 2022 - Present</Text>
-          <Text color='dimmed'>
+          <Text color='dimmed' size={'sm'}>
             Development and maintenance of company products.
           </Text>
         </Timeline.Item>

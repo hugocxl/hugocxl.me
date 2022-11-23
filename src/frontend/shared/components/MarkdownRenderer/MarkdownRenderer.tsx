@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 // Types
 import { FC, ReactNode } from 'react'
-import { Anchor, Divider, Title, TitleOrder } from '@mantine/core'
+import { Anchor, Blockquote, Divider, Title, TitleOrder } from '@mantine/core'
 import { getFragmentFromString } from '@/frontend/shared/utils/getFragmentFromString'
 
 export interface MarkdownRendererProps {
@@ -49,12 +49,10 @@ export const MarkdownRenderer: FC<MarkdownRendererProps> = ({ children }) => {
         // ),
         a: ({ node, ...props }) => (
           <Anchor {...props} target='_blank' rel='noopener noreferrer' />
+        ),
+        blockquote: ({ node, key, children, ...rest }) => (
+          <Blockquote key={key}>{children}</Blockquote>
         )
-        // blockquote: ({ node, key, children, ...rest }) => (
-        //   <Paper elevation={2} sx={{ pb: 1, pt: 4, px: 2, mb: 4 }} key={key}>
-        //     {children}
-        //   </Paper>
-        // ),
         // pre: ({ node, key, children, ...rest }) => (
         //   <Paper elevation={4} sx={{ px: 4, py: 2, mb: 4 }} key={key}>
         //     <pre>{children}</pre>

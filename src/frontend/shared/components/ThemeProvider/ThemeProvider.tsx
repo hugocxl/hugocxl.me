@@ -40,40 +40,40 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
           fontFamilyMonospace: 'monospace',
           headings: { fontFamily: 'iA Writer Duo, sans-serif' },
           fontSizes: {
-            xs: 12,
-            sm: 14,
-            md: 18,
-            lg: 20,
-            xl: 24
+            xs: 10,
+            sm: 13,
+            md: 16,
+            lg: 18,
+            xl: 20
           },
-          primaryColor: isDarkMode ? 'yellow' : 'violet',
+          primaryColor: isDarkMode ? 'yellow' : 'yellow',
           colorScheme: mode,
-          black: '#555',
+          black: '#333',
           white: '#fff',
           defaultRadius: 'md',
           colors: {
             yellow: [
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D',
-              '#FBD38D'
+              '#eee7de',
+              '#e5dbcd',
+              '#ddcfbc',
+              '#d4c4ac',
+              '#ccb89b',
+              '#c3ac8a',
+              '#bba07a',
+              '#b29469',
+              '#aa8859',
+              '#9A7B4F'
             ]
           },
           defaultGradient: isDarkMode
             ? {
-                from: '#FBD38D',
-                to: '#FBD38D',
+                from: '#c3ac8a',
+                to: '#c3ac8a',
                 deg: 135
               }
             : {
-                to: '#41d1ff',
-                from: '#bd34fe',
+                to: '#9A7B4F',
+                from: '#9A7B4F',
                 deg: 135
               },
           components: {
@@ -89,6 +89,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
                 root: {
                   letterSpacing: -1,
                   width: 'fit-content',
+                  color: isDarkMode ? 'white' : 'black'
+                }
+              }
+            },
+            Timeline: {
+              styles: {
+                itemTitle: {
                   color: isDarkMode ? 'white' : 'black'
                 }
               }
