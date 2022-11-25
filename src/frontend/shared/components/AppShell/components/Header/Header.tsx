@@ -132,22 +132,6 @@ export function Header() {
     )
   })
 
-  useEffect(() => {
-    window.addEventListener('scroll', onWindowScroll)
-
-    return () => {
-      window.removeEventListener('scroll', onWindowScroll)
-    }
-  }, [windowScroll])
-
-  function onWindowScroll() {
-    const currentScroll = window.pageYOffset
-    const isScrollingUp = currentScroll < windowScroll
-
-    setWindowScroll(window.scrollY)
-    setShowHeader(isScrollingUp)
-  }
-
   function ThemeButton() {
     return (
       <ActionIcon variant='filled' color={'yellow'} onClick={toggleMode}>
@@ -181,9 +165,8 @@ export function Header() {
       withBorder={false}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        transition: 'transform 0.3s ease',
-        transform: `translateY(${showHeader ? 0 : -100}%)`,
-        backdropFilter: 'blur(10px)',
+        position: 'absolute',
+        top: 0,
         background: 'transparent'
       })}
     >
