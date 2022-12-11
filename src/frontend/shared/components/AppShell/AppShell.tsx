@@ -77,7 +77,7 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
         )
       }
     >
-      <MnAppShell footer={<Footer />} header={<Header />}>
+      <MnAppShell header={<Header />}>
         <RouterTransition />
 
         {children}

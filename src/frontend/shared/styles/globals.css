@@ -42,7 +42,7 @@ pre {
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   p {
     line-height: 2.2rem !important;
     margin-bottom: 2rem !important;
@@ -52,4 +52,4 @@ pre {
     line-height: 2.2rem !important;
     margin-bottom: 1rem !important;
   }
-}
+} */

@@ -62,7 +62,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
   function CopyToClipboardButton() {
     return (
       <ActionIcon onClick={onClickToClipboard}>
-        <IconClipboard />
+        <IconClipboard size={20} />
       </ActionIcon>
     )
   }

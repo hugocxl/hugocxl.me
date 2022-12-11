@@ -36,9 +36,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          fontFamily: 'iA Writer Duo, monospace',
-          fontFamilyMonospace: 'monospace',
-          headings: { fontFamily: 'iA Writer Duo, sans-serif' },
+          // fontFamily: 'iA Writer Duo, monospace',
+          // fontFamilyMonospace: 'monospace',
+          // headings: { fontFamily: 'iA Writer Duo, sans-serif' },
           fontSizes: {
             xs: 10,
             sm: 13,
@@ -111,48 +111,16 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       >
         <TypographyStylesProvider>{children}</TypographyStylesProvider>
         <Global
-          styles={[
-            {
-              '@font-face': {
-                fontFamily: 'iA Writer Duo',
-                fontWeight: 'normal',
-                fontStyle: 'normal',
-                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Regular.eot") format("embedded-opentype"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Regular.woff2") format("woff2"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Regular.woff") format("woff")`
-              }
-            },
-            {
-              '@font-face': {
-                fontFamily: 'iA Writer Duo',
-                fontWeight: 'normal',
-                fontStyle: 'italic',
-                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Italic.eot") format("embedded-opentype"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Italic.woff2") format("woff2"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Italic.woff") format("woff")`
-              }
-            },
-            {
-              '@font-face': {
-                fontFamily: 'iA Writer Duo',
-                fontWeight: 'bold',
-                fontStyle: 'normal',
-                src: `url("fonts/iAWriterDuo/iAWriterDuoS-Bold.eot") format("embedded-opentype"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Bold.woff2") format("woff2"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-Bold.woff") format("woff")`
-              }
-            },
-            {
-              '@font-face': {
-                fontFamily: 'iA Writer Duo',
-                fontWeight: 'bold',
-                fontStyle: 'italic',
-                src: `url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.eot") format("embedded-opentype"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.woff2") format("woff2"),
-                      url("fonts/iAWriterDuo/iAWriterDuoS-BoldItalic.woff") format("woff")`
-              }
+          styles={(theme) => ({
+            body: {
+              ...theme.fn.fontStyles(),
+              backgroundColor:
+                theme.colorScheme === 'dark'
+                  ? theme.colors.dark[7]
+                  : theme.white,
+              color: theme.colorScheme === 'dark' ? theme.white : theme.black
             }
-          ]}
+          })}
         />
       </MantineProvider>
     </ThemeModeContext.Provider>

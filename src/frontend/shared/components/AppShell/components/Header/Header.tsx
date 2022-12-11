@@ -29,7 +29,7 @@ import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 import { useEffect, useState } from 'react'
 
-const HEADER_HEIGHT = 60
+const HEADER_HEIGHT = 48
 
 interface Link {
   label: string
@@ -154,7 +154,7 @@ export function Header() {
 
   function SearchButton() {
     return (
-      <ActionIcon variant='subtle' onClick={spotlight.openSpotlight}>
+      <ActionIcon onClick={spotlight.openSpotlight}>
         {<IconSearch size={16} />}
       </ActionIcon>
     )
@@ -165,9 +165,13 @@ export function Header() {
       withBorder={false}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        position: 'absolute',
+        // position: 'absolute',
+        backdropFilter: 'blur(10px)',
         top: 0,
-        background: 'transparent'
+        background:
+          theme.colorScheme === 'dark'
+            ? 'rgba(255,255,255,0.05)'
+            : 'rgba(0,0,0,0.05)'
       })}
     >
       <Container
@@ -187,12 +191,12 @@ export function Header() {
           }}
         >
           <NextLink href={'/'}>
-            <Title order={4} span sx={{ margin: '0 !important' }}>
+            <Title order={5} span sx={{ margin: '0 !important' }}>
               @hcorta
             </Title>
           </NextLink>
 
-          <Group spacing={'xl'} sx={responsiveStyles.desktop}>
+          <Group spacing={'md'} sx={responsiveStyles.desktop}>
             {items}
           </Group>
 
