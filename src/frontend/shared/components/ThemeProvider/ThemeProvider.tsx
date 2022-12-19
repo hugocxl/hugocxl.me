@@ -36,9 +36,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          // fontFamily: 'iA Writer Duo, monospace',
-          // fontFamilyMonospace: 'monospace',
-          // headings: { fontFamily: 'iA Writer Duo, sans-serif' },
           fontSizes: {
             xs: 10,
             sm: 13,
@@ -46,9 +43,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             lg: 18,
             xl: 20
           },
-          primaryColor: isDarkMode ? 'yellow' : 'yellow',
+          primaryColor: isDarkMode ? 'yellow' : 'blue',
           colorScheme: mode,
-          black: '#333',
+          black: '#000',
           white: '#fff',
           defaultRadius: 'md',
           colors: {
@@ -65,17 +62,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               '#9A7B4F'
             ]
           },
-          defaultGradient: isDarkMode
-            ? {
-                from: '#c3ac8a',
-                to: '#c3ac8a',
-                deg: 135
-              }
-            : {
-                to: '#9A7B4F',
-                from: '#9A7B4F',
-                deg: 135
-              },
+          defaultGradient: {
+            from: '#c3ac8a',
+            to: '#c3ac8a',
+            deg: 135
+          },
           components: {
             Container: {
               styles: {
@@ -87,7 +78,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             Title: {
               styles: {
                 root: {
-                  letterSpacing: -1,
+                  marginTop: '4rem !important',
+                  letterSpacing: -0.5,
                   width: 'fit-content',
                   color: isDarkMode ? 'white' : 'black'
                 }
@@ -116,8 +108,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               ...theme.fn.fontStyles(),
               backgroundColor:
                 theme.colorScheme === 'dark'
-                  ? theme.colors.dark[7]
-                  : theme.white,
+                  ? // ? theme.colors.dark[7]
+                    'black'
+                  : 'rgb(245,245,238)',
               color: theme.colorScheme === 'dark' ? theme.white : theme.black
             }
           })}

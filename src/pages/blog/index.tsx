@@ -1,34 +1,29 @@
-// Dependencies
-import * as path from 'path'
-
-// Utils
-import {
-  getMetaFromDocsDir,
-  getTagsFromPosts
-} from '@/frontend/shared/utils'
-
 // Types
 import { GetStaticProps, GetStaticPropsResult } from 'next'
-import { Blog, BlogPageProps } from '@/frontend/modules/blog'
+import { BlogPage, BlogPageProps } from '@/frontend/modules/blog'
+import { notionClient } from '@/frontend/shared/lib'
 
-// Constants
-const BASE_BLOG_PATH = 'blog'
-const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
+const NOTION_DB_ID = '163470abeada4765b1872d1267e99d77'
 
 const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<BlogPageProps>> => {
-  const posts = getMetaFromDocsDir(BLOG_DIR)
-  const tags = getTagsFromPosts(posts)
+  const posts = await notionClient.getDatabase(NOTION_DB_ID, {
+    filter: {
+      property: 'Published',
+      checkbox: {
+        equals: true
+      }
+    }
+  })
 
   return {
     revalidate: 60,
     props: {
-      posts,
-      tags
+      posts
     }
   }
 }
 
 export { getStaticProps }
-export default Blog
+export default BlogPage

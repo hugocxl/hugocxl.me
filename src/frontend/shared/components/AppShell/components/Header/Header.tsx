@@ -19,7 +19,10 @@ import {
   SimpleGrid,
   Group,
   Menu,
-  Title
+  Title,
+  Box,
+  Button,
+  Tooltip
 } from '@mantine/core'
 
 // Hooks
@@ -28,44 +31,14 @@ import { useRouter } from 'next/router'
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 import { useEffect, useState } from 'react'
+import { PAGES } from '@/frontend/shared/constants'
 
-const HEADER_HEIGHT = 48
-
-interface Link {
-  label: string
-  href?: string
-  links?: Link[]
-}
-
-const links: Link[] = [
-  {
-    label: 'Blog',
-    href: '/blog'
-  },
-  {
-    label: 'Projects',
-    href: '/projects'
-  },
-  {
-    label: 'About',
-    href: '/about'
-  },
-  {
-    label: 'More',
-    links: [
-      {
-        href: '/more/stack',
-        label: 'Stack'
-      }
-    ]
-  }
-]
+const HEADER_HEIGHT = 60
 
 export function Header() {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
   const [windowScroll, setWindowScroll] = useState(0)
-  const [showHeader, setShowHeader] = useState(true)
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const spotlight = useSpotlight()
   const theme = useMantineTheme()
@@ -83,12 +56,11 @@ export function Header() {
     }
   }
 
-  const items = links.map(({ label, href, links }) => {
+  const items = PAGES.map(({ label, href, icon: Icon }) => {
     const isActive = pathname.startsWith(href)
 
     const linkProps = {
-      color: isActive ? 'inherit' : 'dimmed',
-      weight: 500,
+      // color: isActive ? 'inherit' : 'dimmed',
       onClick: isMenuOpenCx.close,
       sx: {
         '&:hover': {
@@ -97,44 +69,33 @@ export function Header() {
       }
     }
 
-    if (links) {
-      const menuItems = links.map((subLink) => (
-        <Menu.Item key={subLink.href}>
-          <NextLink href={subLink.href} key={label}>
-            <Text size={'sm'} {...linkProps}>
-              {subLink.label}
-            </Text>
-          </NextLink>
-        </Menu.Item>
-      ))
-
-      return (
-        <Menu key={label} trigger='hover' exitTransitionDuration={0}>
-          <Menu.Target>
-            <Text size={'sm'} {...linkProps}>
-              <Group spacing={6}>
-                <span>{label}</span>
-                <IconChevronDown size={16} />
-              </Group>
-            </Text>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      )
-    }
-
     return (
       <NextLink href={href} key={label}>
-        <Text size={'sm'} {...linkProps}>
-          {label}
-        </Text>
+        <Tooltip label={label}>
+          <ActionIcon variant='subtle'>
+            <Icon size={16} />
+          </ActionIcon>
+        </Tooltip>
       </NextLink>
     )
   })
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset
+      setWindowScroll(currentScroll)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   function ThemeButton() {
     return (
-      <ActionIcon variant='filled' color={'yellow'} onClick={toggleMode}>
+      <ActionIcon variant='subtle' onClick={toggleMode}>
         {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={18} />}
       </ActionIcon>
     )
@@ -154,7 +115,7 @@ export function Header() {
 
   function SearchButton() {
     return (
-      <ActionIcon onClick={spotlight.openSpotlight}>
+      <ActionIcon variant='subtle' onClick={spotlight.openSpotlight}>
         {<IconSearch size={16} />}
       </ActionIcon>
     )
@@ -162,16 +123,12 @@ export function Header() {
 
   return (
     <MantineHeader
-      withBorder={false}
+      withBorder={windowScroll > 0}
       height={HEADER_HEIGHT}
       sx={(theme) => ({
-        // position: 'absolute',
         backdropFilter: 'blur(10px)',
         top: 0,
-        background:
-          theme.colorScheme === 'dark'
-            ? 'rgba(255,255,255,0.05)'
-            : 'rgba(0,0,0,0.05)'
+        background: 'transparent'
       })}
     >
       <Container
@@ -191,8 +148,8 @@ export function Header() {
           }}
         >
           <NextLink href={'/'}>
-            <Title order={5} span sx={{ margin: '0 !important' }}>
-              @hcorta
+            <Title order={4} span sx={{ margin: '0 !important' }}>
+              hugo
             </Title>
           </NextLink>
 
@@ -203,7 +160,7 @@ export function Header() {
           <Group
             align={'center'}
             sx={{ justifyContent: 'flex-end' }}
-            spacing={'xs'}
+            spacing={'md'}
           >
             <BurgerButton />
             <SearchButton />

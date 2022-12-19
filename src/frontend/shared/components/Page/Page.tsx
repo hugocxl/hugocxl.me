@@ -12,14 +12,15 @@ export interface PageProps {
   description?: string
   children: React.ReactNode
   showHeader?: boolean
-  withContainer?: boolean
+  fullWidth?: boolean
 }
 
 export const Page: FC<PageProps> = ({
   children,
   title,
   description,
-  showHeader = true
+  showHeader = true,
+  fullWidth = false
 }) => {
   function Header() {
     if (!showHeader) return null
@@ -27,17 +28,27 @@ export const Page: FC<PageProps> = ({
     return (
       <Stack mb={'40px'} spacing={0}>
         {title && (
-          <Title variant='gradient' order={1} m={'0 !important'}>
+          <Title order={1} m={'0 !important'}>
             {title}
           </Title>
         )}
-        {description && <Text size={'lg'}>{description}</Text>}
+        {description && (
+          <Text size={'lg'} color={'dimmed'}>
+            {description}
+          </Text>
+        )}
       </Stack>
     )
   }
 
   return (
-    <Container sx={{ paddingTop: '40px', height: '100%' }}>
+    <Container
+      sx={{
+        paddingTop: '40px',
+        height: '100%',
+        ...(fullWidth && { maxWidth: '100%' })
+      }}
+    >
       <PageHead title={title} description={description} />
       <Header />
       {children}

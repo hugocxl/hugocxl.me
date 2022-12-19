@@ -25,15 +25,21 @@
     "@mantine/nprogress": "^5.7.2",
     "@mantine/prism": "^5.7.2",
     "@mantine/spotlight": "^5.7.2",
+    "@notionhq/client": "^2.2.2",
     "@tabler/icons": "^1.111.0",
     "@vercel/analytics": "^0.1.1",
     "gray-matter": "^4.0.3",
     "next": "^13.0.0",
+    "notion-client": "^6.15.6",
+    "notion-types": "^6.15.6",
+    "notion-utils": "^6.15.6",
     "octokit": "^2.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-    "react-markdown": "^8.0.3"
+    "react-markdown": "^8.0.3",
+    "react-masonry-component": "^6.3.0",
+    "react-notion-x": "^6.15.7"
   },
   "devDependencies": {
     "@types/node": "^18.7.8",

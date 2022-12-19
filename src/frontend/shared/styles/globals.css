@@ -34,22 +34,33 @@ a {
   color: inherit;
 }
 
-pre {
-  white-space: pre-wrap; /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
-}
-
-/* @media screen and (min-width: 768px) {
-  p {
-    line-height: 2.2rem !important;
-    margin-bottom: 2rem !important;
+@media screen and (min-width: 768px) {
+  p,
+  .notion-text,
+  li {
+    line-height: 2rem !important;
   }
 
-  li {
-    line-height: 2.2rem !important;
+  p,
+  .notion-text {
     margin-bottom: 1rem !important;
   }
-} */
+}
+
+.notion li {
+  padding: 0 !important;
+}
+
+.notion,
+.notion * {
+  color: inherit !important;
+}
+
+.notion-page {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.notion-collection-page-properties {
+  display: none !important;
+}

@@ -5,22 +5,22 @@ import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
 export const PAGES = [
   {
     label: 'Blog',
-    path: '/blog',
+    href: '/blog',
     icon: AiOutlineEdit
   },
   {
-    label: 'Portfolio',
-    path: '/portfolio',
+    label: 'Resources',
+    href: '/resources',
     icon: VscLibrary
   },
   {
     label: 'Stack',
-    path: '/stack',
+    href: '/stack',
     icon: VscLayers
   },
   {
     label: 'About',
-    path: '/about',
+    href: '/about',
     icon: AiOutlineUser
   }
 ]

@@ -22,7 +22,7 @@ export function Footer() {
       withBorder={false}
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
-        backdropFilter: 'blur(10px)',
+        position: 'inherit',
         background: 'transparent'
       })}
     >

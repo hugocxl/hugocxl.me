@@ -50,7 +50,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
     return (
       <Group spacing={'xs'}>
         <NextLink href={`/${section}`}>
-          <ActionIcon>
+          <ActionIcon variant='subtle'>
             <IconArrowLeft size={20} />
           </ActionIcon>
         </NextLink>
@@ -61,7 +61,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   function CopyToClipboardButton() {
     return (
-      <ActionIcon onClick={onClickToClipboard}>
+      <ActionIcon variant='subtle' onClick={onClickToClipboard}>
         <IconClipboard size={20} />
       </ActionIcon>
     )
@@ -74,7 +74,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         href={`https://twitter.com/intent/tweet/?text=${title}&url=${encodedPageUrl}`}
         title={`Share ${title} on Twitter`}
       >
-        <ActionIcon>
+        <ActionIcon variant='subtle'>
           <IconBrandTwitter size={20} />
         </ActionIcon>
       </Anchor>
@@ -88,7 +88,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         href={`https://www.linkedin.com/sharePost?mini=true&url=${encodedPageUrl}&title=${title}&summary=${encodedDescription}&source=${pageUrl}`}
         title={`Share ${title} on LinkedIn`}
       >
-        <ActionIcon>
+        <ActionIcon variant='subtle'>
           <IconBrandLinkedin size={20} />
         </ActionIcon>
       </Anchor>

@@ -3,31 +3,31 @@ import { PagePostHead, PagePostHeader } from './components'
 
 // Types
 import { FC } from 'react'
+import { ExtendedRecordMap } from 'notion-types'
 
 // Styles
 import { Container } from '@mantine/core'
-import { PostTableOfContents } from '@/frontend/shared/types'
-import { TableOfContents } from '@/frontend/shared/components/TableOfContents'
+import { NotionRenderer } from '@/frontend/shared/components'
 
 export interface PagePostProps {
   title: string
   description: string
-  children: React.ReactNode
-  tableOfContents?: PostTableOfContents
+  recordMap: ExtendedRecordMap
 }
 
 export const PagePost: FC<PagePostProps> = ({
-  children,
+  recordMap,
   title,
-  description,
-  tableOfContents
+  description
 }) => {
   return (
-    <Container sx={{ paddingTop: '24px', position: 'relative' }}>
+    <Container
+      sx={{ paddingTop: '24px', position: 'relative' }}
+      className={'post'}
+    >
       <PagePostHead title={title} description={description} />
       <PagePostHeader title={title} description={description} />
-      <TableOfContents links={tableOfContents} />
-      {children}
+      <NotionRenderer recordMap={recordMap} />
     </Container>
   )
 }

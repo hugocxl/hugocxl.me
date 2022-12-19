@@ -1,10 +1,9 @@
 // Components
 import { Header, Footer } from './components'
-import { AppShell as MnAppShell } from '@mantine/core'
+import { AppShell as MnAppShell, Title } from '@mantine/core'
 import { RouterTransition } from '../RouterTransition'
 import { SpotlightAction, SpotlightProvider } from '@mantine/spotlight'
 import {
-  IconHome,
   IconLayoutGrid,
   IconMoon,
   IconNotes,
@@ -79,7 +78,6 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
     >
       <MnAppShell header={<Header />}>
         <RouterTransition />
-
         {children}
       </MnAppShell>
     </SpotlightProvider>

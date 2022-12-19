@@ -1,43 +1,23 @@
-// Depedencies
-import * as path from 'path'
-
-// Components
-import { MarkdownRenderer, PagePost } from '@/frontend/shared/components'
-
 // Utils
-import {
-  createTableOfContentsFromMd,
-  getMetaFromDocsDir,
-  getPathsFromPosts,
-  parseMatterFromFile,
-  readFileFromDir
-} from '@/frontend/shared/utils'
+import { getPathsForItems } from '@/frontend/shared/utils'
 
 // Types
-import { PostMetadata, PostTableOfContents } from '@/frontend/shared/types'
 import {
   GetStaticPaths,
   GetStaticPathsResult,
   GetStaticProps,
-  GetStaticPropsResult,
-  NextPage
+  GetStaticPropsResult
 } from 'next'
+import { BlogPostPageProps, BlogPostPage } from '@/frontend/modules/blog'
+import { notionClient } from '@/frontend/shared/lib'
 
 // Constants
-const BASE_BLOG_PATH = 'blog'
-const BLOG_DIR = path.join(process.cwd(), 'docs', BASE_BLOG_PATH)
-
-interface BlogPostPageProps {
-  meta: PostMetadata
-  content: string
-  slug: string
-  tableOfContents: PostTableOfContents
-}
+const NOTION_DB_ID = '163470abeada4765b1872d1267e99d77'
 
 const getStaticPaths: GetStaticPaths =
   async (): Promise<GetStaticPathsResult> => {
-    const posts = getMetaFromDocsDir(BLOG_DIR)
-    const paths = getPathsFromPosts(posts)
+    const posts = await notionClient.getPublishedEntriesInDb(NOTION_DB_ID)
+    const paths = getPathsForItems(posts)
 
     return {
       paths,
@@ -49,37 +29,18 @@ const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<BlogPostPageProps>> => {
   const { slug } = props.params
-  const fileName = `${BLOG_DIR}/${slug}.md`
-  const file = readFileFromDir(fileName)
-  const { content, meta } = parseMatterFromFile(file)
-  const tableOfContents = createTableOfContentsFromMd(content)
+  const posts = await notionClient.getPublishedEntriesInDb(NOTION_DB_ID)
+  const post = posts.find((post) => post.slug === slug)
+  const recordMap = await notionClient.getPage(post.id)
 
   return {
-    revalidate: 60,
+    revalidate: 86400,
     props: {
-      content,
-      meta,
-      tableOfContents,
-      slug: slug as string
+      title: post.name,
+      description: post.description,
+      recordMap
     }
   }
-}
-
-const BlogPostPage: NextPage<BlogPostPageProps> = ({
-  meta,
-  content,
-  slug,
-  tableOfContents
-}) => {
-  return (
-    <PagePost
-      title={meta.title}
-      description={meta.description}
-      tableOfContents={tableOfContents}
-    >
-      <MarkdownRenderer>{content}</MarkdownRenderer>
-    </PagePost>
-  )
 }
 
 export { getStaticPaths, getStaticProps }
