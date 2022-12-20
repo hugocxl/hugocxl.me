@@ -26,7 +26,8 @@ import { useDisclosure } from '@mantine/hooks'
 import { useRouter } from 'next/router'
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
-import { useEffect, useState } from 'react'
+
+// Constants
 import { PAGES } from '@/frontend/shared/constants'
 
 const HEADER_HEIGHT = 72
@@ -34,7 +35,6 @@ const HEADER_HEIGHT = 72
 export function Header() {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
-  const [windowScroll, setWindowScroll] = useState(0)
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const spotlight = useSpotlight()
   const theme = useMantineTheme()
@@ -52,35 +52,28 @@ export function Header() {
     }
   }
 
-  const items = PAGES.map(({ title, href, icon: Icon }) => {
-    const isActive = pathname.startsWith(href)
-
+  function Items() {
     return (
-      <Tooltip label={title}>
-        <NextLink href={href} key={title} onClick={isMenuOpenCx.close}>
-          <Group>
-            <ActionIcon variant={isActive ? 'gradient' : 'subtle'}>
-              <Icon size={18} />
-            </ActionIcon>
-            <Text sx={responsiveStyles.mobile}>{title}</Text>
-          </Group>
-        </NextLink>
-      </Tooltip>
+      <>
+        {PAGES.map(({ title, href, icon: Icon }) => {
+          const isActive = pathname.startsWith(href)
+
+          return (
+            <Tooltip label={title} key={title}>
+              <NextLink href={href} onClick={isMenuOpenCx.close}>
+                <Group>
+                  <ActionIcon variant={isActive ? 'gradient' : 'subtle'}>
+                    <Icon size={18} />
+                  </ActionIcon>
+                  <Text sx={responsiveStyles.mobile}>{title}</Text>
+                </Group>
+              </NextLink>
+            </Tooltip>
+          )
+        })}
+      </>
     )
-  })
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.pageYOffset
-      setWindowScroll(currentScroll)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  }
 
   function ThemeButton() {
     return (
@@ -145,7 +138,7 @@ export function Header() {
           </NextLink>
 
           <Group spacing={'md'} sx={responsiveStyles.desktop}>
-            {items}
+            <Items />
           </Group>
 
           <Group
@@ -175,7 +168,7 @@ export function Header() {
                   overflow: 'hidden'
                 }}
               >
-                {items}
+                <Items />
               </Paper>
             )}
           </Transition>

@@ -19,10 +19,9 @@ const FOOTER_HEIGHT = 40
 export function Footer() {
   return (
     <MnFooter
-      withBorder={false}
+      withBorder={true}
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
-        // position: 'absolute',
         background: 'transparent'
       })}
     >

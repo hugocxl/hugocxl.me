@@ -1,6 +1,6 @@
 // Components
 import { Page } from '@/frontend/shared/components'
-import { Title, Text, Stack, SimpleGrid } from '@mantine/core'
+import { Title, Text, Stack, SimpleGrid, Flex } from '@mantine/core'
 import NextLink from 'next/link'
 
 // Types
@@ -24,7 +24,7 @@ export const Home: NextPage = () => {
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Stack spacing={80}>
+      <Flex h={'100%'} direction={'column'} justify={'space-evenly'}>
         <div>
           <Title {...commonHeaderProps}>hugo corta.</Title>
           <Title opacity={0.2} {...commonHeaderProps}>
@@ -54,7 +54,7 @@ export const Home: NextPage = () => {
           breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 0 }]}
         >
           {PAGES.map((page) => (
-            <NextLink href={page.href}>
+            <NextLink href={page.href} key={page.href}>
               <Stack
                 key={page.title}
                 spacing={0}
@@ -70,7 +70,7 @@ export const Home: NextPage = () => {
             </NextLink>
           ))}
         </SimpleGrid>
-      </Stack>
+      </Flex>
     </Page>
   )
 }
