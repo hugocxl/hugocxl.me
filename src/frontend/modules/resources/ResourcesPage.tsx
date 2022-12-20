@@ -20,8 +20,8 @@ export const ResourcesPage: NextPage<ResourcesPageProps> = ({ resources }) => {
             link={link || '#'}
             target={'_blank'}
             cover={cover}
-            createdAt={createdAt}
             name={name}
+            key={name}
             description={description}
           />
         ))}

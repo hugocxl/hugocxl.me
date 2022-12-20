@@ -6,7 +6,7 @@ export interface CardProps {
   cover: string
   name: string
   description: string
-  createdAt: string
+  createdAt?: string
   target?: string
 }
 
@@ -39,9 +39,11 @@ export function Card({
           src={cover}
           alt={name}
         />
-        <Text color={'dotted'} size={'xs'}>
-          {dateLabel}
-        </Text>
+        {createdAt && (
+          <Text color={'dotted'} size={'xs'}>
+            {dateLabel}
+          </Text>
+        )}
         <Title span order={4} weight={'bold'} m={'0 !important'}>
           {name}
         </Title>
