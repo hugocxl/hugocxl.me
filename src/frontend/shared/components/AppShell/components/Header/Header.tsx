@@ -4,24 +4,20 @@ import {
   IconSun,
   IconX,
   IconMenu2,
-  IconChevronDown,
   IconMoonStars,
   IconSearch
 } from '@tabler/icons'
 import {
   Header as MantineHeader,
+  Text,
   Container,
   Paper,
   Transition,
   useMantineTheme,
-  Text,
   ActionIcon,
   SimpleGrid,
   Group,
-  Menu,
   Title,
-  Box,
-  Button,
   Tooltip
 } from '@mantine/core'
 
@@ -59,24 +55,17 @@ export function Header() {
   const items = PAGES.map(({ title, href, icon: Icon }) => {
     const isActive = pathname.startsWith(href)
 
-    const linkProps = {
-      // color: isActive ? 'inherit' : 'dimmed',
-      onClick: isMenuOpenCx.close,
-      sx: {
-        '&:hover': {
-          ...(!isActive && { opacity: 0.7 })
-        }
-      }
-    }
-
     return (
-      <NextLink href={href} key={title}>
-        <Tooltip label={title}>
-          <ActionIcon variant='subtle'>
-            <Icon size={18} />
-          </ActionIcon>
-        </Tooltip>
-      </NextLink>
+      <Tooltip label={title}>
+        <NextLink href={href} key={title} onClick={isMenuOpenCx.close}>
+          <Group>
+            <ActionIcon variant={isActive ? 'gradient' : 'subtle'}>
+              <Icon size={18} />
+            </ActionIcon>
+            <Text sx={responsiveStyles.mobile}>{title}</Text>
+          </Group>
+        </NextLink>
+      </Tooltip>
     )
   })
 
@@ -146,7 +135,7 @@ export function Header() {
             alignItems: 'center',
             height: '100%',
             gridTemplateColumns: 'auto auto auto',
-            borderBottom: '1px solid rgb(160,160,160,0.25)'
+            borderBottom: '3px solid rgb(160,160,160,0.25)'
           }}
         >
           <NextLink href={'/'}>
@@ -169,11 +158,7 @@ export function Header() {
             <ThemeButton />
           </Group>
 
-          <Transition
-            transition='pop-top-right'
-            duration={200}
-            mounted={isMenuOpen}
-          >
+          <Transition transition='scale-y' duration={200} mounted={isMenuOpen}>
             {(styles) => (
               <Paper
                 withBorder
@@ -186,14 +171,8 @@ export function Header() {
                   left: 0,
                   right: 0,
                   zIndex: 0,
-                  borderTopRightRadius: 0,
-                  borderTopLeftRadius: 0,
-                  borderTopWidth: 0,
-                  overflow: 'hidden',
-
-                  [theme.fn.largerThan('sm')]: {
-                    display: 'none'
-                  }
+                  borderRadius: 0,
+                  overflow: 'hidden'
                 }}
               >
                 {items}

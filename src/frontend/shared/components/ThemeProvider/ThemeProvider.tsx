@@ -43,7 +43,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             lg: 20,
             xl: 24
           },
-          primaryColor: isDarkMode ? 'yellow' : 'blue',
+          primaryColor: isDarkMode ? 'yellow' : 'yellow',
           colorScheme: mode,
           black: '#333',
           white: '#fff',

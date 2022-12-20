@@ -38,7 +38,7 @@ export const Home: NextPage = () => {
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Stack spacing={120}>
+      <Stack spacing={80}>
         <div>
           <Title {...commonHeaderProps}>hugo corta.</Title>
           <Title opacity={0.2} {...commonHeaderProps}>
