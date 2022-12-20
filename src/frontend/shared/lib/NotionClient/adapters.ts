@@ -4,7 +4,7 @@ import { toSlug } from '@/frontend/shared/utils'
 export const notionAdapters = {
   toItem(entry): Item {
     return {
-      cover: entry.cover?.external?.url || null,
+      cover: entry.cover?.external?.url || entry.cover?.file?.url || null,
       createdAt: entry.created_time || '',
       description:
         entry.properties.Description?.rich_text[0]?.plain_text || null,
