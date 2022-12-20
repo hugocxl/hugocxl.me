@@ -1,18 +1,20 @@
+// Adapaters
 import { notionAdapters } from './adapters'
+
+// Dependencies
 import { Client } from '@notionhq/client'
+import { NotionAPI } from 'notion-client'
+
+// Types
+import { ExtendedRecordMap } from 'notion-types'
 import { Items } from '@/frontend/shared/types'
 
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN
+const notionOfficialClient = new Client({
+  auth: process.env.NOTION_EXTENSION_TOKEN
 })
 
-import { NotionAPI } from 'notion-client'
-import { ExtendedRecordMap } from 'notion-types'
-
-// you can optionally pass an authToken to access private notion resources
-const notionApi = new NotionAPI({
-  authToken:
-    '92d4dc0523a3ae2d2cb2e28a18d3818971be460eb4ecb672003c5a754fba1a1293b8e3769e0ab9d4103b4a20971e4e26ed0c7bd894fdf6d9de66f850423ac7e1608b05fe27cbae0cd00139d6cde3'
+const notionUnofficialClient = new NotionAPI({
+  authToken: process.env.NOTION_BROWSER_TOKEN
 })
 
 interface NotionEntry {
@@ -38,7 +40,7 @@ export const notionClient = {
     databaseId: string,
     options: Record<any, any> = {}
   ): Promise<Items> => {
-    const response = await notion.databases.query({
+    const response = await notionOfficialClient.databases.query({
       database_id: databaseId,
       ...options
     })
@@ -48,12 +50,12 @@ export const notionClient = {
     return items
   },
   getPage: async (pageId: string): Promise<ExtendedRecordMap> => {
-    const response = await notionApi.getPage(pageId)
+    const response = await notionUnofficialClient.getPage(pageId)
 
     return response
   },
   getPublishedEntriesInDb: async (databaseId: string): Promise<Items> => {
-    const response = await notion.databases.query({
+    const response = await notionOfficialClient.databases.query({
       database_id: databaseId,
       filter: {
         property: 'Published',
