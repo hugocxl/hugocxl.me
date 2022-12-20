@@ -3,15 +3,11 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**'
+        hostname: 'images.unsplash.com'
       },
       {
         protocol: 'https',
-        hostname: 'www.notion.so',
-        port: '',
-        pathname: '/**'
+        hostname: 'www.notion.so'
       }
     ]
   }
