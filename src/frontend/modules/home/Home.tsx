@@ -1,28 +1,14 @@
 // Components
 import { Page } from '@/frontend/shared/components'
-import { PAGES } from '@/frontend/shared/constants'
-import {
-  Title,
-  Text,
-  ActionIcon,
-  Anchor,
-  Group,
-  Stack,
-  Box,
-  SimpleGrid
-} from '@mantine/core'
+import { Title, Text, Stack, SimpleGrid } from '@mantine/core'
 import NextLink from 'next/link'
-import {
-  IconBrandTwitter,
-  IconBrandGithub,
-  IconBrandLinkedin
-} from '@tabler/icons'
 
 // Types
 import { NextPage } from 'next'
 
 // Constants
-const HOME_PAGE_TITLE = `Hugo Corta`
+import { PAGES } from '@/frontend/shared/constants'
+const HOME_PAGE_TITLE = `Home`
 const HOME_PAGE_DESCRIPTION = `Curious human. Software Craftsman. Junior Thinker`
 
 export const Home: NextPage = () => {
@@ -42,13 +28,13 @@ export const Home: NextPage = () => {
         <div>
           <Title {...commonHeaderProps}>hugo corta.</Title>
           <Title opacity={0.2} {...commonHeaderProps}>
-            curious human.
-          </Title>
-          <Title opacity={0.2} {...commonHeaderProps}>
             software craftsman.
           </Title>
           <Title opacity={0.2} {...commonHeaderProps}>
             junior thinker.
+          </Title>
+          <Title opacity={0.2} {...commonHeaderProps}>
+            curious human.
           </Title>
           <Text fw={'bold'} color={'dimmed'}>
             @hcorta

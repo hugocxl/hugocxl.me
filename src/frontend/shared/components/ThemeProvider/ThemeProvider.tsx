@@ -71,7 +71,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             Container: {
               styles: {
                 root: {
-                  maxWidth: '800px'
+                  maxWidth: '768px'
                 }
               }
             },
