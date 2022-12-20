@@ -44,8 +44,9 @@ export const Page: FC<PageProps> = ({
   return (
     <Container
       sx={{
-        paddingTop: '40px',
-        height: '100%',
+        paddingTop: '60px',
+        paddingBottom: '60px',
+        width: '100%',
         ...(fullWidth && { maxWidth: '100%' })
       }}
     >

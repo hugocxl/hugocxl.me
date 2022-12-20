@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 // Components
 import NextLink from 'next/link'
+import NextImage from 'next/image'
 import {
   ActionIcon,
   Text,
@@ -12,7 +13,8 @@ import {
   Group,
   Stack,
   Title,
-  Divider
+  Divider,
+  Box
 } from '@mantine/core'
 import {
   IconArrowLeft,
@@ -27,11 +29,13 @@ import { FC } from 'react'
 export interface PagePostHeaderProps {
   title?: string
   description?: string
+  cover?: string
 }
 
 export const PagePostHeader: FC<PagePostHeaderProps> = ({
   title,
-  description
+  description,
+  cover
 }) => {
   const router = useRouter()
   const [_, section] = router.asPath.split('/')
@@ -96,7 +100,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
   }
 
   return (
-    <Stack spacing={40}>
+    <Stack spacing={0}>
       <Flex justify={'space-between'}>
         <BackButton />
         <Group spacing={'xs'}>
@@ -106,13 +110,26 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         </Group>
       </Flex>
       <Stack mb={'40px'} spacing={0}>
-        <Title variant='gradient' order={1} m={'0 !important'}>
-          {title}
-        </Title>
-        <Text size={'md'} pb={'md'}>
+        <Title order={1}>{title}</Title>
+        <Text size={'sm'} pb={'md'} color={'dimmed'}>
           {description}
         </Text>
-        <Divider variant={'dotted'} />
+        {cover && (
+          <Box
+            pos={'relative'}
+            h={'400px'}
+            sx={{ borderRadius: '16px', overflow: 'hidden' }}
+          >
+            <NextImage
+              placeholder='blur'
+              blurDataURL={cover}
+              style={{ objectFit: 'cover' }}
+              fill
+              src={cover}
+              alt={title}
+            />
+          </Box>
+        )}
       </Stack>
 
       {/* <Snackbar

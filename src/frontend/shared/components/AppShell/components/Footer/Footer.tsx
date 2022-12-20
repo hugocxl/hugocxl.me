@@ -22,14 +22,14 @@ export function Footer() {
       withBorder={false}
       height={FOOTER_HEIGHT}
       sx={(theme) => ({
-        position: 'inherit',
+        // position: 'absolute',
         background: 'transparent'
       })}
     >
       <Container h={'100%'}>
         <Flex align={'center'} justify={'space-between'} h={'100%'}>
           <Text color={'dimmed'} size={'xs'}>
-            {`© ${new Date().getFullYear()} Hugo Corta. All Rights Reserved.`}
+            {`All Rights Reserved © ${new Date().getFullYear()} Hugo Corta`}
           </Text>
           <Group spacing={0}>
             <Anchor

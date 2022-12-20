@@ -13,12 +13,14 @@ export interface PagePostProps {
   title: string
   description: string
   recordMap: ExtendedRecordMap
+  cover?: string
 }
 
 export const PagePost: FC<PagePostProps> = ({
   recordMap,
   title,
-  description
+  description,
+  cover
 }) => {
   return (
     <Container
@@ -26,7 +28,7 @@ export const PagePost: FC<PagePostProps> = ({
       className={'post'}
     >
       <PagePostHead title={title} description={description} />
-      <PagePostHeader title={title} description={description} />
+      <PagePostHeader title={title} description={description} cover={cover} />
       <NotionRenderer recordMap={recordMap} />
     </Container>
   )

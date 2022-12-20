@@ -30,8 +30,10 @@
 
 a {
   cursor: pointer;
-  text-decoration: none !important;
   color: inherit;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,12 +45,18 @@ a {
 
   p,
   .notion-text {
-    margin-bottom: 1rem !important;
+    margin-bottom: 2rem !important;
   }
 }
 
+.notion-text,
 .notion li {
+  font-size: inherit !important;
   padding: 0 !important;
+}
+
+.notion {
+  font-size: inherit !important;
 }
 
 .notion,

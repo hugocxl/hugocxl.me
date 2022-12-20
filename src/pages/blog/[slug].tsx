@@ -30,14 +30,17 @@ const getStaticProps: GetStaticProps = async (
 ): Promise<GetStaticPropsResult<BlogPostPageProps>> => {
   const { slug } = props.params
   const posts = await notionClient.getPublishedEntriesInDb(NOTION_DB_ID)
-  const post = posts.find((post) => post.slug === slug)
-  const recordMap = await notionClient.getPage(post.id)
+  const { name, description, cover, id } = posts.find(
+    (post) => post.slug === slug
+  )
+  const recordMap = await notionClient.getPage(id)
 
   return {
     revalidate: 86400,
     props: {
-      title: post.name,
-      description: post.description,
+      title: name,
+      cover,
+      description,
       recordMap
     }
   }

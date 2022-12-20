@@ -2,7 +2,11 @@
 import { Analytics } from '@vercel/analytics/react'
 
 // Components
-import { AppShell, ThemeProvider } from '@/frontend/shared/components'
+import {
+  AppShell,
+  SpotlightProvider,
+  ThemeProvider
+} from '@/frontend/shared/components'
 
 // Types
 import { AppProps } from 'next/app'
@@ -17,9 +21,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeProvider>
-        <AppShell>
-          <Component {...pageProps} />
-        </AppShell>
+        <SpotlightProvider>
+          <AppShell>
+            <Component {...pageProps} />
+          </AppShell>
+        </SpotlightProvider>
       </ThemeProvider>
       <Analytics />
     </>

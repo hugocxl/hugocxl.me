@@ -37,15 +37,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         withNormalizeCSS
         theme={{
           fontSizes: {
-            xs: 10,
-            sm: 13,
-            md: 16,
-            lg: 18,
-            xl: 20
+            xs: 12,
+            sm: 14,
+            md: 18,
+            lg: 20,
+            xl: 24
           },
           primaryColor: isDarkMode ? 'yellow' : 'blue',
           colorScheme: mode,
-          black: '#000',
+          black: '#333',
           white: '#fff',
           defaultRadius: 'md',
           colors: {
@@ -106,11 +106,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
           styles={(theme) => ({
             body: {
               ...theme.fn.fontStyles(),
-              backgroundColor:
-                theme.colorScheme === 'dark'
-                  ? // ? theme.colors.dark[7]
-                    'black'
-                  : 'rgb(245,245,238)',
+              backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
+              // backgroundColor:
+              //   theme.colorScheme === 'dark'
+              //     ? theme.colors.dark[7]
+              //     : 'rgb(245,245,238)',
               color: theme.colorScheme === 'dark' ? theme.white : theme.black
             }
           })}

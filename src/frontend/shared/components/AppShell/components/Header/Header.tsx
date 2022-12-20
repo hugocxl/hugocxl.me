@@ -33,7 +33,7 @@ import { useSpotlight } from '@mantine/spotlight'
 import { useEffect, useState } from 'react'
 import { PAGES } from '@/frontend/shared/constants'
 
-const HEADER_HEIGHT = 60
+const HEADER_HEIGHT = 72
 
 export function Header() {
   const { pathname } = useRouter()
@@ -56,7 +56,7 @@ export function Header() {
     }
   }
 
-  const items = PAGES.map(({ label, href, icon: Icon }) => {
+  const items = PAGES.map(({ title, href, icon: Icon }) => {
     const isActive = pathname.startsWith(href)
 
     const linkProps = {
@@ -70,10 +70,10 @@ export function Header() {
     }
 
     return (
-      <NextLink href={href} key={label}>
-        <Tooltip label={label}>
+      <NextLink href={href} key={title}>
+        <Tooltip label={title}>
           <ActionIcon variant='subtle'>
-            <Icon size={16} />
+            <Icon size={18} />
           </ActionIcon>
         </Tooltip>
       </NextLink>
@@ -116,20 +116,21 @@ export function Header() {
   function SearchButton() {
     return (
       <ActionIcon variant='subtle' onClick={spotlight.openSpotlight}>
-        {<IconSearch size={16} />}
+        {<IconSearch size={18} />}
       </ActionIcon>
     )
   }
 
   return (
     <MantineHeader
-      withBorder={windowScroll > 0}
+      withBorder={false}
       height={HEADER_HEIGHT}
-      sx={(theme) => ({
+      sx={{
+        borderColor: 'rgba(150,150,150,0.2)',
         backdropFilter: 'blur(10px)',
         top: 0,
         background: 'transparent'
-      })}
+      }}
     >
       <Container
         sx={(theme) => ({
@@ -144,7 +145,8 @@ export function Header() {
             justifyContent: 'space-between',
             alignItems: 'center',
             height: '100%',
-            gridTemplateColumns: 'auto auto auto'
+            gridTemplateColumns: 'auto auto auto',
+            borderBottom: '1px solid rgb(160,160,160,0.25)'
           }}
         >
           <NextLink href={'/'}>
@@ -160,7 +162,7 @@ export function Header() {
           <Group
             align={'center'}
             sx={{ justifyContent: 'flex-end' }}
-            spacing={'md'}
+            spacing={'xs'}
           >
             <BurgerButton />
             <SearchButton />

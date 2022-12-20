@@ -1,1 +1,1 @@
-export * from './Stack'
+export * from './StackPage'

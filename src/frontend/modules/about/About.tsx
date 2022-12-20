@@ -4,7 +4,6 @@ import { Page } from '@/frontend/shared/components'
 import {
   Title,
   Text,
-  Divider,
   Timeline,
   Alert,
   Anchor,
@@ -23,12 +22,11 @@ import {
 import { NextPage } from 'next'
 
 // Constants
-const ABOUT_PAGE_TITLE = `About me`
-const ABOUT_PAGE_DESCRIPTION = `Get to know me`
+import { ABOUT } from '@/frontend/shared/constants'
 
 export const About: NextPage = () => {
   return (
-    <Page title={ABOUT_PAGE_TITLE} description={ABOUT_PAGE_DESCRIPTION}>
+    <Page title={ABOUT.title} description={ABOUT.description}>
       <p>
         I'm Hugo Corta, an experienced <b>Software Engineer</b> with a
         demonstrated history of working in the computer software industry.{' '}
@@ -42,11 +40,7 @@ export const About: NextPage = () => {
         from the highest levels of definition down to the lowest levels of
         implementation details, it's where you'll' find me at my best.
       </p>
-      <p>
-        If you want to know more, you may{' '}
-        <NextLink href={'/more/stack'}>check out my stack</NextLink> or visit{' '}
-        <NextLink href={'/projects'}>my portfolio section.</NextLink>
-      </p>
+
       <Title order={2}>{`What I'm doing now`}</Title>
       <ul>
         <li>

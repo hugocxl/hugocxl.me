@@ -23,7 +23,14 @@ export function Card({
 
   return (
     <NextLink href={link} target={target} style={{ color: 'inherit' }}>
-      <Stack spacing={0}>
+      <Stack
+        spacing={0}
+        sx={{
+          '&:hover': {
+            opacity: 0.5
+          }
+        }}
+      >
         <Image
           height={96}
           fit={'cover'}

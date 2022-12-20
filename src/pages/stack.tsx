@@ -1,3 +1,3 @@
-import { Stack } from '@/frontend/modules/stack'
+import { StackPage } from '@/frontend/modules/stack'
 
-export default Stack
+export default StackPage

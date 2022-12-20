@@ -1,5 +1,6 @@
 // Components
 import { Page } from '@/frontend/shared/components'
+import { PAGES } from '@/frontend/shared/constants'
 import {
   Title,
   Text,
@@ -7,8 +8,10 @@ import {
   Anchor,
   Group,
   Stack,
-  Box
+  Box,
+  SimpleGrid
 } from '@mantine/core'
+import NextLink from 'next/link'
 import {
   IconBrandTwitter,
   IconBrandGithub,
@@ -23,76 +26,65 @@ const HOME_PAGE_TITLE = `Hugo Corta`
 const HOME_PAGE_DESCRIPTION = `Curious human. Software Craftsman. Junior Thinker`
 
 export const Home: NextPage = () => {
+  const commonHeaderProps = {
+    span: true,
+    m: '0 !important',
+    lh: '1 !important'
+  }
+
   return (
     <Page
       title={HOME_PAGE_TITLE}
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Box pos={'relative'}>
-        <Title
-          span
-          sx={{
-            fontSize: '6rem !important',
-            lineHeight: '0.7 !important',
-            '@media (max-width: 600px)': {
-              fontSize: '4rem !important'
-            }
-          }}
-        >
-          hugo corta
-        </Title>
-        <Text fw={'bold'} color={'dimmed'}>
-          @hcorta
-        </Text>
-        <Text
-          mt={16}
-          sx={{
-            textTransform: 'uppercase'
-          }}
-        >
-          Curious human. Software Craftsman. Junior Thinker
-        </Text>
+      <Stack spacing={120}>
+        <div>
+          <Title {...commonHeaderProps}>hugo corta.</Title>
+          <Title opacity={0.2} {...commonHeaderProps}>
+            curious human.
+          </Title>
+          <Title opacity={0.2} {...commonHeaderProps}>
+            software craftsman.
+          </Title>
+          <Title opacity={0.2} {...commonHeaderProps}>
+            junior thinker.
+          </Title>
+          <Text fw={'bold'} color={'dimmed'}>
+            @hcorta
+          </Text>
+        </div>
 
-        <Text mt={80} color={'dimmed'}>
-          Welcome to my website! 👋
-        </Text>
-        <Text color={'dimmed'}>
-          I am excited to share with you a little bit about myself, my
-          interests, and my work. Please take a look around and feel free to
-          reach out if you have any questions or just want to say hello.
-        </Text>
+        <div>
+          <Text color={'dimmed'}>
+            Welcome <br /> I am excited to share with you a little bit about
+            myself, my interests, and my work. <br /> Please take a look around
+            and feel free to reach out.
+          </Text>
+        </div>
 
-        <Group spacing={'sm'} mt={20}>
-          <Anchor
-            href={`https://twitter.com/hcorta`}
-            title={`Twitter @hcorta`}
-            target={'_blank'}
-          >
-            <ActionIcon variant={'subtle'}>
-              <IconBrandTwitter size={24} />
-            </ActionIcon>
-          </Anchor>
-          <Anchor
-            href={`https://github.com/hcorta`}
-            title={`GitHub @hcorta`}
-            target={'_blank'}
-          >
-            <ActionIcon variant={'subtle'}>
-              <IconBrandGithub size={24} />
-            </ActionIcon>
-          </Anchor>
-          <Anchor
-            href={`https://www.linkedin.com/in/hugocorta`}
-            title={`LinkedIn @hugocorta`}
-            target={'_blank'}
-          >
-            <ActionIcon variant={'subtle'}>
-              <IconBrandLinkedin size={24} />
-            </ActionIcon>
-          </Anchor>
-        </Group>
-      </Box>
+        <SimpleGrid
+          cols={4}
+          breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 0 }]}
+        >
+          {PAGES.map((page) => (
+            <NextLink href={page.href}>
+              <Stack
+                key={page.title}
+                spacing={0}
+                sx={{ ':hover': { opacity: 0.5 } }}
+              >
+                <Title order={5} m={'0 !important'}>
+                  {page.title}
+                </Title>
+                <Text size={'xs'} color={'dimmed'}>
+                  {page.description}
+                </Text>
+              </Stack>
+            </NextLink>
+          ))}
+        </SimpleGrid>
+      </Stack>
     </Page>
   )
 }
