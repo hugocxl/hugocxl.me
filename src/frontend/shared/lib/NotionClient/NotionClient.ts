@@ -36,23 +36,34 @@ interface NotionEntry {
 }
 
 export const notionClient = {
-  getDatabase: async (
-    databaseId: string,
-    options: Record<any, any> = {}
-  ): Promise<Items> => {
-    const response = await notionOfficialClient.databases.query({
-      database_id: databaseId,
-      ...options
-    })
-    const results = response.results as NotionEntry[]
-    const items = results.map((entry) => notionAdapters.toItem(entry))
-
-    return items
-  },
   getPage: async (pageId: string): Promise<ExtendedRecordMap> => {
     const response = await notionUnofficialClient.getPage(pageId)
 
     return response
+  },
+  getDatabase: async (
+    databaseId: string,
+    options: Record<any, any> = {}
+  ): Promise<Items> => {
+    let output = []
+    await getEntries()
+    async function getEntries(cursor = undefined): Promise<void> {
+      const response = await notionOfficialClient.databases.query({
+        database_id: databaseId,
+        start_cursor: cursor,
+        ...options
+      })
+      const results = response.results as NotionEntry[]
+      const items = results.map((entry) => notionAdapters.toItem(entry))
+
+      output = [...output, ...items]
+
+      if (response.has_more) {
+        await getEntries(response.next_cursor)
+      }
+    }
+
+    return output
   },
   getPublishedEntriesInDb: async (databaseId: string): Promise<Items> => {
     const response = await notionOfficialClient.databases.query({
