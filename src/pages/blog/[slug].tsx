@@ -1,22 +1,23 @@
+// Dependencies
+import { notionClient } from '@/frontend/shared/lib'
+
 // Utils
 import { getPathsForItems } from '@/frontend/shared/utils'
 
 // Types
+import { BlogPostPageProps, BlogPostPage } from '@/frontend/modules/blog'
 import {
   GetStaticPaths,
   GetStaticPathsResult,
   GetStaticProps,
   GetStaticPropsResult
 } from 'next'
-import { BlogPostPageProps, BlogPostPage } from '@/frontend/modules/blog'
-import { notionClient } from '@/frontend/shared/lib'
-
-// Constants
-const NOTION_DB_ID = '163470abeada4765b1872d1267e99d77'
 
 const getStaticPaths: GetStaticPaths =
   async (): Promise<GetStaticPathsResult> => {
-    const posts = await notionClient.getPublishedEntriesInDb(NOTION_DB_ID)
+    const posts = await notionClient.getPublishedEntriesInDb(
+      process.env.NOTION_BLOG_DB_ID
+    )
     const paths = getPathsForItems(posts)
 
     return {
@@ -29,7 +30,9 @@ const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<BlogPostPageProps>> => {
   const { slug } = props.params
-  const posts = await notionClient.getPublishedEntriesInDb(NOTION_DB_ID)
+  const posts = await notionClient.getPublishedEntriesInDb(
+    process.env.NOTION_BLOG_DB_ID
+  )
   const { name, description, cover, id } = posts.find(
     (post) => post.slug === slug
   )
