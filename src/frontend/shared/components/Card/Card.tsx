@@ -22,15 +22,8 @@ export function Card({
   const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
 
   return (
-    <NextLink href={link} target={target} style={{ color: 'inherit' }}>
-      <Stack
-        spacing={0}
-        sx={{
-          '&:hover': {
-            opacity: 0.5
-          }
-        }}
-      >
+    <NextLink href={link} target={target} className={'hoverable'}>
+      <Stack spacing={0}>
         <Image
           height={96}
           fit={'cover'}

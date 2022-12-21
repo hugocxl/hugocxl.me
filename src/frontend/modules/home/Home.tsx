@@ -54,12 +54,8 @@ export const Home: NextPage = () => {
           breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 0 }]}
         >
           {PAGES.map((page) => (
-            <NextLink href={page.href} key={page.href}>
-              <Stack
-                key={page.title}
-                spacing={0}
-                sx={{ ':hover': { opacity: 0.5 } }}
-              >
+            <NextLink href={page.href} key={page.href} className={'hoverable'}>
+              <Stack key={page.title} spacing={0}>
                 <Title order={5} m={'0 !important'}>
                   {page.title}
                 </Title>
