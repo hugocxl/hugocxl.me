@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "start": "yarn build && next start",
+    "start": "next start",
     "build": "next build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
