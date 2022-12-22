@@ -1,12 +1,12 @@
-import { StackPageTest } from '../pages'
+import { StackPageTester } from '../pages'
 
 describe('Stack page', () => {
   beforeEach(() => {
-    StackPageTest.visit()
+    StackPageTester.visit()
   })
 
   it('displays the stack list correctly', () => {
-    StackPageTest.getList().should('exist')
+    StackPageTester.getList().should('exist')
   })
 
   // it('can add new todo items', () => {

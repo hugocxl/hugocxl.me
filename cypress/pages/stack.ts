@@ -1,4 +1,4 @@
-export class StackPageTest {
+export class StackTester {
   public static visit() {
     cy.visit('/stack')
   }
