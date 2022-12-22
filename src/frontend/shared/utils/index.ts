@@ -1,3 +1,4 @@
-export * from './toSlug'
-export * from './groupBy'
 export * from './getPathsForItems'
+export * from './groupBy'
+export * from './sortBy'
+export * from './toSlug'

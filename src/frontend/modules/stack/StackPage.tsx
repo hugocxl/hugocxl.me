@@ -7,7 +7,7 @@ import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Utils
-import { groupBy } from '@/frontend/shared/utils'
+import { groupBy, sortBy } from '@/frontend/shared/utils'
 
 // Constants
 import { STACK } from '@/frontend/shared/constants'
@@ -17,18 +17,25 @@ interface StackPageProps {
 }
 
 export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
-  const groupedStack = groupBy(stack, 'tags')
+  const sortedStack = sortBy(stack, 'tags')
+  const groupedStack = groupBy(sortedStack, 'tags')
   const render = getRender()
 
   function getRender() {
     const render = []
     for (let tag in groupedStack) {
+      const sortedGroup = sortBy(groupedStack[tag], 'name')
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
           <Stack>
-            {groupedStack[tag].map(({ link, cover, name, description }) => (
-              <Anchor href={link} target={'_blank'} className={'hoverable'}>
+            {sortedGroup.map(({ link, cover, name, description }) => (
+              <Anchor
+                key={name}
+                href={link}
+                target={'_blank'}
+                className={'hoverable'}
+              >
                 <Group noWrap align={'center'}>
                   <Image
                     height={72}
