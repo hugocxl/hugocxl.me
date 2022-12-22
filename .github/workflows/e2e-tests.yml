@@ -6,13 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
 
       - name: Install dependencies
         run: npm install --force
 
       - name: Cypress run
-        uses: cypress-io/github-action@v5.0.0
+        uses: cypress-io/github-action@master
+        env:
+          NOTION_EXTENSION_TOKEN: ${{ secrets.NOTION_EXTENSION_TOKEN }}
+          NOTION_BROWSER_TOKEN: ${{ secrets.NOTION_BROWSER_TOKEN }}
+          NOTION_RESOURCES_DB_ID: ${{ secrets.NOTION_RESOURCES_DB_ID }}
+          NOTION_BLOG_DB_ID: ${{ secrets.NOTION_BLOG_DB_ID }}
+          NOTION_STACK_DB_ID: ${{ secrets.NOTION_STACK_DB_ID }}
         with:
           build: npm run build
           start: npm run start
