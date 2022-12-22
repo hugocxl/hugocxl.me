@@ -13,7 +13,7 @@ const getStaticProps: GetStaticProps = async (): Promise<
   )
 
   return {
-    revalidate: 60,
+    revalidate: 86400,
     props: {
       posts
     }

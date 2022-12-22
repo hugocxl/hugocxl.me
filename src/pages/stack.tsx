@@ -15,7 +15,7 @@ export async function getStaticProps() {
   })
 
   return {
-    revalidate: 86400 * 3,
+    revalidate: 86400 * 7,
     props: {
       stack
     }

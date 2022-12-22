@@ -7,7 +7,7 @@ export async function getStaticProps() {
   )
 
   return {
-    revalidate: 86400,
+    revalidate: 86400 * 7,
     props: {
       resources
     }
