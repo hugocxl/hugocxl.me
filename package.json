@@ -12,8 +12,9 @@
     "dev": "next dev",
     "start": "yarn build && next start",
     "build": "next build",
-    "update:release": "yarn version --allow-same-version=false --git-tag-version=true --new-version $v",
-    "postversion": "git push && git push --tags"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "setup:env": "npx vercel env pull .env.local"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -28,6 +29,7 @@
     "@notionhq/client": "^2.2.2",
     "@tabler/icons": "^1.111.0",
     "@vercel/analytics": "^0.1.1",
+    "cypress": "^12.2.0",
     "gray-matter": "^4.0.3",
     "next": "^13.0.0",
     "notion-client": "^6.15.6",

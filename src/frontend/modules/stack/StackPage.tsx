@@ -66,7 +66,9 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
 
   return (
     <Page title={STACK.title} description={STACK.description}>
-      {render}
+      <div className={'stack-list'}>
+        {render}
+        </div>
     </Page>
   )
 }
