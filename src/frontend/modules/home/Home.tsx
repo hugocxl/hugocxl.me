@@ -56,7 +56,7 @@ export const Home: NextPage = () => {
           {PAGES.map((page) => (
             <NextLink href={page.href} key={page.href} className={'hoverable'}>
               <Stack key={page.title} spacing={0}>
-                <Title order={5} m={'0 !important'}>
+                <Title order={5} span m={'0 !important'}>
                   {page.title}
                 </Title>
                 <Text size={'xs'} color={'dimmed'}>

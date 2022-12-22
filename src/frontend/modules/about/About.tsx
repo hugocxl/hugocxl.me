@@ -46,7 +46,8 @@ export const About: NextPage = () => {
         <li>
           <Text weight={'bold'}>Work</Text>
           <Text>
-            I am currently working at <Anchor>Sygris</Anchor> as Lead Frontend
+            I am currently working at{' '}
+            <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
             Engineer.
           </Text>
         </li>
@@ -67,10 +68,8 @@ export const About: NextPage = () => {
           </Text>
           <Text>
             <>
-              As a software developer, I enjoy building{' '}
-              <NextLink href={'/projects'}>
-                open-source software and libraries
-              </NextLink>
+              As a software developer, I enjoy building open-source software and
+              libraries
             </>
           </Text>
         </li>

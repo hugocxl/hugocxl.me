@@ -60,9 +60,16 @@ export function Header() {
 
           return (
             <Tooltip label={title} key={title}>
-              <NextLink href={href} onClick={isMenuOpenCx.close}>
+              <NextLink
+                href={href}
+                onClick={isMenuOpenCx.close}
+                aria-label={`Navigate to ${title} page`}
+              >
                 <Group>
-                  <ActionIcon variant={isActive ? 'gradient' : 'subtle'}>
+                  <ActionIcon
+                    aria-label={title}
+                    variant={isActive ? 'gradient' : 'subtle'}
+                  >
                     <Icon size={18} />
                   </ActionIcon>
                   <Text sx={responsiveStyles.mobile}>{title}</Text>
@@ -77,7 +84,11 @@ export function Header() {
 
   function ThemeButton() {
     return (
-      <ActionIcon variant='subtle' onClick={toggleMode}>
+      <ActionIcon
+        aria-label={'Change theme'}
+        variant={'subtle'}
+        onClick={toggleMode}
+      >
         {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={18} />}
       </ActionIcon>
     )
@@ -86,7 +97,8 @@ export function Header() {
   function BurgerButton() {
     return (
       <ActionIcon
-        variant='subtle'
+        aria-label={'Open nav menu'}
+        variant={'subtle'}
         onClick={isMenuOpenCx.toggle}
         sx={responsiveStyles.mobile}
       >
@@ -97,7 +109,11 @@ export function Header() {
 
   function SearchButton() {
     return (
-      <ActionIcon variant='subtle' onClick={spotlight.openSpotlight}>
+      <ActionIcon
+        aria-label={'Search'}
+        variant={'subtle'}
+        onClick={spotlight.openSpotlight}
+      >
         {<IconSearch size={18} />}
       </ActionIcon>
     )

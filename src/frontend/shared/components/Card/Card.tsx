@@ -1,3 +1,4 @@
+// Components
 import { Stack, Title, Image, Text } from '@mantine/core'
 import NextLink from 'next/link'
 

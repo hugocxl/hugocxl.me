@@ -36,11 +36,12 @@ export function Footer() {
               title={`Twitter @hcorta`}
               target={'_blank'}
             >
-              <ActionIcon size={'md'} variant={'subtle'}>
+              <ActionIcon aria-label={'Twitter'} size={'md'} variant={'subtle'}>
                 <IconBrandTwitter size={16} />
               </ActionIcon>
             </Anchor>
             <Anchor
+              aria-label={'GitHub'}
               href={`https://github.com/hcorta`}
               title={`GitHub @hcorta`}
               target={'_blank'}
@@ -50,6 +51,7 @@ export function Footer() {
               </ActionIcon>
             </Anchor>
             <Anchor
+              aria-label={'LinkedIn'}
               href={`https://www.linkedin.com/in/hugocorta`}
               title={`LinkedIn @hugocorta`}
               target={'_blank'}
