@@ -25,6 +25,7 @@ export const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
               description={description}
               createdAt={createdAt}
               cover={cover}
+              useNextImage={true}
             />
           )
         })}

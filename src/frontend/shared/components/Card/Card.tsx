@@ -1,6 +1,7 @@
 // Components
-import { Stack, Title, Image, Text } from '@mantine/core'
+import { Stack, Title, Image as MantineImage, Text, Box } from '@mantine/core'
 import NextLink from 'next/link'
+import NextImage from 'next/image'
 
 export interface CardProps {
   link: string
@@ -9,6 +10,7 @@ export interface CardProps {
   description: string
   createdAt?: string
   target?: string
+  useNextImage?: boolean
 }
 
 export function Card({
@@ -17,22 +19,48 @@ export function Card({
   name,
   description,
   createdAt,
-  target
+  target,
+  useNextImage = false
 }: CardProps) {
   const date = new Date(createdAt)
   const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
 
+  function Image() {
+    if (useNextImage) {
+      return (
+        <Box
+          pos={'relative'}
+          h={96}
+          sx={{ borderRadius: '8px', overflow: 'hidden' }}
+        >
+          <NextImage
+            placeholder='blur'
+            blurDataURL={cover}
+            style={{ objectFit: 'cover' }}
+            fill
+            src={cover}
+            alt={name}
+          />
+        </Box>
+      )
+    }
+
+    return (
+      <MantineImage
+        height={96}
+        fit={'cover'}
+        withPlaceholder={true}
+        radius='md'
+        src={cover}
+        alt={name}
+      />
+    )
+  }
+
   return (
     <NextLink href={link} target={target} className={'hoverable'}>
       <Stack spacing={0}>
-        <Image
-          height={96}
-          fit={'cover'}
-          withPlaceholder={true}
-          radius='md'
-          src={cover}
-          alt={name}
-        />
+        <Image />
         {createdAt && (
           <Text color={'dotted'} size={'xs'}>
             {dateLabel}
