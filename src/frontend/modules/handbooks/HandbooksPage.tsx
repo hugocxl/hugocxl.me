@@ -1,7 +1,6 @@
 // Components
 import { Gallery, Page } from '@/frontend/shared/components'
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 import { Stack, Title, Text, Card } from '@mantine/core'
 
 // Types
@@ -19,7 +18,7 @@ export const HandbooksPage: NextPage<HandbooksPageProps> = ({ handbooks }) => {
   return (
     <Page title={HANDBOOKS.title} description={HANDBOOKS.description}>
       <Gallery>
-        {handbooks.map(({ slug, name, description, cover }) => {
+        {handbooks.map(({ slug, name, description }) => {
           return (
             <NextLink
               href={`${HANDBOOKS.href}/${slug}`}

@@ -10,13 +10,13 @@ import { useThemeMode } from '@/frontend/shared/hooks'
 import { useRouter } from 'next/router'
 
 // Types
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
 
 export interface SpotlightProviderProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const SpotlightProvider: FC<SpotlightProviderProps> = ({ children }) => {

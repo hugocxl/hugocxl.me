@@ -1,6 +1,6 @@
 // Components
 import { Gallery, Page, Card } from '@/frontend/shared/components'
-import { Anchor, Badge, Text, Group, Title } from '@mantine/core'
+import { Anchor, Text, Group, Title } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -20,7 +20,7 @@ export const ResourcesPage: NextPage<ResourcesPageProps> = ({ resources }) => {
   function getRender() {
     const render = []
     const tags = []
-    for (let tag in groupedResources) {
+    for (const tag in groupedResources) {
       tags.push(
         <Anchor href={'#' + tag} className={'hoverable'}>
           <Text color={'dimmed'} size='sm'>

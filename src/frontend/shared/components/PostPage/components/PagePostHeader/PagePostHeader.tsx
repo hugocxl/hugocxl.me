@@ -13,7 +13,6 @@ import {
   Group,
   Stack,
   Title,
-  Divider,
   Box
 } from '@mantine/core'
 import {
@@ -38,8 +37,8 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
   cover
 }) => {
   const router = useRouter()
-  const [_, section] = router.asPath.split('/')
-  const [open, setOpen] = useState(false)
+  const [, section] = router.asPath.split('/')
+  const [, setOpen] = useState(false)
   const baseUrl = 'https://hugocorta.com'
   const pageUrl = `${baseUrl}${router.asPath}`
   const encodedPageUrl = encodeURI(pageUrl)

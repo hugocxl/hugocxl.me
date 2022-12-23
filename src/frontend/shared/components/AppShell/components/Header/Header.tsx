@@ -8,7 +8,6 @@ import {
   IconSearch
 } from '@tabler/icons'
 import {
-  Header as MantineHeader,
   Text,
   Container,
   Paper,
@@ -122,11 +121,7 @@ export function Header() {
 
   return (
     <Box component='header' h={HEADER_HEIGHT}>
-      <Container
-        sx={(theme) => ({
-          height: '100%'
-        })}
-      >
+      <Container h={'100%'}>
         <SimpleGrid
           cols={3}
           spacing={0}

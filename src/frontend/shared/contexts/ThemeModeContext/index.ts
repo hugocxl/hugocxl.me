@@ -1,1 +1,1 @@
-export { ThemeModeContext } from "./ThemeModeContext";
+export { ThemeModeContext } from './ThemeModeContext'

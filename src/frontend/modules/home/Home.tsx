@@ -8,8 +8,9 @@ import { NextPage } from 'next'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
-const HOME_PAGE_TITLE = `Home`
-const HOME_PAGE_DESCRIPTION = `Curious human. Software Craftsman. Junior Thinker`
+const HOME_PAGE_TITLE = 'Home'
+const HOME_PAGE_DESCRIPTION =
+  'Curious human. Software Craftsman. Junior Thinker'
 
 export const Home: NextPage = () => {
   const commonHeaderProps = {

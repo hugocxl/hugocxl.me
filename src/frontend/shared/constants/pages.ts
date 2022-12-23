@@ -6,7 +6,7 @@ export const BLOG = {
   title: 'Blog',
   href: '/blog',
   icon: AiOutlineEdit,
-  description: `I write about stuff I'm interested in.`
+  description: "I write about stuff I'm interested in."
 }
 
 export const HANDBOOKS = {
@@ -27,14 +27,14 @@ export const STACK = {
   title: 'Stack',
   href: '/stack',
   icon: VscLayers,
-  description: `Here's what tech I'm currently using for coding and working.`
+  description: "Here's what tech I'm currently using for coding and working."
 }
 
 export const ABOUT = {
   title: 'About',
   href: '/about',
   icon: AiOutlineUser,
-  description: `I'm a software engineer based in Madrid.`
+  description: "I'm a software engineer based in Madrid."
 }
 
 export const PAGES = [BLOG, HANDBOOKS, RESOURCES, STACK, ABOUT]

@@ -14,7 +14,13 @@
     "build": "next build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "setup:env": "npx vercel env pull .env.local"
+    "setup:env": "npx vercel env pull .env.local",
+    "prettier": "prettier --ignore-path .gitignore .",
+    "format:fix": "yarn prettier --write",
+    "check:lint": "eslint --ignore-path .gitignore .",
+    "check:format": "yarn prettier --list-different",
+    "check:types": "tsc",
+    "validate": "yarn check:types && yarn check:format && yarn check:lint && yarn build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -30,17 +36,13 @@
     "@tabler/icons": "^1.111.0",
     "@vercel/analytics": "^0.1.1",
     "cypress": "^12.2.0",
-    "gray-matter": "^4.0.3",
     "next": "^13.0.0",
     "notion-client": "^6.15.6",
     "notion-types": "^6.15.6",
     "notion-utils": "^6.15.6",
-    "octokit": "^2.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-    "react-markdown": "^8.0.3",
-    "react-masonry-component": "^6.3.0",
     "react-notion-x": "^6.15.7"
   },
   "devDependencies": {
@@ -53,7 +55,10 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.31.11",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"

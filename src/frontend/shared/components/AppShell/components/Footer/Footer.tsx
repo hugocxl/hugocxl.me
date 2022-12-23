@@ -2,9 +2,9 @@
 import {
   ActionIcon,
   Anchor,
+  Box,
   Container,
   Flex,
-  Footer as MnFooter,
   Group,
   Text
 } from '@mantine/core'
@@ -18,12 +18,12 @@ const FOOTER_HEIGHT = 40
 
 export function Footer() {
   return (
-    <MnFooter
-      withBorder={false}
-      height={FOOTER_HEIGHT}
-      sx={(theme) => ({
-        background: 'transparent'
-      })}
+    <Box
+      component={'footer'}
+      h={FOOTER_HEIGHT}
+      sx={{
+        borderTop: '1px solid rgb(160,160,160,0.25)'
+      }}
     >
       <Container h={'100%'}>
         <Flex align={'center'} justify={'space-between'} h={'100%'}>
@@ -32,8 +32,8 @@ export function Footer() {
           </Text>
           <Group spacing={0}>
             <Anchor
-              href={`https://twitter.com/hcorta`}
-              title={`Twitter @hcorta`}
+              href={'https://twitter.com/hcorta'}
+              title={'Twitter @hcorta'}
               target={'_blank'}
             >
               <ActionIcon aria-label={'Twitter'} size={'md'} variant={'subtle'}>
@@ -42,8 +42,8 @@ export function Footer() {
             </Anchor>
             <Anchor
               aria-label={'GitHub'}
-              href={`https://github.com/hcorta`}
-              title={`GitHub @hcorta`}
+              href={'https://github.com/hcorta'}
+              title={'GitHub @hcorta'}
               target={'_blank'}
             >
               <ActionIcon size={'md'} variant={'subtle'}>
@@ -52,8 +52,8 @@ export function Footer() {
             </Anchor>
             <Anchor
               aria-label={'LinkedIn'}
-              href={`https://www.linkedin.com/in/hugocorta`}
-              title={`LinkedIn @hugocorta`}
+              href={'https://www.linkedin.com/in/hugocorta'}
+              title={'LinkedIn @hugocorta'}
               target={'_blank'}
             >
               <ActionIcon size={'md'} variant={'subtle'}>
@@ -63,6 +63,6 @@ export function Footer() {
           </Group>
         </Flex>
       </Container>
-    </MnFooter>
+    </Box>
   )
 }

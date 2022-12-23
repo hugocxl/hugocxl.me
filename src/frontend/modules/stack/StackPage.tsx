@@ -23,7 +23,7 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
 
   function getRender() {
     const render = []
-    for (let tag in groupedStack) {
+    for (const tag in groupedStack) {
       const sortedGroup = sortBy(groupedStack[tag], 'name')
       render.push(
         <div id={tag} key={tag}>
@@ -66,9 +66,7 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
 
   return (
     <Page title={STACK.title} description={STACK.description}>
-      <div className={'stack-list'}>
-        {render}
-        </div>
+      <div className={'stack-list'}>{render}</div>
     </Page>
   )
 }

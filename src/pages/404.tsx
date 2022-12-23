@@ -7,8 +7,8 @@ import { Page } from '@/frontend/shared/components'
 import { Stack, Button, Title } from '@mantine/core'
 
 // Constants
-const NOTFOUND_PAGE_TITLE = `404 – Hugo Corta`
-const NOTFOUND_PAGE_DESCRIPTION = `Page not found`
+const NOTFOUND_PAGE_TITLE = '404 – Hugo Corta'
+const NOTFOUND_PAGE_DESCRIPTION = 'Page not found'
 
 const NotFound: NextPage = () => {
   return (

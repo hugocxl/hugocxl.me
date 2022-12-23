@@ -1,7 +1,8 @@
 import { SimpleGrid, SimpleGridProps } from '@mantine/core'
+import { ReactNode } from 'react'
 
 export interface GalleryProps extends SimpleGridProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export function Gallery({ children, ...props }: GalleryProps) {

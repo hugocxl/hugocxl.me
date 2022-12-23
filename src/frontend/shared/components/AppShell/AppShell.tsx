@@ -1,13 +1,13 @@
 // Components
 import { Footer, Header } from './components'
-import { AppShell as MnAppShell, Box } from '@mantine/core'
+import { Box } from '@mantine/core'
 import { RouterTransition } from '../RouterTransition'
 
 // Types
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 export interface AppShellProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const AppShell: FC<AppShellProps> = ({ children }) => {

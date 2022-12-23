@@ -22,7 +22,7 @@ export const PagePostHead: FC<PagePostHeadProps> = ({ title, description }) => {
       <meta property='og:type' content='website' />
       <meta property='og:title' content={title} />
       <meta property='og:site_name' content={'hugocorta.com'} />
-      <meta name='twitter:creator' content={`@hcorta`} />
+      <meta name='twitter:creator' content={'@hcorta'} />
       {description && (
         <>
           <meta name='description' content={description} />

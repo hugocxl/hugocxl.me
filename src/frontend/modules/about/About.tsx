@@ -41,7 +41,7 @@ export const About: NextPage = () => {
         implementation details, it's where you'll' find me at my best.
       </p>
 
-      <Title order={2}>{`What I'm doing now`}</Title>
+      <Title order={2}>{"What I'm doing now"}</Title>
       <ul>
         <li>
           <Text weight={'bold'}>Work</Text>
@@ -56,10 +56,8 @@ export const About: NextPage = () => {
             Blog
           </Text>
           <Text>
-            <>
-              On this website <NextLink href={'/blog'}>I write posts</NextLink>{' '}
-              about diverse stuff that I find interesting.
-            </>
+            On this website <NextLink href={'/blog'}>I write posts</NextLink>{' '}
+            about diverse stuff that I find interesting.
           </Text>
         </li>
         <li>
@@ -202,7 +200,7 @@ export const About: NextPage = () => {
       <Group spacing={'sm'}>
         <Anchor
           href={'mailto:corta.hugo@gmail.com'}
-          title={`Mail`}
+          title={'Mail'}
           target={'_blank'}
         >
           <Button leftIcon={<IconMail size={16} />} variant={'default'}>
@@ -210,8 +208,8 @@ export const About: NextPage = () => {
           </Button>
         </Anchor>
         <Anchor
-          href={`https://github.com/hcorta`}
-          title={`GitHub @hcorta`}
+          href={'https://github.com/hcorta'}
+          title={'GitHub @hcorta'}
           target={'_blank'}
         >
           <Button leftIcon={<IconBrandGithub size={16} />} variant={'default'}>
@@ -219,8 +217,8 @@ export const About: NextPage = () => {
           </Button>
         </Anchor>
         <Anchor
-          href={`https://twitter.com/hcorta`}
-          title={`Twitter @hcorta`}
+          href={'https://twitter.com/hcorta'}
+          title={'Twitter @hcorta'}
           target={'_blank'}
         >
           <Button leftIcon={<IconBrandTwitter size={16} />} variant={'default'}>
@@ -228,8 +226,8 @@ export const About: NextPage = () => {
           </Button>
         </Anchor>
         <Anchor
-          href={`https://www.linkedin.com/in/hugocorta`}
-          title={`LinkedIn @hugocorta`}
+          href={'https://www.linkedin.com/in/hugocorta'}
+          title={'LinkedIn @hugocorta'}
           target={'_blank'}
         >
           <Button

@@ -2,7 +2,7 @@
 import { PageHead } from './components'
 
 // Types
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 // Styles
 import { Stack, Text, Container, Title } from '@mantine/core'
@@ -10,7 +10,7 @@ import { Stack, Text, Container, Title } from '@mantine/core'
 export interface PageProps {
   title?: string
   description?: string
-  children: React.ReactNode
+  children: ReactNode
   showHeader?: boolean
   fullWidth?: boolean
 }
