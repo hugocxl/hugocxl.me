@@ -11,6 +11,9 @@ jobs:
       - name: Install dependencies
         run: npm install --force
 
+      - name: Static validation
+        run: npm run validate
+
       - name: Cypress run
         uses: cypress-io/github-action@master
         env:
@@ -19,6 +22,7 @@ jobs:
           NOTION_RESOURCES_DB_ID: ${{ secrets.NOTION_RESOURCES_DB_ID }}
           NOTION_BLOG_DB_ID: ${{ secrets.NOTION_BLOG_DB_ID }}
           NOTION_STACK_DB_ID: ${{ secrets.NOTION_STACK_DB_ID }}
+          NOTION_HANDBOOKS_DB_ID: ${{ secrets.NOTION_HANDBOOKS_DB_ID }}
         with:
           build: npm run build
           start: npm run start
