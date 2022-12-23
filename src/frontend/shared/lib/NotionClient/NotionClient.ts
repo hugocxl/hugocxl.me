@@ -66,7 +66,8 @@ export const notionClient = {
     return output
   },
   getPublishedEntriesInDb: async (databaseId: string): Promise<Items> => {
-    return await notionClient.getDatabase(databaseId, {
+    const response = await notionOfficialClient.databases.query({
+      database_id: databaseId,
       filter: {
         property: 'Published',
         checkbox: {
@@ -74,5 +75,9 @@ export const notionClient = {
         }
       }
     })
+    const results = response.results as NotionEntry[]
+    const items = results.map((entry) => notionAdapters.toItem(entry))
+
+    return items
   }
 }

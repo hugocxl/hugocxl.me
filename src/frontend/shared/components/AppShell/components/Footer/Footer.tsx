@@ -18,15 +18,16 @@ const FOOTER_HEIGHT = 40
 
 export function Footer() {
   return (
-    <Box
-      component={'footer'}
-      h={FOOTER_HEIGHT}
-      sx={{
-        borderTop: '1px solid rgb(160,160,160,0.25)'
-      }}
-    >
+    <Box component={'footer'} h={FOOTER_HEIGHT}>
       <Container h={'100%'}>
-        <Flex align={'center'} justify={'space-between'} h={'100%'}>
+        <Flex
+          align={'center'}
+          justify={'space-between'}
+          h={'100%'}
+          sx={{
+            borderTop: '1px solid rgb(160,160,160,0.25)'
+          }}
+        >
           <Text color={'dimmed'} size={'xs'}>
             {`All Rights Reserved © ${new Date().getFullYear()} Hugo Corta`}
           </Text>
