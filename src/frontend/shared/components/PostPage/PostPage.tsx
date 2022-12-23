@@ -24,7 +24,10 @@ export const PagePost: FC<PagePostProps> = ({
 }) => {
   return (
     <Container
-      sx={{ paddingTop: '24px', position: 'relative' }}
+      sx={{
+        width: '100%',
+        paddingBottom: '60px'
+      }}
       className={'post'}
     >
       <PagePostHead title={title} description={description} />

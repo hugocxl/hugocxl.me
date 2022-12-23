@@ -18,7 +18,8 @@ import {
   SimpleGrid,
   Group,
   Title,
-  Tooltip
+  Tooltip,
+  Box
 } from '@mantine/core'
 
 // Hooks
@@ -120,16 +121,7 @@ export function Header() {
   }
 
   return (
-    <MantineHeader
-      withBorder={false}
-      height={HEADER_HEIGHT}
-      sx={{
-        borderColor: 'rgba(150,150,150,0.2)',
-        backdropFilter: 'blur(10px)',
-        top: 0,
-        background: 'transparent'
-      }}
-    >
+    <Box component='header' h={HEADER_HEIGHT}>
       <Container
         sx={(theme) => ({
           height: '100%'
@@ -190,6 +182,6 @@ export function Header() {
           </Transition>
         </SimpleGrid>
       </Container>
-    </MantineHeader>
+    </Box>
   )
 }

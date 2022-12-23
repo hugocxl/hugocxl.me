@@ -50,32 +50,10 @@ a {
     line-height: 2rem !important;
   }
 
+  .notion-code,
   p,
   .notion-text {
     margin-bottom: 2rem !important;
+    /* margin-bottom: 1rem !important; */
   }
-}
-
-.notion-text,
-.notion li {
-  font-size: inherit !important;
-  padding: 0 !important;
-}
-
-.notion {
-  font-size: inherit !important;
-}
-
-.notion,
-.notion * {
-  color: inherit !important;
-}
-
-.notion-page {
-  width: 100% !important;
-  padding: 0 !important;
-}
-
-.notion-collection-page-properties {
-  display: none !important;
 }

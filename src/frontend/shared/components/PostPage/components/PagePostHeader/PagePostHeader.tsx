@@ -58,7 +58,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
             <IconArrowLeft size={20} />
           </ActionIcon>
         </NextLink>
-        <Text color={'dimmed'}>{`Back to ${section}`}</Text>
+        <Text size={'sm'} color={'dimmed'}>{`Back to ${section}`}</Text>
       </Group>
     )
   }
@@ -101,7 +101,13 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   return (
     <Stack spacing={0}>
-      <Flex justify={'space-between'}>
+      <Flex
+        justify={'space-between'}
+        sx={{
+          padding: '16px 0',
+          borderBottom: '1px solid rgb(160,160,160,0.25)'
+        }}
+      >
         <BackButton />
         <Group spacing={'xs'}>
           <CopyToClipboardButton />

@@ -1,3 +1,4 @@
+import { useThemeMode } from '@/frontend/shared/hooks'
 import dynamic from 'next/dynamic'
 import { NotionRenderer as ReactNotionX } from 'react-notion-x'
 
@@ -30,8 +31,10 @@ const Modal = dynamic(
 )
 
 export function NotionRenderer({ recordMap }) {
+  const [mode] = useThemeMode()
   return (
     <ReactNotionX
+      darkMode={mode === 'dark'}
       recordMap={recordMap}
       components={{
         Code,

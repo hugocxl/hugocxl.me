@@ -29,6 +29,7 @@ export function Card({
     if (useNextImage) {
       return (
         <Box
+          mb={'md'}
           pos={'relative'}
           h={96}
           sx={{ borderRadius: '8px', overflow: 'hidden' }}
