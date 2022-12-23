@@ -37,9 +37,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         withNormalizeCSS
         theme={{
           fontSizes: {
-            xs: 12,
-            sm: 14,
-            md: 18,
+            xs: 11,
+            sm: 13,
+            md: 16,
             lg: 20,
             xl: 24
           },
