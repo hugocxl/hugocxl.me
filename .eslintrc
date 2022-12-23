@@ -19,7 +19,8 @@
     "plugin:cypress/recommended",
     "plugin:@typescript-eslint/recommended",
     "standard",
-    "standard-react"
+    "standard-react",
+    "prettier"
   ],
   "env": { "browser": true, "node": true },
   "rules": {
