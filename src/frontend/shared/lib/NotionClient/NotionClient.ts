@@ -66,29 +66,13 @@ export const notionClient = {
     return output
   },
   getPublishedEntriesInDb: async (databaseId: string): Promise<Items> => {
-    try {
-      console.log('databaseId', databaseId)
-      console.log(
-        'process.env.NOTION_EXTENSION_TOKEN',
-        process.env.NOTION_EXTENSION_TOKEN
-      )
-
-      const response = await notionOfficialClient.databases.query({
-        database_id: databaseId,
-        filter: {
-          property: 'Published',
-          checkbox: {
-            equals: true
-          }
+    return await notionClient.getDatabase(databaseId, {
+      filter: {
+        property: 'Published',
+        checkbox: {
+          equals: true
         }
-      })
-      const results = response.results as NotionEntry[]
-      const items = results.map((entry) => notionAdapters.toItem(entry))
-
-      return items
-    } catch (error) {
-      console.log('error', error)
-      return []
-    }
+      }
+    })
   }
 }

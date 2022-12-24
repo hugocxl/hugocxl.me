@@ -43,7 +43,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             lg: 20,
             xl: 24
           },
-          primaryColor: isDarkMode ? 'yellow' : 'yellow',
+          primaryColor: isDarkMode ? 'blue' : 'blue',
           colorScheme: mode,
           black: '#333',
           white: '#fff',
@@ -61,11 +61,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               '#aa8859',
               '#9A7B4F'
             ]
-          },
-          defaultGradient: {
-            from: '#c3ac8a',
-            to: '#c3ac8a',
-            deg: 135
           },
           components: {
             Container: {

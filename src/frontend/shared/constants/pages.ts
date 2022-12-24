@@ -13,7 +13,7 @@ export const HANDBOOKS = {
   title: 'Handbooks',
   href: '/handbooks',
   icon: VscLibrary,
-  description: 'My guides on diverse topics.'
+  description: 'My guides on different topics.'
 }
 
 export const RESOURCES = {
@@ -27,14 +27,14 @@ export const STACK = {
   title: 'Stack',
   href: '/stack',
   icon: VscLayers,
-  description: "Here's what tech I'm currently using for coding and working."
+  description: "What tech I'm currently using."
 }
 
 export const ABOUT = {
   title: 'About',
   href: '/about',
   icon: AiOutlineUser,
-  description: "I'm a software engineer based in Madrid."
+  description: 'Some more info about me.'
 }
 
 export const PAGES = [BLOG, HANDBOOKS, RESOURCES, STACK, ABOUT]

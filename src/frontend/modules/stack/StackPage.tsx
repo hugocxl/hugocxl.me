@@ -38,9 +38,9 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
               >
                 <Group noWrap align={'center'}>
                   <Image
-                    height={72}
-                    width={72}
-                    style={{ minWidth: 72 }}
+                    height={60}
+                    width={60}
+                    style={{ minWidth: 60 }}
                     fit={'cover'}
                     withPlaceholder={true}
                     radius='md'

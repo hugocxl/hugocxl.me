@@ -34,7 +34,7 @@ html {
 
 a {
   cursor: pointer;
-  color: inherit;
+  /* color: rgb(59, 130, 246) !important; */
   text-decoration: none !important;
 }
 
@@ -47,13 +47,13 @@ a {
   p,
   .notion-text,
   li {
-    line-height: 2rem !important;
+    line-height: 1.75 !important;
   }
 
   .notion-code,
   p,
   .notion-text {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.25rem !important;
     /* margin-bottom: 1rem !important; */
   }
 }

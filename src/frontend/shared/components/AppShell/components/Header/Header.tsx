@@ -68,7 +68,7 @@ export function Header() {
                 <Group>
                   <ActionIcon
                     aria-label={title}
-                    variant={isActive ? 'gradient' : 'subtle'}
+                    variant={isActive ? 'filled' : 'subtle'}
                   >
                     <Icon size={18} />
                   </ActionIcon>
@@ -136,7 +136,7 @@ export function Header() {
         >
           <NextLink href={'/'}>
             <Title order={4} span sx={{ margin: '0 !important' }}>
-              hugo
+              hugo corta
             </Title>
           </NextLink>
 

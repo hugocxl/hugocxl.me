@@ -31,7 +31,7 @@ export function Card({
         <Box
           mb={'md'}
           pos={'relative'}
-          h={96}
+          h={120}
           sx={{ borderRadius: '8px', overflow: 'hidden' }}
         >
           <NextImage
@@ -48,7 +48,7 @@ export function Card({
 
     return (
       <MantineImage
-        height={96}
+        height={120}
         fit={'cover'}
         withPlaceholder={true}
         radius='md'

@@ -8,6 +8,8 @@ import { Items } from '@/frontend/shared/types'
 
 // Constants
 import { RESOURCES } from '@/frontend/shared/constants'
+
+// Utils
 import { groupBy } from '@/frontend/shared/utils'
 interface ResourcesPageProps {
   resources: Items
@@ -22,7 +24,7 @@ export const ResourcesPage: NextPage<ResourcesPageProps> = ({ resources }) => {
     const tags = []
     for (const tag in groupedResources) {
       tags.push(
-        <Anchor href={'#' + tag} className={'hoverable'}>
+        <Anchor key={tag} href={'#' + tag} className={'hoverable'}>
           <Text color={'dimmed'} size='sm'>
             {tag}
           </Text>
