@@ -1,13 +1,5 @@
 {
-  "**/*.+(ts|tsx)": [
-    "yarn lint:fix",
-    "yarn format:fix",
-    "yarn type-check:check",
-    "git add"
-  ],
-  "**/*.+(css)": [
-    "yarn lint:fix",
-    "yarn format:fix",
-    "git add"
+  "**/*.+(ts|tsx|json|css)": [
+    "yarn static:fix"
   ]
 }

@@ -24,7 +24,7 @@
     "type-check": "tsc",
     "type-check:check": "yarn type-check --noEmit",
     "static:validate": "yarn lint:check && yarn format:check && yarn type-check:check",
-    "static:fix": "yarn lint:fix && yarn format:fix && yarn type-check:check",
+    "static:fix": "yarn lint:fix && yarn format:fix",
     "prepare": "husky install"
   },
   "dependencies": {
