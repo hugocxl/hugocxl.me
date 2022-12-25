@@ -24,7 +24,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     () => [
       mode,
       () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
+        setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'))
       }
     ],
     [mode]
@@ -98,7 +98,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       >
         <TypographyStylesProvider>{children}</TypographyStylesProvider>
         <Global
-          styles={(theme) => ({
+          styles={theme => ({
             body: {
               ...theme.fn.fontStyles(),
               backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',

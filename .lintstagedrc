@@ -1,9 +1,12 @@
 {
-  "*.+(js|ts|tsx)": [
-    "eslint"
+  "**/*.+(ts|tsx)": [
+    "yarn lint:fix",
+    "yarn format:fix",
+    "git add"
   ],
-  "**/*.+(js|json|ts|tsx)": [
-    "prettier --write",
+  "**/*.+(css)": [
+    "yarn lint:fix",
+    "yarn format:fix",
     "git add"
   ]
 }

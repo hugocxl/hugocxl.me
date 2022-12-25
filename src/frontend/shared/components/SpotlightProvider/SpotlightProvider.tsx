@@ -48,7 +48,7 @@ export const SpotlightProvider: FC<SpotlightProviderProps> = ({ children }) => {
       shortcut={['mod + K']}
       nothingFoundMessage={'Nothing found...'}
       filter={(query, actions) =>
-        actions.filter((action) =>
+        actions.filter(action =>
           action.title.toLowerCase().includes(query.toLowerCase())
         )
       }

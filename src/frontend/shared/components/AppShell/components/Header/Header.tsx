@@ -155,7 +155,7 @@ export function Header() {
           </Group>
 
           <Transition transition='scale-y' duration={200} mounted={isMenuOpen}>
-            {(styles) => (
+            {styles => (
               <Paper
                 withBorder
                 style={styles}

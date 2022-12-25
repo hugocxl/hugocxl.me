@@ -54,7 +54,7 @@ export const notionClient = {
         ...options
       })
       const results = response.results as NotionEntry[]
-      const items = results.map((entry) => notionAdapters.toItem(entry))
+      const items = results.map(entry => notionAdapters.toItem(entry))
 
       output = [...output, ...items]
 

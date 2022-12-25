@@ -34,7 +34,7 @@ const getStaticProps: GetStaticProps = async (
     process.env.NOTION_HANDBOOKS_DB_ID
   )
   const { name, description, cover, id } = posts.find(
-    (post) => post.slug === slug
+    post => post.slug === slug
   )
   const recordMap = await notionClient.getPage(id)
 
