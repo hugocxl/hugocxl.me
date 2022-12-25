@@ -23,7 +23,7 @@ const HOME_PAGE_DESCRIPTION =
 export const Home: NextPage = () => {
   const commonHeaderProps = {
     span: true,
-    m: '0 !important',
+    m: '0 !important'
     // lh: '1.25 !important'
   }
 
