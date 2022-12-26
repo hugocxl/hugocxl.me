@@ -34,19 +34,17 @@ html {
 
 a {
   cursor: pointer;
-  /* color: rgb(59, 130, 246) !important; */
   text-decoration: none !important;
 }
 
 .hoverable:hover {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 @media screen and (min-width: 768px) {
   p,
-  .notion-text,
-  li {
+  .notion-text {
     line-height: 1.75 !important;
   }
 
@@ -54,6 +52,5 @@ a {
   p,
   .notion-text {
     margin-bottom: 1.25rem !important;
-    /* margin-bottom: 1rem !important; */
   }
 }

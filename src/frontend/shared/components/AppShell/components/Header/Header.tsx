@@ -9,73 +9,48 @@ import {
 } from '@tabler/icons'
 import {
   Text,
-  Container,
-  Paper,
-  Transition,
-  useMantineTheme,
   ActionIcon,
-  SimpleGrid,
   Group,
   Title,
   Tooltip,
-  Box
+  Box,
+  Stack,
+  Modal,
+  Container,
+  Divider
 } from '@mantine/core'
 
 // Hooks
 import { useDisclosure } from '@mantine/hooks'
-import { useRouter } from 'next/router'
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
 
-const HEADER_HEIGHT = 72
-
 export function Header() {
-  const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const spotlight = useSpotlight()
-  const theme = useMantineTheme()
   const isDarkMode = mode === 'dark'
-  const responsiveStyles = {
-    desktop: {
-      [theme.fn.smallerThan('sm')]: {
-        display: 'none'
-      }
-    },
-    mobile: {
-      [theme.fn.largerThan('sm')]: {
-        display: 'none'
-      }
-    }
-  }
 
   function Items() {
     return (
       <>
-        {PAGES.map(({ title, href, icon: Icon }) => {
-          const isActive = pathname.startsWith(href)
-
+        {PAGES.map(({ title, href }) => {
           return (
-            <Tooltip label={title} key={title}>
-              <NextLink
-                href={href}
-                onClick={isMenuOpenCx.close}
-                aria-label={`Navigate to ${title} page`}
-              >
-                <Group>
-                  <ActionIcon
-                    aria-label={title}
-                    variant={isActive ? 'filled' : 'subtle'}
-                  >
-                    <Icon size={18} />
-                  </ActionIcon>
-                  <Text sx={responsiveStyles.mobile}>{title}</Text>
-                </Group>
-              </NextLink>
-            </Tooltip>
+            <Box w={'100%'} p={'xl'}>
+              <Tooltip label={title} key={title}>
+                <NextLink
+                  href={href}
+                  onClick={isMenuOpenCx.close}
+                  aria-label={`Navigate to ${title} page`}
+                >
+                  <Text color={'dimmed'}>{title}</Text>
+                </NextLink>
+              </Tooltip>
+              <Divider />
+            </Box>
           )
         })}
       </>
@@ -89,7 +64,7 @@ export function Header() {
         variant={'subtle'}
         onClick={toggleMode}
       >
-        {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={18} />}
+        {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={20} />}
       </ActionIcon>
     )
   }
@@ -100,7 +75,6 @@ export function Header() {
         aria-label={'Open nav menu'}
         variant={'subtle'}
         onClick={isMenuOpenCx.toggle}
-        sx={responsiveStyles.mobile}
       >
         {!isMenuOpen ? <IconMenu2 size={18} /> : <IconX size={18} />}
       </ActionIcon>
@@ -120,63 +94,53 @@ export function Header() {
   }
 
   return (
-    <Box component='header' h={HEADER_HEIGHT}>
-      <Container h={'100%'}>
-        <SimpleGrid
-          cols={3}
-          spacing={0}
-          breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 0 }]}
+    <Box
+      component='header'
+      sx={theme => ({
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        paddingTop: theme.spacing.xl * 2,
+        paddingBottom: theme.spacing.xl * 4,
+
+        '@media (max-width: 755px)': {
+          paddingTop: theme.spacing.sm
+        }
+      })}
+    >
+      <NextLink href={'/'}>
+        <Stack spacing={0}>
+          <Title order={5} span fw={'normal'} sx={{ margin: '0 !important' }}>
+            hugo corta
+          </Title>
+          <Text color={'dimmed'}>Lead Software Engineer</Text>
+          <Text color={'dimmed'}>Madrid, Spain</Text>
+        </Stack>
+      </NextLink>
+
+      <Group
+        align={'center'}
+        sx={{ justifyContent: 'flex-end' }}
+        spacing={'xs'}
+      >
+        <SearchButton />
+        <ThemeButton />
+        <BurgerButton />
+      </Group>
+
+      <Modal fullScreen opened={isMenuOpen} onClose={isMenuOpenCx.close}>
+        <Container
           sx={{
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            paddingTop: 200,
             height: '100%',
-            gridTemplateColumns: 'auto auto auto',
-            borderBottom: '3px solid rgb(160,160,160,0.25)'
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
           }}
         >
-          <NextLink href={'/'}>
-            <Title order={4} span sx={{ margin: '0 !important' }}>
-              hugo corta
-            </Title>
-          </NextLink>
-
-          <Group spacing={'md'} sx={responsiveStyles.desktop}>
-            <Items />
-          </Group>
-
-          <Group
-            align={'center'}
-            sx={{ justifyContent: 'flex-end' }}
-            spacing={'xs'}
-          >
-            <BurgerButton />
-            <SearchButton />
-            <ThemeButton />
-          </Group>
-
-          <Transition transition='scale-y' duration={200} mounted={isMenuOpen}>
-            {styles => (
-              <Paper
-                withBorder
-                style={styles}
-                sx={{
-                  position: 'absolute',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  top: HEADER_HEIGHT,
-                  left: 0,
-                  right: 0,
-                  zIndex: 0,
-                  borderRadius: 0,
-                  overflow: 'hidden'
-                }}
-              >
-                <Items />
-              </Paper>
-            )}
-          </Transition>
-        </SimpleGrid>
-      </Container>
+          <Items />
+        </Container>
+      </Modal>
     </Box>
   )
 }

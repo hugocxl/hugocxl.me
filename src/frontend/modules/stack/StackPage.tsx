@@ -48,7 +48,7 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
                     alt={name}
                   />
                   <Stack spacing={0} mb={10}>
-                    <Title span order={4} m={'0 !important'}>
+                    <Title span order={5} m={'0 !important'}>
                       {name}
                     </Title>
                     <Text color={'dimmed'}>{description}</Text>

@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-import { Global, MantineProvider } from '@mantine/core'
+import { Global, MantineProvider, TitleStylesParams } from '@mantine/core'
 import { TypographyStylesProvider } from '@mantine/core'
 
 // Contexts
@@ -33,6 +33,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
       <MantineProvider
+        withCSSVariables
         withGlobalStyles
         withNormalizeCSS
         theme={{
@@ -71,14 +72,18 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               }
             },
             Title: {
-              styles: {
+              styles: (theme, params: TitleStylesParams) => ({
                 root: {
                   marginTop: '4rem !important',
                   letterSpacing: -0.5,
                   width: 'fit-content',
-                  color: isDarkMode ? 'white' : 'black'
+                  color: isDarkMode ? 'white' : 'black',
+                  ...((params.element === 'h5' || params.element === 'h6') && {
+                    letterSpacing: 0,
+                    fontWeight: 500
+                  })
                 }
-              }
+              })
             },
             Timeline: {
               styles: {

@@ -1,6 +1,6 @@
 // Components
 import { Footer, Header } from './components'
-import { Box } from '@mantine/core'
+import { Container } from '@mantine/core'
 import { RouterTransition } from '../RouterTransition'
 
 // Types
@@ -12,7 +12,7 @@ export interface AppShellProps {
 
 export const AppShell: FC<AppShellProps> = ({ children }) => {
   return (
-    <Box
+    <Container
       sx={{
         display: 'grid',
         gridTemplateRows: 'auto 1fr auto',
@@ -23,6 +23,6 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
       <RouterTransition />
       {children}
       <Footer />
-    </Box>
+    </Container>
   )
 }

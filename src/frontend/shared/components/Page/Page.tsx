@@ -5,22 +5,20 @@ import { PageHead } from './components'
 import { FC, ReactNode } from 'react'
 
 // Styles
-import { Stack, Text, Container, Title } from '@mantine/core'
+import { Stack, Text, Title, Box } from '@mantine/core'
 
 export interface PageProps {
   title?: string
   description?: string
   children: ReactNode
   showHeader?: boolean
-  fullWidth?: boolean
 }
 
 export const Page: FC<PageProps> = ({
   children,
   title,
   description,
-  showHeader = true,
-  fullWidth = false
+  showHeader = true
 }) => {
   function Header() {
     if (!showHeader) return null
@@ -42,17 +40,10 @@ export const Page: FC<PageProps> = ({
   }
 
   return (
-    <Container
-      sx={{
-        paddingTop: '60px',
-        paddingBottom: '60px',
-        width: '100%',
-        ...(fullWidth && { maxWidth: '100%' })
-      }}
-    >
+    <Box component={'main'} w={'100%'}>
       <PageHead title={title} description={description} />
       <Header />
       {children}
-    </Container>
+    </Box>
   )
 }
