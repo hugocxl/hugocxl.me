@@ -13,7 +13,8 @@ import {
   Group,
   Stack,
   Title,
-  Box
+  Box,
+  Divider
 } from '@mantine/core'
 import {
   IconArrowLeft,
@@ -100,11 +101,11 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   return (
     <Stack spacing={0}>
+      <Divider />
       <Flex
         justify={'space-between'}
         sx={{
-          padding: '16px 0',
-          borderBottom: '1px solid rgb(160,160,160,0.25)'
+          padding: '16px 0'
         }}
       >
         <BackButton />
@@ -114,6 +115,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
           <LinkedInButton />
         </Group>
       </Flex>
+      <Divider />
       <Stack mb={'40px'} spacing={0}>
         <Title order={1}>{title}</Title>
         <Text size={'sm'} pb={'md'} color={'dimmed'}>

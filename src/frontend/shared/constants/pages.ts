@@ -27,7 +27,7 @@ export const BOOKS = {
   title: 'Books',
   href: '/books',
   icon: VscArchive,
-  description: 'Some useful online resources'
+  description: `Here are some of my favorite books I've read or have on my bookshelf`
 }
 
 export const RESOURCES = {

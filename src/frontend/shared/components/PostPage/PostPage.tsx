@@ -1,13 +1,11 @@
 // Components
 import { PagePostHead, PagePostHeader } from './components'
+import { Box } from '@mantine/core'
+import { NotionRenderer } from '@/frontend/shared/components'
 
 // Types
 import { FC } from 'react'
 import { ExtendedRecordMap } from 'notion-types'
-
-// Styles
-import { Container } from '@mantine/core'
-import { NotionRenderer } from '@/frontend/shared/components'
 
 export interface PagePostProps {
   title: string
@@ -23,16 +21,17 @@ export const PagePost: FC<PagePostProps> = ({
   cover
 }) => {
   return (
-    <Container
-      sx={{
-        width: '100%',
-        paddingBottom: '60px'
-      }}
-      className={'post'}
+    <Box
+      component={'main'}
+      w={'100%'}
+      sx={theme => ({
+        paddingTop: theme.spacing.xl,
+        paddingBottom: theme.spacing.xl * 4
+      })}
     >
       <PagePostHead title={title} description={description} />
       <PagePostHeader title={title} description={description} cover={cover} />
       <NotionRenderer recordMap={recordMap} />
-    </Container>
+    </Box>
   )
 }

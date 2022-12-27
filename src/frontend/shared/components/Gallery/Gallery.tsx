@@ -8,9 +8,10 @@ export interface GalleryProps extends SimpleGridProps {
 export function Gallery({ children, ...props }: GalleryProps) {
   return (
     <SimpleGrid
-      cols={3}
+      cols={4}
       spacing={'lg'}
       breakpoints={[
+        { maxWidth: 'md', cols: 3, spacing: 'sm' },
         { maxWidth: 'sm', cols: 2, spacing: 'sm' },
         { maxWidth: 'xs', cols: 1, spacing: 'sm' }
       ]}

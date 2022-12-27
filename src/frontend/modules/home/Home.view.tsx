@@ -1,6 +1,6 @@
 // Components
 import { Gallery, Page } from '@/frontend/shared/components'
-import { Title, Text, Stack, Flex } from '@mantine/core'
+import { Title, Text, Stack, Flex, Divider } from '@mantine/core'
 import NextLink from 'next/link'
 
 // Types
@@ -16,15 +16,17 @@ export const Home: NextPage = () => {
   return (
     <Page title={HOME_PAGE_TITLE} description={HOME_PAGE_DESCRIPTION}>
       <Flex direction={'column'}>
-        <p>
+        <Text>
           I am excited to share with you a little bit about myself, my
           interests, and my work. <br /> Please take a look around and feel free
           to reach out.
-        </p>
+        </Text>
+
+        <Divider mt={60} mb={60} />
 
         <Gallery
+          cols={3}
           spacing={'xl'}
-          mt={80}
           breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 'sm' }]}
         >
           {PAGES.map(({ title, href, description }) => (

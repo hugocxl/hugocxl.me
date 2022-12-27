@@ -17,7 +17,7 @@ interface BooksProps {
 export const Books: NextPage<BooksProps> = ({ books }) => {
   return (
     <Page title={BOOKS.title} description={BOOKS.description}>
-      <Gallery cols={5}>
+      <Gallery cols={4}>
         {books.map(({ cover, title, author, link }) => {
           return (
             <NextLink href={link} key={title}>
@@ -25,7 +25,7 @@ export const Books: NextPage<BooksProps> = ({ books }) => {
                 <Box
                   mb={'md'}
                   pos={'relative'}
-                  h={200}
+                  h={240}
                   sx={{ borderRadius: '8px', overflow: 'hidden' }}
                 >
                   <NextImage

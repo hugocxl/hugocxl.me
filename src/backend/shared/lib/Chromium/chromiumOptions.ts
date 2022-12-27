@@ -1,5 +1,6 @@
 // Dependencies
-import chrome from 'chrome-aws-lambda'
+import chromium from 'chrome-aws-lambda'
+import { PuppeteerLaunchOptions } from 'puppeteer-core'
 
 const chromeExecPaths = {
   win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
@@ -9,13 +10,9 @@ const chromeExecPaths = {
 
 const exePath = chromeExecPaths[process.platform]
 
-interface Options {
-  args: string[]
-  executablePath: string
-  headless: boolean
-}
-
-export async function getOptions(isDev: boolean): Promise<Options> {
+export async function getOptions(
+  isDev: boolean
+): Promise<PuppeteerLaunchOptions> {
   if (isDev) {
     return {
       args: [],
@@ -25,8 +22,9 @@ export async function getOptions(isDev: boolean): Promise<Options> {
   }
 
   return {
-    args: chrome.args,
-    executablePath: await chrome.executablePath,
-    headless: chrome.headless
+    args: chromium.args,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless,
+    ignoreHTTPSErrors: true
   }
 }
