@@ -1,14 +1,9 @@
 // Dependencies
-import puppeteerClient, { Browser } from 'puppeteer-core'
-
-// Options
-import { getOptions } from './chromiumOptions'
+import puppeteerClient, { Browser } from 'puppeteer'
 
 export const chromium = {
   getBrowser: async (): Promise<Browser> => {
-    const isDev = process.env.NODE_ENV === 'development'
-    const options = await getOptions(isDev)
-    const browser = await puppeteerClient.launch(options)
+    const browser = await puppeteerClient.launch()
 
     return browser
   },
