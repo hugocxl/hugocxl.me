@@ -8,11 +8,11 @@ import { Items } from '@/frontend/shared/types'
 // Constants
 import { BLOG } from '@/frontend/shared/constants'
 
-export interface BlogPageProps {
+export interface BlogProps {
   posts: Items
 }
 
-export const BlogPage: NextPage<BlogPageProps> = ({ posts }) => {
+export const Blog: NextPage<BlogProps> = ({ posts }) => {
   return (
     <Page title={BLOG.title} description={BLOG.description}>
       <Gallery>

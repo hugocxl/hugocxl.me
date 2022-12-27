@@ -80,7 +80,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
                   color: isDarkMode ? 'white' : 'black',
                   ...((params.element === 'h5' || params.element === 'h6') && {
                     letterSpacing: 0,
-                    fontWeight: 500
+                    fontWeight: 600
                   })
                 }
               })

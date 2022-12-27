@@ -6,35 +6,41 @@ export const BLOG = {
   title: 'Blog',
   href: '/blog',
   icon: AiOutlineEdit,
-  description: "I write about stuff I'm interested in."
+  description: "I write about stuff I'm interested in"
 }
 
 export const HANDBOOKS = {
   title: 'Handbooks',
   href: '/handbooks',
   icon: VscLibrary,
-  description: 'My guides on different topics.'
-}
-
-export const RESOURCES = {
-  title: 'Resources',
-  href: '/resources',
-  icon: VscArchive,
-  description: 'Some useful online resources.'
+  description: 'My guides on different topics'
 }
 
 export const STACK = {
   title: 'Stack',
   href: '/stack',
   icon: VscLayers,
-  description: "What tech I'm currently using."
+  description: "What tech I'm currently using"
 }
 
+export const BOOKS = {
+  title: 'Books',
+  href: '/books',
+  icon: VscArchive,
+  description: 'Some useful online resources'
+}
+
+export const RESOURCES = {
+  title: 'Resources',
+  href: '/resources',
+  icon: VscArchive,
+  description: 'Some useful online resources'
+}
 export const ABOUT = {
   title: 'About',
   href: '/about',
   icon: AiOutlineUser,
-  description: 'Some more info about me.'
+  description: 'Some more info about me'
 }
 
-export const PAGES = [BLOG, HANDBOOKS, RESOURCES, STACK, ABOUT]
+export const PAGES = [BLOG, HANDBOOKS, STACK, BOOKS, RESOURCES, ABOUT]

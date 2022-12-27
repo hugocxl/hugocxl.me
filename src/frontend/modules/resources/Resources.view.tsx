@@ -10,12 +10,13 @@ import { Items } from '@/frontend/shared/types'
 import { RESOURCES } from '@/frontend/shared/constants'
 
 // Utils
-import { groupBy } from '@/frontend/shared/utils'
-interface ResourcesPageProps {
+import { groupBy } from '@/shared/utils'
+
+interface ResourcesProps {
   resources: Items
 }
 
-export const ResourcesPage: NextPage<ResourcesPageProps> = ({ resources }) => {
+export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
   const groupedResources = groupBy(resources, 'tags')
   const [render, tags] = getRender()
 

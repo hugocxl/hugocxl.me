@@ -28,11 +28,11 @@ export const About: NextPage = () => {
   return (
     <Page title={ABOUT.title} description={ABOUT.description}>
       <p>
-        I'm Hugo Corta, an experienced <b>Software Engineer</b> with a
-        demonstrated history of working in the computer software industry.{' '}
-        Skilled in <b>Mobile, Web and Server Application Development</b>, I am
-        fortunate to develop myself through my career, fulfilling my interests
-        by growing professionally.
+        I'm an experienced <b>Software Engineer</b> with a demonstrated history
+        of working in the computer software industry. Skilled in{' '}
+        <b>Mobile, Web and Server Application Development</b>, I am fortunate to
+        develop myself through my career, fulfilling my interests by growing
+        professionally.
       </p>
       <p>
         I love using my technical skills to build cool and interesting things.

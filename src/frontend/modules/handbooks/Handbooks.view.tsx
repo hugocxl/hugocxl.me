@@ -8,11 +8,11 @@ import { Items } from '@/frontend/shared/types'
 // Constants
 import { HANDBOOKS } from '@/frontend/shared/constants'
 
-export interface HandbooksPageProps {
+export interface HandbooksProps {
   handbooks: Items
 }
 
-export const HandbooksPage: NextPage<HandbooksPageProps> = ({ handbooks }) => {
+export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
   return (
     <Page title={HANDBOOKS.title} description={HANDBOOKS.description}>
       <Gallery>

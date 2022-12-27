@@ -8,6 +8,10 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'www.notion.so'
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.gr-assets.com'
       }
     ]
   }

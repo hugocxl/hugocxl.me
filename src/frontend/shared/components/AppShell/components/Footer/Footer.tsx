@@ -15,11 +15,7 @@ export function Footer() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: `${theme.spacing.lg}px 0`,
-
-        '@media (max-width: 755px)': {
-          padding: `${theme.spacing.sm}px 0`
-        }
+        paddingBottom: theme.spacing.md
       })}
     >
       <Text color={'dimmed'} size={'xs'}>

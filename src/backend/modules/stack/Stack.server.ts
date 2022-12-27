@@ -1,0 +1,25 @@
+// Dependencies
+import { notionClient } from '@/backend/shared/lib'
+
+export const StackServer = {
+  async getStaticProps() {
+    const stack = await notionClient.getDatabase(
+      process.env.NOTION_STACK_DB_ID,
+      {
+        sorts: [
+          {
+            property: 'Tags',
+            direction: 'ascending'
+          }
+        ]
+      }
+    )
+
+    return {
+      revalidate: 86400 * 7,
+      props: {
+        stack
+      }
+    }
+  }
+}

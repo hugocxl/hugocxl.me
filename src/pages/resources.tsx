@@ -1,17 +1,5 @@
-import { ResourcesPage } from '@/frontend/modules/resources'
-import { notionClient } from '@/frontend/shared/lib'
+import { ResourcesServer } from '@/backend/modules/resources/Resources.server'
+import { Resources } from '@/frontend/modules/resources'
 
-export async function getStaticProps() {
-  const resources = await notionClient.getDatabase(
-    process.env.NOTION_RESOURCES_DB_ID
-  )
-
-  return {
-    revalidate: 86400 * 7,
-    props: {
-      resources
-    }
-  }
-}
-
-export default ResourcesPage
+export const getStaticProps = ResourcesServer.getStaticProps
+export default Resources

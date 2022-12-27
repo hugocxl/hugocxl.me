@@ -1,1 +1,1 @@
-export * from './StackPage'
+export * from './Stack.view'

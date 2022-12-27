@@ -24,7 +24,12 @@ export const Page: FC<PageProps> = ({
     if (!showHeader) return null
 
     return (
-      <Stack mb={'40px'} spacing={0}>
+      <Stack
+        spacing={0}
+        sx={theme => ({
+          marginBottom: theme.spacing.xl * 2
+        })}
+      >
         {title && (
           <Title order={1} m={'0 !important'}>
             {title}
@@ -40,7 +45,14 @@ export const Page: FC<PageProps> = ({
   }
 
   return (
-    <Box component={'main'} w={'100%'}>
+    <Box
+      component={'main'}
+      w={'100%'}
+      sx={theme => ({
+        paddingTop: theme.spacing.xl * 3,
+        paddingBottom: theme.spacing.xl * 4
+      })}
+    >
       <PageHead title={title} description={description} />
       <Header />
       {children}

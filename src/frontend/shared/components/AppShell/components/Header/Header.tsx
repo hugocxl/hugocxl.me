@@ -95,34 +95,24 @@ export function Header() {
 
   return (
     <Box
-      component='header'
+      component={'header'}
       sx={theme => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        paddingTop: theme.spacing.xl * 2,
-        paddingBottom: theme.spacing.xl * 4,
-
-        '@media (max-width: 755px)': {
-          paddingTop: theme.spacing.sm
-        }
+        paddingTop: theme.spacing.xl * 3
       })}
     >
       <NextLink href={'/'}>
         <Stack spacing={0}>
-          <Title order={5} span fw={'normal'} sx={{ margin: '0 !important' }}>
-            hugo corta
+          <Title order={5} span sx={{ margin: '0 !important' }}>
+            Hugo Corta
           </Title>
           <Text color={'dimmed'}>Lead Software Engineer</Text>
-          <Text color={'dimmed'}>Madrid, Spain</Text>
         </Stack>
       </NextLink>
 
-      <Group
-        align={'center'}
-        sx={{ justifyContent: 'flex-end' }}
-        spacing={'xs'}
-      >
+      <Group spacing={4}>
         <SearchButton />
         <ThemeButton />
         <BurgerButton />

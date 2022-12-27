@@ -1,5 +1,5 @@
 import { Item } from '@/frontend/shared/types'
-import { toSlug } from '@/frontend/shared/utils'
+import { toSlug } from '@/shared/utils'
 
 export const notionAdapters = {
   toItem(entry): Item {

@@ -1,22 +1,29 @@
 // Components
 import { Page } from '@/frontend/shared/components'
-import { Title, Text, Anchor, Stack, Group, Image } from '@mantine/core'
+import {
+  Title,
+  Text,
+  Anchor,
+  Stack as MnStack,
+  Group,
+  Image
+} from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Utils
-import { groupBy, sortBy } from '@/frontend/shared/utils'
+import { groupBy, sortBy } from '@/shared/utils'
 
 // Constants
 import { STACK } from '@/frontend/shared/constants'
 
-interface StackPageProps {
+interface StackProps {
   stack: Items
 }
 
-export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
+export const Stack: NextPage<StackProps> = ({ stack }) => {
   const sortedStack = sortBy(stack, 'tags')
   const groupedStack = groupBy(sortedStack, 'tags')
   const render = getRender()
@@ -28,7 +35,7 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
-          <Stack>
+          <MnStack>
             {sortedGroup.map(({ link, cover, name, description }) => (
               <Anchor
                 key={name}
@@ -47,16 +54,16 @@ export const StackPage: NextPage<StackPageProps> = ({ stack }) => {
                     src={cover}
                     alt={name}
                   />
-                  <Stack spacing={0} mb={10}>
+                  <MnStack spacing={0} mb={10}>
                     <Title span order={5} m={'0 !important'}>
                       {name}
                     </Title>
                     <Text color={'dimmed'}>{description}</Text>
-                  </Stack>
+                  </MnStack>
                 </Group>
               </Anchor>
             ))}
-          </Stack>
+          </MnStack>
         </div>
       )
     }

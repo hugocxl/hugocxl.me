@@ -67,7 +67,7 @@ export function Card({
             {dateLabel}
           </Text>
         )}
-        <Title span order={4} weight={'bold'} m={'0 !important'}>
+        <Title span order={5} weight={'bold'} m={'0 !important'}>
           {name}
         </Title>
         <Text size={'sm'} color={'dimmed'}>

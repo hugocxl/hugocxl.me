@@ -1,15 +1,18 @@
+// Components
 import { PagePost } from '@/frontend/shared/components'
+
+// Types
 import { NextPage } from 'next'
 import { ExtendedRecordMap } from 'notion-types'
 
-export interface BlogPostPageProps {
+export interface HandbookProps {
   title: string
   description: string
   cover: string
   recordMap: ExtendedRecordMap
 }
 
-export const BlogPostPage: NextPage<BlogPostPageProps> = ({
+export const Handbook: NextPage<HandbookProps> = ({
   title,
   description,
   cover,
