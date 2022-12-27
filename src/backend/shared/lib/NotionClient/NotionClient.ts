@@ -65,8 +65,12 @@ export const notionClient = {
 
     return output
   },
-  getPublishedEntriesInDb: async (databaseId: string): Promise<Items> => {
+  getPublishedEntriesInDb: async (
+    databaseId: string,
+    options: Record<any, any> = {}
+  ): Promise<Items> => {
     return await notionClient.getDatabase(databaseId, {
+      ...options,
       filter: {
         property: 'Published',
         checkbox: {

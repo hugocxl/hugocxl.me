@@ -1,24 +1,18 @@
 // Dependencies
-import puppeteerClient, { Browser } from 'puppeteer'
+import chrome from 'chrome-aws-lambda'
+import playwright from 'playwright-core'
 
 export const chromium = {
-  getBrowser: async (): Promise<Browser> => {
-    const browser = await puppeteerClient.launch()
+  getBrowser: async (): Promise<playwright.BrowserContext> => {
+    const browser = await playwright.chromium.launch({
+      args: [...chrome.args, '--font-render-hinting=none'], // This way fix rendering issues with specific fonts
+      executablePath:
+        process.env.NODE_ENV === 'production'
+          ? await chrome.executablePath
+          : '/usr/local/bin/chromium',
+      headless: process.env.NODE_ENV === 'production' ? chrome.headless : true
+    })
 
-    return browser
-  },
-
-  getPageCookies: async (pageUrl: string) => {
-    const browser = await chromium.getBrowser()
-    const page = await browser.newPage()
-    await page.goto(pageUrl)
-    const pageCookies = await page.cookies()
-    await page.close()
-
-    return pageCookies
-      .map((cookie: any) => {
-        return `${cookie.name}=${cookie.value}`
-      })
-      .join('; ')
+    return browser.newContext()
   }
 }

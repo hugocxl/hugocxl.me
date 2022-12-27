@@ -11,6 +11,7 @@ export interface CardProps {
   createdAt?: string
   target?: string
   useNextImage?: boolean
+  imageHeight?: number
 }
 
 export function Card({
@@ -20,7 +21,8 @@ export function Card({
   description,
   createdAt,
   target,
-  useNextImage = false
+  useNextImage = false,
+  imageHeight = 112
 }: CardProps) {
   const date = new Date(createdAt)
   const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
@@ -31,7 +33,7 @@ export function Card({
         <Box
           mb={'md'}
           pos={'relative'}
-          h={120}
+          h={imageHeight}
           sx={{ borderRadius: '8px', overflow: 'hidden' }}
         >
           <NextImage
@@ -48,7 +50,7 @@ export function Card({
 
     return (
       <MantineImage
-        height={120}
+        height={imageHeight}
         fit={'cover'}
         withPlaceholder={true}
         radius='md'

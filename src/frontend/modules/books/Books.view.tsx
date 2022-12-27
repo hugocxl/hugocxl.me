@@ -1,8 +1,5 @@
 // Components
-import { Gallery, Page } from '@/frontend/shared/components'
-import { Box, Stack, Text, Title } from '@mantine/core'
-import NextImage from 'next/image'
-import NextLink from 'next/link'
+import { Gallery, Page, Card } from '@/frontend/shared/components'
 
 // Types
 import { NextPage } from 'next'
@@ -20,31 +17,16 @@ export const Books: NextPage<BooksProps> = ({ books }) => {
       <Gallery cols={4}>
         {books.map(({ cover, title, author, link }) => {
           return (
-            <NextLink href={link} key={title}>
-              <Stack spacing={0}>
-                <Box
-                  mb={'md'}
-                  pos={'relative'}
-                  h={240}
-                  sx={{ borderRadius: '8px', overflow: 'hidden' }}
-                >
-                  <NextImage
-                    placeholder='blur'
-                    blurDataURL={cover}
-                    style={{ objectFit: 'cover' }}
-                    fill
-                    src={cover}
-                    alt={title}
-                  />
-                </Box>
-                <Title span order={6} m={'0 !important'}>
-                  {title}
-                </Title>
-                <Text color={'dimmed'} size={'sm'}>
-                  {author}
-                </Text>
-              </Stack>
-            </NextLink>
+            <Card
+              cover={cover}
+              description={author}
+              imageHeight={240}
+              key={title}
+              link={link}
+              name={title}
+              target={'_blank'}
+              useNextImage={true}
+            />
           )
         })}
       </Gallery>

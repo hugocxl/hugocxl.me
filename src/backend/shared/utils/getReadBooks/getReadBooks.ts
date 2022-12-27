@@ -1,24 +1,21 @@
 import { chromium } from '@/backend/shared/lib'
 
 export async function getReadBooks() {
-  // const baseUrl = 'https://www.goodreads.com'
+  const baseUrl = 'https://www.goodreads.com'
   const readBooks = []
-
   const browser = await chromium.getBrowser()
-
-  // Create a new page
   const page = await browser.newPage()
 
   try {
-    await page.goto(
-      'https://www.goodreads.com/review/list/127108329-hugo-corta?per_page=200&utf8=%E2%9C%93&view=table'
-    )
+    await page.goto(`${baseUrl}/review/list/127108329-hugo-corta?view=table`, {
+      waitUntil: 'load'
+    })
 
-    // await page.waitForNavigation()
+    for (let i = 0; i < 10; i++) {
+      await page.mouse.wheel(0, 2000 * i)
+      await page.waitForTimeout(1000)
+    }
 
-    // await page.waitForSelector('#booksBody')
-
-    // Retrieve the list of read books
     const books = await page.evaluate(() => {
       const baseUrl = 'https://www.goodreads.com'
       const list = []

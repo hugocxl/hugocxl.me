@@ -15,9 +15,7 @@ import {
   Tooltip,
   Box,
   Stack,
-  Modal,
-  Container,
-  Divider
+  Modal
 } from '@mantine/core'
 
 // Hooks
@@ -39,18 +37,15 @@ export function Header() {
       <>
         {PAGES.map(({ title, href }) => {
           return (
-            <Box w={'100%'} p={'xl'}>
-              <Tooltip label={title} key={title}>
-                <NextLink
-                  href={href}
-                  onClick={isMenuOpenCx.close}
-                  aria-label={`Navigate to ${title} page`}
-                >
-                  <Text color={'dimmed'}>{title}</Text>
-                </NextLink>
-              </Tooltip>
-              <Divider />
-            </Box>
+            <Tooltip label={title} key={title}>
+              <NextLink
+                href={href}
+                onClick={isMenuOpenCx.close}
+                aria-label={`Navigate to ${title} page`}
+              >
+                <Text color={'dimmed'}>{title}</Text>
+              </NextLink>
+            </Tooltip>
           )
         })}
       </>
@@ -118,8 +113,18 @@ export function Header() {
         <BurgerButton />
       </Group>
 
-      <Modal fullScreen opened={isMenuOpen} onClose={isMenuOpenCx.close}>
-        <Container
+      <Modal
+        fullScreen
+        opened={isMenuOpen}
+        onClose={isMenuOpenCx.close}
+        styles={{
+          modal: {
+            background: 'transparent',
+            backdropFilter: 'blur(200px)'
+          }
+        }}
+      >
+        <Stack
           sx={{
             paddingTop: 200,
             height: '100%',
@@ -129,7 +134,7 @@ export function Header() {
           }}
         >
           <Items />
-        </Container>
+        </Stack>
       </Modal>
     </Box>
   )

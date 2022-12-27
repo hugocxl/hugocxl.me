@@ -1,18 +1,23 @@
 // Components
-import { Gallery, Page } from '@/frontend/shared/components'
-import { Title, Text, Stack, Flex, Divider } from '@mantine/core'
+import { Gallery, Page, Card } from '@/frontend/shared/components'
+import { Title, Text, Stack, Flex, Card as MnCard } from '@mantine/core'
 import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
 
 // Constants
-import { PAGES } from '@/frontend/shared/constants'
+import { BLOG, PAGES } from '@/frontend/shared/constants'
+import { Items } from '@/frontend/shared/types'
 
 const HOME_PAGE_TITLE = 'Hi!'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
 
-export const Home: NextPage = () => {
+export interface HomeProps {
+  posts: Items
+}
+
+export const Home: NextPage<HomeProps> = ({ posts }) => {
   return (
     <Page title={HOME_PAGE_TITLE} description={HOME_PAGE_DESCRIPTION}>
       <Flex direction={'column'}>
@@ -22,25 +27,40 @@ export const Home: NextPage = () => {
           to reach out.
         </Text>
 
-        <Divider mt={60} mb={60} />
-
+        <Title order={2}>Explore</Title>
         <Gallery
           cols={3}
           spacing={'xl'}
           breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 'sm' }]}
         >
-          {PAGES.map(({ title, href, description }) => (
+          {PAGES.map(({ title, href }) => (
             <NextLink href={href} key={href} className={'hoverable'}>
-              <Stack key={title} spacing={0}>
-                <Title order={5} span m={'0 !important'}>
-                  {title}
-                </Title>
-                <Text size={'sm'} color={'dimmed'}>
-                  {description}
-                </Text>
-              </Stack>
+              <MnCard h={'100%'}>
+                <Stack key={title} spacing={0}>
+                  <Title order={6} span m={'0 !important'}>
+                    {title}
+                  </Title>
+                </Stack>
+              </MnCard>
             </NextLink>
           ))}
+        </Gallery>
+
+        <Title order={2}>Featured Posts</Title>
+        <Gallery spacing={'xl'}>
+          {posts.map(({ slug, name, description, createdAt, cover }) => {
+            return (
+              <Card
+                link={`${BLOG.href}/${slug}`}
+                key={slug}
+                name={name}
+                description={description}
+                createdAt={createdAt}
+                cover={cover}
+                useNextImage={true}
+              />
+            )
+          })}
         </Gallery>
       </Flex>
     </Page>

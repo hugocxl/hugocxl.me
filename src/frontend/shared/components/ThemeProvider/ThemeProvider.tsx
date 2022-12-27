@@ -92,6 +92,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
                 }
               }
             },
+            Card: {
+              styles: theme => ({
+                root: {
+                  background: isDarkMode
+                    ? theme.colors.dark[8]
+                    : theme.colors.gray[1]
+                }
+              })
+            },
             ActionIcon: {
               defaultProps: {
                 variant: 'default',
