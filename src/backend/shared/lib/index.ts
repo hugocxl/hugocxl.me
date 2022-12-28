@@ -1,2 +1,2 @@
 export * from './NotionClient'
-export * from './Chromium'
+export * from './Puppeteer'

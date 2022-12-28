@@ -1,9 +1,9 @@
-import { chromium } from '@/backend/shared/lib'
+import { puppeteer } from '@/backend/shared/lib'
 
 export async function getReadBooks() {
   const baseUrl = 'https://www.goodreads.com'
   const readBooks = []
-  const browser = await chromium.getBrowser()
+  const browser = await puppeteer.getBrowser()
   const page = await browser.newPage()
 
   try {
@@ -12,7 +12,7 @@ export async function getReadBooks() {
     })
 
     for (let i = 0; i < 10; i++) {
-      await page.mouse.wheel(0, 2000 * i)
+      await page.mouse.wheel({ deltaY: 2000 * i })
       await page.waitForTimeout(1000)
     }
 
