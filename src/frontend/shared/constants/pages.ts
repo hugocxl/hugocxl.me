@@ -43,4 +43,4 @@ export const ABOUT = {
   description: 'Some more info about me'
 }
 
-export const PAGES = [BLOG, HANDBOOKS, STACK, BOOKS, RESOURCES, ABOUT]
+export const PAGES = [BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]

@@ -95,7 +95,7 @@ export function Header() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-        paddingTop: theme.spacing.xl * 2
+        paddingTop: theme.spacing.xl
       })}
     >
       <NextLink href={'/'}>

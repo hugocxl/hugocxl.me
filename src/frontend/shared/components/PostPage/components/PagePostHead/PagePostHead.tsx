@@ -29,7 +29,7 @@ export const PagePostHead: FC<PagePostHeadProps> = ({ title, description }) => {
           <meta property='og:description' content={description} />
         </>
       )}
-      <title>{title}</title>
+      <title>{title + ' · hugo corta'}</title>
     </Head>
   )
 }

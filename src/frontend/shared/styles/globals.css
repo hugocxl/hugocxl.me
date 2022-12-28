@@ -42,6 +42,26 @@ a {
   opacity: 0.75;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+notion-h {
+  color: white !important;
+}
+
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6,
+.light notion-h {
+  color: black !important;
+}
+
 @media screen and (min-width: 768px) {
   p,
   .notion-text {

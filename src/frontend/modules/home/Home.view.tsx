@@ -1,14 +1,14 @@
 // Components
 import { Gallery, Page, Card } from '@/frontend/shared/components'
-import { Title, Text, Stack, Flex, Card as MnCard } from '@mantine/core'
+import { Title, Text, Flex } from '@mantine/core'
 import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
+import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG, PAGES } from '@/frontend/shared/constants'
-import { Items } from '@/frontend/shared/types'
+import { BLOG } from '@/frontend/shared/constants'
 
 const HOME_PAGE_TITLE = 'Hi!'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
@@ -27,25 +27,6 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
           to reach out.
         </Text>
 
-        <Title order={2}>Explore</Title>
-        <Gallery
-          cols={3}
-          spacing={'xl'}
-          breakpoints={[{ maxWidth: 'sm', cols: 2, spacing: 'sm' }]}
-        >
-          {PAGES.map(({ title, href }) => (
-            <NextLink href={href} key={href} className={'hoverable'}>
-              <MnCard h={'100%'}>
-                <Stack key={title} spacing={0}>
-                  <Title order={6} span m={'0 !important'}>
-                    {title}
-                  </Title>
-                </Stack>
-              </MnCard>
-            </NextLink>
-          ))}
-        </Gallery>
-
         <Title order={2}>Featured Posts</Title>
         <Gallery spacing={'xl'}>
           {posts.map(({ slug, name, description, createdAt, cover }) => {
@@ -62,6 +43,9 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
             )
           })}
         </Gallery>
+        <NextLink href={'/blog'} className={'hoverable'}>
+          <Text color={'dimmed'}>{'Explore all posts >'}</Text>
+        </NextLink>
       </Flex>
     </Page>
   )
