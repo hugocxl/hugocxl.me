@@ -127,7 +127,9 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         <Text size={'lg'} pb={'md'} color={'dimmed'}>
           {description}
         </Text>
-        {cover && <NextImage height={400} src={cover} alt={title} />}
+        {cover && (
+          <NextImage rounded={true} height={400} src={cover} alt={title} />
+        )}
       </Stack>
 
       {/* <Snackbar

@@ -11,7 +11,6 @@ import {
   Text,
   ActionIcon,
   Group,
-  Title,
   Tooltip,
   Box,
   Stack,
@@ -90,19 +89,19 @@ export function Header() {
 
   return (
     <Box
+      pt={'xl'}
       component={'header'}
-      sx={theme => ({
+      sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        paddingTop: theme.spacing.xl
-      })}
+        alignItems: 'flex-end'
+      }}
     >
       <NextLink href={'/'}>
         <Stack spacing={0}>
-          <Title order={5} span sx={{ margin: '0 !important' }}>
+          <Text weight={'bold'} color={'primary'}>
             Hugo Corta
-          </Title>
+          </Text>
           <Text color={'dimmed'}>Lead Software Engineer</Text>
         </Stack>
       </NextLink>

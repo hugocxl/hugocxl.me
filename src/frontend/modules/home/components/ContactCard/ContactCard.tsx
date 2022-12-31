@@ -1,6 +1,6 @@
 // Components
 import { NextImage } from '@/frontend/shared/components'
-import { Card, Anchor, Flex, Group, Stack, Text, Title } from '@mantine/core'
+import { Card, Anchor, Flex, Group, Stack, Text } from '@mantine/core'
 
 // Types
 import { FC } from 'react'
@@ -16,9 +16,9 @@ export const ContactCard: FC = () => {
     >
       <Flex justify={'space-between'} align={'center'}>
         <Stack spacing={'md'}>
-          <Title span order={1} m={'0 !important'}>
+          <Text size={'xl'} color={'primary'} fw={'bold'}>
             Say hi!
-          </Title>
+          </Text>
           <Text size={'lg'}>
             Want to create something awesome? Or, you have any query? Drop an
             email or tweet
