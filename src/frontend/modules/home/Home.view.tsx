@@ -34,7 +34,7 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
             }}
             height={80}
             width={80}
-            src={'/img/avatar-big3.png'}
+            src={'/img/avatar-big.png'}
             alt={'Profile Picture'}
           />
           <Stack spacing={0}>
