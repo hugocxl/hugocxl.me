@@ -1,7 +1,14 @@
 // Components
-import { NextImage } from '@/frontend/shared/components/NextImage'
-import { Stack, Image as MantineImage, Text, Sx, Flex } from '@mantine/core'
+import { NextImage } from '@/frontend/shared/components'
 import NextLink from 'next/link'
+import {
+  Stack,
+  Image as MantineImage,
+  Text,
+  Sx,
+  Flex,
+  useMantineTheme
+} from '@mantine/core'
 
 export interface CardProps {
   link: string
@@ -26,12 +33,13 @@ export function Card({
   useNextImage = false,
   imageHeight = 200
 }: CardProps) {
+  const theme = useMantineTheme()
   const date = new Date(createdAt)
   const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
-  const sx: Sx = theme => ({
+  const sx: Sx = {
     borderRadius: '8px',
     overflow: 'hidden',
-    margin: '0 !important',
+    marginBottom: '0 !important',
     [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
       flexDirection: 'row',
       marginRight: 8,
@@ -42,7 +50,7 @@ export function Card({
       minHeight: imageHeight / 2,
       maxHeight: imageHeight / 2
     }
-  })
+  }
 
   function Image() {
     if (useNextImage) {
@@ -59,7 +67,6 @@ export function Card({
 
     return (
       <MantineImage
-        radius='md'
         height={imageHeight}
         fit={'cover'}
         withPlaceholder={true}
@@ -74,11 +81,11 @@ export function Card({
     <NextLink href={link} target={target} className={'hoverable'}>
       <Stack
         spacing={'sm'}
-        sx={theme => ({
+        sx={{
           [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
             flexDirection: 'row'
           }
-        })}
+        }}
       >
         <Image />
         <Stack spacing={0}>
@@ -90,8 +97,8 @@ export function Card({
               </Text>
             )}
           </Flex>
-          <Text>
-            <b>{name}</b>
+          <Text color={'primary'} weight={'bold'}>
+            {name}
           </Text>
           <Text lineClamp={3} size={'sm'} color={'dimmed'}>
             {description}

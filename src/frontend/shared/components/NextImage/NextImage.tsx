@@ -1,5 +1,5 @@
 // Components
-import { Box, BoxProps } from '@mantine/core'
+import { Box, BoxProps, Sx, useMantineTheme } from '@mantine/core'
 import Image from 'next/image'
 
 export interface NextImageProps extends BoxProps {
@@ -8,6 +8,7 @@ export interface NextImageProps extends BoxProps {
   src: string
   alt: string
   rounded?: boolean
+  sx?: Sx
 }
 
 export function NextImage({
@@ -16,24 +17,27 @@ export function NextImage({
   src,
   alt,
   rounded = false,
-  sx = {},
+  sx,
   ...rest
 }: NextImageProps) {
+  const theme = useMantineTheme()
+  const styles: Sx = typeof sx === 'function' ? sx(theme) : sx || {}
+
   return (
     <Box
       {...rest}
       sx={{
         overflow: 'hidden',
-        ...sx,
+        position: 'relative',
+        height,
+        minHeight: height,
+        width,
+        minWidth: width,
         ...(rounded && {
-          borderRadius: '16px'
-        })
+          borderRadius: '8px'
+        }),
+        ...styles
       }}
-      pos={'relative'}
-      h={height}
-      mih={height}
-      w={width}
-      miw={width}
     >
       <Image
         placeholder={'blur'}

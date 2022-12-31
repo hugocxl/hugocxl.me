@@ -1,11 +1,21 @@
 // Components
 import { NextImage } from '@/frontend/shared/components'
-import { Card, Anchor, Flex, Group, Stack, Text } from '@mantine/core'
+import {
+  Card,
+  Anchor,
+  Flex,
+  Group,
+  Stack,
+  Text,
+  useMantineTheme
+} from '@mantine/core'
 
 // Types
 import { FC } from 'react'
 
 export const ContactCard: FC = () => {
+  const theme = useMantineTheme()
+
   return (
     <Card
       mt={60}
@@ -48,11 +58,11 @@ export const ContactCard: FC = () => {
           miw={160}
           width={160}
           height={160}
-          sx={theme => ({
+          sx={{
             [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
               display: 'none'
             }
-          })}
+          }}
         />
       </Flex>
     </Card>

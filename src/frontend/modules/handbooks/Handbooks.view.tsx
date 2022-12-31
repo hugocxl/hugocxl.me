@@ -25,19 +25,36 @@ export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
               key={slug}
               className={'hoverable'}
             >
-              <Stack spacing={'xl'}>
+              <Stack
+                spacing={'xl'}
+                sx={theme => ({
+                  [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+                    flexDirection: 'row'
+                  }
+                })}
+              >
                 <Stack
                   pos={'relative'}
                   sx={{
                     boxShadow:
-                      '0 0 5px -1px black, inset -1px 1px 2px rgba(150, 150, 150, 0.5)',
-                    borderRadius: '0 4px 4px 0',
-                    overflow: 'hidden'
+                      '0 0 5px -1px black, inset -1px 1px 2px rgba(150, 150, 150, 0.5)'
                   }}
                 >
-                  <NextImage height={280} src={cover} alt={name} />
+                  <NextImage
+                    sx={theme => ({
+                      borderRadius: '0 4px 4px 0',
+                      [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+                        width: 200,
+                        minWidth: 200
+                      }
+                    })}
+                    height={280}
+                    src={cover}
+                    alt={name}
+                  />
                   <Box
                     sx={{
+                      borderRadius: '0 4px 4px 0',
                       zIndex: 1,
                       position: 'absolute',
                       bottom: 0,
@@ -52,6 +69,7 @@ export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
                     color={'white'}
                     weight={'bolder'}
                     sx={{
+                      borderRadius: '0 4px 4px 0',
                       padding: '16px 12px 32px 0',
                       background: 'rgba(0,0,0,0.5)',
                       backdropFilter: 'blur(4px)',
