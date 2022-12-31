@@ -1,14 +1,16 @@
 // Components
-import NextLink from 'next/link'
-import { Page } from '@/frontend/shared/components'
+import { Gallery, Page } from '@/frontend/shared/components'
 import {
   Title,
   Text,
-  Timeline,
   Alert,
   Anchor,
   Button,
-  Group
+  Group,
+  Stack,
+  Flex,
+  Box,
+  Card
 } from '@mantine/core'
 import {
   IconBrandGithub,
@@ -17,6 +19,7 @@ import {
   IconFileDownload,
   IconMail
 } from '@tabler/icons'
+import NextImage from 'next/image'
 
 // Types
 import { NextPage } from 'next'
@@ -25,6 +28,34 @@ import { NextPage } from 'next'
 import { ABOUT } from '@/frontend/shared/constants'
 
 export const About: NextPage = () => {
+  function CompanyItem({ title, image, date, description }) {
+    return (
+      <Box sx={{ display: 'grid', gridTemplateColumns: '48px 1fr', gap: 12 }}>
+        <Box pos={'relative'} h={48} w={48}>
+          <NextImage
+            placeholder='blur'
+            blurDataURL={image}
+            style={{
+              marginBottom: 0,
+              objectFit: 'cover',
+              borderRadius: 8
+            }}
+            fill
+            src={image}
+            alt={title}
+          />
+        </Box>
+        <Stack spacing={0} w={'100%'}>
+          <Flex justify={'space-between'}>
+            <Text weight={'bold'}>{title}</Text>
+            <Text color={'dimmed'}>{date}</Text>
+          </Flex>
+          <Text color={'dimmed'}>{description}</Text>
+        </Stack>
+      </Box>
+    )
+  }
+
   return (
     <Page title={ABOUT.title} description={ABOUT.description}>
       <p>
@@ -44,144 +75,135 @@ export const About: NextPage = () => {
       <Title order={2}>{"What I'm doing now"}</Title>
       <ul>
         <li>
-          <Text weight={'bold'}>Work</Text>
-          <Text>
-            I am currently working at{' '}
-            <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
-            Engineer.
-          </Text>
+          <b>Work – </b>I am currently working at{' '}
+          <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
+          Engineer.
         </li>
         <li>
-          <Text weight={'bold'} mt={'sm'}>
-            Blog
-          </Text>
-          <Text>
-            On this website <NextLink href={'/blog'}>I write posts</NextLink>{' '}
-            about diverse stuff that I find interesting.
-          </Text>
+          <b>Blog – </b>
+          On this website <Anchor href={'/blog'}>I write posts</Anchor> about
+          diverse stuff that I find interesting.
         </li>
         <li>
-          <Text weight={'bold'} mt={'sm'}>
-            Open Source
-          </Text>
-          <Text>
-            <>
-              As a software developer, I enjoy building open-source software and
-              libraries
-            </>
-          </Text>
+          <b>Open Source – </b>
+          As a software developer, I enjoy building open-source software and
+          Textbraries
         </li>
         <li>
-          <Text weight={'bold'} mt={'sm'}>
-            Teaching
-          </Text>
-          <Text>
-            <>
-              Sometimes I teach about web development at{' '}
-              <Anchor target={'_blank'} href={'https://ironhack.com'}>
-                Ironhack
-              </Anchor>
-            </>
-          </Text>
+          <b>Teaching – </b>
+          Sometimes I teach about web development at{' '}
+          <Anchor target={'_blank'} href={'https://ironhack.com'}>
+            Ironhack
+          </Anchor>
         </li>
       </ul>
 
       <Title order={2}>Random Facts</Title>
-      <ul>
-        <li>
-          I practice sports daily. My favourite practice is strength training,
-          though I also enjoy running, cycling and other sports.
-        </li>
-        <li>
-          I have two degrees in construction (Architectural Engineer and Civil
-          Engineer) and worked in the field for a few years before becoming a
-          developer.
-        </li>
-        <li>
-          I like sci-fi books, like Dune, The Foundation, and The Three Body
-          Problem series.
-        </li>
-        <li>
-          I am kind of good with{' '}
-          <a
-            target={'_blank'}
-            href='https://www.youtube.com/watch?v=l1rjJUkylXw'
-          >
-            Photoshop
-          </a>
-          .
-        </li>
-        <li>
-          I love playing the guitar, which I learned to play aged 13. Through my
-          teenage years I tried on some groups but (thankfully) I didn't make it
-          very far. Nowadays, just some Metallica songs remains as remanent of
-          my early heavy metal manners. Shame on me.
-        </li>
-        <li>
-          One of my ever-favorite hobbies when I was young was making electronic
-          music. I stopped a few years ago to focus on other interests though.
-        </li>
-      </ul>
+      <Gallery>
+        <Card>
+          <Text size={32} align='center'>
+            🏋️
+          </Text>
+          <Text align='center'>
+            I practice sports daily. My favourite practice is strength training,
+            though I also enjoy running, cycling and other sports.
+          </Text>
+        </Card>
+
+        <Card>
+          <Text size={32} align='center'>
+            👷🏻‍♂️
+          </Text>
+          <Text align='center'>
+            I have two degrees in construction (Architectural Engineer and Civil
+            Engineer) and worked in the field for a few years before becoming a
+            developer.
+          </Text>
+        </Card>
+
+        <Card>
+          <Text size={32} align='center'>
+            📚
+          </Text>
+          <Text align='center'>
+            I like sci-fi books, like Dune, The Foundation, and The Three Body
+            Problem series.
+          </Text>
+        </Card>
+
+        <Card>
+          <Text size={32} align='center'>
+            🌁
+          </Text>
+          <Text align='center'>
+            I am kind of good with{' '}
+            <Anchor
+              target={'_blank'}
+              href='https://www.youtube.com/watch?v=l1rjJUkylXw'
+            >
+              Photoshop
+            </Anchor>
+            .
+          </Text>
+        </Card>
+
+        <Card>
+          <Text size={32} align='center'>
+            🎸
+          </Text>
+          <Text align='center'>
+            I love playing the guitar, which I learned to play aged 13. I'm not
+            very good though.
+          </Text>
+        </Card>
+
+        <Card>
+          <Text size={32} align='center'>
+            🎧
+          </Text>
+          <Text align='center'>
+            One of my ever-favorite hobbies when I was young was making
+            electronic music. I stopped a few years ago to focus on other
+            interests though.
+          </Text>
+        </Card>
+      </Gallery>
 
       <Title order={2}>Experience</Title>
-      <Timeline active={-1} bulletSize={16} lineWidth={2}>
-        <Timeline.Item title={'Frontend Developer at @NPAW'}>
-          <Text size={'xs'}>Sep 2017 - Sep 2019</Text>
-          <Text color='dimmed' size={'sm'}>
-            Development and maintenance of UI company products.
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Instructor Assistant at @Ironhack'}>
-          <Text size={'xs'}>Apr 2019 - May 2019</Text>
-          <Text color='dimmed' size={'sm'}>
-            Support students during the learning experience through the design
-            implementation course.
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Lead Frontend Developer at @NPAW'}>
-          <Text size={'xs'}>Sep 2019 - Feb 2022</Text>
-          <Text color='dimmed' size={'sm'}>
-            Development and maintenance of UI company products.
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Instructor Assistant at @Ironhack'}>
-          <Text size={'xs'}>Oct 2019 - Nov 2019</Text>
-          <Text color='dimmed' size={'sm'}>
-            Support students during the learning experience through the design
-            implementation course.
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Lead Instructor at @Ironhack'}>
-          <Text size={'xs'}>Sep 2021 - Oct 2021</Text>
-          <Text color='dimmed' size={'sm'}>
-            <span>Overseeing the whole academic experience of the course.</span>
-            <span>
-              Produce my own curriculum for the lessons, that you may consult at
-              my Notion.
-            </span>
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Full Stack Developer at @Champion Games'}>
-          <Text size={'xs'}>Feb 2022 - Sep 2022</Text>
-          <Text color='dimmed' size={'sm'}>
-            Development and maintenance of company products.
-          </Text>
-        </Timeline.Item>
-
-        <Timeline.Item title={'Lead Frontend Engineer at @Sygris'}>
-          <Text size={'xs'}>Jan 2022 - Present</Text>
-          <Text color='dimmed' size={'sm'}>
-            Development and maintenance of company products.
-          </Text>
-        </Timeline.Item>
-      </Timeline>
+      <Stack>
+        <CompanyItem
+          date={'2023'}
+          image={'/img/sygris.jpeg'}
+          title={'Sygris'}
+          description={'Lead Frontend Developer'}
+        />
+        <CompanyItem
+          date={'2022'}
+          image={'/img/champion-games.jpeg'}
+          title={'Champion Games'}
+          description={'FullStack Developer'}
+        />
+        <CompanyItem
+          date={'2019'}
+          image={'/img/npaw.jpeg'}
+          title={'NPAW'}
+          description={'Lead Frontend Developer'}
+        />
+        <CompanyItem
+          date={'2019, 2021'}
+          image={'/img/ironhack.jpeg'}
+          title={'Ironhack'}
+          description={'Instructor'}
+        />
+        <CompanyItem
+          date={'2017'}
+          image={'/img/npaw.jpeg'}
+          title={'NPAW'}
+          description={'Frontend Developer'}
+        />
+      </Stack>
       <Alert
-        sx={{ marginTop: '20px' }}
+        sx={{ marginTop: '40px' }}
         icon={<IconFileDownload size={20} />}
         title='Download my CV'
         color='primary'
@@ -198,45 +220,46 @@ export const About: NextPage = () => {
         soon as I can.
       </p>
       <Group spacing={'sm'}>
-        <Anchor
+        <Button
           href={'mailto:corta.hugo@gmail.com'}
           title={'Mail'}
           target={'_blank'}
+          leftIcon={<IconMail size={18} />}
+          component={'a'}
+          variant={'subtle'}
         >
-          <Button leftIcon={<IconMail size={16} />} variant={'default'}>
-            Mail
-          </Button>
-        </Anchor>
-        <Anchor
+          Mail
+        </Button>
+        <Button
+          component={'a'}
           href={'https://github.com/hcorta'}
           title={'GitHub @hcorta'}
           target={'_blank'}
+          leftIcon={<IconBrandGithub size={18} />}
+          variant={'subtle'}
         >
-          <Button leftIcon={<IconBrandGithub size={16} />} variant={'default'}>
-            GitHub
-          </Button>
-        </Anchor>
-        <Anchor
+          GitHub
+        </Button>
+        <Button
           href={'https://twitter.com/hcorta'}
           title={'Twitter @hcorta'}
           target={'_blank'}
+          leftIcon={<IconBrandTwitter size={18} />}
+          variant={'subtle'}
+          component={'a'}
         >
-          <Button leftIcon={<IconBrandTwitter size={16} />} variant={'default'}>
-            Twitter
-          </Button>
-        </Anchor>
-        <Anchor
+          Twitter
+        </Button>
+        <Button
+          variant={'subtle'}
+          component={'a'}
           href={'https://www.linkedin.com/in/hugocorta'}
           title={'LinkedIn @hugocorta'}
           target={'_blank'}
+          leftIcon={<IconBrandLinkedin size={18} />}
         >
-          <Button
-            leftIcon={<IconBrandLinkedin size={16} />}
-            variant={'default'}
-          >
-            Linkedin
-          </Button>
-        </Anchor>
+          Linkedin
+        </Button>
       </Group>
     </Page>
   )

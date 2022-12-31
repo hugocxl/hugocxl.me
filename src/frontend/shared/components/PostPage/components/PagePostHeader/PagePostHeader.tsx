@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 // Components
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 import {
   ActionIcon,
   Text,
@@ -13,7 +12,6 @@ import {
   Group,
   Stack,
   Title,
-  Box,
   Divider
 } from '@mantine/core'
 import {
@@ -25,6 +23,7 @@ import {
 
 // Types
 import { FC } from 'react'
+import { NextImage } from '@/frontend/shared/components/NextImage'
 
 export interface PagePostHeaderProps {
   title?: string
@@ -58,7 +57,7 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
             <IconArrowLeft size={20} />
           </ActionIcon>
         </NextLink>
-        <Text size={'sm'} color={'dimmed'}>{`Back to ${section}`}</Text>
+        <Text color={'dimmed'}>{`Back to ${section}`}</Text>
       </Group>
     )
   }
@@ -109,34 +108,26 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         }}
       >
         <BackButton />
-        <Group spacing={'xs'}>
+        <Group spacing={4}>
           <CopyToClipboardButton />
           <TwitterButton />
           <LinkedInButton />
         </Group>
       </Flex>
-      <Divider />
-      <Stack mb={'40px'} spacing={0}>
-        <Title order={1}>{title}</Title>
-        <Text size={'sm'} pb={'md'} color={'dimmed'}>
+      <Stack
+        spacing={0}
+        sx={theme => ({
+          marginTop: theme.spacing.xl * 2,
+          marginBottom: theme.spacing.xl * 2
+        })}
+      >
+        <Title order={1} m={'0 !important'}>
+          {title}
+        </Title>
+        <Text size={'lg'} pb={'md'} color={'dimmed'}>
           {description}
         </Text>
-        {cover && (
-          <Box
-            pos={'relative'}
-            h={'400px'}
-            sx={{ borderRadius: '16px', overflow: 'hidden' }}
-          >
-            <NextImage
-              placeholder='blur'
-              blurDataURL={cover}
-              style={{ objectFit: 'cover' }}
-              fill
-              src={cover}
-              alt={title}
-            />
-          </Box>
-        )}
+        {cover && <NextImage height={400} src={cover} alt={title} />}
       </Stack>
 
       {/* <Snackbar

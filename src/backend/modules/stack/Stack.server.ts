@@ -8,7 +8,7 @@ export const StackServer = {
       {
         sorts: [
           {
-            property: 'Tags',
+            property: 'Tag',
             direction: 'ascending'
           }
         ]

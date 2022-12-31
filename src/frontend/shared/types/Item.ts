@@ -5,7 +5,7 @@ export interface Item {
   slug?: string
   name?: string
   description?: string
-  tags?: string
+  tag?: string
   createdAt?: string
   updatedAt?: string
   properties: Record<string, any>

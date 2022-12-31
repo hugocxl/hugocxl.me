@@ -17,7 +17,7 @@ interface ResourcesProps {
 }
 
 export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
-  const groupedResources = groupBy(resources, 'tags')
+  const groupedResources = groupBy(resources, 'tag')
   const [render, tags] = getRender()
 
   function getRender() {

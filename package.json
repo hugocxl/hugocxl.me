@@ -13,7 +13,7 @@
     "start": "next start",
     "build": "next build",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "test:e2e": "yarn cypress:run",
     "setup:env": "npx vercel env pull .env.local",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:check": "yarn lint",

@@ -16,9 +16,10 @@ export const Blog: NextPage<BlogProps> = ({ posts }) => {
   return (
     <Page title={BLOG.title} description={BLOG.description}>
       <Gallery>
-        {posts.map(({ slug, name, description, createdAt, cover }) => {
+        {posts.map(({ slug, name, description, createdAt, cover, tag }) => {
           return (
             <Card
+              tag={tag}
               link={`${BLOG.href}/${slug}`}
               key={slug}
               name={name}

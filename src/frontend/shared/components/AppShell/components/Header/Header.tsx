@@ -43,7 +43,7 @@ export function Header() {
                 onClick={isMenuOpenCx.close}
                 aria-label={`Navigate to ${title} page`}
               >
-                <Text color={'dimmed'}>{title}</Text>
+                <Text color={'primary'}>{title}</Text>
               </NextLink>
             </Tooltip>
           )

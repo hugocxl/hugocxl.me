@@ -1,11 +1,12 @@
 // Components
-import { Stack, Title, Image as MantineImage, Text, Box } from '@mantine/core'
+import { NextImage } from '@/frontend/shared/components/NextImage'
+import { Stack, Image as MantineImage, Text, Sx, Flex } from '@mantine/core'
 import NextLink from 'next/link'
-import NextImage from 'next/image'
 
 export interface CardProps {
   link: string
   cover: string
+  tag?: string
   name: string
   description: string
   createdAt?: string
@@ -17,64 +18,85 @@ export interface CardProps {
 export function Card({
   link,
   cover,
+  tag,
   name,
   description,
   createdAt,
   target,
   useNextImage = false,
-  imageHeight = 112
+  imageHeight = 200
 }: CardProps) {
   const date = new Date(createdAt)
   const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
+  const sx: Sx = theme => ({
+    borderRadius: '8px',
+    overflow: 'hidden',
+    margin: '0 !important',
+    [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+      flexDirection: 'row',
+      marginRight: 8,
+      width: imageHeight / 2,
+      minWidth: imageHeight / 2,
+      maxWidth: imageHeight / 2,
+      height: imageHeight / 2,
+      minHeight: imageHeight / 2,
+      maxHeight: imageHeight / 2
+    }
+  })
 
   function Image() {
     if (useNextImage) {
       return (
-        <Box
-          mb={'md'}
-          pos={'relative'}
-          h={imageHeight}
-          sx={{ borderRadius: '8px', overflow: 'hidden' }}
-        >
-          <NextImage
-            placeholder='blur'
-            blurDataURL={cover}
-            style={{ objectFit: 'cover' }}
-            fill
-            src={cover}
-            alt={name}
-          />
-        </Box>
+        <NextImage
+          rounded={true}
+          height={imageHeight}
+          sx={sx}
+          src={cover}
+          alt={name}
+        />
       )
     }
 
     return (
       <MantineImage
+        radius='md'
         height={imageHeight}
         fit={'cover'}
         withPlaceholder={true}
-        radius='md'
         src={cover}
         alt={name}
+        sx={sx}
       />
     )
   }
 
   return (
     <NextLink href={link} target={target} className={'hoverable'}>
-      <Stack spacing={0}>
+      <Stack
+        spacing={'sm'}
+        sx={theme => ({
+          [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
+            flexDirection: 'row'
+          }
+        })}
+      >
         <Image />
-        {createdAt && (
-          <Text color={'dotted'} size={'xs'}>
-            {dateLabel}
+        <Stack spacing={0}>
+          <Flex align={'center'} justify={'space-between'}>
+            {createdAt && <Text size={'xs'}>{dateLabel}</Text>}
+            {tag && (
+              <Text color={'dimmed'} size='xs'>
+                {tag}
+              </Text>
+            )}
+          </Flex>
+          <Text>
+            <b>{name}</b>
           </Text>
-        )}
-        <Title span order={6} weight={'bold'} m={'0 !important'}>
-          {name}
-        </Title>
-        <Text size={'sm'} color={'dimmed'}>
-          {description}
-        </Text>
+          <Text lineClamp={3} size={'sm'} color={'dimmed'}>
+            {description}
+          </Text>
+        </Stack>
       </Stack>
     </NextLink>
   )

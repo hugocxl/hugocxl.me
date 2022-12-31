@@ -592,20 +592,6 @@ svg.notion-page-icon {
 .notion-link {
   color: inherit;
   word-break: break-word;
-  text-decoration: inherit;
-  border-bottom: 0.05em solid;
-  border-color: var(--fg-color-2);
-  opacity: 0.7;
-  transition: border-color 100ms ease-in, opacity 100ms ease-in;
-}
-
-.notion-link:hover {
-  border-color: var(--fg-color-6);
-  opacity: 1;
-}
-
-.notion-collection .notion-link {
-  opacity: 1;
 }
 
 .notion-blank {

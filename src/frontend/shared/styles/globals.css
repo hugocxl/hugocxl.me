@@ -42,6 +42,14 @@ a {
   opacity: 0.75;
 }
 
+b,
+strong {
+  font-weight: 500;
+  letter-spacing: -0.18px;
+}
+
+b,
+strong,
 h1,
 h2,
 h3,
@@ -52,6 +60,8 @@ notion-h {
   color: white !important;
 }
 
+.light b,
+.light strong,
 .light h1,
 .light h2,
 .light h3,

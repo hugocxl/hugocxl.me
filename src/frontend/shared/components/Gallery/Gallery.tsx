@@ -11,9 +11,8 @@ export function Gallery({ children, ...props }: GalleryProps) {
       cols={3}
       spacing={'xl'}
       breakpoints={[
-        { maxWidth: 'md', cols: 3, spacing: 'sm' },
-        { maxWidth: 'sm', cols: 2, spacing: 'sm' },
-        { maxWidth: 'xs', cols: 1, spacing: 'sm' }
+        { maxWidth: 'sm', cols: 2, spacing: 'xl' },
+        { maxWidth: 'xs', cols: 1, spacing: 'xl' }
       ]}
       {...props}
     >

@@ -11,7 +11,7 @@ export const notionAdapters = {
       id: entry.id,
       link: entry.properties.Link?.url || null,
       name: entry.properties.Name?.title[0]?.plain_text || null,
-      tags: entry.properties.Tags?.select?.name || null,
+      tag: entry.properties.Tag?.select?.name || null,
       properties: entry.properties,
       slug: toSlug(entry.properties.Name?.title[0]?.plain_text) || '',
       updatedAt: entry.last_edited_time || ''

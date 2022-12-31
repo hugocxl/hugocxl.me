@@ -1261,9 +1261,9 @@ commander@^9.4.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-9.4.1.tgz#d1dd8f2ce6faf93147295c0df13c7c21141cfbdd"
   integrity sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==
 
-common-tags@^1.8.0:
+common-tag@^1.8.0:
   version "1.8.2"
-  resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.8.2.tgz#94ebb3c076d26032745fd54face7f688ef5ac9c6"
+  resolved "https://registry.yarnpkg.com/common-tag/-/common-tag-1.8.2.tgz#94ebb3c076d26032745fd54face7f688ef5ac9c6"
   integrity sha512-gk/Z852D2Wtb//0I+kRFNKKE9dIIVirjoqPoA1wJU+XePVXZfGeBpk45+A1rKO4Q43prqWBNY/MiIeRLbPWUaA==
 
 concat-map@0.0.1:
@@ -1358,7 +1358,7 @@ cypress@^12.2.0:
     cli-cursor "^3.1.0"
     cli-table3 "~0.6.1"
     commander "^5.1.0"
-    common-tags "^1.8.0"
+    common-tag "^1.8.0"
     dayjs "^1.10.4"
     debug "^4.3.2"
     enquirer "^2.3.6"

@@ -1,6 +1,11 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-import { Global, MantineProvider, TitleStylesParams } from '@mantine/core'
+import {
+  Global,
+  MantineProvider,
+  TextStylesParams,
+  TitleStylesParams
+} from '@mantine/core'
 import { TypographyStylesProvider } from '@mantine/core'
 
 // Contexts
@@ -49,6 +54,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
           black: '#333',
           white: '#fff',
           defaultRadius: 'md',
+          defaultGradient: {
+            from: '#3092fa',
+            to: '#fd3ea0',
+            deg: 135
+          },
           colors: {
             yellow: [
               '#eee7de',
@@ -67,7 +77,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             Container: {
               styles: {
                 root: {
-                  maxWidth: '768px'
+                  maxWidth: '704px'
                 }
               }
             },
@@ -81,6 +91,28 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
                   ...((params.element === 'h5' || params.element === 'h6') && {
                     letterSpacing: 0,
                     fontWeight: 600
+                  })
+                }
+              })
+            },
+            Text: {
+              styles: (theme, params: TextStylesParams) => ({
+                root: {
+                  ...(params.color === 'dimmed' && {
+                    color: isDarkMode
+                      ? theme.colors.gray[7]
+                      : theme.colors.gray[5]
+                  }),
+                  ...(params.weight === 'bold' && {
+                    fontWeight: 500
+                  }),
+                  ...(params.color === 'primary' && {
+                    color: isDarkMode ? 'white' : 'black'
+                  }),
+                  ...(params.color === 'secondary' && {
+                    color: isDarkMode
+                      ? theme.colors.gray[5]
+                      : theme.colors.black
                   })
                 }
               })

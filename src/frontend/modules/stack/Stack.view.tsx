@@ -24,8 +24,8 @@ interface StackProps {
 }
 
 export const Stack: NextPage<StackProps> = ({ stack }) => {
-  const sortedStack = sortBy(stack, 'tags')
-  const groupedStack = groupBy(sortedStack, 'tags')
+  const sortedStack = sortBy(stack, 'tag')
+  const groupedStack = groupBy(sortedStack, 'tag')
   const render = getRender()
 
   function getRender() {
@@ -55,9 +55,9 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
                     alt={name}
                   />
                   <MnStack spacing={0} mb={10}>
-                    <Title span order={5} m={'0 !important'}>
+                    <Text color={'primary'} weight={'bold'}>
                       {name}
-                    </Title>
+                    </Text>
                     <Text color={'dimmed'}>{description}</Text>
                   </MnStack>
                 </Group>
