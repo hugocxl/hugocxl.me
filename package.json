@@ -28,7 +28,7 @@
     "static:validate": "yarn lint:check && yarn format:check && yarn type-check:check",
     "static:fix": "yarn lint:fix && yarn format:fix",
     "setup:env": "npx vercel env pull .env.local",
-    "prepare": "yarn setup:env && husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
