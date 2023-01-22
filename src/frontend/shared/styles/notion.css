@@ -577,8 +577,10 @@ svg.notion-page-icon {
   word-break: break-word;
   border-left: 3px solid currentcolor;
   padding: 0.2em 0.9em;
-  margin: 6px 0;
+  margin: 0 !important;
   font-size: 1.2em;
+  opacity: 0.8;
+  font-style: italic;
 }
 
 .notion-hr {

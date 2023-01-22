@@ -10,7 +10,7 @@ import {
 
 const getStaticPaths: GetStaticPaths =
   async (): Promise<GetStaticPathsResult> => {
-    const posts = await notionClient.getPublishedEntriesInDb(
+    const posts = await notionClient.getDatabase(
       process.env.NOTION_HANDBOOKS_DB_ID
     )
     const paths = getPathsForItems(posts)
@@ -25,7 +25,7 @@ const getStaticProps: GetStaticProps = async (
   props
 ): Promise<GetStaticPropsResult<HandbookProps>> => {
   const { slug } = props.params
-  const posts = await notionClient.getPublishedEntriesInDb(
+  const posts = await notionClient.getDatabase(
     process.env.NOTION_HANDBOOKS_DB_ID
   )
   const { name, description, cover, id } = posts.find(
@@ -34,7 +34,7 @@ const getStaticProps: GetStaticProps = async (
   const recordMap = await notionClient.getPage(id)
 
   return {
-    revalidate: 86400,
+    revalidate: 86400 * 3,
     props: {
       title: name,
       cover,

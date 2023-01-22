@@ -59,7 +59,9 @@ export const notionClient = {
       output = [...output, ...items]
 
       if (response.has_more) {
-        await getEntries(response.next_cursor)
+        if (!options.page_size || output.length < options.page_size) {
+          await getEntries(response.next_cursor)
+        }
       }
     }
 

@@ -28,14 +28,14 @@ export function Card({
   tag,
   name,
   description,
-  createdAt,
+  // createdAt,
   target,
   useNextImage = false,
   imageHeight = 200
 }: CardProps) {
   const theme = useMantineTheme()
-  const date = new Date(createdAt)
-  const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
+  // const date = new Date(createdAt)
+  // const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
   const sx: Sx = {
     borderRadius: '8px',
     overflow: 'hidden',
@@ -90,12 +90,8 @@ export function Card({
         <Image />
         <Stack spacing={0}>
           <Flex align={'center'} justify={'space-between'}>
-            {createdAt && <Text size={'xs'}>{dateLabel}</Text>}
-            {tag && (
-              <Text color={'dimmed'} size='xs'>
-                {tag}
-              </Text>
-            )}
+            {/* {createdAt && <Text size={'xs'}>{dateLabel}</Text>} */}
+            {tag && <Text size='xs'>{tag}</Text>}
           </Flex>
           <Text color={'primary'} weight={'bold'}>
             {name}
