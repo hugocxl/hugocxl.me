@@ -22,6 +22,7 @@ export const PagePost: FC<PagePostProps> = ({
 }) => {
   return (
     <Box
+      className={'post'}
       component={'main'}
       w={'100%'}
       sx={theme => ({

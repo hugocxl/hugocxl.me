@@ -124,11 +124,17 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
         <Title order={1} m={'0 !important'}>
           {title}
         </Title>
-        <Text size={'lg'} pb={'md'} color={'dimmed'}>
+        <Text size={'lg'} pb={'xl'} color={'dimmed'}>
           {description}
         </Text>
         {cover && (
-          <NextImage rounded={true} height={400} src={cover} alt={title} />
+          <NextImage
+            my={'xl'}
+            rounded={true}
+            height={400}
+            src={cover}
+            alt={title}
+          />
         )}
       </Stack>
 

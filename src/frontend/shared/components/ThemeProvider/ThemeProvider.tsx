@@ -74,13 +74,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
             ]
           },
           components: {
-            Container: {
-              styles: {
-                root: {
-                  maxWidth: '704px'
-                }
-              }
-            },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
