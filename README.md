@@ -8,6 +8,6 @@ Mi personal website, hosted at [hugocorta.com](https://hugocorta.com)
 - **E2E Test**: [Cypress](https://www.cypress.io/)
 - **Unit Test**: [Jest](https://www.jestjs.io/)
 
-***
+---
 
 ![Preview](/public/img/preview.png)

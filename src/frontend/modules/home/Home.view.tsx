@@ -1,17 +1,25 @@
 // Components
 import { Gallery, Page, Card, NextImage } from '@/frontend/shared/components'
-import { Title, Text, Flex, Group, Stack, Anchor } from '@mantine/core'
 import { ContactCard } from './components'
 import NextLink from 'next/link'
+import {
+  Title,
+  Text,
+  Flex,
+  Group,
+  Stack,
+  Anchor,
+  Card as MnCard
+} from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG } from '@/frontend/shared/constants'
+import { BLOG, PAGES } from '@/frontend/shared/constants'
 
-const HOME_PAGE_TITLE = 'Hugo Corta · Lead Software Engineer'
+const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
 
 export interface HomeProps {
@@ -54,6 +62,16 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
           <Anchor href='https://sygris.com'>@Sygris</Anchor>
         </Text>
 
+        <Title order={2}>Explore</Title>
+        <Gallery>
+          {PAGES.map(({ title, description, href, icon: Icon }) => (
+            <MnCard sx={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+              <Icon />
+              <Card name={title} description={description} link={href} />
+            </MnCard>
+          ))}
+        </Gallery>
+
         <Flex align={'flex-end'} justify={'space-between'}>
           <Title order={2}>Latest Posts</Title>
           <NextLink href={BLOG.href}>
@@ -63,9 +81,10 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
           </NextLink>
         </Flex>
         <Gallery spacing={'xl'} mb={'xl'}>
-          {posts.map(({ slug, name, description, cover }) => {
+          {posts.map(({ slug, name, description, cover, tag }) => {
             return (
               <Card
+                tag={tag}
                 link={`${BLOG.href}/${slug}`}
                 key={slug}
                 name={name}

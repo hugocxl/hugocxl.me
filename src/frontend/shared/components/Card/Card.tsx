@@ -12,7 +12,7 @@ import {
 
 export interface CardProps {
   link: string
-  cover: string
+  cover?: string
   tag?: string
   name: string
   description: string
@@ -87,7 +87,7 @@ export function Card({
           }
         }}
       >
-        <Image />
+        {cover && <Image />}
         <Stack spacing={0}>
           <Flex align={'center'} justify={'space-between'}>
             {/* {createdAt && <Text size={'xs'}>{dateLabel}</Text>} */}
