@@ -31,11 +31,9 @@ export function Card({
   // createdAt,
   target,
   useNextImage = false,
-  imageHeight = 200
+  imageHeight = 180
 }: CardProps) {
   const theme = useMantineTheme()
-  // const date = new Date(createdAt)
-  // const dateLabel = `${date.getMonth()} - ${date.getFullYear()}`
   const sx: Sx = {
     borderRadius: '8px',
     overflow: 'hidden',

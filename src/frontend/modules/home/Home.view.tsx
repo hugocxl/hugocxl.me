@@ -1,16 +1,7 @@
 // Components
 import { Gallery, Page, Card, NextImage } from '@/frontend/shared/components'
-import { ContactCard } from './components'
 import NextLink from 'next/link'
-import {
-  Title,
-  Text,
-  Flex,
-  Group,
-  Stack,
-  Anchor,
-  Card as MnCard
-} from '@mantine/core'
+import { Title, Text, Flex, Group, Stack, Anchor } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -65,10 +56,10 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
         <Title order={2}>Explore</Title>
         <Gallery>
           {PAGES.map(({ title, description, href, icon: Icon }) => (
-            <MnCard sx={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <Flex key={title} gap={16} align={'center'}>
               <Icon />
               <Card name={title} description={description} link={href} />
-            </MnCard>
+            </Flex>
           ))}
         </Gallery>
 
@@ -76,7 +67,7 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
           <Title order={2}>Latest Posts</Title>
           <NextLink href={BLOG.href}>
             <Text mb={'sm'} color={'dimmed'}>
-              {'See all posts >'}
+              {'See all posts'}
             </Text>
           </NextLink>
         </Flex>
@@ -95,7 +86,6 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
             )
           })}
         </Gallery>
-        <ContactCard />
       </Flex>
     </Page>
   )

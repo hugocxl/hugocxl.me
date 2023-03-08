@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {
   Global,
   MantineProvider,
@@ -13,17 +13,15 @@ import { ThemeModeContext } from '@/frontend/shared/contexts'
 
 // Types
 import { FC, ReactNode } from 'react'
+import { useColorScheme } from '@mantine/hooks'
 
 export interface ThemeProviderProps {
-  mode?: 'light' | 'dark'
   children: ReactNode
 }
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({
-  children,
-  mode: initialMode = 'dark'
-}) => {
-  const [mode, setMode] = useState<'light' | 'dark'>(initialMode)
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+  const colorScheme = useColorScheme('dark', { getInitialValueInEffect: true })
+  const [mode, setMode] = useState<'light' | 'dark'>(colorScheme)
   const isDarkMode = mode === 'dark'
   const themeModeContextValue = useMemo(
     () => [
@@ -34,6 +32,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     ],
     [mode]
   )
+
+  useEffect(() => {
+    setMode(colorScheme)
+  }, [colorScheme])
 
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>

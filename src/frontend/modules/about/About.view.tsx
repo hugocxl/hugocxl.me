@@ -184,22 +184,16 @@ export const About: NextPage = () => {
           description={'FullStack Developer'}
         />
         <CompanyItem
-          date={'2019'}
-          image={'/img/npaw.jpeg'}
-          title={'NPAW'}
-          description={'Lead Frontend Developer'}
-        />
-        <CompanyItem
           date={'2019, 2021'}
           image={'/img/ironhack.jpeg'}
           title={'Ironhack'}
-          description={'Instructor'}
+          description={'Instructor (part-time)'}
         />
         <CompanyItem
-          date={'2017'}
+          date={'2017 - 2022'}
           image={'/img/npaw.jpeg'}
           title={'NPAW'}
-          description={'Frontend Developer'}
+          description={'Frontend Developer | Lead Frontend Developer'}
         />
       </Stack>
       <Alert
