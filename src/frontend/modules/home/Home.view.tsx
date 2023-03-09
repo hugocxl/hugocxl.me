@@ -55,11 +55,8 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
 
         <Title order={2}>Explore</Title>
         <Gallery>
-          {PAGES.map(({ title, description, href, icon: Icon }) => (
-            <Flex key={title} gap={16} align={'center'}>
-              <Icon />
-              <Card name={title} description={description} link={href} />
-            </Flex>
+          {PAGES.map(({ title, description, href }) => (
+            <Card name={title} description={description} link={href} />
           ))}
         </Gallery>
 

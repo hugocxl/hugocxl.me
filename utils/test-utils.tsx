@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react'
 import { ThemeProvider } from '@/frontend/shared/components'
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
-  return <ThemeProvider mode='light'>{children}</ThemeProvider>
+  return <ThemeProvider>{children}</ThemeProvider>
 }
 
 const customRender = (

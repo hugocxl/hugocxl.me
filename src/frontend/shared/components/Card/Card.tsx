@@ -6,7 +6,6 @@ import {
   Image as MantineImage,
   Text,
   Sx,
-  Flex,
   useMantineTheme
 } from '@mantine/core'
 
@@ -17,6 +16,7 @@ export interface CardProps {
   name: string
   description: string
   createdAt?: string
+  updatedAt?: string
   target?: string
   useNextImage?: boolean
   imageHeight?: number
@@ -25,10 +25,10 @@ export interface CardProps {
 export function Card({
   link,
   cover,
-  tag,
+  // tag,
   name,
   description,
-  // createdAt,
+  updatedAt,
   target,
   useNextImage = false,
   imageHeight = 180
@@ -49,6 +49,9 @@ export function Card({
       maxHeight: imageHeight / 2
     }
   }
+
+  const date = new Date(updatedAt)
+  const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
 
   function Image() {
     if (useNextImage) {
@@ -87,16 +90,20 @@ export function Card({
       >
         {cover && <Image />}
         <Stack spacing={0}>
-          <Flex align={'center'} justify={'space-between'}>
-            {/* {createdAt && <Text size={'xs'}>{dateLabel}</Text>} */}
-            {tag && <Text size='xs'>{tag}</Text>}
-          </Flex>
+          {/* {tag && (
+            <div>
+              <Badge color={'blue'} size='xs'>
+                {tag}
+              </Badge>
+            </div>
+          )} */}
           <Text color={'primary'} weight={'bold'}>
             {name}
           </Text>
           <Text lineClamp={3} size={'sm'} color={'dimmed'}>
             {description}
           </Text>
+          {updatedAt && <Text size='xs'>{updatedAtLabel}</Text>}
         </Stack>
       </Stack>
     </NextLink>
