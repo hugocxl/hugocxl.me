@@ -1,13 +1,18 @@
 // Components
 import NextLink from 'next/link'
 import { IconSun, IconMoonStars, IconSearch } from '@tabler/icons'
-import { Text, ActionIcon, Group, Box, Stack } from '@mantine/core'
+import { Text, ActionIcon, Group, Stack, Flex, Divider } from '@mantine/core'
 
 // Hooks
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
+import { useRouter } from 'next/router'
+
+// Constants
+import { PAGES } from '@/frontend/shared/constants'
 
 export function Header() {
+  const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
   const spotlight = useSpotlight()
   const isDarkMode = mode === 'dark'
@@ -36,29 +41,64 @@ export function Header() {
     )
   }
 
-  return (
-    <Box
-      pt={'xl'}
-      component={'header'}
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end'
-      }}
-    >
-      <NextLink href={'/'}>
-        <Stack spacing={0}>
-          <Text weight={'bold'} color={'primary'}>
-            Hugo Corta
-          </Text>
-          <Text color={'dimmed'}>Software Craftsman</Text>
-        </Stack>
-      </NextLink>
+  function Items() {
+    return (
+      <Group>
+        {PAGES.map(({ title, href }) => {
+          const isActive = pathname.startsWith(href)
 
-      <Group spacing={4}>
-        <SearchButton />
-        <ThemeButton />
+          return (
+            <NextLink
+              key={title}
+              href={href}
+              aria-label={`Navigate to ${title} page`}
+            >
+              <Text
+                fw={500}
+                size={'sm'}
+                color={'primary'}
+                sx={{
+                  transition: 'border-bottom 0.17s ease',
+                  borderBottom: `2px solid ${
+                    isActive ? 'white' : 'transparent'
+                  }`,
+                  '&:hover': {
+                    borderBottom: '2px solid white'
+                  }
+                }}
+              >
+                {title}
+              </Text>
+            </NextLink>
+          )
+        })}
       </Group>
-    </Box>
+    )
+  }
+
+  return (
+    <Flex pt={'xl'} direction={'column'}>
+      <Flex justify={'space-between'} align={'flex-end'}>
+        <NextLink href={'/'}>
+          <Stack spacing={0}>
+            <Text weight={'bold'} color={'primary'}>
+              Hugo Corta
+            </Text>
+            <Text weight={'bold'} color={'dimmed'}>
+              Software Craftsman
+            </Text>
+          </Stack>
+        </NextLink>
+
+        <Group spacing={4}>
+          <SearchButton />
+          <ThemeButton />
+        </Group>
+      </Flex>
+
+      <Divider my={'xs'} />
+
+      <Items />
+    </Flex>
   )
 }

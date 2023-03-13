@@ -700,6 +700,10 @@ svg.notion-page-icon {
   max-width: 100%;
 }
 
+.notion-asset-wrapper-image img {
+  border-radius: 8px;
+}
+
 .notion-asset-wrapper-full {
   max-width: 100vw;
 }
@@ -849,6 +853,7 @@ svg.notion-page-icon {
   display: flex;
   overflow: hidden;
   user-select: none;
+  flex-direction: row-reverse;
 }
 
 .dark-mode .notion-bookmark {
@@ -871,6 +876,7 @@ svg.notion-page-icon {
   text-overflow: ellipsis;
   min-height: 24px;
   margin-bottom: 2px;
+  font-weight: bold;
 }
 
 .notion-bookmark-description {
@@ -882,8 +888,7 @@ svg.notion-page-icon {
 }
 
 .notion-bookmark-link {
-  display: flex;
-  margin-top: 6px;
+  display: none;
 }
 
 .notion-bookmark-link-icon {
@@ -1588,12 +1593,12 @@ svg.notion-page-icon {
 }
 
 .notion-table-of-contents {
-  height: 100vh;
-  width: 280px;
-  padding: 2rem;
+  /* height: 100vh; */
+  /* width: 280px; */
+  /* padding: 2rem; */
   overflow: auto;
-  position: fixed;
-  right: 0rem;
+  /* position: sticky; */
+  /* right: 0rem; */
   top: 0;
 }
 

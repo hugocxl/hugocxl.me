@@ -40,7 +40,7 @@ export const ABOUT = {
   title: 'About',
   href: '/about',
   icon: AiOutlineUser,
-  description: 'Some more info about me'
+  description: ''
 }
 
 export const PAGES = [BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]

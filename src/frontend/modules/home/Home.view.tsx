@@ -8,7 +8,7 @@ import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG, PAGES } from '@/frontend/shared/constants'
+import { BLOG } from '@/frontend/shared/constants'
 
 const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
@@ -25,10 +25,10 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
       showHeader={false}
     >
       <Flex direction={'column'}>
-        <Group spacing={'xl'}>
+        <Group spacing={'xl'} mt={'xl'}>
           <NextImage
             sx={{
-              background: 'rgb(150,150,150)',
+              background: 'rgb(50,50,50)',
               borderRadius: '50%'
             }}
             height={80}
@@ -53,14 +53,7 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
           <Anchor href='https://sygris.com'>@Sygris</Anchor>
         </Text>
 
-        <Title order={2}>Explore</Title>
-        <Gallery>
-          {PAGES.map(({ title, description, href }) => (
-            <Card name={title} description={description} link={href} />
-          ))}
-        </Gallery>
-
-        <Flex align={'flex-end'} justify={'space-between'}>
+        <Flex align={'flex-end'} justify={'space-between'} mt={'xl'}>
           <Title order={2}>Latest Posts</Title>
           <NextLink href={BLOG.href}>
             <Text mb={'sm'} color={'dimmed'}>

@@ -26,13 +26,25 @@ export const PagePost: FC<PagePostProps> = ({
       component={'main'}
       w={'100%'}
       sx={theme => ({
-        paddingTop: theme.spacing.xl,
+        paddingTop: theme.spacing.xl * 2,
         paddingBottom: theme.spacing.xl * 4
       })}
     >
       <PagePostHead title={title} description={description} />
       <PagePostHeader title={title} description={description} cover={cover} />
-      <NotionRenderer recordMap={recordMap} />
+
+      <Box
+        className={'post'}
+        component={'main'}
+        w={'100%'}
+        sx={theme => ({
+          paddingTop: theme.spacing.xl * 2,
+          maxWidth: 680,
+          margin: '0 auto'
+        })}
+      >
+        <NotionRenderer recordMap={recordMap} />
+      </Box>
     </Box>
   )
 }

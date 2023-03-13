@@ -1,27 +1,25 @@
 // Dependencies
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
+import { TypographyStylesProvider } from '@mantine/core'
 import {
   Global,
   MantineProvider,
   TextStylesParams,
   TitleStylesParams
 } from '@mantine/core'
-import { TypographyStylesProvider } from '@mantine/core'
 
 // Contexts
 import { ThemeModeContext } from '@/frontend/shared/contexts'
 
 // Types
 import { FC, ReactNode } from 'react'
-import { useColorScheme } from '@mantine/hooks'
 
 export interface ThemeProviderProps {
   children: ReactNode
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  const colorScheme = useColorScheme('dark', { getInitialValueInEffect: true })
-  const [mode, setMode] = useState<'light' | 'dark'>(colorScheme)
+  const [mode, setMode] = useState<'light' | 'dark'>('dark')
   const isDarkMode = mode === 'dark'
   const themeModeContextValue = useMemo(
     () => [
@@ -32,10 +30,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     ],
     [mode]
   )
-
-  useEffect(() => {
-    setMode(colorScheme)
-  }, [colorScheme])
 
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
@@ -51,7 +45,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             lg: 20,
             xl: 24
           },
-          primaryColor: isDarkMode ? 'violet' : 'blue',
+          primaryColor: isDarkMode ? 'violet' : 'violet',
           colorScheme: mode,
           black: '#333',
           white: '#fff',
@@ -76,11 +70,19 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             ]
           },
           components: {
+            Container: {
+              styles: {
+                root: {
+                  // maxWidth: '720px'
+                }
+              }
+            },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
-                  marginTop: '4rem !important',
-                  letterSpacing: -0.5,
+                  marginTop: '5rem !important',
+                  marginBottom: '2rem !important',
+                  letterSpacing: -1,
                   width: 'fit-content',
                   color: isDarkMode ? 'white' : 'black',
                   ...((params.element === 'h5' || params.element === 'h6') && {
@@ -95,7 +97,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 root: {
                   ...(params.color === 'dimmed' && {
                     color: isDarkMode
-                      ? theme.colors.gray[7]
+                      ? theme.colors.gray[6]
                       : theme.colors.gray[5]
                   }),
                   ...(params.weight === 'bold' && {
@@ -127,6 +129,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                     : theme.colors.gray[1]
                 }
               })
+            },
+            Badge: {
+              styles: {
+                root: {
+                  borderRadius: 0,
+                  background: isDarkMode ? 'white' : 'black',
+                  color: !isDarkMode ? 'white' : 'black'
+                }
+              }
             },
             ActionIcon: {
               defaultProps: {

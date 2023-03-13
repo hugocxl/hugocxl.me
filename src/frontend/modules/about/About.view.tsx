@@ -1,16 +1,15 @@
 // Components
-import { Gallery, Page } from '@/frontend/shared/components'
+import { Page } from '@/frontend/shared/components'
 import {
   Title,
   Text,
   Alert,
   Anchor,
   Button,
-  Group,
   Stack,
   Flex,
   Box,
-  Card
+  SimpleGrid
 } from '@mantine/core'
 import {
   IconBrandGithub,
@@ -58,13 +57,13 @@ export const About: NextPage = () => {
 
   return (
     <Page title={ABOUT.title} description={ABOUT.description}>
+      <p>Hey, I'm Hugo. Most folks know me as hcorta online.</p>
+
       <p>
-        I'm an experienced <b>Software Engineer</b> with a demonstrated history
-        of working in the computer software industry. Skilled in{' '}
-        <b>Mobile, Web and Server Application Development</b>, I am fortunate to
-        develop myself through my career, fulfilling my interests by growing
-        professionally.
+        I'm currently the Lead Frontend Engineer at Sygris, where I focus on
+        helping my team to develop the core product of the company.
       </p>
+
       <p>
         I love using my technical skills to build cool and interesting things.
         Contributing value across different ladders of abstraction, all the way
@@ -72,102 +71,114 @@ export const About: NextPage = () => {
         implementation details, it's where you'll' find me at my best.
       </p>
 
+      <SimpleGrid cols={4} spacing={'sm'}>
+        <Button
+          href={'mailto:corta.hugo@gmail.com'}
+          title={'Mail'}
+          target={'_blank'}
+          leftIcon={<IconMail size={18} />}
+          component={'a'}
+          variant={'default'}
+        >
+          Mail
+        </Button>
+        <Button
+          component={'a'}
+          href={'https://github.com/hcorta'}
+          title={'GitHub @hcorta'}
+          target={'_blank'}
+          leftIcon={<IconBrandGithub size={18} />}
+          variant={'default'}
+        >
+          GitHub
+        </Button>
+        <Button
+          href={'https://twitter.com/hcorta'}
+          title={'Twitter @hcorta'}
+          target={'_blank'}
+          leftIcon={<IconBrandTwitter size={18} />}
+          variant={'default'}
+          component={'a'}
+        >
+          Twitter
+        </Button>
+        <Button
+          variant={'default'}
+          component={'a'}
+          href={'https://www.linkedin.com/in/hugocorta'}
+          title={'LinkedIn @hugocorta'}
+          target={'_blank'}
+          leftIcon={<IconBrandLinkedin size={18} />}
+        >
+          Linkedin
+        </Button>
+      </SimpleGrid>
+
       <Title order={2}>{"What I'm doing now"}</Title>
-      <ul>
-        <li>
-          <b>Work – </b>I am currently working at{' '}
+      <Stack>
+        <Text>
+          <b>Work: </b>I am currently working at{' '}
           <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
           Engineer.
-        </li>
-        <li>
-          <b>Blog – </b>
+        </Text>
+        <Text>
+          <b>Blog: </b>
           On this website <Anchor href={'/blog'}>I write posts</Anchor> about
           diverse stuff that I find interesting.
-        </li>
-        <li>
-          <b>Open Source – </b>
+        </Text>
+        <Text>
+          <b>Open Source: </b>
           As a software developer, I enjoy building open-source software and
           Textbraries
-        </li>
-        <li>
-          <b>Teaching – </b>
+        </Text>
+        <Text>
+          <b>Teaching: </b>
           Sometimes I teach about web development at{' '}
           <Anchor target={'_blank'} href={'https://ironhack.com'}>
             Ironhack
           </Anchor>
-        </li>
-      </ul>
+        </Text>
+      </Stack>
 
       <Title order={2}>Random Facts</Title>
-      <Gallery>
-        <Card>
-          <Text size={32} align='center'>
-            🏋️
-          </Text>
-          <Text align='center'>
-            I practice sports daily. My favourite practice is strength training,
-            though I also enjoy running, cycling and other sports.
-          </Text>
-        </Card>
+      <Stack>
+        <Text>
+          I practice sports daily. My favourite practice is weight lifting,
+          though I also enjoy running, cycling and trying other sports.
+        </Text>
 
-        <Card>
-          <Text size={32} align='center'>
-            👷🏻‍♂️
-          </Text>
-          <Text align='center'>
-            I have two degrees in construction (Architectural Engineer and Civil
-            Engineer) and worked in the field for a few years before becoming a
-            developer.
-          </Text>
-        </Card>
+        <Text>
+          I have two degrees in construction (Architectural Engineer and Civil
+          Engineer) and worked in the field for a few years before becoming a
+          developer.
+        </Text>
 
-        <Card>
-          <Text size={32} align='center'>
-            📚
-          </Text>
-          <Text align='center'>
-            I like sci-fi books, like Dune, The Foundation, and The Three Body
-            Problem series.
-          </Text>
-        </Card>
+        <Text>
+          I like sci-fi books, like Dune, The Foundation, and The Three Body
+          Problem series.
+        </Text>
 
-        <Card>
-          <Text size={32} align='center'>
-            🌁
-          </Text>
-          <Text align='center'>
-            I am kind of good with{' '}
-            <Anchor
-              target={'_blank'}
-              href='https://www.youtube.com/watch?v=l1rjJUkylXw'
-            >
-              Photoshop
-            </Anchor>
-            .
-          </Text>
-        </Card>
+        <Text>
+          I am kind of good with{' '}
+          <Anchor
+            target={'_blank'}
+            href='https://www.youtube.com/watch?v=l1rjJUkylXw'
+          >
+            Photoshop
+          </Anchor>
+          .
+        </Text>
 
-        <Card>
-          <Text size={32} align='center'>
-            🎸
-          </Text>
-          <Text align='center'>
-            I love playing the guitar, which I learned to play aged 13. I'm not
-            very good though.
-          </Text>
-        </Card>
+        <Text>
+          I love playing the guitar, which I learned to play aged 13. I'm not
+          very good though.
+        </Text>
 
-        <Card>
-          <Text size={32} align='center'>
-            🎧
-          </Text>
-          <Text align='center'>
-            One of my ever-favorite hobbies when I was young was making
-            electronic music. I stopped a few years ago to focus on other
-            interests though.
-          </Text>
-        </Card>
-      </Gallery>
+        <Text>
+          One of my ever-favorite hobbies when I was young was making electronic
+          music. I stopped a few years ago to focus on other interests though.
+        </Text>
+      </Stack>
 
       <Title order={2}>Experience</Title>
       <Stack>
@@ -206,55 +217,6 @@ export const About: NextPage = () => {
           Click here to download a PDF version of my resume.
         </Anchor>
       </Alert>
-
-      <Title order={2}>Get in touch</Title>
-      <p>
-        You can reach me out through mail or, if you prefer so, you may leave me
-        a message in any of the main social plaforms. I'll get back to you as
-        soon as I can.
-      </p>
-      <Group spacing={'sm'}>
-        <Button
-          href={'mailto:corta.hugo@gmail.com'}
-          title={'Mail'}
-          target={'_blank'}
-          leftIcon={<IconMail size={18} />}
-          component={'a'}
-          variant={'subtle'}
-        >
-          Mail
-        </Button>
-        <Button
-          component={'a'}
-          href={'https://github.com/hcorta'}
-          title={'GitHub @hcorta'}
-          target={'_blank'}
-          leftIcon={<IconBrandGithub size={18} />}
-          variant={'subtle'}
-        >
-          GitHub
-        </Button>
-        <Button
-          href={'https://twitter.com/hcorta'}
-          title={'Twitter @hcorta'}
-          target={'_blank'}
-          leftIcon={<IconBrandTwitter size={18} />}
-          variant={'subtle'}
-          component={'a'}
-        >
-          Twitter
-        </Button>
-        <Button
-          variant={'subtle'}
-          component={'a'}
-          href={'https://www.linkedin.com/in/hugocorta'}
-          title={'LinkedIn @hugocorta'}
-          target={'_blank'}
-          leftIcon={<IconBrandLinkedin size={18} />}
-        >
-          Linkedin
-        </Button>
-      </Group>
     </Page>
   )
 }

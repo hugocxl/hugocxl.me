@@ -8,11 +8,10 @@ import {
   ActionIcon,
   Text,
   Anchor,
-  Flex,
   Group,
   Stack,
   Title,
-  Divider
+  Flex
 } from '@mantine/core'
 import {
   IconArrowLeft,
@@ -100,33 +99,21 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   return (
     <Stack spacing={0}>
-      <Divider />
-      <Flex
-        justify={'space-between'}
-        sx={{
-          padding: '16px 0'
-        }}
-      >
-        <BackButton />
-        <Group spacing={4}>
-          <CopyToClipboardButton />
-          <TwitterButton />
-          <LinkedInButton />
-        </Group>
-      </Flex>
-      <Stack
-        spacing={0}
-        sx={theme => ({
-          marginTop: theme.spacing.xl * 2,
-          marginBottom: theme.spacing.xl * 2
-        })}
-      >
+      <Stack py={'xl'} spacing={0}>
         <Title order={1} m={'0 !important'}>
           {title}
         </Title>
         <Text size={'lg'} pb={'xl'} color={'dimmed'}>
           {description}
         </Text>
+        <Flex justify={'space-between'}>
+          <BackButton />
+          <Group spacing={4}>
+            <CopyToClipboardButton />
+            <TwitterButton />
+            <LinkedInButton />
+          </Group>
+        </Flex>
         {cover && (
           <NextImage
             my={'xl'}
@@ -137,13 +124,6 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
           />
         )}
       </Stack>
-
-      {/* <Snackbar
-        open={open}
-        autoHideDuration={3500}
-        onClose={() => setOpen(false)}
-        message={'URL copied to clipboard'}
-      /> */}
     </Stack>
   )
 }

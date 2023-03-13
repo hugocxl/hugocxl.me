@@ -5,8 +5,8 @@ import {
   Stack,
   Image as MantineImage,
   Text,
-  Sx,
-  useMantineTheme
+  useMantineTheme,
+  Badge
 } from '@mantine/core'
 
 export interface CardProps {
@@ -25,31 +25,15 @@ export interface CardProps {
 export function Card({
   link,
   cover,
-  // tag,
+  tag,
   name,
   description,
   updatedAt,
   target,
   useNextImage = false,
-  imageHeight = 180
+  imageHeight = 120
 }: CardProps) {
   const theme = useMantineTheme()
-  const sx: Sx = {
-    borderRadius: '8px',
-    overflow: 'hidden',
-    marginBottom: '0 !important',
-    [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-      flexDirection: 'row',
-      marginRight: 8,
-      width: imageHeight / 2,
-      minWidth: imageHeight / 2,
-      maxWidth: imageHeight / 2,
-      height: imageHeight / 2,
-      minHeight: imageHeight / 2,
-      maxHeight: imageHeight / 2
-    }
-  }
-
   const date = new Date(updatedAt)
   const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
 
@@ -59,7 +43,7 @@ export function Card({
         <NextImage
           rounded={true}
           height={imageHeight}
-          sx={sx}
+          // sx={sx}
           src={cover}
           alt={name}
         />
@@ -73,7 +57,7 @@ export function Card({
         withPlaceholder={true}
         src={cover}
         alt={name}
-        sx={sx}
+        // sx={sx}
       />
     )
   }
@@ -84,19 +68,20 @@ export function Card({
         spacing={'sm'}
         sx={{
           [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-            flexDirection: 'row'
+            flexDirection: 'row',
+            gap: 0
           }
         }}
       >
         {cover && <Image />}
-        <Stack spacing={0}>
-          {/* {tag && (
+        <Stack spacing={0} justify={'space-between'}>
+          {tag && (
             <div>
-              <Badge color={'blue'} size='xs'>
+              <Badge color={'red'} size={'md'} mb={'sm'}>
                 {tag}
               </Badge>
             </div>
-          )} */}
+          )}
           <Text color={'primary'} weight={'bold'}>
             {name}
           </Text>
