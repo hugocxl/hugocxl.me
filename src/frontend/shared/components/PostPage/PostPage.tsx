@@ -37,11 +37,10 @@ export const PagePost: FC<PagePostProps> = ({
         className={'post'}
         component={'main'}
         w={'100%'}
-        sx={theme => ({
-          paddingTop: theme.spacing.xl * 2,
+        sx={{
           maxWidth: 680,
           margin: '0 auto'
-        })}
+        }}
       >
         <NotionRenderer recordMap={recordMap} />
       </Box>

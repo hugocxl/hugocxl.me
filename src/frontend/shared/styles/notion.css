@@ -632,7 +632,6 @@ svg.notion-page-icon {
   height: 18px;
   color: var(--fg-color-icon);
 }
-
 .notion-page-text {
   white-space: nowrap;
   overflow: hidden;
@@ -644,11 +643,11 @@ svg.notion-page-icon {
 }
 
 .notion-inline-code {
-  color: #eb5757;
+  color: #eb5757 !important;
   padding: 0.2em 0.4em;
   background: var(--bg-color-2);
   border-radius: 8px;
-  font-size: 85%;
+  font-size: 90% !important;
   font-family: Menlo, monospace;
 }
 
@@ -657,7 +656,7 @@ svg.notion-page-icon {
 }
 
 .notion-list {
-  margin: 0;
+  margin: 0 !important;
   margin-block-start: 0.6em;
   margin-block-end: 0.6em;
 }
@@ -750,8 +749,8 @@ svg.notion-page-icon {
 
 .notion-code-copy-button {
   display: inline-block;
-  padding: 0.6em;
-  font-size: 1.25em;
+  padding: 0.3em;
+  font-size: 1em;
   cursor: pointer;
   transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
     color 0.2s cubic-bezier(0.3, 0, 0.5, 1),

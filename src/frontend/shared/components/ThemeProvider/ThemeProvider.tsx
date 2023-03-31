@@ -80,11 +80,17 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
-                  marginTop: '5rem !important',
-                  marginBottom: '2rem !important',
                   letterSpacing: -1,
                   width: 'fit-content',
                   color: isDarkMode ? 'white' : 'black',
+                  ...(params.element === 'h1' && {
+                    marginTop: '5rem !important',
+                    marginBottom: '2rem !important'
+                  }),
+                  ...(params.element === 'h2' && {
+                    marginTop: '2.5rem !important',
+                    marginBottom: '1rem !important'
+                  }),
                   ...((params.element === 'h5' || params.element === 'h6') && {
                     letterSpacing: 0,
                     fontWeight: 600
