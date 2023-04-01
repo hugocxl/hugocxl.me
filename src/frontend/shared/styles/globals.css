@@ -78,9 +78,16 @@ notion-h {
     line-height: 1.75 !important;
   }
 
+  .notion-callout,
   .notion-code,
   p,
   .notion-text {
     margin-bottom: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .notion-table-of-contents {
+    display: none;
   }
 }

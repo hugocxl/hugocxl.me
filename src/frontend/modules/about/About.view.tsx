@@ -5,11 +5,11 @@ import {
   Text,
   Alert,
   Anchor,
-  Button,
+  ActionIcon,
   Stack,
   Flex,
   Box,
-  SimpleGrid
+  Group
 } from '@mantine/core'
 import {
   IconBrandGithub,
@@ -27,7 +27,7 @@ import { NextPage } from 'next'
 import { ABOUT } from '@/frontend/shared/constants'
 
 export const About: NextPage = () => {
-  function CompanyItem({ title, image, date, description }) {
+  function CompanyItem({ title, image, date, description, location }) {
     return (
       <Box sx={{ display: 'grid', gridTemplateColumns: '48px 1fr', gap: 12 }}>
         <Box pos={'relative'} h={48} w={48}>
@@ -49,7 +49,9 @@ export const About: NextPage = () => {
             <Text weight={'bold'}>{title}</Text>
             <Text color={'dimmed'}>{date}</Text>
           </Flex>
-          <Text color={'dimmed'}>{description}</Text>
+          <Text color={'dimmed'}>
+            {description} ({location})
+          </Text>
         </Stack>
       </Box>
     )
@@ -71,50 +73,42 @@ export const About: NextPage = () => {
         implementation details, it's where you'll' find me at my best.
       </p>
 
-      <SimpleGrid cols={4} spacing={'sm'}>
-        <Button
+      <Group spacing={'md'}>
+        <ActionIcon
           href={'mailto:corta.hugo@gmail.com'}
           title={'Mail'}
           target={'_blank'}
-          leftIcon={<IconMail size={18} />}
           component={'a'}
-          variant={'default'}
         >
-          Mail
-        </Button>
-        <Button
+          <IconMail size={18} />
+        </ActionIcon>
+        <ActionIcon
           component={'a'}
           href={'https://github.com/hcorta'}
           title={'GitHub @hcorta'}
           target={'_blank'}
-          leftIcon={<IconBrandGithub size={18} />}
-          variant={'default'}
         >
-          GitHub
-        </Button>
-        <Button
+          <IconBrandGithub size={18} />
+        </ActionIcon>
+        <ActionIcon
           href={'https://twitter.com/hcorta'}
           title={'Twitter @hcorta'}
           target={'_blank'}
-          leftIcon={<IconBrandTwitter size={18} />}
-          variant={'default'}
           component={'a'}
         >
-          Twitter
-        </Button>
-        <Button
-          variant={'default'}
+          <IconBrandTwitter size={18} />
+        </ActionIcon>
+        <ActionIcon
           component={'a'}
           href={'https://www.linkedin.com/in/hugocorta'}
           title={'LinkedIn @hugocorta'}
           target={'_blank'}
-          leftIcon={<IconBrandLinkedin size={18} />}
         >
-          Linkedin
-        </Button>
-      </SimpleGrid>
+          <IconBrandLinkedin size={18} />
+        </ActionIcon>
+      </Group>
 
-      <Title order={2}>{"What I'm doing now"}</Title>
+      <Title order={2}>{"🙂 What I'm doing now"}</Title>
       <Stack>
         <Text>
           <b>Work: </b>I am currently working at{' '}
@@ -140,7 +134,7 @@ export const About: NextPage = () => {
         </Text>
       </Stack>
 
-      <Title order={2}>Random Facts</Title>
+      <Title order={2}>{'🤨 Random Facts'}</Title>
       <Stack>
         <Text>
           I practice sports daily. My favourite practice is weight lifting,
@@ -180,27 +174,31 @@ export const About: NextPage = () => {
         </Text>
       </Stack>
 
-      <Title order={2}>Experience</Title>
+      <Title order={2}>{'🧑‍💻 Experience'}</Title>
       <Stack>
         <CompanyItem
+          location={'Madrid'}
           date={'2023'}
           image={'/img/sygris.jpeg'}
           title={'Sygris'}
           description={'Lead Frontend Developer'}
         />
         <CompanyItem
+          location={'Remote'}
           date={'2022'}
           image={'/img/champion-games.jpeg'}
           title={'Champion Games'}
           description={'FullStack Developer'}
         />
         <CompanyItem
+          location={'Barcelona'}
           date={'2019, 2021'}
           image={'/img/ironhack.jpeg'}
           title={'Ironhack'}
-          description={'Instructor (part-time)'}
+          description={'Instructor'}
         />
         <CompanyItem
+          location={'Barcelona'}
           date={'2017 - 2022'}
           image={'/img/npaw.jpeg'}
           title={'NPAW'}

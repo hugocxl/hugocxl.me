@@ -13,6 +13,7 @@ const getStaticPaths: GetStaticPaths =
     const posts = await notionClient.getDatabase(
       process.env.NOTION_HANDBOOKS_DB_ID
     )
+
     const paths = getPathsForItems(posts)
 
     return {

@@ -1,6 +1,5 @@
 // Components
-import { Card, Page } from '@/frontend/shared/components'
-import { Title, Stack } from '@mantine/core'
+import { List, Page } from '@/frontend/shared/components'
 
 // Types
 import { NextPage } from 'next'
@@ -24,22 +23,13 @@ export const Blog: NextPage<BlogProps> = ({ posts }) => {
     const render = []
     for (const tag in groupedResources) {
       render.push(
-        <div id={tag} key={tag}>
-          <Title order={2}>{tag}</Title>
-          <Stack>
-            {groupedResources[tag].map(
-              ({ slug, updatedAt, name, description }) => (
-                <Card
-                  link={`${BLOG.href}/${slug}`}
-                  key={slug}
-                  name={name}
-                  description={description}
-                  updatedAt={updatedAt}
-                />
-              )
-            )}
-          </Stack>
-        </div>
+        <List
+          id={tag}
+          key={tag}
+          page={BLOG}
+          items={groupedResources[tag]}
+          title={tag}
+        />
       )
     }
     return render

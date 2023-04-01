@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { TypographyStylesProvider } from '@mantine/core'
 import {
   Global,
@@ -13,13 +13,26 @@ import { ThemeModeContext } from '@/frontend/shared/contexts'
 
 // Types
 import { FC, ReactNode } from 'react'
+import { useColorScheme } from '@mantine/hooks'
 
 export interface ThemeProviderProps {
   children: ReactNode
 }
 
+const COLORS = {
+  light: {
+    primary: '#272727',
+    secondary: '#666'
+  },
+  dark: {
+    primary: '#ffffff',
+    secondary: '#999'
+  }
+}
+
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [mode, setMode] = useState<'light' | 'dark'>('dark')
+  const colorScheme = useColorScheme(mode)
   const isDarkMode = mode === 'dark'
   const themeModeContextValue = useMemo(
     () => [
@@ -31,6 +44,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     [mode]
   )
 
+  useEffect(() => {
+    setMode(colorScheme)
+  }, [colorScheme])
+
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
       <MantineProvider
@@ -38,51 +55,27 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          fontSizes: {
-            xs: 11,
-            sm: 13,
-            md: 16,
-            lg: 20,
-            xl: 24
-          },
+          // fontSizes: {
+          //   xs: 11,
+          //   sm: 13,
+          //   md: 16,
+          //   lg: 20,
+          //   xl: 24
+          // },
           primaryColor: isDarkMode ? 'violet' : 'violet',
           colorScheme: mode,
-          black: '#333',
-          white: '#fff',
+          // black: '#272727',
+          // white: '#fff',
           defaultRadius: 'md',
-          defaultGradient: {
-            from: '#3092fa',
-            to: '#fd3ea0',
-            deg: 135
-          },
-          colors: {
-            yellow: [
-              '#eee7de',
-              '#e5dbcd',
-              '#ddcfbc',
-              '#d4c4ac',
-              '#ccb89b',
-              '#c3ac8a',
-              '#bba07a',
-              '#b29469',
-              '#aa8859',
-              '#9A7B4F'
-            ]
-          },
           components: {
-            Container: {
-              styles: {
-                root: {
-                  // maxWidth: '720px'
-                }
-              }
-            },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
                   letterSpacing: -1,
                   width: 'fit-content',
-                  color: isDarkMode ? 'white' : 'black',
+                  color: isDarkMode
+                    ? COLORS.dark.primary
+                    : COLORS.light.primary,
                   ...(params.element === 'h1' && {
                     marginTop: '5rem !important',
                     marginBottom: '2rem !important'
@@ -101,21 +94,18 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Text: {
               styles: (theme, params: TextStylesParams) => ({
                 root: {
-                  ...(params.color === 'dimmed' && {
-                    color: isDarkMode
-                      ? theme.colors.gray[6]
-                      : theme.colors.gray[5]
-                  }),
                   ...(params.weight === 'bold' && {
                     fontWeight: 500
                   }),
                   ...(params.color === 'primary' && {
-                    color: isDarkMode ? 'white' : 'black'
+                    color: isDarkMode
+                      ? COLORS.dark.primary
+                      : COLORS.light.primary
                   }),
                   ...(params.color === 'secondary' && {
                     color: isDarkMode
-                      ? theme.colors.gray[5]
-                      : theme.colors.black
+                      ? COLORS.dark.secondary
+                      : COLORS.light.secondary
                   })
                 }
               })
@@ -123,7 +113,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Timeline: {
               styles: {
                 itemTitle: {
-                  color: isDarkMode ? 'white' : 'black'
+                  color: isDarkMode
+                    ? COLORS.dark.secondary
+                    : COLORS.light.secondary
                 }
               }
             },
@@ -140,8 +132,12 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               styles: {
                 root: {
                   borderRadius: 0,
-                  background: isDarkMode ? 'white' : 'black',
-                  color: !isDarkMode ? 'white' : 'black'
+                  background: isDarkMode
+                    ? COLORS.dark.primary
+                    : COLORS.light.primary,
+                  color: !isDarkMode
+                    ? COLORS.dark.primary
+                    : COLORS.light.primary
                 }
               }
             },
@@ -160,11 +156,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             body: {
               ...theme.fn.fontStyles(),
               backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
-              // backgroundColor:
-              //   theme.colorScheme === 'dark'
-              //     ? theme.colors.dark[7]
-              //     : 'rgb(245,245,238)',
-              color: theme.colorScheme === 'dark' ? theme.white : theme.black
+              color:
+                theme.colorScheme === 'dark'
+                  ? COLORS.dark.secondary
+                  : COLORS.light.secondary
             }
           })}
         />

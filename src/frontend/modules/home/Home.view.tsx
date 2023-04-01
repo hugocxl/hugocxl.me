@@ -1,23 +1,23 @@
 // Components
-import { Gallery, Page, Card, NextImage } from '@/frontend/shared/components'
-import NextLink from 'next/link'
-import { Title, Text, Flex, Group, Stack, Anchor } from '@mantine/core'
+import { Page, List } from '@/frontend/shared/components'
+import { Text, Flex, Stack, Anchor } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG } from '@/frontend/shared/constants'
+import { BLOG, HANDBOOKS } from '@/frontend/shared/constants'
 
 const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
 
 export interface HomeProps {
   posts: Items
+  handbooks: Items
 }
 
-export const Home: NextPage<HomeProps> = ({ posts }) => {
+export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
   return (
     <Page
       title={HOME_PAGE_TITLE}
@@ -25,57 +25,37 @@ export const Home: NextPage<HomeProps> = ({ posts }) => {
       showHeader={false}
     >
       <Flex direction={'column'}>
-        <Group spacing={'xl'} mt={'xl'}>
-          <NextImage
-            sx={{
-              background: 'rgb(50,50,50)',
-              borderRadius: '50%'
-            }}
-            height={80}
-            width={80}
-            src={'/img/avatar-big.png'}
-            alt={'Profile Picture'}
-          />
-          <Stack spacing={0}>
-            <Text color={'primary'} weight={'bolder'} size={'xl'}>
-              {'Hugo Corta'}
-            </Text>
-            <Text color={'dimmed'}>{'@hcorta'}</Text>
-          </Stack>
-        </Group>
-        <Text size={'lg'} mt={'xl'} sx={{ lineHeight: '1.40' }}>
-          Welcome to my personal rambling space. I am excited to share with you
-          a little bit about myself, my interests, and my work. Please take a
-          look around and feel free to reach out.
-        </Text>
-        <Text color={'dimmed'} mt={'sm'}>
-          Building cool things at{' '}
-          <Anchor href='https://sygris.com'>@Sygris</Anchor>
-        </Text>
+        <Stack spacing={12} mt={'6rem'} mb={'6rem'}>
+          <Text
+            sx={{ fontSize: 'xx-large' }}
+            fw={'bolder'}
+          >{`Hi 👋, I'm Hugo`}</Text>
+          <Text color={'secondary'} size={'lg'}>
+            Welcome to my personal rambling space. I am excited to share with
+            you a little bit about myself, my interests, and my work. Please
+            take a look around and feel free to reach out.
+          </Text>
+          <Text color={'secondary'} mt={'xl'}>
+            👉 Building cool things at{' '}
+            <Anchor href='https://sygris.com'>Sygris</Anchor>
+          </Text>
+        </Stack>
 
-        <Flex align={'flex-end'} justify={'space-between'} mt={'xl'}>
-          <Title order={2}>Latest Posts</Title>
-          <NextLink href={BLOG.href}>
-            <Text mb={'sm'} color={'dimmed'}>
-              {'See all posts'}
-            </Text>
-          </NextLink>
-        </Flex>
-        <Gallery spacing={'xl'} mb={'xl'}>
-          {posts.map(({ slug, name, description, cover, tag }) => {
-            return (
-              <Card
-                tag={tag}
-                link={`${BLOG.href}/${slug}`}
-                key={slug}
-                name={name}
-                description={description}
-                cover={cover}
-                useNextImage={true}
-              />
-            )
-          })}
-        </Gallery>
+        <List
+          page={BLOG}
+          items={posts}
+          id={'Latest posts'}
+          title={'Latest posts'}
+          subtitle={'See al posts'}
+        />
+
+        <List
+          page={HANDBOOKS}
+          items={handbooks}
+          id={'Latest handbooks'}
+          title={'Latest handbooks'}
+          subtitle={'See al handbooks'}
+        />
       </Flex>
     </Page>
   )

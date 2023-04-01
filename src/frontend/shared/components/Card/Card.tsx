@@ -1,13 +1,7 @@
 // Components
 import { NextImage } from '@/frontend/shared/components'
 import NextLink from 'next/link'
-import {
-  Stack,
-  Image as MantineImage,
-  Text,
-  useMantineTheme,
-  Badge
-} from '@mantine/core'
+import { Image as MantineImage, Text, Badge, Flex, Box } from '@mantine/core'
 
 export interface CardProps {
   link: string
@@ -31,66 +25,65 @@ export function Card({
   updatedAt,
   target,
   useNextImage = false,
-  imageHeight = 120
+  imageHeight = 72
 }: CardProps) {
-  const theme = useMantineTheme()
   const date = new Date(updatedAt)
-  const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+  const updatedAtLabel = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
 
   function Image() {
-    if (useNextImage) {
-      return (
-        <NextImage
-          rounded={true}
-          height={imageHeight}
-          // sx={sx}
-          src={cover}
-          alt={name}
-        />
-      )
+    const commonProps = {
+      height: imageHeight,
+      width: imageHeight,
+      src: cover,
+      alt: name
     }
 
-    return (
+    return useNextImage ? (
+      <NextImage {...commonProps} rounded={true} />
+    ) : (
       <MantineImage
-        height={imageHeight}
+        sx={{ borderRadius: 12 }}
         fit={'cover'}
-        withPlaceholder={true}
-        src={cover}
-        alt={name}
-        // sx={sx}
+        withPlaceholder={false}
+        {...commonProps}
       />
     )
   }
 
   return (
     <NextLink href={link} target={target} className={'hoverable'}>
-      <Stack
-        spacing={'sm'}
-        sx={{
-          [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-            flexDirection: 'row',
-            gap: 0
-          }
-        }}
-      >
+      <Box sx={{ display: 'grid', gridTemplateColumns: '72px 1fr', gap: 20 }}>
         {cover && <Image />}
-        <Stack spacing={0} justify={'space-between'}>
+
+        <Flex direction={'column'}>
           {tag && (
             <div>
-              <Badge color={'red'} size={'md'} mb={'sm'}>
+              <Badge color={'red'} size={'md'}>
                 {tag}
               </Badge>
             </div>
           )}
-          <Text color={'primary'} weight={'bold'}>
-            {name}
-          </Text>
-          <Text lineClamp={3} size={'sm'} color={'dimmed'}>
+          <Flex align={'flex-end'} w={'100%'}>
+            <Text color={'primary'} weight={'bolder'}>
+              {name}
+            </Text>
+            {updatedAt && (
+              <Text
+                ml={'sm'}
+                fw={'normal'}
+                size='xs'
+                color={'violet'}
+                display={'inline'}
+              >
+                {updatedAtLabel}
+              </Text>
+            )}
+          </Flex>
+          <Text lineClamp={2} color={'secondary'}>
             {description}
           </Text>
-          {updatedAt && <Text size='xs'>{updatedAtLabel}</Text>}
-        </Stack>
-      </Stack>
+        </Flex>
+      </Box>
     </NextLink>
   )
 }

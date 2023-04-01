@@ -48,28 +48,22 @@ export function Header() {
           const isActive = pathname.startsWith(href)
 
           return (
-            <NextLink
-              key={title}
-              href={href}
-              aria-label={`Navigate to ${title} page`}
-            >
-              <Text
-                fw={500}
-                size={'sm'}
-                color={'primary'}
-                sx={{
-                  transition: 'border-bottom 0.17s ease',
-                  borderBottom: `2px solid ${
-                    isActive ? 'white' : 'transparent'
-                  }`,
-                  '&:hover': {
-                    borderBottom: '2px solid white'
-                  }
-                }}
+            <>
+              <NextLink
+                key={title}
+                href={href}
+                aria-label={`Navigate to ${title} page`}
               >
-                {title}
-              </Text>
-            </NextLink>
+                <Text
+                  fw={isActive ? 'bolder' : 500}
+                  size={'sm'}
+                  color={isActive ? 'primary' : 'dimmed'}
+                >
+                  {title}
+                </Text>
+              </NextLink>
+              <Divider orientation='vertical' />
+            </>
           )
         })}
       </Group>
@@ -81,7 +75,7 @@ export function Header() {
       <Flex justify={'space-between'} align={'flex-end'}>
         <NextLink href={'/'}>
           <Stack spacing={0}>
-            <Text weight={'bold'} color={'primary'}>
+            <Text weight={'bolder'} color={'primary'}>
               Hugo Corta
             </Text>
             <Text weight={'bold'} color={'dimmed'}>

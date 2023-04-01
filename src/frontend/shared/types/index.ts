@@ -1,9 +1,3 @@
-export type PostTableOfContents = {
-  label: string
-  link: string
-  order: number
-}[]
-
 export interface PageParam {
   params: {
     slug: string
@@ -12,3 +6,5 @@ export interface PageParam {
 
 export * from './Item'
 export * from './Items'
+export * from './Page'
+export * from './Pages'

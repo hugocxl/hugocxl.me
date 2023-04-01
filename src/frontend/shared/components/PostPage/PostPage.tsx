@@ -32,18 +32,7 @@ export const PagePost: FC<PagePostProps> = ({
     >
       <PagePostHead title={title} description={description} />
       <PagePostHeader title={title} description={description} cover={cover} />
-
-      <Box
-        className={'post'}
-        component={'main'}
-        w={'100%'}
-        sx={{
-          maxWidth: 680,
-          margin: '0 auto'
-        }}
-      >
-        <NotionRenderer recordMap={recordMap} />
-      </Box>
+      <NotionRenderer recordMap={recordMap} />
     </Box>
   )
 }

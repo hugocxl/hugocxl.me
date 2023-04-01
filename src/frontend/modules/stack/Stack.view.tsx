@@ -1,13 +1,6 @@
 // Components
-import { Page } from '@/frontend/shared/components'
-import {
-  Title,
-  Text,
-  Anchor,
-  Stack as MnStack,
-  Group,
-  Image
-} from '@mantine/core'
+import { Card, Page } from '@/frontend/shared/components'
+import { Title, Stack as MStack } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -35,35 +28,19 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
-          <MnStack>
+          <MStack spacing={'xl'} mb={'5rem'}>
             {sortedGroup.map(({ link, cover, name, description }) => (
-              <Anchor
+              <Card
+                cover={cover}
+                useNextImage={false}
+                link={link}
                 key={name}
-                href={link}
+                name={name}
+                description={description}
                 target={'_blank'}
-                className={'hoverable'}
-              >
-                <Group noWrap align={'center'}>
-                  <Image
-                    height={60}
-                    width={60}
-                    style={{ minWidth: 60 }}
-                    fit={'cover'}
-                    withPlaceholder={true}
-                    radius='md'
-                    src={cover}
-                    alt={name}
-                  />
-                  <MnStack spacing={0} mb={10}>
-                    <Text color={'primary'} weight={'bold'}>
-                      {name}
-                    </Text>
-                    <Text color={'dimmed'}>{description}</Text>
-                  </MnStack>
-                </Group>
-              </Anchor>
+              />
             ))}
-          </MnStack>
+          </MStack>
         </div>
       )
     }
@@ -73,7 +50,7 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
 
   return (
     <Page title={STACK.title} description={STACK.description}>
-      <div className={'stack-list'}>{render}</div>
+      {render}
     </Page>
   )
 }
