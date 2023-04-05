@@ -26,7 +26,7 @@ const COLORS = {
   },
   dark: {
     primary: '#ffffff',
-    secondary: '#777'
+    secondary: '#666'
   }
 }
 
@@ -155,8 +155,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           styles={theme => ({
             body: {
               ...theme.fn.fontStyles(),
-              backgroundColor:
-                theme.colorScheme === 'dark' ? 'rgb(10,10,10)' : 'white'
+              backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
+              color:
+                theme.colorScheme === 'dark'
+                  ? COLORS.dark.secondary
+                  : COLORS.light.secondary
             }
           })}
         />
