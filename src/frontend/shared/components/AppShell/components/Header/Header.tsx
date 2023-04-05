@@ -1,7 +1,13 @@
 // Components
 import NextLink from 'next/link'
-import { IconSun, IconMoonStars, IconSearch } from '@tabler/icons'
-import { Text, ActionIcon, Group, Stack, Flex, Divider } from '@mantine/core'
+import {
+  IconSun,
+  IconMoonStars,
+  IconSearch,
+  IconMenu2,
+  IconX
+} from '@tabler/icons'
+import { Text, ActionIcon, Group, Stack, Flex, Popover } from '@mantine/core'
 
 // Hooks
 import { useThemeMode } from '@/frontend/shared/hooks'
@@ -10,11 +16,13 @@ import { useRouter } from 'next/router'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
+import { useDisclosure } from '@mantine/hooks'
 
 export function Header() {
   const { pathname } = useRouter()
   const [mode, toggleMode] = useThemeMode()
   const spotlight = useSpotlight()
+  const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const isDarkMode = mode === 'dark'
 
   function ThemeButton() {
@@ -41,37 +49,60 @@ export function Header() {
     )
   }
 
-  function Items() {
+  function BurgerButton() {
     return (
-      <Group>
-        {PAGES.map(({ title, href }) => {
-          const isActive = pathname.startsWith(href)
+      <Popover
+        opened={isMenuOpen}
+        onClose={isMenuOpenCx.close}
+        position={'bottom-end'}
+      >
+        <Popover.Target>
+          <ActionIcon
+            aria-label={'Open nav menu'}
+            variant={'subtle'}
+            onClick={isMenuOpenCx.toggle}
+          >
+            {!isMenuOpen ? <IconMenu2 size={18} /> : <IconX size={18} />}
+          </ActionIcon>
+        </Popover.Target>
+        <Popover.Dropdown>
+          <Stack>
+            {PAGES.map(({ title, href }) => {
+              const isActive = pathname.startsWith(href)
 
-          return (
-            <>
-              <NextLink
-                key={title}
-                href={href}
-                aria-label={`Navigate to ${title} page`}
-              >
-                <Text
-                  fw={isActive ? 'bolder' : 500}
-                  size={'sm'}
-                  color={isActive ? 'primary' : 'dimmed'}
+              return (
+                <NextLink
+                  key={title}
+                  onClick={isMenuOpenCx.close}
+                  href={href}
+                  aria-label={`Navigate to ${title} page`}
                 >
-                  {title}
-                </Text>
-              </NextLink>
-              <Divider orientation='vertical' />
-            </>
-          )
-        })}
-      </Group>
+                  <Text
+                    fw={isActive ? 'bolder' : 500}
+                    size={'sm'}
+                    color={isActive ? 'primary' : 'dimmed'}
+                  >
+                    {title}
+                  </Text>
+                </NextLink>
+              )
+            })}
+          </Stack>
+        </Popover.Dropdown>
+      </Popover>
     )
   }
 
   return (
-    <Flex pt={'xl'} direction={'column'}>
+    <Flex
+      direction={'column'}
+      sx={theme => ({
+        paddingTop: theme.spacing.xl * 3,
+        [theme.fn.smallerThan('lg')]: {
+          paddingTop: theme.spacing.xl
+        }
+      })}
+    >
       <Flex justify={'space-between'} align={'flex-end'}>
         <NextLink href={'/'}>
           <Stack spacing={0}>
@@ -81,18 +112,18 @@ export function Header() {
             <Text weight={'bold'} color={'dimmed'}>
               Software Craftsman
             </Text>
+            <Text weight={'bold'} color={'dimmed'}>
+              Madrid, ES
+            </Text>
           </Stack>
         </NextLink>
 
         <Group spacing={4}>
           <SearchButton />
           <ThemeButton />
+          <BurgerButton />
         </Group>
       </Flex>
-
-      <Divider my={'xs'} />
-
-      <Items />
     </Flex>
   )
 }

@@ -49,8 +49,8 @@ export const Page: FC<PageProps> = ({
       component={'main'}
       w={'100%'}
       sx={theme => ({
-        paddingTop: theme.spacing.xl * 2,
-        paddingBottom: theme.spacing.xl * 2
+        paddingTop: theme.spacing.xl * 5,
+        paddingBottom: theme.spacing.xl * 4
       })}
     >
       <PageHead title={title} description={description} />

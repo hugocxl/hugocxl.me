@@ -22,11 +22,11 @@ export interface ThemeProviderProps {
 const COLORS = {
   light: {
     primary: '#272727',
-    secondary: '#666'
+    secondary: '#777'
   },
   dark: {
     primary: '#ffffff',
-    secondary: '#999'
+    secondary: '#777'
   }
 }
 
