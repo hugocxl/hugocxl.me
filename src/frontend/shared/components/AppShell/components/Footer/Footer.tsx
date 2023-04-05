@@ -11,12 +11,12 @@ export function Footer() {
   return (
     <Box
       component={'footer'}
-      sx={theme => ({
+      py={'xl'}
+      sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingBottom: theme.spacing.md
-      })}
+        alignItems: 'center'
+      }}
     >
       <Text color={'dimmed'} size={'xs'}>
         {`All Rights Reserved © ${new Date().getFullYear()} Hugo Corta`}

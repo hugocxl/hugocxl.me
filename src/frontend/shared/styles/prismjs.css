@@ -19,13 +19,13 @@ pre[class*='language-'] {
 pre > code[class*='language-'] {
   font-size: 1em;
 }
-
+/* 
 pre[class*='language-'],
 code[class*='language-'] {
   white-space: normal !important;
   overflow: auto !important;
   word-break: break-word !important;
-}
+} */
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {

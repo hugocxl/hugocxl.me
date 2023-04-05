@@ -55,19 +55,19 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          // fontSizes: {
-          //   xs: 11,
-          //   sm: 13,
-          //   md: 16,
-          //   lg: 20,
-          //   xl: 24
-          // },
-          primaryColor: isDarkMode ? 'violet' : 'violet',
+          primaryColor: isDarkMode ? 'cyan' : 'blue',
           colorScheme: mode,
-          // black: '#272727',
-          // white: '#fff',
-          defaultRadius: 'md',
+          black: 'rgb(60,60,60)',
+          white: '#fff',
+          defaultRadius: 'sm',
           components: {
+            Container: {
+              styles: {
+                root: {
+                  maxWidth: '70ch'
+                }
+              }
+            },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
@@ -155,11 +155,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           styles={theme => ({
             body: {
               ...theme.fn.fontStyles(),
-              backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
-              color:
-                theme.colorScheme === 'dark'
-                  ? COLORS.dark.secondary
-                  : COLORS.light.secondary
+              backgroundColor:
+                theme.colorScheme === 'dark' ? 'rgb(10,10,10)' : 'white'
             }
           })}
         />
