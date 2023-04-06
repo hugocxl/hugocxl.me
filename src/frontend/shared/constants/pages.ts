@@ -3,6 +3,13 @@ import { VscLibrary, VscLayers, VscArchive } from 'react-icons/vsc'
 import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
 import { Page, Pages } from '@/frontend/shared/types'
 
+export const NOW: Page = {
+  title: 'Now',
+  href: '/now',
+  icon: AiOutlineEdit,
+  description: 'A collection of moments'
+}
+
 export const BLOG: Page = {
   title: 'Blog',
   href: '/blog',
@@ -44,4 +51,4 @@ export const ABOUT: Page = {
   description: `Here's some additional information about me.`
 }
 
-export const PAGES: Pages = [BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]
+export const PAGES: Pages = [NOW, BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]

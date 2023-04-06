@@ -15,14 +15,15 @@ import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG, HANDBOOKS } from '@/frontend/shared/constants'
+import { BLOG, HANDBOOKS, NOW } from '@/frontend/shared/constants'
 import {
   IconMail,
   IconBrandGithub,
   IconBrandTwitter,
   IconBrandLinkedin,
-  IconWriting,
-  IconBook
+  IconBook,
+  IconAccessPoint,
+  IconPencil
 } from '@tabler/icons'
 
 const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
@@ -49,10 +50,10 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             Hi, I'm Hugo. I'm the Lead Frontend Developer at{' '}
             <Anchor href='https://sygris.com'>Sygris</Anchor>.
           </Text>
-          <Group>
+          <Group spacing={'xl'}>
             <NextImage
               sx={{
-                background: 'rgb(25,80,120)',
+                // border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: '50%'
               }}
               height={80}
@@ -66,7 +67,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   color={'dimmed'}
                   sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
                 >
-                  <IconWriting size={18} />
+                  <IconPencil size={18} />
                   {posts.length} published articles
                 </Text>
               </Anchor>
@@ -79,8 +80,14 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   {handbooks.length} written handbooks
                 </Text>
               </Anchor>
-              <Anchor className='hoverable' href='https://sygris.com'>
-                <Text color={'dimmed'}>Check my now! page</Text>
+              <Anchor className='hoverable' href={NOW.href}>
+                <Text
+                  color={'dimmed'}
+                  sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
+                >
+                  <IconAccessPoint size={18} />
+                  Check my Now page
+                </Text>
               </Anchor>
             </Stack>
           </Group>
