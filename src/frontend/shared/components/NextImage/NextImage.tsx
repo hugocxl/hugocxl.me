@@ -3,8 +3,8 @@ import { Box, BoxProps, Sx, useMantineTheme } from '@mantine/core'
 import Image from 'next/image'
 
 export interface NextImageProps extends BoxProps {
-  height: number
-  width?: number
+  height?: number | string
+  width?: number | string
   src: string
   alt: string
   rounded?: boolean
