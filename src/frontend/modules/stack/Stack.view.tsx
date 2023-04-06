@@ -1,6 +1,6 @@
 // Components
-import { Card, Page } from '@/frontend/shared/components'
-import { Title, Stack as MStack } from '@mantine/core'
+import { Card, Gallery, Page } from '@/frontend/shared/components'
+import { Title } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -28,7 +28,7 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
-          <MStack spacing={'xl'} mb={'5rem'}>
+          <Gallery spacing={'xl'}>
             {sortedGroup.map(({ link, cover, name, description }) => (
               <Card
                 cover={cover}
@@ -40,7 +40,7 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
                 target={'_blank'}
               />
             ))}
-          </MStack>
+          </Gallery>
         </div>
       )
     }
