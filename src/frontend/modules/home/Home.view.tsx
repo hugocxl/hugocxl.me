@@ -1,6 +1,14 @@
 // Components
 import { Page, NextImage } from '@/frontend/shared/components'
-import { Text, Flex, Stack, Anchor, Group, ActionIcon } from '@mantine/core'
+import {
+  Text,
+  Flex,
+  Stack,
+  Anchor,
+  Group,
+  ActionIcon,
+  Title
+} from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -33,9 +41,9 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
       showHeader={false}
     >
       <Flex direction={'column'}>
-        <Text fw={'bolder'} color={'primary'} size={'xl'}>
+        <Title order={1} sx={{ margin: '0 !important' }}>
           Hugo Corta
-        </Text>
+        </Title>
         <Stack spacing={40}>
           <Text>
             Hi, I'm Hugo. I'm the Lead Frontend Developer at{' '}

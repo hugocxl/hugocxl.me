@@ -1,7 +1,7 @@
 // Components
-import { Gallery, Page, NextImage } from '@/frontend/shared/components'
+import { Page, NextImage } from '@/frontend/shared/components'
 import NextLink from 'next/link'
-import { Box, Stack, Text } from '@mantine/core'
+import { Badge, Card, SimpleGrid, Stack, Text } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
@@ -15,79 +15,82 @@ export interface HandbooksProps {
 }
 
 export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
+  function Cover({ name, cover }) {
+    return (
+      <Card>
+        <Stack
+          pos={'relative'}
+          sx={{
+            borderRadius: '4px',
+            overflow: 'hidden'
+          }}
+        >
+          <NextImage
+            sx={{
+              aspectRatio: '1/1.35'
+            }}
+            width={'100%'}
+            src={cover}
+            alt={name}
+          />
+          <Text
+            align='right'
+            color={'white'}
+            weight={'bolder'}
+            p={'xs'}
+            // pl={40}
+            size={'xs'}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundImage:
+                'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.5))',
+              backdropFilter: 'blur(6px)',
+              position: 'absolute',
+              width: '100%',
+              // height: '100%',
+              bottom: 0
+            }}
+          >
+            {name}
+          </Text>
+        </Stack>
+      </Card>
+    )
+  }
   return (
     <Page title={HANDBOOKS.title} description={HANDBOOKS.description}>
-      <Gallery>
-        {handbooks.map(({ slug, name, description, cover }) => {
+      <Stack spacing={'xl'}>
+        {handbooks.map(({ slug, name, description, cover, updatedAt, tag }) => {
+          const date = new Date(updatedAt)
+          const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+
           return (
             <NextLink
               href={`${HANDBOOKS.href}/${slug}`}
               key={slug}
               className={'hoverable'}
             >
-              <Stack
-                spacing={'xl'}
-                sx={theme => ({
-                  [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-                    flexDirection: 'row'
-                  }
-                })}
-              >
-                <Stack
-                  pos={'relative'}
-                  sx={{
-                    boxShadow:
-                      '0 0 5px -1px black, inset -1px 1px 2px rgba(150, 150, 150, 0.5)'
-                  }}
-                >
-                  <NextImage
-                    sx={theme => ({
-                      borderRadius: '0 4px 4px 0',
-                      [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-                        width: 200,
-                        minWidth: 200
-                      }
-                    })}
-                    height={280}
-                    src={cover}
-                    alt={name}
-                  />
-                  <Box
-                    sx={{
-                      borderRadius: '0 4px 4px 0',
-                      zIndex: 1,
-                      position: 'absolute',
-                      bottom: 0,
-                      height: '100%',
-                      background:
-                        'linear-gradient(to right, rgba(0, 0, 0, 0.1) 3px, rgba(255, 255, 255, 0.5) 5px, rgba(255, 255, 255, 0.25) 7px, rgba(255, 255, 255, 0.25) 10px, transparent 12px, transparent 16px, rgba(255, 255, 255, 0.25) 17px, transparent 22px)',
-                      width: '100%'
-                    }}
-                  />
-                  <Text
-                    align='right'
-                    color={'white'}
-                    weight={'bolder'}
-                    sx={{
-                      borderRadius: '0 4px 4px 0',
-                      padding: '16px 12px 32px 0',
-                      background: 'rgba(0,0,0,0.5)',
-                      backdropFilter: 'blur(4px)',
-                      position: 'absolute',
-                      bottom: 0,
-                      right: 0,
-                      width: '100%'
-                    }}
-                  >
+              <SimpleGrid cols={4} spacing={'xl'}>
+                <Cover cover={cover} name={name} />
+                <Stack sx={{ gridColumn: 'span 3' }} spacing={4}>
+                  <Text fw={'bold'} color={'primary'} size={'lg'}>
                     {name}
                   </Text>
+                  <Badge w={'fit-content'}>{tag}</Badge>
+                  <Text lineClamp={3} color={'secondary'}>
+                    {description}
+                  </Text>
+                  <Text size={'xs'} color={'link'}>
+                    {updatedAtLabel}
+                  </Text>
                 </Stack>
-                <Text color={'dimmed'}>{description}</Text>
-              </Stack>
+              </SimpleGrid>
             </NextLink>
           )
         })}
-      </Gallery>
+      </Stack>
     </Page>
   )
 }
