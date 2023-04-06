@@ -1,4 +1,5 @@
 module.exports = {
+  transpilePackages: ['react-tweet'],
   images: {
     remotePatterns: [
       {

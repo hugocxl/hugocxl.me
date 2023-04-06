@@ -1,6 +1,7 @@
 import { useThemeMode } from '@/frontend/shared/hooks'
 import dynamic from 'next/dynamic'
 import { NotionRenderer as ReactNotionX } from 'react-notion-x'
+import { Tweet } from 'react-tweet'
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(m => m.Code)
@@ -39,7 +40,8 @@ export function NotionRenderer({ recordMap }) {
         Collection,
         Equation,
         Modal,
-        Pdf
+        Pdf,
+        Tweet
       }}
     />
   )
