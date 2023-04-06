@@ -26,7 +26,7 @@ export const List: FC<ListProps> = ({ id, items, title, subtitle, page }) => {
           </NextLink>
         )}
       </Flex>
-      <Stack>
+      <Stack spacing={'xl'}>
         {items.map(({ slug, name, description, cover }) => {
           return (
             <Card
