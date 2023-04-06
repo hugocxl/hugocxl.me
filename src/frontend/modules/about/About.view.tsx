@@ -9,7 +9,8 @@ import {
   Stack,
   Flex,
   Box,
-  Group
+  Group,
+  Divider
 } from '@mantine/core'
 import {
   IconBrandGithub,
@@ -108,7 +109,9 @@ export const About: NextPage = () => {
         </ActionIcon>
       </Group>
 
-      <Title order={2}>{"🙂 What I'm doing now"}</Title>
+      <Divider my={40} />
+
+      <Title order={2}>{"What I'm doing now"}</Title>
       <Stack>
         <Text>
           <b>Work: </b>I am currently working at{' '}
@@ -123,7 +126,7 @@ export const About: NextPage = () => {
         <Text>
           <b>Open Source: </b>
           As a software developer, I enjoy building open-source software and
-          Textbraries
+          libraries
         </Text>
         <Text>
           <b>Teaching: </b>
@@ -134,7 +137,7 @@ export const About: NextPage = () => {
         </Text>
       </Stack>
 
-      <Title order={2}>{'🤨 Random Facts'}</Title>
+      <Title order={2}>{'Random Facts'}</Title>
       <Stack>
         <Text>
           I practice sports daily. My favourite practice is weight lifting,
@@ -174,7 +177,7 @@ export const About: NextPage = () => {
         </Text>
       </Stack>
 
-      <Title order={2}>{'🧑‍💻 Experience'}</Title>
+      <Title order={2}>{'Experience'}</Title>
       <Stack>
         <CompanyItem
           location={'Madrid'}

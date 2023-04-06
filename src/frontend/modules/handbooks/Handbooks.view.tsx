@@ -64,7 +64,7 @@ export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
       <Stack spacing={'xl'}>
         {handbooks.map(({ slug, name, description, cover, updatedAt, tag }) => {
           const date = new Date(updatedAt)
-          const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+          const updatedAtLabel = `Last updated: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
 
           return (
             <NextLink
