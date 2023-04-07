@@ -20,12 +20,13 @@ import {
   IconMail
 } from '@tabler/icons'
 import NextImage from 'next/image'
+import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
 
 // Constants
-import { ABOUT } from '@/frontend/shared/constants'
+import { ABOUT, BLOG, HANDBOOKS, NOW } from '@/frontend/shared/constants'
 
 export const About: NextPage = () => {
   function CompanyItem({ title, image, date, description, location }) {
@@ -75,38 +76,46 @@ export const About: NextPage = () => {
       </p>
 
       <Group spacing={'md'}>
-        <ActionIcon
+        <Anchor
           href={'mailto:corta.hugo@gmail.com'}
           title={'Mail'}
           target={'_blank'}
           component={'a'}
         >
-          <IconMail size={18} />
-        </ActionIcon>
-        <ActionIcon
+          <ActionIcon>
+            <IconMail size={18} />
+          </ActionIcon>
+        </Anchor>
+        <Anchor
           component={'a'}
           href={'https://github.com/hcorta'}
           title={'GitHub @hcorta'}
           target={'_blank'}
         >
-          <IconBrandGithub size={18} />
-        </ActionIcon>
-        <ActionIcon
+          <ActionIcon>
+            <IconBrandGithub size={18} />
+          </ActionIcon>
+        </Anchor>
+        <Anchor
           href={'https://twitter.com/hcorta'}
           title={'Twitter @hcorta'}
           target={'_blank'}
           component={'a'}
         >
-          <IconBrandTwitter size={18} />
-        </ActionIcon>
-        <ActionIcon
+          <ActionIcon>
+            <IconBrandTwitter size={18} />
+          </ActionIcon>
+        </Anchor>
+        <Anchor
           component={'a'}
           href={'https://www.linkedin.com/in/hugocorta'}
           title={'LinkedIn @hugocorta'}
           target={'_blank'}
         >
-          <IconBrandLinkedin size={18} />
-        </ActionIcon>
+          <ActionIcon>
+            <IconBrandLinkedin size={18} />
+          </ActionIcon>
+        </Anchor>
       </Group>
 
       <Divider my={40} />
@@ -114,23 +123,26 @@ export const About: NextPage = () => {
       <Title order={2}>{"What I'm doing now"}</Title>
       <Stack>
         <Text>
-          <b>Work: </b>I am currently working at{' '}
+          <b>Now</b> • Check my timeline at my{' '}
+          <NextLink href={NOW.href}>Now page</NextLink>.
+        </Text>
+        <Text>
+          <b>Work</b> • I am currently working at{' '}
           <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
           Engineer.
         </Text>
         <Text>
-          <b>Blog: </b>
-          On this website <Anchor href={'/blog'}>I write posts</Anchor> about
-          diverse stuff that I find interesting.
+          <b>Blog</b> • On this website{' '}
+          <Anchor href={BLOG.href}>I write posts</Anchor> and{' '}
+          <Anchor href={HANDBOOKS.href}>handbooks</Anchor> about diverse stuff
+          that I find interesting.
         </Text>
         <Text>
-          <b>Open Source: </b>
-          As a software developer, I enjoy building open-source software and
-          libraries
+          <b>Open Source</b> • As a software developer, I enjoy building
+          open-source software and libraries
         </Text>
         <Text>
-          <b>Teaching: </b>
-          Sometimes I teach about web development at{' '}
+          <b>Teaching</b> • Sometimes I teach about web development at{' '}
           <Anchor target={'_blank'} href={'https://ironhack.com'}>
             Ironhack
           </Anchor>

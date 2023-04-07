@@ -21,7 +21,7 @@ export function Footer() {
       <Text color={'dimmed'} size={'xs'}>
         {`All Rights Reserved © ${new Date().getFullYear()} Hugo Corta`}
       </Text>
-      <Group spacing={'xs'}>
+      <Group spacing={0}>
         <Anchor
           href={'mailto:corta.hugo@gmail.com'}
           title={'Mail'}

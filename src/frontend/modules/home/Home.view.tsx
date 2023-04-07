@@ -9,6 +9,7 @@ import {
   ActionIcon,
   Title
 } from '@mantine/core'
+import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
@@ -62,7 +63,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
               alt={'Profile Picture'}
             />
             <Stack spacing={0}>
-              <Anchor className='hoverable' href={BLOG.href}>
+              <NextLink className='hoverable' href={BLOG.href}>
                 <Text
                   color={'dimmed'}
                   sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
@@ -70,8 +71,8 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   <IconPencil size={18} />
                   {posts.length} published articles
                 </Text>
-              </Anchor>
-              <Anchor className='hoverable' href={HANDBOOKS.href}>
+              </NextLink>
+              <NextLink className='hoverable' href={HANDBOOKS.href}>
                 <Text
                   color={'dimmed'}
                   sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
@@ -79,8 +80,8 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   <IconBook size={18} />
                   {handbooks.length} written handbooks
                 </Text>
-              </Anchor>
-              <Anchor className='hoverable' href={NOW.href}>
+              </NextLink>
+              <NextLink className='hoverable' href={NOW.href}>
                 <Text
                   color={'dimmed'}
                   sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
@@ -88,7 +89,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   <IconAccessPoint size={18} />
                   Check my Now page
                 </Text>
-              </Anchor>
+              </NextLink>
             </Stack>
           </Group>
           <Text>
@@ -102,14 +103,12 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             href={'mailto:corta.hugo@gmail.com'}
             title={'Mail'}
             target={'_blank'}
-            component={'a'}
           >
             <ActionIcon>
               <IconMail size={18} />
             </ActionIcon>
           </Anchor>
           <Anchor
-            component={'a'}
             href={'https://github.com/hcorta'}
             title={'GitHub @hcorta'}
             target={'_blank'}
@@ -122,14 +121,12 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             href={'https://twitter.com/hcorta'}
             title={'Twitter @hcorta'}
             target={'_blank'}
-            component={'a'}
           >
             <ActionIcon>
               <IconBrandTwitter size={18} />
             </ActionIcon>
           </Anchor>
           <Anchor
-            component={'a'}
             href={'https://www.linkedin.com/in/hugocorta'}
             title={'LinkedIn @hugocorta'}
             target={'_blank'}
