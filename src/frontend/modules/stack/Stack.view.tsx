@@ -28,11 +28,10 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
-          <Gallery spacing={'xl'}>
+          <Gallery cols={2} spacing={'xl'}>
             {sortedGroup.map(({ link, cover, name, description }) => (
               <Card
                 cover={cover}
-                useNextImage={false}
                 link={link}
                 key={name}
                 name={name}

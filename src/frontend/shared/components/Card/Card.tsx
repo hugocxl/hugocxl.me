@@ -1,12 +1,10 @@
 // Components
-import { NextImage } from '@/frontend/shared/components'
 import NextLink from 'next/link'
 import {
-  Stack,
   Image as MantineImage,
   Text,
-  useMantineTheme,
-  Badge
+  Card as MantineCard,
+  Group
 } from '@mantine/core'
 
 export interface CardProps {
@@ -18,79 +16,32 @@ export interface CardProps {
   createdAt?: string
   updatedAt?: string
   target?: string
-  useNextImage?: boolean
-  imageHeight?: number
 }
 
-export function Card({
-  link,
-  cover,
-  tag,
-  name,
-  description,
-  updatedAt,
-  target,
-  useNextImage = false,
-  imageHeight = 120
-}: CardProps) {
-  const theme = useMantineTheme()
-  const date = new Date(updatedAt)
-  const updatedAtLabel = `Last updated: ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
-
-  function Image() {
-    if (useNextImage) {
-      return (
-        <NextImage
-          rounded={true}
-          height={imageHeight}
-          // sx={sx}
-          src={cover}
-          alt={name}
-        />
-      )
-    }
-
-    return (
-      <MantineImage
-        height={imageHeight}
-        fit={'cover'}
-        withPlaceholder={true}
-        src={cover}
-        alt={name}
-        // sx={sx}
-      />
-    )
-  }
-
+export function Card({ link, cover, name, description, target }: CardProps) {
   return (
     <NextLink href={link} target={target} className={'hoverable'}>
-      <Stack
-        spacing={'sm'}
-        sx={{
-          [`@media (max-width: ${theme.breakpoints.xs}px)`]: {
-            flexDirection: 'row',
-            gap: 0
-          }
-        }}
-      >
-        {cover && <Image />}
-        <Stack spacing={0} justify={'space-between'}>
-          {tag && (
-            <div>
-              <Badge color={'red'} size={'md'} mb={'sm'}>
-                {tag}
-              </Badge>
-            </div>
-          )}
-          <Text color={'primary'} weight={'bold'}>
+      <MantineCard h={'100%'}>
+        <MantineCard.Section>
+          <MantineImage
+            height={100}
+            fit={'cover'}
+            withPlaceholder={true}
+            src={cover}
+            alt={name}
+          />
+        </MantineCard.Section>
+
+        <Group position='apart' mt='md' mb='xs'>
+          <Text fw={'bold'} color={'primary'}>
             {name}
           </Text>
-          <Text lineClamp={4} size={'sm'} color={'secondary'}>
-            {description}
-          </Text>
-          {updatedAt && <Text size='xs'>{updatedAtLabel}</Text>}
-        </Stack>
-      </Stack>
+        </Group>
+
+        <Text size='sm' color='secondary' lineClamp={3}>
+          {description}
+        </Text>
+      </MantineCard>
     </NextLink>
   )
 }

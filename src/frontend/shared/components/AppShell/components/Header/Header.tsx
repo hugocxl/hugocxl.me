@@ -7,16 +7,26 @@ import {
   IconMenu2,
   IconX
 } from '@tabler/icons'
-import { Text, ActionIcon, Group, Stack, Flex, Popover } from '@mantine/core'
+import {
+  Text,
+  ActionIcon,
+  Group,
+  Stack,
+  Flex,
+  Popover,
+  Divider,
+  Container
+} from '@mantine/core'
 
 // Hooks
 import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 import { useRouter } from 'next/router'
+import { useDisclosure } from '@mantine/hooks'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
-import { useDisclosure } from '@mantine/hooks'
+import { NextImage } from '@/frontend/shared/components/NextImage'
 
 export function Header() {
   const { pathname } = useRouter()
@@ -32,7 +42,7 @@ export function Header() {
         variant={'subtle'}
         onClick={toggleMode}
       >
-        {!isDarkMode ? <IconMoonStars size={18} /> : <IconSun size={20} />}
+        {!isDarkMode ? <IconMoonStars size={16} /> : <IconSun size={18} />}
       </ActionIcon>
     )
   }
@@ -44,7 +54,7 @@ export function Header() {
         variant={'subtle'}
         onClick={spotlight.openSpotlight}
       >
-        {<IconSearch size={18} />}
+        {<IconSearch size={16} />}
       </ActionIcon>
     )
   }
@@ -62,11 +72,11 @@ export function Header() {
             variant={'subtle'}
             onClick={isMenuOpenCx.toggle}
           >
-            {!isMenuOpen ? <IconMenu2 size={18} /> : <IconX size={18} />}
+            {!isMenuOpen ? <IconMenu2 size={16} /> : <IconX size={16} />}
           </ActionIcon>
         </Popover.Target>
         <Popover.Dropdown>
-          <Stack>
+          <Stack w={120}>
             {PAGES.map(({ title, href }) => {
               const isActive = pathname.startsWith(href)
 
@@ -78,7 +88,9 @@ export function Header() {
                   aria-label={`Navigate to ${title} page`}
                 >
                   <Text
-                    fw={isActive ? 'bolder' : 500}
+                    className='hoverable'
+                    align='right'
+                    fw={isActive && 'bolder'}
                     size={'sm'}
                     color={isActive ? 'primary' : 'dimmed'}
                   >
@@ -96,34 +108,39 @@ export function Header() {
   return (
     <Flex
       direction={'column'}
-      sx={theme => ({
-        paddingTop: theme.spacing.xl * 3,
-        [theme.fn.smallerThan('lg')]: {
-          paddingTop: theme.spacing.xl
-        }
-      })}
+      pos={'sticky'}
+      top={0}
+      sx={{ zIndex: 2, backdropFilter: 'blur(8px)' }}
     >
-      <Flex justify={'space-between'} align={'flex-end'}>
-        <NextLink href={'/'}>
-          <Stack spacing={0}>
-            <Text weight={'bolder'} color={'primary'}>
-              Hugo Corta
-            </Text>
-            <Text weight={'bold'} color={'dimmed'}>
-              Software Craftsman
-            </Text>
-            <Text weight={'bold'} color={'dimmed'}>
-              Madrid, ES
-            </Text>
-          </Stack>
-        </NextLink>
+      <Container w={'100%'} py={'sm'}>
+        <Flex justify={'space-between'} align={'center'}>
+          <NextLink href={'/'}>
+            <Group spacing={'xs'}>
+              <NextImage
+                sx={{
+                  borderRadius: '50%'
+                }}
+                height={24}
+                width={24}
+                src={'/img/avatar-big.png'}
+                alt={'Profile Picture'}
+              />
+              <Text color={'primary'} fw={'bold'}>
+                Hugo Corta
+              </Text>
+              <Divider orientation='vertical' />
+              <Text color={'secondary'}>Software Craftsman</Text>
+            </Group>
+          </NextLink>
 
-        <Group spacing={4}>
-          <SearchButton />
-          <ThemeButton />
-          <BurgerButton />
-        </Group>
-      </Flex>
+          <Group spacing={0}>
+            <SearchButton />
+            <ThemeButton />
+            <BurgerButton />
+          </Group>
+        </Flex>
+      </Container>
+      <Divider />
     </Flex>
   )
 }

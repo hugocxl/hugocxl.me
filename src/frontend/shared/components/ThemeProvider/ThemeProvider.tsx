@@ -1,6 +1,6 @@
 // Dependencies
-import React, { useEffect, useMemo, useState } from 'react'
-import { TypographyStylesProvider } from '@mantine/core'
+import React, { useMemo, useState } from 'react'
+import { ActionIconStylesParams, TypographyStylesProvider } from '@mantine/core'
 import {
   Global,
   MantineProvider,
@@ -13,7 +13,6 @@ import { ThemeModeContext } from '@/frontend/shared/contexts'
 
 // Types
 import { FC, ReactNode } from 'react'
-import { useColorScheme } from '@mantine/hooks'
 
 export interface ThemeProviderProps {
   children: ReactNode
@@ -21,18 +20,21 @@ export interface ThemeProviderProps {
 
 const COLORS = {
   light: {
+    background: '#fff',
     primary: '#272727',
-    secondary: '#777'
+    secondary: '#999',
+    divider: '#e6e6e6'
   },
   dark: {
+    background: '#000',
     primary: '#ffffff',
-    secondary: '#666'
+    secondary: 'rgb(100,100,100)',
+    divider: 'rgba(255,255,255,0.12)'
   }
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [mode, setMode] = useState<'light' | 'dark'>('dark')
-  const colorScheme = useColorScheme(mode)
   const isDarkMode = mode === 'dark'
   const themeModeContextValue = useMemo(
     () => [
@@ -44,10 +46,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     [mode]
   )
 
-  useEffect(() => {
-    setMode(colorScheme)
-  }, [colorScheme])
-
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
       <MantineProvider
@@ -55,12 +53,25 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          primaryColor: isDarkMode ? 'cyan' : 'blue',
+          activeStyles: { transform: 'scale(0.95)' },
+          primaryColor: isDarkMode ? 'pink' : 'blue',
           colorScheme: mode,
           black: 'rgb(60,60,60)',
           white: '#fff',
-          defaultRadius: 'sm',
+          defaultRadius: 'md',
+          colors: {
+            pink: []
+          },
           components: {
+            Divider: {
+              styles: {
+                root: {
+                  borderColor: `${
+                    isDarkMode ? COLORS.dark.divider : COLORS.light.divider
+                  } !important`
+                }
+              }
+            },
             Container: {
               styles: {
                 root: {
@@ -68,10 +79,23 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 }
               }
             },
+            ActionIcon: {
+              defaultProps: {
+                variant: 'default',
+                size: 'lg'
+              },
+              styles: (theme, params: ActionIconStylesParams) => ({
+                root: {
+                  ...(params.variant === 'default' && {
+                    backgroundColor: 'none !important'
+                  })
+                }
+              })
+            },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
-                  letterSpacing: -1,
+                  letterSpacing: '-.03em',
                   width: 'fit-content',
                   color: isDarkMode
                     ? COLORS.dark.primary
@@ -120,13 +144,17 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               }
             },
             Card: {
-              styles: theme => ({
+              defaultProps: {
+                withBorder: true
+              },
+              styles: {
                 root: {
-                  background: isDarkMode
-                    ? theme.colors.dark[8]
-                    : theme.colors.gray[1]
+                  background: 'none',
+                  borderColor: isDarkMode
+                    ? COLORS.dark.divider
+                    : COLORS.light.divider
                 }
-              })
+              }
             },
             Badge: {
               styles: {
@@ -140,28 +168,23 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                     : COLORS.light.primary
                 }
               }
-            },
-            ActionIcon: {
-              defaultProps: {
-                variant: 'default',
-                size: 'lg'
-              }
             }
           }
         }}
       >
         <TypographyStylesProvider>{children}</TypographyStylesProvider>
         <Global
-          styles={theme => ({
-            body: {
-              ...theme.fn.fontStyles(),
-              backgroundColor: theme.colorScheme === 'dark' ? 'black' : 'white',
-              color:
-                theme.colorScheme === 'dark'
-                  ? COLORS.dark.secondary
-                  : COLORS.light.secondary
+          styles={theme => {
+            const isDarkMode = theme.colorScheme === 'dark'
+            return {
+              body: {
+                ...theme.fn.fontStyles(),
+                background: isDarkMode
+                  ? COLORS.dark.background
+                  : COLORS.light.background
+              }
             }
-          })}
+          }}
         />
       </MantineProvider>
     </ThemeModeContext.Provider>

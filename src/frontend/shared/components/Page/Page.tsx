@@ -27,7 +27,7 @@ export const Page: FC<PageProps> = ({
       <Stack
         spacing={0}
         sx={theme => ({
-          marginBottom: theme.spacing.xl * 2
+          marginBottom: theme.spacing.xl * 3
         })}
       >
         {title && (
@@ -49,8 +49,8 @@ export const Page: FC<PageProps> = ({
       component={'main'}
       w={'100%'}
       sx={theme => ({
-        paddingTop: theme.spacing.xl * 5,
-        paddingBottom: theme.spacing.xl * 4
+        paddingTop: theme.spacing.xl * 3,
+        paddingBottom: theme.spacing.xl * 3
       })}
     >
       <PageHead title={title} description={description} />

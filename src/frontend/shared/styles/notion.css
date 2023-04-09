@@ -979,8 +979,8 @@ svg.notion-page-icon {
 }
 
 .dark-mode .notion-callout {
-  border-color: var(--bg-color-2);
-  background-color: rgb(50, 50, 50) !important;
+  border: none;
+  /* background-color: rgb(50, 50, 50) !important; */
 }
 
 .notion-callout .notion-page-icon-inline {

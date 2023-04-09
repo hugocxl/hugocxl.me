@@ -42,7 +42,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
       description={HOME_PAGE_DESCRIPTION}
       showHeader={false}
     >
-      <Flex direction={'column'}>
+      <Flex direction={'column'} h={'100%'} justify={'center'}>
         <Title order={1} sx={{ margin: '0 !important' }}>
           Hugo Corta
         </Title>
@@ -54,7 +54,6 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
           <Group spacing={'xl'}>
             <NextImage
               sx={{
-                // border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: '50%'
               }}
               height={80}
@@ -98,13 +97,13 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             take a look around and feel free to reach out.
           </Text>
         </Stack>
-        <Group spacing={'md'} mt={'lg'}>
+        <Group spacing={0} mt={'lg'}>
           <Anchor
             href={'mailto:corta.hugo@gmail.com'}
             title={'Mail'}
             target={'_blank'}
           >
-            <ActionIcon>
+            <ActionIcon variant='subtle'>
               <IconMail size={18} />
             </ActionIcon>
           </Anchor>
@@ -113,7 +112,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             title={'GitHub @hcorta'}
             target={'_blank'}
           >
-            <ActionIcon>
+            <ActionIcon variant='subtle'>
               <IconBrandGithub size={18} />
             </ActionIcon>
           </Anchor>
@@ -122,7 +121,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             title={'Twitter @hcorta'}
             target={'_blank'}
           >
-            <ActionIcon>
+            <ActionIcon variant='subtle'>
               <IconBrandTwitter size={18} />
             </ActionIcon>
           </Anchor>
@@ -131,7 +130,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
             title={'LinkedIn @hugocorta'}
             target={'_blank'}
           >
-            <ActionIcon>
+            <ActionIcon variant='subtle'>
               <IconBrandLinkedin size={18} />
             </ActionIcon>
           </Anchor>
