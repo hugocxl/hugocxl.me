@@ -112,7 +112,7 @@ export function Header() {
       top={0}
       sx={{ zIndex: 2, backdropFilter: 'blur(8px)' }}
     >
-      <Container w={'100%'} py={'sm'}>
+      <Container w={'100%'} py={'xs'}>
         <Flex justify={'space-between'} align={'center'}>
           <NextLink href={'/'}>
             <Group spacing={'xs'}>

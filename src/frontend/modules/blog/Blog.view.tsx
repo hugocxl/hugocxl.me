@@ -1,5 +1,5 @@
 // Components
-import { NextImage, Page } from '@/frontend/shared/components'
+import { Gallery, NextImage, Page } from '@/frontend/shared/components'
 import { Card, Group, Stack, Text } from '@mantine/core'
 import NextLink from 'next/link'
 
@@ -18,19 +18,15 @@ export interface BlogProps {
 export const Blog: NextPage<BlogProps> = ({ posts }) => {
   return (
     <Page title={BLOG.title} description={BLOG.description}>
-      <Stack spacing={'xl'}>
+      <Gallery cols={1}>
         {posts.map(({ slug, name, description, updatedAt, tag, cover }) => {
           const updatedAtLabel = formatTimestamp(updatedAt)
 
           return (
-            <NextLink
-              className='hoverable'
-              href={`${BLOG.href}/${slug}`}
-              key={slug}
-            >
+            <NextLink href={`${BLOG.href}/${slug}`} key={slug}>
               <Card withBorder>
                 <Stack spacing={'xs'}>
-                  <Group>
+                  <Group noWrap>
                     <NextImage
                       sx={{
                         borderRadius: '50%'
@@ -62,7 +58,7 @@ export const Blog: NextPage<BlogProps> = ({ posts }) => {
             </NextLink>
           )
         })}
-      </Stack>
+      </Gallery>
     </Page>
   )
 }

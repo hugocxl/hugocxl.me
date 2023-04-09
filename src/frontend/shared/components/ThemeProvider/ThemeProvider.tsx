@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-import { ActionIconStylesParams, TypographyStylesProvider } from '@mantine/core'
+import { TypographyStylesProvider } from '@mantine/core'
 import {
   Global,
   MantineProvider,
@@ -23,13 +23,13 @@ const COLORS = {
     background: '#fff',
     primary: '#272727',
     secondary: '#999',
-    divider: '#e6e6e6'
+    divider: 'rgba(0,0,0,0.1)'
   },
   dark: {
     background: '#000',
     primary: '#ffffff',
     secondary: 'rgb(100,100,100)',
-    divider: 'rgba(255,255,255,0.12)'
+    divider: 'rgba(255,255,255,0.175)'
   }
 }
 
@@ -46,6 +46,17 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     [mode]
   )
 
+  const borderColor = `${
+    isDarkMode ? COLORS.dark.divider : COLORS.light.divider
+  } !important`
+  const colorPrimary = isDarkMode ? COLORS.dark.primary : COLORS.light.primary
+  const colorSecondary = isDarkMode
+    ? COLORS.dark.secondary
+    : COLORS.light.secondary
+  const background = isDarkMode
+    ? COLORS.dark.background
+    : COLORS.light.background
+
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
       <MantineProvider
@@ -54,7 +65,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withNormalizeCSS
         theme={{
           activeStyles: { transform: 'scale(0.95)' },
-          primaryColor: isDarkMode ? 'pink' : 'blue',
+          primaryColor: isDarkMode ? 'cyan' : 'blue',
           colorScheme: mode,
           black: 'rgb(60,60,60)',
           white: '#fff',
@@ -66,9 +77,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Divider: {
               styles: {
                 root: {
-                  borderColor: `${
-                    isDarkMode ? COLORS.dark.divider : COLORS.light.divider
-                  } !important`
+                  borderColor: `${borderColor}`
                 }
               }
             },
@@ -83,23 +92,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               defaultProps: {
                 variant: 'default',
                 size: 'lg'
-              },
-              styles: (theme, params: ActionIconStylesParams) => ({
-                root: {
-                  ...(params.variant === 'default' && {
-                    backgroundColor: 'none !important'
-                  })
-                }
-              })
+              }
             },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
                 root: {
                   letterSpacing: '-.03em',
                   width: 'fit-content',
-                  color: isDarkMode
-                    ? COLORS.dark.primary
-                    : COLORS.light.primary,
+                  color: colorPrimary,
                   ...(params.element === 'h1' && {
                     marginTop: '5rem !important',
                     marginBottom: '2rem !important'
@@ -115,6 +115,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 }
               })
             },
+            Popover: {
+              styles: {
+                dropdown: {
+                  background,
+                  borderColor
+                }
+              }
+            },
             Text: {
               styles: (theme, params: TextStylesParams) => ({
                 root: {
@@ -122,14 +130,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                     fontWeight: 500
                   }),
                   ...(params.color === 'primary' && {
-                    color: isDarkMode
-                      ? COLORS.dark.primary
-                      : COLORS.light.primary
+                    color: colorPrimary
                   }),
                   ...(params.color === 'secondary' && {
-                    color: isDarkMode
-                      ? COLORS.dark.secondary
-                      : COLORS.light.secondary
+                    color: colorSecondary
                   })
                 }
               })
@@ -137,9 +141,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Timeline: {
               styles: {
                 itemTitle: {
-                  color: isDarkMode
-                    ? COLORS.dark.secondary
-                    : COLORS.light.secondary
+                  color: colorSecondary
                 }
               }
             },
@@ -149,24 +151,20 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               },
               styles: {
                 root: {
-                  background: 'none',
-                  borderColor: isDarkMode
-                    ? COLORS.dark.divider
-                    : COLORS.light.divider
+                  transition: 'all 0.17s ease',
+                  background,
+                  borderColor,
+                  '&:hover': {
+                    borderColor: `${
+                      isDarkMode ? COLORS.dark.primary : COLORS.light.primary
+                    } !important`
+                  }
                 }
               }
             },
             Badge: {
               styles: {
-                root: {
-                  borderRadius: 0,
-                  background: isDarkMode
-                    ? COLORS.dark.primary
-                    : COLORS.light.primary,
-                  color: !isDarkMode
-                    ? COLORS.dark.primary
-                    : COLORS.light.primary
-                }
+                root: {}
               }
             }
           }
@@ -175,13 +173,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         <TypographyStylesProvider>{children}</TypographyStylesProvider>
         <Global
           styles={theme => {
-            const isDarkMode = theme.colorScheme === 'dark'
             return {
               body: {
                 ...theme.fn.fontStyles(),
-                background: isDarkMode
-                  ? COLORS.dark.background
-                  : COLORS.light.background
+                background,
+                color: colorSecondary
               }
             }
           }}

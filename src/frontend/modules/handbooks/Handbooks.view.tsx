@@ -23,11 +23,7 @@ export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
           const updatedAtLabel = formatTimestamp(updatedAt)
 
           return (
-            <NextLink
-              href={`${HANDBOOKS.href}/${slug}`}
-              key={slug}
-              className={'hoverable'}
-            >
+            <NextLink href={`${HANDBOOKS.href}/${slug}`} key={slug}>
               <Card withBorder h={'100%'}>
                 <Stack>
                   <Group noWrap>
