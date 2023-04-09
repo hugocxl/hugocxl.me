@@ -31,15 +31,22 @@ import { ABOUT, BLOG, HANDBOOKS, NOW } from '@/frontend/shared/constants'
 export const About: NextPage = () => {
   function CompanyItem({ title, image, date, description, location }) {
     return (
-      <Box sx={{ display: 'grid', gridTemplateColumns: '48px 1fr', gap: 12 }}>
-        <Box pos={'relative'} h={48} w={48}>
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: '48px 1fr',
+          gap: 12,
+          alignItems: 'center'
+        }}
+      >
+        <Box pos={'relative'} h={40} w={40}>
           <NextImage
             placeholder='blur'
             blurDataURL={image}
             style={{
               marginBottom: 0,
               objectFit: 'cover',
-              borderRadius: 8
+              borderRadius: '50%'
             }}
             fill
             src={image}
@@ -75,14 +82,14 @@ export const About: NextPage = () => {
         implementation details, it's where you'll' find me at my best.
       </p>
 
-      <Group spacing={'md'}>
+      <Group spacing={'xs'}>
         <Anchor
           href={'mailto:corta.hugo@gmail.com'}
           title={'Mail'}
           target={'_blank'}
           component={'a'}
         >
-          <ActionIcon>
+          <ActionIcon variant={'subtle'}>
             <IconMail size={18} />
           </ActionIcon>
         </Anchor>
@@ -92,7 +99,7 @@ export const About: NextPage = () => {
           title={'GitHub @hcorta'}
           target={'_blank'}
         >
-          <ActionIcon>
+          <ActionIcon variant={'subtle'}>
             <IconBrandGithub size={18} />
           </ActionIcon>
         </Anchor>
@@ -102,7 +109,7 @@ export const About: NextPage = () => {
           target={'_blank'}
           component={'a'}
         >
-          <ActionIcon>
+          <ActionIcon variant={'subtle'}>
             <IconBrandTwitter size={18} />
           </ActionIcon>
         </Anchor>
@@ -112,7 +119,7 @@ export const About: NextPage = () => {
           title={'LinkedIn @hugocorta'}
           target={'_blank'}
         >
-          <ActionIcon>
+          <ActionIcon variant={'subtle'}>
             <IconBrandLinkedin size={18} />
           </ActionIcon>
         </Anchor>
@@ -122,31 +129,45 @@ export const About: NextPage = () => {
 
       <Title order={2}>{"What I'm doing now"}</Title>
       <Stack>
-        <Text>
-          <b>Now</b> • Check my timeline at my{' '}
-          <NextLink href={NOW.href}>Now page</NextLink>.
-        </Text>
-        <Text>
-          <b>Work</b> • I am currently working at{' '}
-          <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
-          Engineer.
-        </Text>
-        <Text>
-          <b>Blog</b> • On this website{' '}
-          <Anchor href={BLOG.href}>I write posts</Anchor> and{' '}
-          <Anchor href={HANDBOOKS.href}>handbooks</Anchor> about diverse stuff
-          that I find interesting.
-        </Text>
-        <Text>
-          <b>Open Source</b> • As a software developer, I enjoy building
-          open-source software and libraries
-        </Text>
-        <Text>
-          <b>Teaching</b> • Sometimes I teach about web development at{' '}
-          <Anchor target={'_blank'} href={'https://ironhack.com'}>
-            Ironhack
-          </Anchor>
-        </Text>
+        <Group>
+          <Text color={'primary'}>Now</Text>
+          <Text>
+            Check my timeline at my{' '}
+            <NextLink href={NOW.href}>Now page</NextLink>.
+          </Text>
+        </Group>
+        <Group>
+          <Text color={'primary'}>Work</Text>
+          <Text>
+            I am currently working at{' '}
+            <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
+            Engineer.
+          </Text>
+        </Group>
+        <Group>
+          <Text color={'primary'}>Blog</Text>
+          <Text>
+            I write<Anchor href={BLOG.href}> posts</Anchor> and{' '}
+            <Anchor href={HANDBOOKS.href}>handbooks</Anchor> about diverse stuff
+            that I find interesting.
+          </Text>
+        </Group>
+        <Group>
+          <Text color={'primary'}>Open Source</Text>
+          <Text>
+            As a software developer, I enjoy building open-source software and
+            libraries
+          </Text>
+        </Group>
+        <Group>
+          <Text color={'primary'}>Teaching</Text>
+          <Text>
+            Sometimes I teach about web development at{' '}
+            <Anchor target={'_blank'} href={'https://ironhack.com'}>
+              Ironhack
+            </Anchor>
+          </Text>
+        </Group>
       </Stack>
 
       <Title order={2}>{'Random Facts'}</Title>

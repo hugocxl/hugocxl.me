@@ -80,7 +80,7 @@
   --bg-color: #2f3437;
   --bg-color-0: rgb(71, 76, 80);
   --bg-color-1: rgb(63, 68, 71);
-  --bg-color-2: rgba(135, 131, 120, 0.15);
+  --bg-color-2: rgba(151, 147, 137, 0.25);
 
   --notion-red: rgb(255, 115, 105);
   --notion-pink: rgb(226, 85, 161);
@@ -844,6 +844,7 @@ svg.notion-page-icon {
 
 .notion-bookmark {
   margin: 4px 0;
+  padding: 12px;
   width: 100%;
   box-sizing: border-box;
   text-decoration: none;

@@ -35,7 +35,6 @@ export const List: FC<ListProps> = ({ id, items, title, subtitle, page }) => {
               name={name}
               description={description}
               cover={cover}
-              useNextImage={true}
             />
           )
         })}

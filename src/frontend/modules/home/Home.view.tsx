@@ -1,5 +1,5 @@
 // Components
-import { Page } from '@/frontend/shared/components'
+import { Page, NextImage } from '@/frontend/shared/components'
 import { Text, Flex, Stack, Anchor, Group, ActionIcon } from '@mantine/core'
 import NextLink from 'next/link'
 
@@ -19,13 +19,8 @@ import {
   IconPencil
 } from '@tabler/icons'
 
-const HOME_PAGE_TITLE = '👋'
-const HOME_PAGE_DESCRIPTION = (
-  <>
-    Hi, I'm Hugo. I'm the Lead Frontend Developer at{' '}
-    <Anchor href='https://sygris.com'>Sygris</Anchor>.
-  </>
-)
+const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
+const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
 
 export interface HomeProps {
   posts: Items
@@ -34,11 +29,27 @@ export interface HomeProps {
 
 export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
   return (
-    <Page title={HOME_PAGE_TITLE} description={HOME_PAGE_DESCRIPTION}>
-      <Flex direction={'column'} h={'100%'} justify={'center'}>
-        <Stack spacing={'xl'}>
+    <Page
+      title={HOME_PAGE_TITLE}
+      description={HOME_PAGE_DESCRIPTION}
+      showHeader={false}
+    >
+      <Flex direction={'column'} h={'100%'} justify={'center'} pt={'10ch'}>
+        <Stack spacing={40}>
+          <Text>
+            Hi, I'm Hugo. I'm the Lead Frontend Developer at{' '}
+            <Anchor href='https://sygris.com'>Sygris</Anchor>.
+          </Text>
           <Group spacing={'xl'}>
-            <Text sx={{ fontSize: 80 }}>🧑🏻‍💻</Text>
+            <NextImage
+              sx={{
+                borderRadius: '50%'
+              }}
+              height={80}
+              width={80}
+              src={'/img/avatar-big.png'}
+              alt={'Profile Picture'}
+            />
             <Stack spacing={0}>
               <NextLink className='hoverable' href={BLOG.href}>
                 <Text
@@ -64,7 +75,7 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                   sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
                 >
                   <IconAccessPoint size={18} />
-                  Check what I'm doing
+                  Check my Now page
                 </Text>
               </NextLink>
             </Stack>

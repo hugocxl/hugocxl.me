@@ -26,7 +26,6 @@ import { useDisclosure } from '@mantine/hooks'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
-import { NextImage } from '@/frontend/shared/components/NextImage'
 
 export function Header() {
   const { pathname } = useRouter()
@@ -116,15 +115,6 @@ export function Header() {
         <Flex justify={'space-between'} align={'center'}>
           <NextLink href={'/'}>
             <Group spacing={'xs'}>
-              <NextImage
-                sx={{
-                  borderRadius: '50%'
-                }}
-                height={24}
-                width={24}
-                src={'/img/avatar-big.png'}
-                alt={'Profile Picture'}
-              />
               <Text color={'primary'} fw={'bold'}>
                 Hugo Corta
               </Text>

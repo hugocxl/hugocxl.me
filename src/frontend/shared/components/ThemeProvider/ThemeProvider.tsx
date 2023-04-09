@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-import { TypographyStylesProvider } from '@mantine/core'
+// import { TypographyStylesProvider } from '@mantine/core'
 import {
   Global,
   MantineProvider,
@@ -21,14 +21,14 @@ export interface ThemeProviderProps {
 const COLORS = {
   light: {
     background: '#fff',
-    primary: '#272727',
+    primary: '#000',
     secondary: '#999',
     divider: 'rgba(0,0,0,0.1)'
   },
   dark: {
     background: '#000',
     primary: '#ffffff',
-    secondary: 'rgb(100,100,100)',
+    secondary: 'rgb(255,255,255,0.45)',
     divider: 'rgba(255,255,255,0.175)'
   }
 }
@@ -65,7 +65,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withNormalizeCSS
         theme={{
           activeStyles: { transform: 'scale(0.95)' },
-          primaryColor: isDarkMode ? 'cyan' : 'blue',
+          primaryColor: isDarkMode ? 'orange' : 'blue',
           colorScheme: mode,
           black: 'rgb(60,60,60)',
           white: '#fff',
@@ -170,7 +170,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           }
         }}
       >
-        <TypographyStylesProvider>{children}</TypographyStylesProvider>
+        {/* <TypographyStylesProvider>{children}</TypographyStylesProvider> */}
         <Global
           styles={theme => {
             return {
@@ -182,6 +182,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             }
           }}
         />
+        {children}
       </MantineProvider>
     </ThemeModeContext.Provider>
   )
