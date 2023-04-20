@@ -12,7 +12,6 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["**/*.js", "**/*.jsx"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "cypress"],
   "extends": [
@@ -39,5 +38,13 @@
     "space-before-function-paren": 0,
     "standard/no-callback-literal": 0,
     "react/jsx-no-bind": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }

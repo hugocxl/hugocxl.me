@@ -12,7 +12,15 @@ module.exports = {
       },
       {
         protocol: 'https',
+        hostname: 'file.notion.so'
+      },
+      {
+        protocol: 'https',
         hostname: 'i.gr-assets.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com'
       },
       {
         protocol: 'https',

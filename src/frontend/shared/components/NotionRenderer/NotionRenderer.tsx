@@ -2,6 +2,8 @@ import { useThemeMode } from '@/frontend/shared/hooks'
 import dynamic from 'next/dynamic'
 import { NotionRenderer as ReactNotionX } from 'react-notion-x'
 import { Tweet } from 'react-tweet'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(m => m.Code)
@@ -29,19 +31,26 @@ const Modal = dynamic(
   }
 )
 
-export function NotionRenderer({ recordMap }) {
+export const NotionRenderer = ({ recordMap }) => {
   const [mode] = useThemeMode()
+
   return (
     <ReactNotionX
       darkMode={mode === 'dark'}
       recordMap={recordMap}
+      // mapImageUrl={(url, block) => {
+      //   const signedUrl = recordMap.signed_urls?.[block.id]
+      //   return `${signedUrl || url}&spaceId=${block.space_id}`
+      // }}
       components={{
         Code,
         Collection,
         Equation,
         Modal,
         Pdf,
-        Tweet
+        Tweet,
+        nextImage: Image,
+        nextLink: Link
       }}
     />
   )

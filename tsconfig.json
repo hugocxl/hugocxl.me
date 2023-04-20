@@ -8,7 +8,7 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext", "ES2015"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -21,8 +21,9 @@
     "skipLibCheck": true,
     "strict": false,
     "target": "es2016",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
   },
   "exclude": ["node_modules", "./cypress.config.ts", "./cypress"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.ts"]
+  "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.ts"]
 }
