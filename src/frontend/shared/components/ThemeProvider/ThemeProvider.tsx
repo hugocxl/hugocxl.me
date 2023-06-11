@@ -22,14 +22,14 @@ const COLORS = {
   light: {
     background: '#fff',
     primary: '#000',
-    secondary: '#999',
+    secondary: '#777',
     divider: 'rgba(0,0,0,0.1)'
   },
   dark: {
     background: '#000',
     primary: '#ffffff',
     secondary: 'rgb(255,255,255,0.45)',
-    divider: 'rgba(255,255,255,0.175)'
+    divider: 'rgba(255,255,255,0.1)'
   }
 }
 
@@ -65,7 +65,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withNormalizeCSS
         theme={{
           activeStyles: { transform: 'scale(0.95)' },
-          primaryColor: isDarkMode ? 'orange' : 'blue',
+          primaryColor: isDarkMode ? 'blue' : 'blue',
           colorScheme: mode,
           black: 'rgb(60,60,60)',
           white: '#fff',

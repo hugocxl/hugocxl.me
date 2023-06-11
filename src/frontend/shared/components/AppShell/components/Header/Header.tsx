@@ -23,6 +23,7 @@ import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 import { useRouter } from 'next/router'
 import { useDisclosure } from '@mantine/hooks'
+import { useState, useEffect } from 'react'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
@@ -33,6 +34,20 @@ export function Header() {
   const spotlight = useSpotlight()
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const isDarkMode = mode === 'dark'
+  const [windowScroll, setWindowScroll] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset
+      setWindowScroll(currentScroll)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   function ThemeButton() {
     return (
@@ -118,7 +133,7 @@ export function Header() {
               <Text color={'primary'} fw={'bold'}>
                 Hugo Corta
               </Text>
-              <Divider orientation='vertical' />
+              <Divider orientation='vertical' sx={{ borderWidth: 4 }} />
               <Text color={'secondary'}>Software Craftsman</Text>
             </Group>
           </NextLink>
@@ -130,7 +145,7 @@ export function Header() {
           </Group>
         </Flex>
       </Container>
-      <Divider />
+      {windowScroll > 0 && <Divider />}
     </Flex>
   )
 }

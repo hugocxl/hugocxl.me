@@ -8,14 +8,13 @@ import { NextPage } from 'next'
 import { Items } from '@/frontend/shared/types'
 
 // Constants
-import { BLOG, HANDBOOKS, NOW } from '@/frontend/shared/constants'
+import { BLOG, HANDBOOKS } from '@/frontend/shared/constants'
 import {
   IconMail,
   IconBrandGithub,
   IconBrandTwitter,
   IconBrandLinkedin,
   IconBook,
-  IconAccessPoint,
   IconPencil
 } from '@tabler/icons'
 
@@ -67,15 +66,6 @@ export const Home: NextPage<HomeProps> = ({ posts, handbooks }) => {
                 >
                   <IconBook size={18} />
                   {handbooks.length} written handbooks
-                </Text>
-              </NextLink>
-              <NextLink className='hoverable' href={NOW.href}>
-                <Text
-                  color={'dimmed'}
-                  sx={{ display: 'flex', alignItems: 'center', gap: 8 }}
-                >
-                  <IconAccessPoint size={18} />
-                  Check my Now page
                 </Text>
               </NextLink>
             </Stack>

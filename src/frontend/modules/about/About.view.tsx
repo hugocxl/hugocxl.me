@@ -20,13 +20,12 @@ import {
   IconMail
 } from '@tabler/icons'
 import NextImage from 'next/image'
-import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
 
 // Constants
-import { ABOUT, BLOG, HANDBOOKS, NOW } from '@/frontend/shared/constants'
+import { ABOUT, BLOG, HANDBOOKS } from '@/frontend/shared/constants'
 
 export const About: NextPage = () => {
   function CompanyItem({ title, image, date, description, location }) {
@@ -55,7 +54,9 @@ export const About: NextPage = () => {
         </Box>
         <Stack spacing={0} w={'100%'}>
           <Flex justify={'space-between'}>
-            <Text weight={'bold'}>{title}</Text>
+            <Text color={'primary'} weight={'bold'}>
+              {title}
+            </Text>
             <Text color={'dimmed'}>{date}</Text>
           </Flex>
           <Text color={'dimmed'}>
@@ -129,13 +130,6 @@ export const About: NextPage = () => {
 
       <Title order={2}>{"What I'm doing now"}</Title>
       <Stack>
-        <Group>
-          <Text color={'primary'}>Now</Text>
-          <Text>
-            Check my timeline at my{' '}
-            <NextLink href={NOW.href}>Now page</NextLink>.
-          </Text>
-        </Group>
         <Group>
           <Text color={'primary'}>Work</Text>
           <Text>

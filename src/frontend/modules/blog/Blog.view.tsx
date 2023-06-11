@@ -27,15 +27,17 @@ export const Blog: NextPage<BlogProps> = ({ posts }) => {
               <Card withBorder>
                 <Stack spacing={'xs'}>
                   <Group noWrap>
-                    <NextImage
-                      sx={{
-                        borderRadius: '50%'
-                      }}
-                      width={40}
-                      height={40}
-                      src={cover}
-                      alt={name}
-                    />
+                    {cover && (
+                      <NextImage
+                        sx={{
+                          borderRadius: '50%'
+                        }}
+                        width={40}
+                        height={40}
+                        src={cover}
+                        alt={name}
+                      />
+                    )}
                     <Stack spacing={0}>
                       <Text color={'primary'} fw={'bold'}>
                         {name}

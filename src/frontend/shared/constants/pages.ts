@@ -4,13 +4,6 @@ import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
 import { Page, Pages } from '@/frontend/shared/types'
 import { IconRadar } from '@tabler/icons'
 
-export const NOW: Page = {
-  title: 'Now',
-  href: '/now',
-  icon: AiOutlineEdit,
-  description: 'A collection of moments'
-}
-
 export const BLOG: Page = {
   title: 'Blog',
   href: '/blog',
@@ -29,7 +22,7 @@ export const RADAR: Page = {
   title: 'Radar',
   href: '/radar',
   icon: IconRadar,
-  description: "Cool repos I'm following"
+  description: "Cool repos I'm tracking"
 }
 
 export const STACK: Page = {
@@ -59,12 +52,4 @@ export const ABOUT: Page = {
   description: `Here's some additional information about me.`
 }
 
-export const PAGES: Pages = [
-  NOW,
-  RADAR,
-  BLOG,
-  HANDBOOKS,
-  STACK,
-  RESOURCES,
-  ABOUT
-]
+export const PAGES: Pages = [RADAR, BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]
