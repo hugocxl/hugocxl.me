@@ -2,10 +2,10 @@
 import { FC, ReactNode } from 'react'
 
 // Styles
-import { Stack, Text, Title, Box } from '@mantine/core'
+import { Stack, Text, Title, Box, BoxProps } from '@mantine/core'
 import Head from 'next/head'
 
-export interface PageProps {
+export interface PageProps extends BoxProps {
   title?: string
   description?: ReactNode
   children: ReactNode
@@ -16,7 +16,8 @@ export const Page: FC<PageProps> = ({
   children,
   title,
   description,
-  showHeader = true
+  showHeader = true,
+  ...rest
 }) => {
   function Header() {
     if (!showHeader) return null
@@ -38,7 +39,7 @@ export const Page: FC<PageProps> = ({
   }
 
   return (
-    <Box component={'main'} w={'100%'} py={'7.5ch'}>
+    <Box component={'main'} w={'100%'} py={'7.5ch'} {...rest}>
       <Head>
         <meta charSet='utf-8' />
         <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
