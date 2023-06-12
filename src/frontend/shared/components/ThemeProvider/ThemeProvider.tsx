@@ -28,8 +28,8 @@ const COLORS = {
   dark: {
     background: '#000',
     primary: '#ffffff',
-    secondary: 'rgb(255,255,255,0.45)',
-    divider: 'rgba(255,255,255,0.1)'
+    secondary: 'rgb(255,255,255,0.5)',
+    divider: 'rgba(255,255,255,0.125)'
   }
 }
 

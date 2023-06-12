@@ -74,18 +74,11 @@ notion-h {
   color: black !important;
 }
 
-@media screen and (min-width: 768px) {
-  p,
-  .notion-text {
-    line-height: 1.75 !important;
-  }
-
-  .notion-callout,
-  .notion-code,
-  p,
-  .notion-text {
-    margin-bottom: 1.25rem !important;
-  }
+.notion-callout,
+.notion-code,
+p,
+.notion-text {
+  margin-bottom: 1.25rem !important;
 }
 
 @media screen and (max-width: 1600px) {

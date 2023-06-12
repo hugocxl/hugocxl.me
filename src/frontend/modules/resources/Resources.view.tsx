@@ -31,6 +31,7 @@ export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
           </Text>
         </Anchor>
       )
+
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
@@ -49,6 +50,7 @@ export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
         </div>
       )
     }
+
     return [render, tags]
   }
 

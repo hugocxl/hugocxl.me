@@ -1,5 +1,6 @@
 // Components
 import { NotionRenderer, Page } from '@/frontend/shared/components'
+import { PagePostHeader } from './components'
 
 // Types
 import { FC } from 'react'
@@ -15,10 +16,12 @@ export interface PagePostProps {
 export const PagePost: FC<PagePostProps> = ({
   recordMap,
   title,
-  description
+  description,
+  cover
 }) => {
   return (
-    <Page title={title} description={description}>
+    <Page title={title} description={description} showHeader={false}>
+      <PagePostHeader title={title} description={description} cover={cover} />
       <NotionRenderer recordMap={recordMap} />
     </Page>
   )

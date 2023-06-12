@@ -37,7 +37,7 @@ pre[class*='language-'] {
   border-radius: 8px;
   overflow: auto;
   position: relative;
-  max-width: 75ch;
+  max-width: 90vw;
 }
 
 pre[class*='language-'] code {

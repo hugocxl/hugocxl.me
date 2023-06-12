@@ -9,7 +9,7 @@ export function Gallery({ children, ...props }: GalleryProps) {
   return (
     <SimpleGrid
       cols={3}
-      spacing={'xl'}
+      spacing={40}
       breakpoints={[
         { maxWidth: 'sm', cols: 2, spacing: 'xl' },
         { maxWidth: 'xs', cols: 1, spacing: 'xl' }

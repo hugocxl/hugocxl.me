@@ -27,14 +27,14 @@ export const Home: NextPage = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
-        padding: '0 !important'
+        height: '100%'
       }}
     >
       <NextImage
         sx={{
-          border: '4px solid grey',
-          borderRadius: '50%'
+          // border: '4px solid rgba(100,100,100,0.5)',
+          borderRadius: '50%',
+          background: 'rgb(155,163,194)'
         }}
         height={100}
         width={100}
@@ -44,10 +44,7 @@ export const Home: NextPage = () => {
       <Text sx={{ fontSize: 24 }} fw={600} color={'primary'} mt={'lg'}>
         Hi, I'm Hugo
       </Text>
-      <Text>
-        Lead Frontend Engineer at{' '}
-        <Anchor href='https://sygris.com'>Sygris</Anchor>
-      </Text>
+      <Text>Lead Frontend Engineer at Sygris</Text>
       <Group spacing={0}>
         <Anchor
           href={'mailto:corta.hugo@gmail.com'}
@@ -99,8 +96,7 @@ export const Home: NextPage = () => {
         Creative Software Engineer offering 7+ years of experience offering
         high-impact web solutions for different organizations. Welcome to my
         personal rambling space. I am excited to share with you a little bit
-        about myself, my interests, and my work. Please take a look around and
-        feel free to reach out
+        about myself, my interests, and my work.
       </Text>
     </Page>
   )

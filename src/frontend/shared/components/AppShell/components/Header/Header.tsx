@@ -15,7 +15,8 @@ import {
   Flex,
   Popover,
   Divider,
-  Container
+  Container,
+  MediaQuery
 } from '@mantine/core'
 
 // Hooks
@@ -133,8 +134,12 @@ export function Header() {
               <Text color={'primary'} fw={'bold'}>
                 Hugo Corta
               </Text>
-              <Divider orientation='vertical' sx={{ borderWidth: 4 }} />
-              <Text color={'secondary'}>Software Craftsman</Text>
+              <MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
+                <Group spacing={'xs'}>
+                  <Divider orientation='vertical' sx={{ borderWidth: 4 }} />
+                  <Text color={'secondary'}>Software Craftsman</Text>
+                </Group>
+              </MediaQuery>
             </Group>
           </NextLink>
 
