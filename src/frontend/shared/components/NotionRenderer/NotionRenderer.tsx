@@ -38,10 +38,6 @@ export const NotionRenderer = ({ recordMap }) => {
     <ReactNotionX
       darkMode={mode === 'dark'}
       recordMap={recordMap}
-      // mapImageUrl={(url, block) => {
-      //   const signedUrl = recordMap.signed_urls?.[block.id]
-      //   return `${signedUrl || url}&spaceId=${block.space_id}`
-      // }}
       components={{
         Code,
         Collection,

@@ -39,7 +39,7 @@ export const Page: FC<PageProps> = ({
   }
 
   return (
-    <Box component={'main'} w={'100%'} py={'7.5ch'} {...rest}>
+    <Box component={'main'} w={'100%'} m={'auto'} py={'7.5ch'} {...rest}>
       <Head>
         <meta charSet='utf-8' />
         <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />

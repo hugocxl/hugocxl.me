@@ -1,7 +1,7 @@
 // Components
 import { VscLibrary, VscLayers, VscArchive } from 'react-icons/vsc'
 import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
-import { Page, Pages } from '@/frontend/shared/types'
+import { Page, Pages } from '@/shared/types'
 import { IconRadar } from '@tabler/icons'
 
 export const BLOG: Page = {
@@ -22,13 +22,21 @@ export const RADAR: Page = {
   title: 'Radar',
   href: '/radar',
   icon: IconRadar,
-  description: "Cool repos I'm tracking"
+  description:
+    'I keep myself up-to-date with the latest trends, innovations, and breakthroughs in the dynamic world of software development. Here are some of them'
+}
+
+export const PROJECTS: Page = {
+  title: 'Projects',
+  href: '/projects',
+  icon: VscLayers,
+  description: 'Some personal projects I work on'
 }
 
 export const STACK: Page = {
   title: 'Stack',
   href: '/stack',
-  icon: VscLayers,
+  icon: VscArchive,
   description: "What tech I'm currently using"
 }
 
@@ -52,4 +60,12 @@ export const ABOUT: Page = {
   description: `Here's some additional information about me.`
 }
 
-export const PAGES: Pages = [RADAR, BLOG, HANDBOOKS, STACK, RESOURCES, ABOUT]
+export const PAGES: Pages = [
+  BLOG,
+  HANDBOOKS,
+  PROJECTS,
+  STACK,
+  RADAR,
+  RESOURCES,
+  ABOUT
+]

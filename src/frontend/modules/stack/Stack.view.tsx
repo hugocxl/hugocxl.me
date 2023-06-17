@@ -4,7 +4,7 @@ import { Title } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
-import { Items } from '@/frontend/shared/types'
+import { Items } from '@/shared/types'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
@@ -32,7 +32,7 @@ export const Stack: NextPage<StackProps> = ({ stack }) => {
             {sortedGroup.map(({ link, cover, name, description }) => (
               <Card
                 cover={cover}
-                link={link}
+                href={link}
                 key={name}
                 name={name}
                 description={description}

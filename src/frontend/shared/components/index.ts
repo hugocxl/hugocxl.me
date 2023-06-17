@@ -1,7 +1,6 @@
 export * from './AppShell'
 export * from './Card'
 export * from './Gallery'
-export * from './List'
 export * from './NextImage'
 export * from './NotionRenderer'
 export * from './Page'

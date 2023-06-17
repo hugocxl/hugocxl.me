@@ -1,20 +1,20 @@
 // Components
-import { Gallery, Page, ProjectCard } from '@/frontend/shared/components'
+import { Page, Gallery, ProjectCard } from '@/frontend/shared/components'
 
 // Types
 import { NextPage } from 'next'
 import { Repository } from '@/shared/types'
 
 // Constants
-import { RADAR } from '@/frontend/shared/constants'
+import { PROJECTS } from '@/frontend/shared/constants'
 
-interface RadarProps {
+export interface ProjectsProps {
   repos: Repository[]
 }
 
-export const Radar: NextPage<RadarProps> = ({ repos }) => {
+export const Projects: NextPage<ProjectsProps> = ({ repos }) => {
   return (
-    <Page title={RADAR.title} description={RADAR.description}>
+    <Page title={PROJECTS.title} description={PROJECTS.description}>
       <Gallery>
         {repos.map(repo => (
           <ProjectCard target={'_blank'} key={repo.id} {...repo} />

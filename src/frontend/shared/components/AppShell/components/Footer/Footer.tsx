@@ -27,7 +27,7 @@ export function Footer() {
       <Container w={'100%'}>
         <Flex py={'sm'} justify={'space-between'} align={'center'}>
           <Text color={'dimmed'} size={'xs'}>
-            {`All Rights Reserved © ${new Date().getFullYear()} Hugo Corta`}
+            {`© ${new Date().getFullYear()} Hugo Corta`}
           </Text>
           <Group spacing={0}>
             <Anchor

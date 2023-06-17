@@ -7,7 +7,7 @@ import { NotionAPI } from 'notion-client'
 
 // Types
 import { ExtendedRecordMap } from 'notion-types'
-import { Items } from '@/frontend/shared/types'
+import { Items } from '@/shared/types'
 
 const notionOfficialClient = new Client({
   auth: process.env.NOTION_EXTENSION_TOKEN

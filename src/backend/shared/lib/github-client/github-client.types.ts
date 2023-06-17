@@ -1,4 +1,4 @@
-export interface StarredRepo {
+export interface ResponseRepo {
   id: number
   node_id: string
   name: string

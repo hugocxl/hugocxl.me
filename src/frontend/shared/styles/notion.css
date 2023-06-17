@@ -575,11 +575,14 @@ svg.notion-page-icon {
   white-space: pre-wrap;
   word-break: break-word;
   border-left: 3px solid currentcolor;
-  padding: 0.2em 0.9em;
-  margin: 0 !important;
+  padding: 0.8em 1em;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
   font-size: 1.2em;
   opacity: 0.8;
   font-style: italic;
+  background-color: rgba(151, 147, 137, 0.25);
+  border-radius: 4px;
 }
 
 .notion-hr {
@@ -644,10 +647,10 @@ svg.notion-page-icon {
 
 .notion-inline-code {
   color: #eb5757 !important;
-  padding: 0.2em 0.4em;
+  padding: 0.3em 0.6em;
   background: var(--bg-color-2);
-  border-radius: 8px;
-  font-size: 90% !important;
+  border-radius: 4px;
+  font-size: 80% !important;
   font-family: Menlo, monospace;
 }
 
@@ -1593,35 +1596,35 @@ svg.notion-page-icon {
 }
 
 .notion-table-of-contents {
-  width: 280px;
-  padding: 0rem;
+  width: 320px;
+  padding: 2rem;
   overflow: auto;
   position: fixed;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 67px;
+  height: 100%;
+  border-left: 1px solid rgba(160, 160, 160, 0.2);
 }
 
 .notion-table-of-contents-item {
   color: inherit !important;
-  opacity: 0.7;
+  opacity: 1;
+  font-weight: inherit;
   transition: background 100ms ease-in, opacity 100ms ease-in;
-
   text-decoration: none;
   user-select: none;
   transition: background 20ms ease-in 0s;
   cursor: pointer;
   width: 100%;
-
-  padding: 4px 0px;
+  padding: 4px 4px;
   font-size: 14px;
-  line-height: 1.3;
+  line-height: 1.2;
   display: flex;
   align-items: center;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-radius: 4px;
 }
 
 .notion-table-of-contents-item:hover {

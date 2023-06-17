@@ -24,7 +24,6 @@ import { useThemeMode } from '@/frontend/shared/hooks'
 import { useSpotlight } from '@mantine/spotlight'
 import { useRouter } from 'next/router'
 import { useDisclosure } from '@mantine/hooks'
-import { useState, useEffect } from 'react'
 
 // Constants
 import { PAGES } from '@/frontend/shared/constants'
@@ -35,20 +34,6 @@ export function Header() {
   const spotlight = useSpotlight()
   const [isMenuOpen, isMenuOpenCx] = useDisclosure(false)
   const isDarkMode = mode === 'dark'
-  const [windowScroll, setWindowScroll] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.pageYOffset
-      setWindowScroll(currentScroll)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   function ThemeButton() {
     return (
@@ -127,7 +112,7 @@ export function Header() {
       top={0}
       sx={{ zIndex: 2, backdropFilter: 'blur(8px)' }}
     >
-      <Container w={'100%'} py={'xs'}>
+      <Container w={'100%'} py={'md'}>
         <Flex justify={'space-between'} align={'center'}>
           <NextLink href={'/'}>
             <Group spacing={'xs'}>
@@ -136,8 +121,8 @@ export function Header() {
               </Text>
               <MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
                 <Group spacing={'xs'}>
-                  <Divider orientation='vertical' sx={{ borderWidth: 4 }} />
-                  <Text color={'secondary'}>Software Craftsman</Text>
+                  <Divider orientation={'vertical'} />
+                  <Text color={'dimmed'}>Software Craftsman</Text>
                 </Group>
               </MediaQuery>
             </Group>
@@ -150,7 +135,7 @@ export function Header() {
           </Group>
         </Flex>
       </Container>
-      {windowScroll > 0 && <Divider />}
+      <Divider />
     </Flex>
   )
 }

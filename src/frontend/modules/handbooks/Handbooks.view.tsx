@@ -5,7 +5,7 @@ import { Card, Group, Stack, Text } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
-import { Items } from '@/frontend/shared/types'
+import { Items } from '@/shared/types'
 
 // Constants
 import { HANDBOOKS } from '@/frontend/shared/constants'

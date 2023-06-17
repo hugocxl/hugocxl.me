@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 // Components
 import NextLink from 'next/link'
+import { NextImage } from '@/frontend/shared/components'
 import {
   ActionIcon,
   Text,
@@ -22,7 +23,6 @@ import {
 
 // Types
 import { FC } from 'react'
-import { NextImage } from '@/frontend/shared/components/NextImage'
 
 export interface PagePostHeaderProps {
   title?: string
@@ -118,7 +118,8 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
           <NextImage
             my={'xl'}
             rounded={true}
-            height={400}
+            height={'20vw'}
+            mih={200}
             src={cover}
             alt={title}
           />

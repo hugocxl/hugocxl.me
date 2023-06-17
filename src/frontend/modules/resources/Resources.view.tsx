@@ -4,7 +4,7 @@ import { Anchor, Text, Group, Title } from '@mantine/core'
 
 // Types
 import { NextPage } from 'next'
-import { Items } from '@/frontend/shared/types'
+import { Items } from '@/shared/types'
 
 // Constants
 import { RESOURCES } from '@/frontend/shared/constants'
@@ -38,7 +38,7 @@ export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
           <Gallery>
             {groupedResources[tag].map(({ link, cover, name, description }) => (
               <Card
-                link={link || '#'}
+                href={link || '#'}
                 target={'_blank'}
                 cover={cover}
                 name={name}

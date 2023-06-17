@@ -22,14 +22,14 @@ const COLORS = {
   light: {
     background: '#fff',
     primary: '#000',
-    secondary: '#777',
+    secondary: '#555',
     divider: 'rgba(0,0,0,0.1)'
   },
   dark: {
     background: '#000',
     primary: '#ffffff',
-    secondary: 'rgb(255,255,255,0.5)',
-    divider: 'rgba(255,255,255,0.125)'
+    secondary: '#999',
+    divider: 'rgba(255,255,255,0.1)'
   }
 }
 
@@ -64,6 +64,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          fontFamily:
+            'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
           activeStyles: { transform: 'scale(0.95)' },
           primaryColor: isDarkMode ? 'blue' : 'blue',
           colorScheme: mode,
@@ -84,7 +86,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
             Container: {
               styles: {
                 root: {
-                  maxWidth: '70ch'
+                  maxWidth: '80ch'
                 }
               }
             },
@@ -151,8 +153,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               },
               styles: {
                 root: {
+                  height: '100%',
                   transition: 'all 0.17s ease',
-                  background,
+                  background: 'rgba(200,200,200,0.1)',
                   borderColor,
                   '&:hover': {
                     borderColor: `${

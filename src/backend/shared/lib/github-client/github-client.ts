@@ -1,17 +1,19 @@
 import { fetcher } from '@/backend/shared/lib/fetcher'
-import { StarredRepo } from './github-client.types'
+import { githubAdapters } from '@/backend/shared/lib/github-client/adapters'
+import { Repository } from '@/shared/types/repo'
+import { ResponseRepo } from './github-client.types'
 
 export const githubClient = {
-  async getStarredRepos() {
+  async getStarredRepos(): Promise<Repository[]> {
     const results = []
     let page = 0
     await getData()
 
     async function getData() {
-      const pageResults = await fetcher.get<StarredRepo[]>(
+      const pageResults = await fetcher.get<ResponseRepo[]>(
         `https://api.github.com/users/hcorta/starred?per_page=100&page=${page}`
       )
-      results.push(...pageResults)
+      results.push(...pageResults.map(repo => githubAdapters.toItem(repo)))
 
       if (!pageResults.length) return
 
@@ -20,5 +22,13 @@ export const githubClient = {
     }
 
     return results
+  },
+
+  async getPersonalRepos(): Promise<Repository[]> {
+    const repos = await fetcher.get<ResponseRepo[]>(
+      `https://api.github.com/users/hcorta/repos?sort=stars&direction=desc`
+    )
+
+    return repos.map(repo => githubAdapters.toItem(repo))
   }
 }

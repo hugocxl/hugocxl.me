@@ -28,7 +28,9 @@
     "static:validate": "yarn lint:check && yarn format:check && yarn type-check:check",
     "static:fix": "yarn lint:fix && yarn format:fix",
     "setup:env": "npx vercel env pull .env.local",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postversion": "git push && git push --tags",
+    "update:release": "yarn version --allow-same-version=false --git-tag-version=true --new-version $v"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

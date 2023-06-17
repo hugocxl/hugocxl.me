@@ -1,5 +1,5 @@
 // Components
-import { Footer, Header } from './components'
+import { Header } from './components'
 import { Box, Container } from '@mantine/core'
 import { RouterTransition } from '../RouterTransition'
 
@@ -20,14 +20,31 @@ export const AppShell: FC<AppShellProps> = ({ children }) => {
       className={mode}
       sx={{
         display: 'grid',
-        gridTemplateRows: 'auto 1fr auto',
-        minHeight: '100dvh'
+        gridTemplateRows: 'auto 1fr',
+        minHeight: '100dvh',
+        position: 'relative'
       }}
     >
+      <img
+        alt=''
+        src='/img/background.png'
+        decoding='async'
+        height={'100%'}
+        width={'100%'}
+        style={{
+          opacity: 1,
+          objectFit: 'cover',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: -1
+        }}
+      />
       <Header />
       <RouterTransition />
-      <Container>{children}</Container>
-      <Footer />
+      <Container w={'100%'}>{children}</Container>
     </Box>
   )
 }

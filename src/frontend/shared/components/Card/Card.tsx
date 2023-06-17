@@ -1,9 +1,11 @@
 // Components
 import NextLink from 'next/link'
-import { Text, Stack } from '@mantine/core'
+import { Text, Stack, Card as MCard, Group } from '@mantine/core'
+import { NextImage } from '../NextImage'
+import { IconStar } from '@tabler/icons'
 
 export interface CardProps {
-  link: string
+  href: string
   cover?: string
   tag?: string
   name: string
@@ -11,52 +13,116 @@ export interface CardProps {
   createdAt?: string
   updatedAt?: string
   target?: string
+  useNextImage?: boolean
 }
 
-export function Card({ link, cover, name, description, target }: CardProps) {
+export function Card({
+  href,
+  cover,
+  name,
+  description,
+  target,
+  tag,
+  updatedAt,
+  useNextImage
+}: CardProps) {
   return (
-    <NextLink href={link} target={target} className={'hoverable'}>
+    <NextLink href={href} target={target} className={'hoverable'}>
       <Stack spacing={0} pos={'relative'}>
-        <img
-          width={'100%'}
-          height={'100%'}
-          src={cover}
-          alt={name}
-          style={{
-            background: 'rgba(140,140,140,0.1)',
-            objectFit: 'cover',
-            width: '100%',
-            aspectRatio: '1/1',
-            borderRadius: 12,
-            overflow: 'hidden'
-          }}
-        />
-        <img
-          width={'100%'}
-          // height={'100%'}
-          src={cover}
-          alt={name}
-          style={{
-            position: 'absolute',
-            top: 0,
-            opacity: 0.5,
-            filter: 'blur(80px)',
-            background: 'rgba(140,140,140,0.1)',
-            objectFit: 'cover',
-            width: '100%',
-            aspectRatio: '1/1',
-            borderRadius: 12,
-            overflow: 'hidden',
-            zIndex: -1
-          }}
-        />
+        <MCard p={0} w={'100%'} h={'160px'}>
+          {cover && useNextImage ? (
+            <NextImage
+              width={'100%'}
+              height={'100%'}
+              src={cover}
+              alt={name}
+              sx={{
+                background: 'rgba(140,140,140,0.1)',
+                objectFit: 'cover',
+                width: '100%',
+                overflow: 'hidden'
+              }}
+            />
+          ) : (
+            <img
+              width={'100%'}
+              height={'100%'}
+              src={cover}
+              alt={name}
+              style={{
+                background: 'rgba(140,140,140,0.1)',
+                objectFit: 'cover',
+                width: '100%',
+                overflow: 'hidden'
+              }}
+            />
+          )}
+        </MCard>
         <Text fw={'bold'} color={'primary'} mt={'md'}>
           {name}
         </Text>
-        <Text color='secondary' lineClamp={3} mb={'xl'}>
+        <Text fw={'bold'} color={'dimmed'} size={'xs'}>
+          {tag}
+        </Text>
+        <Text color={'dimmed'} size={'xs'}>
+          {updatedAt}
+        </Text>
+        <Text color={'secondary'} size={'xs'} mb={'xl'} mt={'xs'}>
           {description}
         </Text>
       </Stack>
+    </NextLink>
+  )
+}
+export interface ProjectCardProps {
+  href: string
+  cover?: string
+  tag?: string
+  name: string
+  description: string
+  createdAt?: string
+  updatedAt?: string
+  target?: string
+  stars?: number
+}
+
+export function ProjectCard({
+  href,
+  cover,
+  name,
+  description,
+  target,
+  stars
+}: ProjectCardProps) {
+  return (
+    <NextLink href={href} target={target}>
+      <MCard withBorder>
+        <Stack spacing={0}>
+          {cover && (
+            <NextImage
+              sx={{
+                borderRadius: '50%'
+              }}
+              width={40}
+              height={40}
+              src={cover}
+              alt={'cover'}
+            />
+          )}
+          <Text color={'primary'} fw={'bold'} lh={1.2} mt={'sm'}>
+            {name}
+          </Text>
+          <Group spacing={4} align={'center'}>
+            <IconStar size={16} />
+            <Text fw={'bold'} color={'dimmed'} size={'xs'}>
+              {stars}
+            </Text>
+          </Group>
+          <Text mt={'xs'} size={'xs'} color={'secondary'} lineClamp={3}>
+            {description}
+          </Text>
+        </Stack>
+      </MCard>
     </NextLink>
   )
 }

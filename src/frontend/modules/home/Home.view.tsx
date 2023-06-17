@@ -1,17 +1,18 @@
 // Components
 import { Page, NextImage } from '@/frontend/shared/components'
-import { Text, Anchor, Group, ActionIcon } from '@mantine/core'
-
-// Types
-import { NextPage } from 'next'
-
-// Constants
+import { Text, Anchor, Group, ActionIcon, Button } from '@mantine/core'
+import NextLink from 'next/link'
 import {
   IconMail,
   IconBrandGithub,
   IconBrandTwitter,
   IconBrandLinkedin
 } from '@tabler/icons'
+
+// Types
+import { NextPage } from 'next'
+
+// Constants
 
 const HOME_PAGE_TITLE = 'Hugo Corta · Software Craftsman'
 const HOME_PAGE_DESCRIPTION = 'Welcome to my personal rambling space'
@@ -32,12 +33,12 @@ export const Home: NextPage = () => {
     >
       <NextImage
         sx={{
-          // border: '4px solid rgba(100,100,100,0.5)',
           borderRadius: '50%',
           background: 'rgb(155,163,194)'
         }}
-        height={100}
-        width={100}
+        mt={'xl'}
+        height={140}
+        width={140}
         src={'/img/avatar-big.png'}
         alt={'Profile Picture'}
       />
@@ -86,18 +87,26 @@ export const Home: NextPage = () => {
       <Text
         fw={'bolder'}
         sx={{ fontSize: '5ch', lineHeight: 1 }}
-        mt={60}
+        mt={40}
         align={'center'}
         color={'primary'}
       >
-        Passionate to craft amazing digital products
+        Passionate to craft <br /> amazing digital products
       </Text>
-      <Text mt={60} align={'center'}>
-        Creative Software Engineer offering 7+ years of experience offering
-        high-impact web solutions for different organizations. Welcome to my
-        personal rambling space. I am excited to share with you a little bit
-        about myself, my interests, and my work.
+      <Text
+        color={'dimmed'}
+        sx={{ fontSize: '2ch', lineHeight: 1.5 }}
+        my={'xl'}
+        align={'center'}
+      >
+        Creative Software Engineer with 6+ years of experience <br /> offering
+        high-impact web solutions for different organizations
       </Text>
+      <NextLink href={'/about'}>
+        <Button variant={'light'} title={'Mail'}>
+          {'More about me'}
+        </Button>
+      </NextLink>
     </Page>
   )
 }

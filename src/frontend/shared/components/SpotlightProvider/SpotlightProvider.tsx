@@ -31,6 +31,7 @@ export const SpotlightProvider: FC<SpotlightProviderProps> = ({ children }) => {
 
   return (
     <MnSpotlightProvider
+      centered
       highlightQuery
       actions={actions}
       searchIcon={<IconSearch size={20} />}
