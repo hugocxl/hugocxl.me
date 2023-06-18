@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from 'react'
 // import { TypographyStylesProvider } from '@mantine/core'
 import {
+  ButtonStylesParams,
   Global,
   MantineProvider,
   TextStylesParams,
@@ -56,6 +57,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const background = isDarkMode
     ? COLORS.dark.background
     : COLORS.light.background
+  const buttonsBackground = isDarkMode
+    ? COLORS.dark.divider
+    : COLORS.light.divider
 
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
@@ -69,7 +73,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           activeStyles: { transform: 'scale(0.95)' },
           primaryColor: isDarkMode ? 'blue' : 'blue',
           colorScheme: mode,
-          black: 'rgb(60,60,60)',
+          black: colorSecondary,
           white: '#fff',
           defaultRadius: 'md',
           colors: {
@@ -90,11 +94,44 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 }
               }
             },
+            List: {
+              styles: {
+                item: {
+                  marginBottom: '0.5rem',
+                  lineHeight: '1.75rem'
+                }
+              }
+            },
             ActionIcon: {
               defaultProps: {
-                variant: 'default',
+                variant: 'subtle',
                 size: 'lg'
-              }
+              },
+              styles: (theme, params: ButtonStylesParams, { variant }) => ({
+                root: {
+                  ...(variant === 'default' && {
+                    border: 'none',
+                    transition: 'background 0.17s ease',
+                    background: buttonsBackground
+                  })
+                }
+              })
+            },
+            Button: {
+              defaultProps: {
+                variant: 'default'
+              },
+              // Subscribe to theme and component params
+              styles: (theme, params: ButtonStylesParams, { variant }) => ({
+                root: {
+                  ...(variant === 'default' && {
+                    color: colorPrimary,
+                    border: 'none',
+                    transition: 'background 0.17s ease',
+                    background: buttonsBackground
+                  })
+                }
+              })
             },
             Title: {
               styles: (theme, params: TitleStylesParams) => ({
@@ -173,7 +210,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
           }
         }}
       >
-        {/* <TypographyStylesProvider>{children}</TypographyStylesProvider> */}
         <Global
           styles={theme => {
             return {

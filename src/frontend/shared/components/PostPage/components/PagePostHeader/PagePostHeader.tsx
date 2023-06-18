@@ -8,11 +8,11 @@ import { NextImage } from '@/frontend/shared/components'
 import {
   ActionIcon,
   Text,
-  Anchor,
   Group,
   Stack,
   Title,
-  Flex
+  Flex,
+  Button
 } from '@mantine/core'
 import {
   IconArrowLeft,
@@ -50,20 +50,15 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   function BackButton() {
     return (
-      <Group spacing={'xs'}>
-        <NextLink href={`/${section}`}>
-          <ActionIcon variant='subtle'>
-            <IconArrowLeft size={20} />
-          </ActionIcon>
-        </NextLink>
-        <Text color={'dimmed'}>{`Back to ${section}`}</Text>
-      </Group>
+      <NextLink href={`/${section}`}>
+        <Button leftIcon={<IconArrowLeft size={20} />}>{`Go back`}</Button>
+      </NextLink>
     )
   }
 
   function CopyToClipboardButton() {
     return (
-      <ActionIcon variant='subtle' onClick={onClickToClipboard}>
+      <ActionIcon onClick={onClickToClipboard}>
         <IconClipboard size={20} />
       </ActionIcon>
     )
@@ -71,60 +66,58 @@ export const PagePostHeader: FC<PagePostHeaderProps> = ({
 
   function TwitterButton() {
     return (
-      <Anchor
+      <NextLink
         target={'_blank'}
         href={`https://twitter.com/intent/tweet/?text=${title}&url=${encodedPageUrl}`}
         title={`Share ${title} on Twitter`}
       >
-        <ActionIcon variant='subtle'>
+        <ActionIcon>
           <IconBrandTwitter size={20} />
         </ActionIcon>
-      </Anchor>
+      </NextLink>
     )
   }
 
   function LinkedInButton() {
     return (
-      <Anchor
+      <NextLink
         target={'_blank'}
         href={`https://www.linkedin.com/sharePost?mini=true&url=${encodedPageUrl}&title=${title}&summary=${encodedDescription}&source=${pageUrl}`}
         title={`Share ${title} on LinkedIn`}
       >
-        <ActionIcon variant='subtle'>
+        <ActionIcon>
           <IconBrandLinkedin size={20} />
         </ActionIcon>
-      </Anchor>
+      </NextLink>
     )
   }
 
   return (
-    <Stack spacing={0}>
-      <Stack py={'xl'} spacing={0}>
-        <Title order={1} m={'0 !important'}>
-          {title}
-        </Title>
-        <Text size={'lg'} pb={'xl'} color={'dimmed'}>
-          {description}
-        </Text>
-        <Flex justify={'space-between'}>
-          <BackButton />
-          <Group spacing={4}>
-            <CopyToClipboardButton />
-            <TwitterButton />
-            <LinkedInButton />
-          </Group>
-        </Flex>
-        {cover && (
-          <NextImage
-            my={'xl'}
-            rounded={true}
-            height={'20vw'}
-            mih={200}
-            src={cover}
-            alt={title}
-          />
-        )}
-      </Stack>
+    <Stack pb={'xl'} spacing={0}>
+      <Title order={1} m={'0 !important'}>
+        {title}
+      </Title>
+      <Text size={'lg'} pb={'xl'} color={'dimmed'}>
+        {description}
+      </Text>
+      <Flex justify={'space-between'}>
+        <BackButton />
+        <Group spacing={4}>
+          <CopyToClipboardButton />
+          <TwitterButton />
+          <LinkedInButton />
+        </Group>
+      </Flex>
+      {cover && (
+        <NextImage
+          my={'xl'}
+          rounded={true}
+          height={'20vw'}
+          mih={200}
+          src={cover}
+          alt={title}
+        />
+      )}
     </Stack>
   )
 }

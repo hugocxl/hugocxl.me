@@ -1,6 +1,7 @@
 // Components
-import { Gallery, Page, Card } from '@/frontend/shared/components'
-import { Anchor, Text, Group, Title } from '@mantine/core'
+import { Page } from '@/frontend/shared/components'
+import { Anchor, Text, Group, Title, Stack, List, Divider } from '@mantine/core'
+import NextLink from 'next/link'
 
 // Types
 import { NextPage } from 'next'
@@ -35,18 +36,41 @@ export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
       render.push(
         <div id={tag} key={tag}>
           <Title order={2}>{tag}</Title>
-          <Gallery>
+          <List>
             {groupedResources[tag].map(({ link, cover, name, description }) => (
-              <Card
-                href={link || '#'}
-                target={'_blank'}
-                cover={cover}
-                name={name}
+              <NextLink
+                href={link}
                 key={name}
-                description={description}
-              />
+                className={'hoverable'}
+                target={'_blank'}
+              >
+                <Group noWrap p={'md'}>
+                  <img
+                    width={36}
+                    height={36}
+                    src={cover}
+                    alt={name}
+                    style={{
+                      objectFit: 'cover',
+                      borderRadius: '50%',
+                      background: 'rgba(160,160,160,0.2)',
+                      minWidth: 36,
+                      minHeight: 36
+                    }}
+                  />
+                  <Stack spacing={0}>
+                    <Text fw={'bold'} color={'primary'}>
+                      {name}
+                    </Text>
+                    <Text size={'sm'} color={'secondary'}>
+                      {description}
+                    </Text>
+                  </Stack>
+                </Group>
+                <Divider />
+              </NextLink>
             ))}
-          </Gallery>
+          </List>
         </div>
       )
     }

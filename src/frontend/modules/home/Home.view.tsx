@@ -26,21 +26,19 @@ export const Home: NextPage = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100%'
+        alignItems: 'center'
       }}
     >
       <NextImage
+        mt={'xl'}
+        height={140}
+        width={140}
+        src={'/img/avatar.png'}
+        alt={'Profile Picture'}
         sx={{
           borderRadius: '50%',
           background: 'rgb(155,163,194)'
         }}
-        mt={'xl'}
-        height={140}
-        width={140}
-        src={'/img/avatar-big.png'}
-        alt={'Profile Picture'}
       />
       <Text sx={{ fontSize: 24 }} fw={600} color={'primary'} mt={'lg'}>
         Hi, I'm Hugo
@@ -103,9 +101,7 @@ export const Home: NextPage = () => {
         high-impact web solutions for different organizations
       </Text>
       <NextLink href={'/about'}>
-        <Button variant={'light'} title={'Mail'}>
-          {'More about me'}
-        </Button>
+        <Button title={'Mail'}>{'More about me'}</Button>
       </NextLink>
     </Page>
   )

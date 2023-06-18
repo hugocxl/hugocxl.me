@@ -23,7 +23,7 @@ export function Card({
   description,
   target,
   tag,
-  updatedAt,
+  // updatedAt,
   useNextImage
 }: CardProps) {
   return (
@@ -61,13 +61,15 @@ export function Card({
         <Text fw={'bold'} color={'primary'} mt={'md'}>
           {name}
         </Text>
-        <Text fw={'bold'} color={'dimmed'} size={'xs'}>
-          {tag}
-        </Text>
-        <Text color={'dimmed'} size={'xs'}>
+        {tag && (
+          <Text fw={'bold'} color={'blue'} size={'xs'} mb={'xs'}>
+            {tag}
+          </Text>
+        )}
+        {/* <Text color={'dimmed'} size={'xs'} mb={'xs'}>
           {updatedAt}
-        </Text>
-        <Text color={'secondary'} size={'xs'} mb={'xl'} mt={'xs'}>
+        </Text> */}
+        <Text color={'secondary'} size={'xs'} mb={'xl'} mt={0}>
           {description}
         </Text>
       </Stack>

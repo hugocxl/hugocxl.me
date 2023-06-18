@@ -37,7 +37,8 @@ export const STACK: Page = {
   title: 'Stack',
   href: '/stack',
   icon: VscArchive,
-  description: "What tech I'm currently using"
+  description:
+    "A small review about specific pieces of software or hardware I use. This not a static page, it's a living document with everything that I'm using nowadays."
 }
 
 export const BOOKS: Page = {
