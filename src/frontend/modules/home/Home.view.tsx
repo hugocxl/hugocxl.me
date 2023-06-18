@@ -1,7 +1,8 @@
 // Components
-import { Page, NextImage } from '@/frontend/shared/components'
+import { Page } from '@/frontend/shared/components'
 import { Text, Anchor, Group, ActionIcon, Button } from '@mantine/core'
 import NextLink from 'next/link'
+import NextImage from 'next/image'
 import {
   IconMail,
   IconBrandGithub,
@@ -30,15 +31,10 @@ export const Home: NextPage = () => {
       }}
     >
       <NextImage
-        mt={'xl'}
         height={140}
         width={140}
         src={'/img/avatar.png'}
         alt={'Profile Picture'}
-        sx={{
-          borderRadius: '50%',
-          background: 'rgb(155,163,194)'
-        }}
       />
       <Text sx={{ fontSize: 24 }} fw={600} color={'primary'} mt={'lg'}>
         Hi, I'm Hugo

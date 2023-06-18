@@ -57,13 +57,11 @@ function Background() {
       />
       <div
         style={{
-          // backdropFilter: 'blur(10px)',
           width: '100dvw',
           height: '10dvh',
           pointerEvents: 'none',
           opacity: 1,
           position: 'fixed',
-          // top: 0,
           left: 0,
           right: 0,
           bottom: 0,
