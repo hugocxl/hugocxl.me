@@ -38,8 +38,8 @@ dependencies:
     specifier: ^13.4.0
     version: 13.4.0(react-dom@18.2.0)(react@18.2.0)
   '@vercel/analytics':
-    specifier: ^0.1.1
-    version: 0.1.11(react@18.2.0)
+    specifier: ^1.0.1
+    version: 1.0.1
   cross-fetch:
     specifier: ^3.1.5
     version: 3.1.6
@@ -1196,12 +1196,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vercel/analytics@0.1.11(react@18.2.0):
-    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
-    peerDependencies:
-      react: ^16.8||^17||^18
-    dependencies:
-      react: 18.2.0
+  /@vercel/analytics@1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /@webassemblyjs/ast@1.11.6:
