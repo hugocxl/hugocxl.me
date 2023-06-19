@@ -8,23 +8,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Cache
-        uses: actions/cache@v3
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
         with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key:
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{
-            hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+          version: 6.32.9
 
       - name: Install dependencies
-        run: npm install --force
+        run: pnpm install --force
 
       - name: Static validation
-        run: npm run static:validate
+        run: pnpm run static:validate
 
       - name: Cypress run
         uses: cypress-io/github-action@master
@@ -37,5 +30,5 @@ jobs:
           NOTION_STACK_DB_ID: ${{ secrets.NOTION_STACK_DB_ID }}
           NOTION_HANDBOOKS_DB_ID: ${{ secrets.NOTION_HANDBOOKS_DB_ID }}
         with:
-          build: npm run build
-          start: npm run start
+          build: pnpm run build
+          start: pnpm run start
