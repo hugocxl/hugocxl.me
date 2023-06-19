@@ -25,10 +25,10 @@ jobs:
           NOTION_EXTENSION_TOKEN: ${{ secrets.NOTION_EXTENSION_TOKEN }}
           NOTION_BROWSER_TOKEN: ${{ secrets.NOTION_BROWSER_TOKEN }}
           NOTION_RESOURCES_DB_ID: ${{ secrets.NOTION_RESOURCES_DB_ID }}
-          NOTION_PROJECTS_DB_ID: ${{ secrets.NOTION_PROJECTS_DB_ID }}
           NOTION_BLOG_DB_ID: ${{ secrets.NOTION_BLOG_DB_ID }}
           NOTION_STACK_DB_ID: ${{ secrets.NOTION_STACK_DB_ID }}
           NOTION_HANDBOOKS_DB_ID: ${{ secrets.NOTION_HANDBOOKS_DB_ID }}
+          NOTION_PROJECTS_DB_ID: ${{ secrets.NOTION_PROJECTS_DB_ID }}
         with:
           build: pnpm run build
           start: pnpm run start
