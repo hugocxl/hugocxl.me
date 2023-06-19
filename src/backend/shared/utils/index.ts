@@ -1,1 +1,1 @@
-export * from './getPathsForItems'
+export * from './get-paths-for-items'

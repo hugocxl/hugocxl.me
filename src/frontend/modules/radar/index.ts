@@ -1,1 +1,1 @@
-export * from './Radar.view'
+export * from './radar.page'

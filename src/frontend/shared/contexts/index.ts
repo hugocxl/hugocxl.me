@@ -1,1 +1,1 @@
-export * from './ThemeModeContext'
+export * from './theme-mode'

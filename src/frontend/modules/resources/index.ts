@@ -1,1 +1,1 @@
-export * from './Resources.view'
+export * from './resources.page'

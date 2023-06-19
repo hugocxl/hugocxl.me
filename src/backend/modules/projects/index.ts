@@ -1,1 +1,1 @@
-export * from './Projects.server'
+export * from './projects.server'

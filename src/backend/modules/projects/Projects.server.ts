@@ -1,7 +1,7 @@
 // Dependencies
 import { githubClient } from '@/backend/shared/lib'
 
-export const ProjectsServer = {
+export const projectsServer = {
   async getStaticProps() {
     const repos = await githubClient.getPersonalRepos()
 

@@ -1,2 +1,2 @@
-export * from './Handbooks.server'
-export * from './Handbook.server'
+export * from './handbooks.server'
+export * from './handbook.server'

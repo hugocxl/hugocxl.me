@@ -4,8 +4,8 @@ export interface PageParam {
   }
 }
 
-export * from './Item'
-export * from './Items'
-export * from './Page'
-export * from './Pages'
-export * from './repo'
+export * from './item.types'
+export * from './items.types'
+export * from './page.types'
+export * from './pages.types'
+export * from './repo.types'

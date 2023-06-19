@@ -1,2 +1,2 @@
-export * from './Blog.view'
-export * from './BlogPost.view'
+export * from './blog.page'
+export * from './blog-post.page'

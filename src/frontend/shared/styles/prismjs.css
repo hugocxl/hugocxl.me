@@ -29,8 +29,8 @@ code[class*='language-'] {
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: rgba(0, 0, 0, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgb(35, 35, 35);
+  border: 1px solid rgba(160, 160, 160, 0.1);
 }
 
 pre[class*='language-'] {

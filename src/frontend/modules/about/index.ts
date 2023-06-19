@@ -1,1 +1,1 @@
-export * from './About.view'
+export * from './about.page'

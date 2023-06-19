@@ -4,6 +4,6 @@ export class HomeTester {
   }
 
   public static getHeader() {
-    return cy.contains('Welcome to my personal rambling space')
+    return cy.contains('Hugo Corta')
   }
 }

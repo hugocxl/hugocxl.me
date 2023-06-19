@@ -1,6 +1,6 @@
 // Components
-import { StackServer } from '@/backend/modules/stack'
+import { stackServer } from '@/backend/modules/stack'
 import { Stack } from '@/frontend/modules/stack'
 
-export const getStaticProps = StackServer.getStaticProps
+export const getStaticProps = stackServer.getStaticProps
 export default Stack

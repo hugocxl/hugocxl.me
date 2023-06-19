@@ -4,6 +4,6 @@ export class AboutTester {
   }
 
   public static getHeader() {
-    return cy.contains('Blog')
+    return cy.contains('About')
   }
 }

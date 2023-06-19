@@ -1,1 +1,1 @@
-export * from './Home.view'
+export * from './home.page'

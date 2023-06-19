@@ -46,6 +46,9 @@ a {
   font-weight: 500;
   color: #4dabf7;
 }
+a:hover {
+  opacity: 0.75;
+}
 
 .hoverable:hover {
   cursor: pointer;

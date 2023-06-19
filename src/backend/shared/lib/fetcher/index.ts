@@ -1,2 +1,2 @@
-export * from './fetcher'
+export * from './fetcher.lib'
 export * from './fetcher.types'

@@ -1,6 +1,6 @@
 import { BlogTester } from '../pages'
 
-describe('Blog page', () => {
+describe('Blog Page', () => {
   beforeEach(() => {
     BlogTester.visit()
   })

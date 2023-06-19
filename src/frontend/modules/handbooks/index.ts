@@ -1,2 +1,2 @@
-export * from './Handbooks.view'
-export * from './Handbook.view'
+export * from './handbooks.page'
+export * from './handbook.page'

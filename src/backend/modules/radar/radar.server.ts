@@ -1,7 +1,7 @@
 // Dependencies
 import { githubClient } from '@/backend/shared/lib'
 
-export const RadarServer = {
+export const radarServer = {
   async getStaticProps() {
     const repos = await githubClient.getStarredRepos()
 
