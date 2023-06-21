@@ -1,20 +1,26 @@
 // Components
-import { VscLibrary, VscLayers, VscArchive } from 'react-icons/vsc'
-import { AiOutlineUser, AiOutlineEdit } from 'react-icons/ai'
 import { Page, Pages } from '@/shared/types'
-import { IconRadar } from '@tabler/icons'
+import {
+  IconRadar,
+  IconPencil,
+  IconBooks,
+  IconStack2,
+  IconArchive,
+  IconUser,
+  IconBoxSeam
+} from '@tabler/icons'
 
 export const BLOG: Page = {
   title: 'Blog',
   href: '/blog',
-  icon: AiOutlineEdit,
+  icon: IconPencil,
   description: "I write about stuff I'm interested in"
 }
 
 export const HANDBOOKS: Page = {
   title: 'Handbooks',
   href: '/handbooks',
-  icon: VscLibrary,
+  icon: IconBooks,
   description: 'My guides on different topics'
 }
 
@@ -29,35 +35,29 @@ export const RADAR: Page = {
 export const PROJECTS: Page = {
   title: 'Projects',
   href: '/projects',
-  icon: VscLayers,
+  icon: IconArchive,
   description: 'Some personal projects I work on'
 }
 
 export const STACK: Page = {
   title: 'Stack',
   href: '/stack',
-  icon: VscArchive,
+  icon: IconStack2,
   description:
     "A small review about specific pieces of software or hardware I use. This not a static page, it's a living document with everything that I'm using nowadays."
-}
-
-export const BOOKS: Page = {
-  title: 'Books',
-  href: '/books',
-  icon: VscArchive,
-  description: `Here are some of my favorite books I've read or have on my bookshelf`
 }
 
 export const RESOURCES: Page = {
   title: 'Resources',
   href: '/resources',
-  icon: VscArchive,
+  icon: IconBoxSeam,
   description: 'Some useful online resources'
 }
+
 export const ABOUT: Page = {
   title: 'About',
   href: '/about',
-  icon: AiOutlineUser,
+  icon: IconUser,
   description: `Here's some additional information about me.`
 }
 

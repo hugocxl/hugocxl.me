@@ -1,8 +1,8 @@
-import { IconType } from 'react-icons'
+import { TablerIcon } from '@tabler/icons'
 
 export interface Page {
   title: string
   href: string
-  icon: IconType
+  icon: TablerIcon
   description: string
 }
