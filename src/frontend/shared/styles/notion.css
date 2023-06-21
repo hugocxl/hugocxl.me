@@ -356,10 +356,6 @@
   background-color: var(--notion-item-gray);
 }
 
-.notion b {
-  font-weight: 600;
-}
-
 .notion-title {
   width: 100%;
   font-weight: 700;
