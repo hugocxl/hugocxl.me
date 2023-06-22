@@ -3,7 +3,7 @@ import { notionAdapters } from './notion-client.adapters'
 
 // Dependencies
 import { Client } from '@notionhq/client'
-import { NotionAPI } from 'notion-client'
+import { NotionCompatAPI } from 'notion-compat'
 
 // Types
 import { ExtendedRecordMap } from 'notion-types'
@@ -14,9 +14,9 @@ const notionOfficialClient = new Client({
   auth: process.env.NOTION_EXTENSION_TOKEN
 })
 
-const notionUnofficialClient = new NotionAPI({
-  authToken: process.env.NOTION_BROWSER_TOKEN
-})
+const notionUnofficialClient = new NotionCompatAPI(
+  new Client({ auth: process.env.NOTION_EXTENSION_TOKEN })
+)
 
 export const notionClient = {
   getPage: async (pageId: string): Promise<ExtendedRecordMap> => {

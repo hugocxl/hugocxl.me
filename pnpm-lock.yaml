@@ -46,6 +46,9 @@ dependencies:
   notion-client:
     specifier: ^6.15.6
     version: 6.16.0
+  notion-compat:
+    specifier: ^6.16.0
+    version: 6.16.0(@notionhq/client@2.2.5)
   notion-types:
     specifier: ^6.15.6
     version: 6.16.0
@@ -3953,6 +3956,18 @@ packages:
       notion-types: 6.16.0
       notion-utils: 6.16.0
       p-map: 5.5.0
+    dev: false
+
+  /notion-compat@6.16.0(@notionhq/client@2.2.5):
+    resolution: {integrity: sha512-Ue67pAC6s3GwvzL7gtfFPUA0kT9FI/WKP8aRCfRuJ/SDedPSuXREI19qSr9wpRDhxMKtOZlT2X6Hxoc9FFFupg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@notionhq/client': ^1.0.4
+    dependencies:
+      '@notionhq/client': 2.2.5
+      notion-types: 6.16.0
+      notion-utils: 6.16.0
+      p-queue: 7.3.4
     dev: false
 
   /notion-types@6.16.0:

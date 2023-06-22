@@ -46,7 +46,7 @@
     "@vercel/analytics": "^1.0.1",
     "cross-fetch": "^3.1.5",
     "next": "^13.4.6",
-    "notion-client": "^6.15.6",
+    "notion-compat": "^6.16.0",
     "notion-types": "^6.15.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
