@@ -35,11 +35,6 @@ class Document extends NextDocument {
             href='/favicon-16x16.png'
           />
           <link rel='manifest' href='/manifest.json' />
-          <script
-            async
-            src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5123386198574844'
-            crossOrigin='anonymous'
-          />
         </Head>
         <body>
           <Main />
