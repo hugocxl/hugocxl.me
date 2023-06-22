@@ -27,7 +27,9 @@ export const Home: NextPage = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        height: '100%',
+        justifyContent: 'center'
       }}
     >
       <NextImage
@@ -39,7 +41,7 @@ export const Home: NextPage = () => {
       <Text sx={{ fontSize: 24 }} fw={600} color={'primary'} mt={'lg'}>
         Hi, I'm Hugo
       </Text>
-      <Text>Lead Frontend Engineer at Sygris</Text>
+      <Text>Software Engineer</Text>
       <Group spacing={0}>
         <Anchor
           href={'mailto:corta.hugo@gmail.com'}

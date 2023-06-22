@@ -45,7 +45,7 @@ function Background() {
         width={'100%'}
         sx={{
           pointerEvents: 'none',
-          opacity: 0.5,
+          opacity: 0.35,
           objectFit: 'cover',
           position: 'fixed',
           top: 0,

@@ -9,8 +9,7 @@ import {
   Stack,
   Box,
   Group,
-  Divider,
-  List
+  Divider
 } from '@mantine/core'
 import {
   IconBrandGithub,
@@ -38,11 +37,6 @@ export const About: NextPage = () => {
       <p>
         I'm a creative <b>Software Engineer with 6+ years of experience </b>
         offering high-impact web solutions for different organisations.
-      </p>
-
-      <p>
-        I'm currently the <b>Lead Frontend Engineer at Sygris</b>, where I focus
-        on helping my team to develop the core product of the company.
       </p>
 
       <p>
@@ -100,101 +94,95 @@ export const About: NextPage = () => {
       <Divider my={40} />
 
       <Title order={2}>{"What I'm doing now"}</Title>
-      <List>
-        <List.Item>
-          <b>🧑🏻‍💻 Work </b>I am currently working at{' '}
-          <NextLink href='https://sygris.com'>Sygris</NextLink> as Lead Frontend
-          Engineer
-        </List.Item>
-        <List.Item>
-          <b>✍️ Blog</b> On this website, I write
-          <NextLink href={BLOG.href}> posts</NextLink> and{' '}
-          <NextLink href={HANDBOOKS.href}>handbooks</NextLink> about diverse
-          stuff that I find interesting
-        </List.Item>
-        <List.Item>
-          <b>📦 Open Source</b> As a software developer, I enjoy
-          <NextLink href={PROJECTS.href}> building </NextLink>
-          open-source software and libraries
-        </List.Item>
-        <List.Item>
-          <b>👨🏻‍🏫 Teaching</b> Sometimes I teach about web development at{' '}
-          <NextLink target={'_blank'} href={'https://ironhack.com'}>
-            Ironhack
-          </NextLink>
-        </List.Item>
-      </List>
+      <p>
+        <b>🧑🏻‍💻 Work </b>I am currently working at{' '}
+        <Anchor href='https://sygris.com'>Sygris</Anchor> as Lead Frontend
+        Engineer
+      </p>
+      <p>
+        <b>✍️ Blog</b> On this website, I write
+        <NextLink href={BLOG.href}> posts</NextLink> and{' '}
+        <NextLink href={HANDBOOKS.href}>handbooks</NextLink> about diverse stuff
+        that I find interesting
+      </p>
+      <p>
+        <b>📦 Open Source</b> As a software developer, I enjoy
+        <NextLink href={PROJECTS.href}> building </NextLink>
+        open-source software and libraries
+      </p>
+      <p>
+        <b>👨🏻‍🏫 Teaching</b> Sometimes I teach about web development at{' '}
+        <NextLink target={'_blank'} href={'https://ironhack.com'}>
+          Ironhack
+        </NextLink>
+      </p>
 
       <Title order={2}>{'Principles'}</Title>
-      <List>
-        <List.Item>
-          🧵 I am advocate for <b>Software Craftsmanship</b> and I am the #33943
-          signer of the{' '}
-          <NextLink
-            href={'https://manifesto.softwarecraftsmanship.org/'}
-            target={'_blank'}
-          >
-            manifesto
-          </NextLink>
-        </List.Item>
-        <List.Item>
-          😍 I am a fan of <b>XP, DDD and TDD</b>
-        </List.Item>
-        <List.Item>
-          👬 I am a <b>team-first player</b>: collaboration and knowledge
-          sharing are mandatory for me
-        </List.Item>
-        <List.Item>
-          ✨ I use <b>Value-First</b> as my approach to development
-        </List.Item>
-        <List.Item>
-          🚀 I believe in the importance of the
-          <b> essentials of software design</b>: Design Principles, Design
-          Patterns, Architectural Patterns, Architectural Styles, etc. and
-          you'll often find myself reading some book about it.
-        </List.Item>
-      </List>
+      <p>
+        🧵 I am advocate for <b>Software Craftsmanship</b> and I am the #33943
+        signer of the{' '}
+        <NextLink
+          href={'https://manifesto.softwarecraftsmanship.org/'}
+          target={'_blank'}
+        >
+          manifesto
+        </NextLink>
+      </p>
+      <p>
+        😍 I am a fan of <b>XP, DDD and TDD</b>
+      </p>
+      <p>
+        👬 I am a <b>team-first player</b>: collaboration and knowledge sharing
+        are mandatory for me
+      </p>
+      <p>
+        ✨ I use <b>Value-First</b> as my approach to development
+      </p>
+      <p>
+        🚀 I believe in the importance of the
+        <b> essentials of software design</b>: Design Principles, Design
+        Patterns, Architectural Patterns, Architectural Styles, etc. and you'll
+        often find myself reading some book about it.
+      </p>
 
       <Title order={2}>{'Random Facts'}</Title>
-      <List>
-        <List.Item>🏠 I have lived in 5 different cities</List.Item>
-        <List.Item>
-          🏋🏻‍♂️ I practice sports daily. My favourite practice is weight lifting,
-          though I also enjoy running, cycling and trying other sports
-        </List.Item>
+      <p>🏠 I have lived in 5 different cities</p>
+      <p>
+        🏋🏻‍♂️ I practice sports daily. My favourite practice is weight lifting,
+        though I also enjoy running, cycling and trying other sports
+      </p>
 
-        <List.Item>
-          👨🏻‍🎓 I have two degrees in construction (Architectural Engineer and
-          Civil Engineer) and worked in the field for a few years before
-          becoming a developer
-        </List.Item>
+      <p>
+        👨🏻‍🎓 I have two degrees in construction (Architectural Engineer and Civil
+        Engineer) and worked in the field for a few years before becoming a
+        developer
+      </p>
 
-        <List.Item>
-          🪐 I like sci-fi books, like Dune, The Foundation, and The Three Body
-          Problem series
-        </List.Item>
+      <p>
+        🪐 I like sci-fi books, like Dune, The Foundation, and The Three Body
+        Problem series
+      </p>
 
-        <List.Item>
-          🌌 I am kind of good with{' '}
-          <Anchor
-            target={'_blank'}
-            href='https://www.youtube.com/watch?v=l1rjJUkylXw'
-          >
-            Photoshop
-          </Anchor>
-        </List.Item>
+      <p>
+        🌌 I am kind of good with{' '}
+        <Anchor
+          target={'_blank'}
+          href='https://www.youtube.com/watch?v=l1rjJUkylXw'
+        >
+          Photoshop
+        </Anchor>
+      </p>
 
-        <List.Item>
-          🎸 I play the guitar, which I learned to play aged 13. I'm not very
-          good though
-        </List.Item>
+      <p>
+        🎸 I play the guitar, which I learned to play aged 13. I'm not very good
+        though
+      </p>
 
-        <List.Item>
-          🎧 One of my ever-favorite hobbies when I was young was making
-          electronic music. I stopped a few years ago to focus on other
-          interests though
-        </List.Item>
-      </List>
+      <p>
+        🎧 One of my ever-favorite hobbies when I was young was making
+        electronic music. I stopped a few years ago to focus on other interests
+        though
+      </p>
 
       <Title order={2}>{'Experience'}</Title>
       <Stack>
@@ -205,18 +193,18 @@ export const About: NextPage = () => {
           title={'Lead Frontend Engineer'}
           stack={'Rollup, Nx, Vite, Next, React'}
           description={
-            <List withPadding>
-              <List.Item>
+            <ul>
+              <li>
                 Assumed full responsibility for the frontend-side project's
                 inception and establishment, orchestrating the complete setup of
                 the different repositories involved from scratch
-              </List.Item>
-              <List.Item>
+              </li>
+              <li>
                 Mentored junior engineers, conducting regular code reviews and
                 providing technical guidance, leading to an improvement in
                 overall code quality and team productivity
-              </List.Item>
-            </List>
+              </li>
+            </ul>
           }
         />
         <CompanyItem
@@ -226,18 +214,18 @@ export const About: NextPage = () => {
           title={'FullStack Engineer'}
           stack={'Rollup, Rush, Nest, Next, React, Vue'}
           description={
-            <List withPadding>
-              <List.Item>
+            <ul>
+              <li>
                 Assumed full responsibility for the React project's inception
                 and establishment, orchestrating the complete setup from scratch
-              </List.Item>
-              <List.Item>
+              </li>
+              <li>
                 Executed end-to-end development of multiple game features,
                 encompassing both backend (using Nest.js to implement RESTful
                 APIs and backend services) and frontend (using Next.js to create
                 engaging UI features) components
-              </List.Item>
-            </List>
+              </li>
+            </ul>
           }
         />
         <CompanyItem
@@ -247,25 +235,23 @@ export const About: NextPage = () => {
           title={'Lead Frontend Engineer'}
           stack={'Webpack, React, Redux'}
           description={
-            <List withPadding>
-              <List.Item>
+            <ul>
+              <li>
                 Effectively led and managed a team of 5 software engineers in a
                 successful full rewrite of the company's main application
-              </List.Item>
-              <List.Item>
+              </li>
+              <li>
                 Designed and implemented an efficient and scalable architecture,
                 resulting in improved system stability and reduced maintenance
                 efforts
-              </List.Item>
-              <List.Item>
-                UI Design system definition and implementation
-              </List.Item>
-              <List.Item>
+              </li>
+              <li>UI Design system definition and implementation</li>
+              <li>
                 Collaborated with cross-functional teams, including product
                 managers and designers, to gather requirements, prioritise
                 features, and ensure timely delivery of high-quality software.
-              </List.Item>
-            </List>
+              </li>
+            </ul>
           }
         />
         <CompanyItem
@@ -275,12 +261,12 @@ export const About: NextPage = () => {
           title={'Frontend Developer'}
           stack={'Backbone, React'}
           description={
-            <List withPadding>
-              <List.Item>
+            <ul>
+              <li>
                 Utilised React to translate design concepts into functional web
                 elements employing best practices
-              </List.Item>
-            </List>
+              </li>
+            </ul>
           }
         />
         <CompanyItem
@@ -290,19 +276,19 @@ export const About: NextPage = () => {
           title={'Lead Instructor'}
           stack={''}
           description={
-            <List withPadding>
-              <List.Item>
+            <ul>
+              <li>
                 Development of my own comprehensive and industry-relevant
                 curriculum for the Design Implementation Course, ensuring
                 alignment with current design trends, tools, and best practices
-              </List.Item>
-              <List.Item>
+              </li>
+              <li>
                 Designed and delivered engaging lectures, workshops, and
                 practical exercises, effectively conveying complex design
                 implementation concepts and techniques to students of varying
                 skill levels
-              </List.Item>
-            </List>
+              </li>
+            </ul>
           }
         />
       </Stack>
@@ -310,7 +296,6 @@ export const About: NextPage = () => {
         sx={{ marginTop: '40px' }}
         icon={<IconFileDownload size={20} />}
         title='Download my CV'
-        color='primary'
       >
         <Anchor download href={'/cv/Hugo_Corta__Resume.pdf'}>
           Click here to download a PDF version of my resume
@@ -338,20 +323,22 @@ function CompanyItem({ company, title, image, date, description, stack }) {
             alt={title}
           />
         </Box>
-        <Title order={3}>{company}</Title>
+        <Title order={3} m={'0 !important'}>
+          {company}
+        </Title>
       </Group>
       <Group spacing={'xs'} mt={'xs'} align={'flex-end'}>
-        <Text color={'primary'} weight={'bolder'}>
+        <Text color={'primary'} weight={'bold'}>
           {title}
         </Text>
         <Text sx={{ fontSize: 12 }} color={'dimmed'}>
           {date}
         </Text>
       </Group>
-      <Text size={'sm'} color={'blue'}>
+      <Text size={'sm'} color={'dimmed'}>
         {stack}
       </Text>
-      <Box pt={'md'}>{description}</Box>
+      <Box pt={0}>{description}</Box>
     </Stack>
   )
 }

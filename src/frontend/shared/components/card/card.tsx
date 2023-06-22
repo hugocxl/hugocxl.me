@@ -29,7 +29,7 @@ export function Card({
   return (
     <NextLink href={href} target={target} className={'hoverable'}>
       <Stack spacing={0} pos={'relative'}>
-        <MCard p={0} w={'100%'} h={'160px'}>
+        <MCard p={0} w={'100%'} h={'160px'} mb={'md'}>
           {cover && useNextImage ? (
             <NextImage
               width={'100%'}
@@ -58,14 +58,14 @@ export function Card({
             />
           )}
         </MCard>
-        <Text fw={'bold'} color={'primary'} mt={'md'}>
-          {name}
-        </Text>
         {tag && (
-          <Text fw={'bold'} color={'blue'} size={'xs'} mb={'xs'}>
+          <Text weight={'bold'} color={'link'} size={'xs'}>
             {tag}
           </Text>
         )}
+        <Text weight={'bold'} color={'primary'} mb={'xs'}>
+          {name}
+        </Text>
         {/* <Text color={'dimmed'} size={'xs'} mb={'xs'}>
           {updatedAt}
         </Text> */}
@@ -111,12 +111,12 @@ export function ProjectCard({
               alt={'cover'}
             />
           )}
-          <Text color={'primary'} fw={'bold'} lh={1.2} mt={'sm'}>
+          <Text color={'primary'} weight={'bold'} lh={1.2} mt={'sm'}>
             {name}
           </Text>
           <Group spacing={4} align={'center'}>
             <IconStar size={16} />
-            <Text fw={'bold'} color={'dimmed'} size={'xs'}>
+            <Text weight={'bold'} color={'dimmed'} size={'xs'}>
               {stars}
             </Text>
           </Group>

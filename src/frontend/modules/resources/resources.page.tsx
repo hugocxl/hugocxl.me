@@ -59,7 +59,7 @@ export const Resources: NextPage<ResourcesProps> = ({ resources }) => {
                     }}
                   />
                   <Stack spacing={0}>
-                    <Text fw={'bold'} color={'primary'}>
+                    <Text weight={'bold'} color={'primary'}>
                       {name}
                     </Text>
                     <Text size={'sm'} color={'secondary'}>

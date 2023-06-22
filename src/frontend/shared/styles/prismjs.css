@@ -17,20 +17,14 @@ pre[class*='language-'] {
 }
 
 pre > code[class*='language-'] {
-  font-size: 1em;
+  font-size: 14px;
+  line-height: 1.5rem;
 }
-/* 
-pre[class*='language-'],
-code[class*='language-'] {
-  white-space: normal !important;
-  overflow: auto !important;
-  word-break: break-word !important;
-} */
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: rgb(35, 35, 35);
-  border: 1px solid rgba(160, 160, 160, 0.1);
+  background: #191c20;
+  /* border: 1px solid rgba(160, 160, 160, 0.3); */
 }
 
 pre[class*='language-'] {

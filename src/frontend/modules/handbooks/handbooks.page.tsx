@@ -37,7 +37,7 @@ export const Handbooks: NextPage<HandbooksProps> = ({ handbooks }) => {
                       alt={name}
                     />
                     <Stack spacing={0}>
-                      <Text fw={'bold'} color={'primary'}>
+                      <Text weight={'bold'} color={'primary'}>
                         {name}
                       </Text>
                       <Group>

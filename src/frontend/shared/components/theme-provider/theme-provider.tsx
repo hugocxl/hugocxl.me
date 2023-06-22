@@ -1,12 +1,10 @@
 // Dependencies
 import React, { useMemo, useState } from 'react'
-// import { TypographyStylesProvider } from '@mantine/core'
 import {
   ButtonStylesParams,
   Global,
   MantineProvider,
-  TextStylesParams,
-  TitleStylesParams
+  TextStylesParams
 } from '@mantine/core'
 
 // Contexts
@@ -22,14 +20,18 @@ export interface ThemeProviderProps {
 const COLORS = {
   light: {
     background: '#fff',
+    button: 'rgba(0,0,0,0.05)',
     primary: '#000',
     secondary: '#555',
+    dimmed: '#999',
     divider: 'rgba(0,0,0,0.1)'
   },
   dark: {
     background: '#000',
+    button: '#1d1d1d',
     primary: '#ffffff',
     secondary: '#999',
+    dimmed: '#666',
     divider: 'rgba(255,255,255,0.1)'
   }
 }
@@ -50,6 +52,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const borderColor = `${
     isDarkMode ? COLORS.dark.divider : COLORS.light.divider
   } !important`
+  const colorDimmed = isDarkMode ? COLORS.dark.dimmed : COLORS.light.dimmed
   const colorPrimary = isDarkMode ? COLORS.dark.primary : COLORS.light.primary
   const colorSecondary = isDarkMode
     ? COLORS.dark.secondary
@@ -58,8 +61,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     ? COLORS.dark.background
     : COLORS.light.background
   const buttonsBackground = isDarkMode
-    ? COLORS.dark.divider
-    : COLORS.light.divider
+    ? COLORS.dark.button
+    : COLORS.light.button
 
   return (
     <ThemeModeContext.Provider value={themeModeContextValue}>
@@ -94,14 +97,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 }
               }
             },
-            List: {
-              styles: {
-                item: {
-                  marginBottom: '0.5rem',
-                  lineHeight: '1.75rem'
-                }
-              }
-            },
             ActionIcon: {
               defaultProps: {
                 variant: 'subtle',
@@ -121,35 +116,23 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
               defaultProps: {
                 variant: 'default'
               },
-              // Subscribe to theme and component params
               styles: (theme, params: ButtonStylesParams, { variant }) => ({
                 root: {
+                  fontWeight: 500,
+                  ...(variant === 'subtle' && {
+                    color: colorSecondary,
+                    '&:hover': {
+                      background: buttonsBackground,
+                      color: colorPrimary
+                    }
+                  }),
                   ...(variant === 'default' && {
                     color: colorPrimary,
                     border: 'none',
-                    transition: 'background 0.17s ease',
-                    background: buttonsBackground
-                  })
-                }
-              })
-            },
-            Title: {
-              styles: (theme, params: TitleStylesParams) => ({
-                root: {
-                  letterSpacing: '-.03em',
-                  width: 'fit-content',
-                  color: colorPrimary,
-                  ...(params.element === 'h1' && {
-                    marginTop: '5rem !important',
-                    marginBottom: '2rem !important'
-                  }),
-                  ...(params.element === 'h2' && {
-                    marginTop: '2.5rem !important',
-                    marginBottom: '1rem !important'
-                  }),
-                  ...((params.element === 'h5' || params.element === 'h6') && {
-                    letterSpacing: 0,
-                    fontWeight: 600
+                    background: buttonsBackground,
+                    '&:hover': {
+                      background: buttonsBackground
+                    }
                   })
                 }
               })
@@ -167,6 +150,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                 root: {
                   ...(params.weight === 'bold' && {
                     fontWeight: 500
+                  }),
+                  ...(params.color === 'dimmed' && {
+                    color: colorDimmed
                   }),
                   ...(params.color === 'primary' && {
                     color: colorPrimary
@@ -201,11 +187,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
                   }
                 }
               }
-            },
-            Badge: {
-              styles: {
-                root: {}
-              }
             }
           }
         }}
@@ -213,6 +194,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
         <Global
           styles={theme => {
             return {
+              a: {
+                color: `${
+                  isDarkMode ? theme.colors.blue[4] : theme.colors.blue[4]
+                } !important`
+              },
               body: {
                 ...theme.fn.fontStyles(),
                 background,

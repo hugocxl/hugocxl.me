@@ -58,7 +58,7 @@ export const Page: FC<PageProps> = ({
             <meta property='og:description' content={description} />
           </>
         )}
-        <title>{title + ' | Hugo Corta'}</title>
+        <title>{title + ' · Hugo Corta'}</title>
       </Head>
 
       <Header />

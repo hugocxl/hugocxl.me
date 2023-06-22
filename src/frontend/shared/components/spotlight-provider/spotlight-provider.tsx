@@ -34,7 +34,7 @@ export const SpotlightProvider: FC<SpotlightProviderProps> = ({ children }) => {
       centered
       highlightQuery
       actions={actions}
-      searchIcon={<IconSearch size={20} />}
+      searchIcon={<IconSearch size={16} />}
       searchPlaceholder='Search...'
       shortcut={['mod + K']}
       nothingFoundMessage={'Nothing found...'}
