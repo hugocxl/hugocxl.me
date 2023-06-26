@@ -44,8 +44,11 @@ export const Home: NextPage = () => {
         top: 0,
         left: 0,
         zIndex: -10,
-        opacity: 0.25,
-        backgroundImage: 'url(/img/grid.svg)'
+        opacity: 0.35,
+        backgroundImage: 'url(/img/grid.svg)',
+        _light: {
+          filter: 'invert(100%)'
+        }
       }}
     >
       <Container

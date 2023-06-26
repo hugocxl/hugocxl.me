@@ -31,37 +31,35 @@
     --borders-primary: 1px solid var(--colors-border-primary);
     --borders-secondary: 1px solid var(--colors-border-secondary);
     --colors-bg-primary: hsl(0 0% 100%);
-    --colors-bg-secondary: hsl(0 0% 98%);
-    --colors-bg-tertiary: hsl(0 0% 96%);
+    --colors-bg-secondary: hsl(0 0% 97%);
     --colors-bg-button: hsl(0 0% 94%);
-    --colors-bg-dock: hsl(0 0% 100%);
-    --colors-bg-dock-button: hsl(0 0% 100%);
+    --colors-bg-dock: rgba(255, 255, 255, 0.3);
+    --colors-bg-dock-button: rgba(200, 200, 200, 0.25);
     --colors-border-primary: rgba(0, 0, 0, 0.085);
     --colors-border-secondary: rgba(0, 0, 0, 0.06);
     --colors-text-primary: hsl(0 0% 0%);
-    --colors-text-secondary: hsl(0 0% 15%);
-    --colors-text-tertiary: hsl(0 0% 40%);
-    --colors-text-dimmed: hsl(0 0% 60%);
+    --colors-text-secondary: hsl(0 0% 25%);
+    --colors-text-tertiary: hsl(0 0% 50%);
+    --colors-text-dimmed: hsl(0 0% 70%);
     --colors-color-palette-primary: var(--colors-color-palette-primary);
     --colors-color-palette-secondary: var(--colors-color-palette-secondary);
-    --colors-color-palette-tertiary: var(--colors-color-palette-tertiary);
     --colors-color-palette-button: var(--colors-color-palette-button);
     --colors-color-palette-dock: var(--colors-color-palette-dock);
     --colors-color-palette-dock-button: var(--colors-color-palette-dock-button);
+    --colors-color-palette-tertiary: var(--colors-color-palette-tertiary);
     --colors-color-palette-dimmed: var(--colors-color-palette-dimmed);
   }
 
   [data-theme-mode='dark'] {
     --colors-bg-primary: hsl(0 0% 5%);
     --colors-bg-secondary: hsl(0 0% 8%);
-    --colors-bg-tertiary: hsl(0 0% 11%);
     --colors-bg-button: hsl(0 0% 13%);
     --colors-bg-dock: rgba(22, 22, 22, 0.8);
-    --colors-bg-dock-button: rgba(40, 40, 40, 1);
+    --colors-bg-dock-button: rgba(70, 70, 70, 0.25);
     --colors-border-primary: rgba(255, 255, 255, 0.085);
     --colors-border-secondary: rgba(255, 255, 255, 0.06);
     --colors-text-primary: hsl(0 0% 100%);
-    --colors-text-secondary: hsl(0 0% 70%);
+    --colors-text-secondary: hsl(0 0% 75%);
     --colors-text-tertiary: hsl(0 0% 50%);
     --colors-text-dimmed: hsl(0 0% 30%);
   }

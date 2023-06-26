@@ -19,48 +19,28 @@ export const metadata: Metadata = {
     template: 'hugoclx • %s',
     default: 'hugoclx'
   },
+  manifest: '/manifest.json',
   generator: 'Next.js',
-  applicationName: 'Next.js',
+  applicationName: 'hugoclx',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Next.js', 'React', 'JavaScript'],
-  authors: [{ name: 'Seb' }, { name: 'Josh', url: 'https://nextjs.org' }],
-  // colorScheme: 'dark',
-  // themeColor: 'black',
-  creator: 'Jiachi Liu',
-  publisher: 'Sebastian Markbåge',
+  keywords: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'TDD', 'DDD'],
+  creator: 'Hugo Corta',
+  publisher: 'Hugo Corta',
   formatDetection: {
     email: false,
     address: false,
     telephone: false
   },
-  manifest: 'https://nextjs.org/manifest.json',
   icons: {
     icon: '/icon.png',
     shortcut: '/shortcut-icon.png',
-    apple: '/apple-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png'
-    }
+    apple: '/apple-icon.png'
   },
   openGraph: {
-    title: 'Next.js',
-    description: 'The React Framework for the Web',
-    url: 'https://nextjs.org',
-    siteName: 'Next.js',
-    images: [
-      {
-        url: 'https://nextjs.org/og.png',
-        width: 800,
-        height: 600
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt'
-      }
-    ],
+    title: 'hugoclx',
+    description: 'Personal website',
+    url: 'https://hugocorta.com/',
+    siteName: 'hugoclx',
     locale: 'en_US',
     type: 'website'
   }
@@ -71,6 +51,9 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en' data-theme-mode='dark'>
+      <head>
+        <link rel='manifest' href='/manifest.json' />
+      </head>
       <body className={inter.className}>
         <AppShell>{children}</AppShell>
       </body>

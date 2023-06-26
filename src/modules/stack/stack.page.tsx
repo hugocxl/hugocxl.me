@@ -31,7 +31,7 @@ export async function StackPage() {
     for (const tag in groupedStack) {
       const sortedGroup = sortBy(groupedStack[tag], 'name')
       render.push(
-        <Stack gap={0} key={tag} mt={'lg'} pb={'lg'}>
+        <Stack gap={0} key={tag}>
           {sortedGroup.map(({ link, cover, name, description }) => (
             <Link
               key={name}
@@ -60,7 +60,9 @@ export async function StackPage() {
                   minWidth={24}
                   borderRadius={'50%'}
                 />
-                <Typography color={'text.secondary'}>{name}</Typography>
+                <Typography color={'text.secondary'} fontWeight={'bold'}>
+                  {name}
+                </Typography>
               </Stack>
               <Typography color={'text.dimmed'} fontSize={'sm'}>
                 {description}
@@ -76,19 +78,7 @@ export async function StackPage() {
 
   return (
     <Page>
-      <Stack
-        gap={0}
-        css={{
-          '& > *': {
-            borderBottom: 'secondary'
-          },
-          '& > *:last-child': {
-            borderBottom: 'none'
-          }
-        }}
-      >
-        {render}
-      </Stack>
+      <Stack gap={0}>{render}</Stack>
     </Page>
   )
 }

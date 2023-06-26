@@ -60,14 +60,8 @@ const semanticTokens = defineSemanticTokens({
       },
       secondary: {
         value: {
-          base: 'hsl(0 0% 98%)',
+          base: 'hsl(0 0% 97%)',
           _dark: 'hsl(0 0% 8%)'
-        }
-      },
-      tertiary: {
-        value: {
-          base: 'hsl(0 0% 96%)',
-          _dark: 'hsl(0 0% 11%)'
         }
       },
       button: {
@@ -78,14 +72,14 @@ const semanticTokens = defineSemanticTokens({
       },
       dock: {
         value: {
-          base: 'hsl(0 0% 100%)',
+          base: 'rgba(255, 255, 255, 0.3)',
           _dark: 'rgba(22, 22, 22, 0.8)'
         }
       },
       dockButton: {
         value: {
-          base: 'hsl(0 0% 100%)',
-          _dark: 'rgba(40, 40, 40, 1)'
+          base: 'rgba(200, 200, 200, 0.25)',
+          _dark: 'rgba(70, 70, 70, 0.25)'
         }
       }
     },
@@ -108,13 +102,13 @@ const semanticTokens = defineSemanticTokens({
         value: { base: 'hsl(0 0% 0%)', _dark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { base: 'hsl(0 0% 15%)', _dark: 'hsl(0 0% 70%)' }
+        value: { base: 'hsl(0 0% 25%)', _dark: 'hsl(0 0% 75%)' }
       },
       tertiary: {
-        value: { base: 'hsl(0 0% 40%)', _dark: 'hsl(0 0% 50%)' }
+        value: { base: 'hsl(0 0% 50%)', _dark: 'hsl(0 0% 50%)' }
       },
       dimmed: {
-        value: { base: 'hsl(0 0% 60%)', _dark: 'hsl(0 0% 30%)' }
+        value: { base: 'hsl(0 0% 70%)', _dark: 'hsl(0 0% 30%)' }
       }
     }
   }

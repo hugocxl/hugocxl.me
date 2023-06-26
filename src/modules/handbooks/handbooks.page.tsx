@@ -44,7 +44,11 @@ export async function Handbooks() {
                 bg: 'bg.secondary'
               }}
             >
-              <Typography lineHeight={1} color={'text.secondary'}>
+              <Typography
+                lineHeight={1}
+                color={'text.secondary'}
+                fontWeight={'bold'}
+              >
                 {name}
               </Typography>
               <Box w={'100%'} borderBottom={'secondary'}></Box>
