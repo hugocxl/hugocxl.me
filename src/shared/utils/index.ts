@@ -1,4 +1,5 @@
 export * from './group-by'
 export * from './sort-by'
-export * from './to-slug'
+export * from './convert-to-slug'
 export * from './format-timestamp'
+export * from './get-page-params'

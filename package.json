@@ -9,7 +9,7 @@
     "url": "https://github.com/hcorta/hugocorta"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "rm -rf .next && next dev",
     "start": "next start",
     "build": "next build",
     "test": "pnpm test:e2e",
@@ -27,34 +27,26 @@
     "static:validate": "pnpm lint:check && pnpm format:check && pnpm type-check:check",
     "static:fix": "pnpm lint:fix && pnpm format:fix",
     "setup:env": "npx vercel env pull .env.local",
-    "prepare": "husky install",
+    "prepare": "husky install && panda codegen",
     "postversion": "git push && git push --tags",
     "update:release": "pnpm version --allow-same-version=false --git-tag-version=true --new-version $v"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/server": "^11.11.0",
-    "@mantine/core": "^6.0.14",
-    "@mantine/ds": "^6.0.14",
-    "@mantine/hooks": "^6.0.14",
-    "@mantine/next": "^6.0.14",
-    "@mantine/nprogress": "^6.0.14",
-    "@mantine/prism": "^6.0.14",
-    "@mantine/spotlight": "^6.0.14",
     "@notionhq/client": "^2.2.5",
     "@tabler/icons": "^1.119.0",
     "@vercel/analytics": "^1.0.1",
-    "cross-fetch": "^3.1.6",
     "next": "^13.4.7",
     "notion-compat": "^6.16.0",
     "notion-types": "^6.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-notion-x": "^6.16.0",
-    "react-tweet": "^2.0.2"
+    "react-tweet": "^2.0.2",
+    "sharp": "^0.32.1"
   },
   "devDependencies": {
     "@next/env": "^13.4.7",
+    "@pandacss/dev": "^0.4.0",
     "@types/node": "^18.16.18",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
