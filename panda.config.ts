@@ -67,7 +67,7 @@ const semanticTokens = defineSemanticTokens({
       button: {
         value: {
           base: 'hsl(0 0% 94%)',
-          _dark: 'hsl(0 0% 13.6%)'
+          _dark: 'hsl(0 0% 13.7%)'
         }
       },
       dock: {
