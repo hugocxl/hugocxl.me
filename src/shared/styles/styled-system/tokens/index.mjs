@@ -31,6 +31,18 @@ const tokens = {
     value: '16px',
     variable: 'var(--radii-lg)'
   },
+  'shadows.sm': {
+    value: '0 5px 10px rgba(0, 0, 0, 0.12)',
+    variable: 'var(--shadows-sm)'
+  },
+  'shadows.md': {
+    value: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    variable: 'var(--shadows-md)'
+  },
+  'shadows.lg': {
+    value: '0 30px 60px rgba(0, 0, 0, 0.12)',
+    variable: 'var(--shadows-lg)'
+  },
   'sizes.sm': {
     value: '4px',
     variable: 'var(--sizes-sm)'
@@ -139,6 +151,10 @@ const tokens = {
     value: 'var(--colors-bg-dock-button)',
     variable: 'var(--colors-bg-dock-button)'
   },
+  'colors.bg.dockButtonHover': {
+    value: 'var(--colors-bg-dock-button-hover)',
+    variable: 'var(--colors-bg-dock-button-hover)'
+  },
   'colors.border.primary': {
     value: 'var(--colors-border-primary)',
     variable: 'var(--colors-border-primary)'
@@ -198,6 +214,10 @@ const tokens = {
   'colors.colorPalette.dockButton': {
     value: 'var(--colors-color-palette-dock-button)',
     variable: 'var(--colors-color-palette-dock-button)'
+  },
+  'colors.colorPalette.dockButtonHover': {
+    value: 'var(--colors-color-palette-dock-button-hover)',
+    variable: 'var(--colors-color-palette-dock-button-hover)'
   },
   'colors.colorPalette.tertiary': {
     value: 'var(--colors-color-palette-tertiary)',

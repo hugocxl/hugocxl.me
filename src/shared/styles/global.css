@@ -1,17 +1,1 @@
 @layer reset, base, tokens, recipes, utilities;
-
-/* 
-
-
-
-
-
-
-@media screen and (max-width: 720px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-
-} */

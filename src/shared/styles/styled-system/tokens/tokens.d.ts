@@ -8,6 +8,9 @@ export type Token =
   | 'radii.sm'
   | 'radii.md'
   | 'radii.lg'
+  | 'shadows.sm'
+  | 'shadows.md'
+  | 'shadows.lg'
   | 'sizes.sm'
   | 'sizes.md'
   | 'sizes.lg'
@@ -35,6 +38,7 @@ export type Token =
   | 'colors.bg.button'
   | 'colors.bg.dock'
   | 'colors.bg.dockButton'
+  | 'colors.bg.dockButtonHover'
   | 'colors.border.primary'
   | 'colors.border.secondary'
   | 'colors.text.primary'
@@ -50,6 +54,7 @@ export type Token =
   | 'colors.colorPalette.button'
   | 'colors.colorPalette.dock'
   | 'colors.colorPalette.dockButton'
+  | 'colors.colorPalette.dockButtonHover'
   | 'colors.colorPalette.tertiary'
   | 'colors.colorPalette.dimmed'
 
@@ -62,6 +67,7 @@ export type ColorToken =
   | 'bg.button'
   | 'bg.dock'
   | 'bg.dockButton'
+  | 'bg.dockButtonHover'
   | 'border.primary'
   | 'border.secondary'
   | 'text.primary'
@@ -73,6 +79,7 @@ export type ColorToken =
   | 'colorPalette.button'
   | 'colorPalette.dock'
   | 'colorPalette.dockButton'
+  | 'colorPalette.dockButtonHover'
   | 'colorPalette.tertiary'
   | 'colorPalette.dimmed'
 
@@ -81,6 +88,8 @@ export type LineHeightToken = 'normal'
 export type FontWeightToken = 'medium' | 'bold' | 'bolder'
 
 export type RadiusToken = 'sm' | 'md' | 'lg'
+
+export type ShadowToken = 'sm' | 'md' | 'lg'
 
 export type SizeToken =
   | 'sm'
@@ -113,6 +122,7 @@ export type Tokens = {
   lineHeights: LineHeightToken
   fontWeights: FontWeightToken
   radii: RadiusToken
+  shadows: ShadowToken
   sizes: SizeToken
   spacing: SpacingToken
   fontSizes: FontSizeToken

@@ -22,6 +22,11 @@ const tokens = defineTokens({
     md: { value: '12px' },
     lg: { value: '16px' }
   },
+  shadows: {
+    sm: { value: '0 5px 10px rgba(0, 0, 0, 0.12)' },
+    md: { value: '0 8px 30px rgba(0, 0, 0, 0.12)' },
+    lg: { value: '0 30px 60px rgba(0, 0, 0, 0.12)' }
+  },
   sizes: {
     sm: { value: '4px' },
     md: { value: '12px' },
@@ -55,7 +60,7 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           base: 'hsl(0 0% 100%)',
-          _dark: 'hsl(0 0% 8.5%)'
+          _dark: 'hsl(0 0% 5%)'
         }
       },
       secondary: {
@@ -72,27 +77,34 @@ const semanticTokens = defineSemanticTokens({
       },
       dock: {
         value: {
-          base: 'rgba(255, 255, 255, 0.3)',
-          _dark: 'rgba(22, 22, 22, 0.8)'
+          base: 'rgba(255, 255, 255, 0.7)',
+          _dark: 'rgba(22, 22, 22, 0.3)'
         }
       },
       dockButton: {
         value: {
-          base: 'rgba(200, 200, 200, 0.25)',
-          _dark: 'rgba(70, 70, 70, 0.25)'
+          base: 'linear-gradient(10deg, rgba(210,210,210,0.5), rgba(240,240,240,0.5))',
+          _dark:
+            'linear-gradient(10deg, rgba(30,30,30,0.5), rgba(70,70,70,0.5))'
+        }
+      },
+      dockButtonHover: {
+        value: {
+          base: 'linear-gradient(10deg, rgba(230,230,230,1), rgba(250,250,250,1))',
+          _dark: 'linear-gradient(10deg, rgba(20,20,20,1), rgba(50,50,50,1))'
         }
       }
     },
     border: {
       primary: {
         value: {
-          base: 'rgba(0,0,0,0.085)',
+          base: 'rgba(0,0,0,0.07)',
           _dark: 'rgba(255,255,255,0.085)'
         }
       },
       secondary: {
         value: {
-          base: 'rgba(0,0,0,0.06)',
+          base: 'rgba(0,0,0,0.04)',
           _dark: 'rgba(255,255,255,0.06)'
         }
       }
@@ -195,7 +207,7 @@ const globalCss = defineGlobalStyles({
   },
   '::-webkit-scrollbar-thumb': {
     borderRadius: 10,
-    backgroundColor: 'bg.tertiary'
+    backgroundColor: 'bg.secondary'
   }
 })
 

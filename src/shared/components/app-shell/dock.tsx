@@ -9,10 +9,13 @@ import { css } from '@/shared/styles'
 
 // Types
 import { Page } from '@/shared/types'
-import { IconMoon } from '@tabler/icons'
+import { IconMoon, IconSun } from '@tabler/icons'
 
 // Hooks
 import { useState, useEffect, useRef, MutableRefObject, Fragment } from 'react'
+
+const isBrowser = () =>
+  typeof window !== 'undefined' && typeof document !== 'undefined'
 
 export function Dock() {
   const parentRef = useRef<HTMLDivElement>()
@@ -52,6 +55,7 @@ export function Dock() {
 
   return (
     <Stack
+      shadow={'lg'}
       ref={parentRef}
       onMouseOver={onMouseOver}
       onMouseLeave={() => setHorizontalHover(false)}
@@ -75,7 +79,7 @@ export function Dock() {
       }
       _hover={{
         '& button': {
-          bg: 'bg.button'
+          bg: 'bg.dockButtonHover'
         }
       }}
       _before={{
@@ -87,7 +91,7 @@ export function Dock() {
         zIndex: -1,
         left: 0,
         background:
-          'linear-gradient(to right, transparent, rgba(255,255,255,0.2) 80%, transparent)'
+          'linear-gradient(to right, transparent, rgba(255,255,255,0.2) 70%, transparent)'
       }}
     >
       <Stack direction={'row'} align={'flex-end'}>
@@ -109,25 +113,27 @@ export function Dock() {
         <NavButton
           update={update}
           title={'Theme'}
-          icon={IconMoon}
-          // icon={(() => {
-          //   const htmlElement = document.querySelector('html')
-          //   const theme = htmlElement.getAttribute('data-theme-mode')
-          //   const isDarkMode = theme === 'dark'
-          //   return isDarkMode ? IconSun : IconMoon
-          // })()}
+          // icon={IconMoon}
+          icon={(() => {
+            if (!isBrowser()) return IconSun
+            const htmlElement = document.querySelector('html')
+            const theme = htmlElement.getAttribute('data-theme-mode')
+            const isDarkMode = theme === 'dark'
+            return isDarkMode ? IconSun : IconMoon
+          })()}
           horizontalHover={horizontalHover}
           parentRef={parentRef}
-          // onClick={() => {
-          //   const htmlElement = document.querySelector('html')
-          //   const theme = htmlElement.getAttribute('data-theme-mode')
-          //   const isDarkMode = theme === 'dark'
-          //   htmlElement.setAttribute(
-          //     'data-theme-mode',
-          //     isDarkMode ? 'light' : 'dark'
-          //   )
-          //   setUpdate(prev => prev + 1)
-          // }}
+          onClick={() => {
+            if (!isBrowser()) return
+            const htmlElement = document.querySelector('html')
+            const theme = htmlElement.getAttribute('data-theme-mode')
+            const isDarkMode = theme === 'dark'
+            htmlElement.setAttribute(
+              'data-theme-mode',
+              isDarkMode ? 'light' : 'dark'
+            )
+            setUpdate(prev => prev + 1)
+          }}
         />
       </Stack>
     </Stack>
@@ -172,9 +178,9 @@ function NavButton({
       ? horizontalHover - itemCenter
       : itemCenter - horizontalHover
     const x = Number((100 - itemToScroll) / 100)
-    const isMax = x * 1.75 > 1
-    const scale = isMax ? 1.75 * x : 1
-    const iconSize = isMax ? 100 - scale * 20 : 100
+    const isBelowMin = x * 2 > 1
+    const scale = isBelowMin ? 2 * x : 1
+    const iconSize = isBelowMin ? 100 - scale * 20 : 100
 
     return {
       iconSize,
@@ -212,15 +218,14 @@ function NavButton({
           background={'bg.dockButton'}
           transition={'all 0.2s ease'}
           borderRadius={'50%'}
+          position={'relative'}
           transformOrigin={'center bottom'}
+
           // color={
           //   (href === '/'
           //     ? window.location.pathname === '/'
           //     : window.location.pathname.includes(href)) && 'text.primary'
           // }
-          _hover={{
-            bg: 'bg.button'
-          }}
         >
           <Icon
             strokeWidth={1}

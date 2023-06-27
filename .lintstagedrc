@@ -1,4 +1,3 @@
 {
-  "**/*.+(ts|tsx|css)": ["pnpm lint:check", "pnpm format:check"],
-  "**/*.+(ts|tsx)": ["pnpm types:check"]
+  "**/*.+(ts|tsx|json|css)": ["pnpm static:fix"]
 }

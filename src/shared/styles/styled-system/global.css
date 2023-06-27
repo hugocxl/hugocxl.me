@@ -146,7 +146,7 @@
 
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: bg.tertiary;
+    background-color: var(--colors-bg-secondary);
   }
 
   a:hover {

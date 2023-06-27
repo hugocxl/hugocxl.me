@@ -26,6 +26,7 @@ export async function Radar() {
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link
             position={'relative'}
+            key={href}
             href={href}
             target={'_blank'}
             textDecoration={'none'}
