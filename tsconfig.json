@@ -13,8 +13,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@/*": ["src/*"],
-      "test-utils": ["./utils/test-utils"]
+      "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
@@ -30,12 +29,5 @@
     ]
   },
   "exclude": ["node_modules", "./cypress.config.ts", "./cypress"],
-  "include": [
-    "src",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "jest.config.ts",
-    ".next/types/**/*.ts"
-  ]
+  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"]
 }
