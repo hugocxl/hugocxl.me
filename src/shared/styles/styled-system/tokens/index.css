@@ -51,9 +51,9 @@
   }
 
   [data-theme-mode='dark'] {
-    --colors-bg-primary: hsl(0 0% 5%);
-    --colors-bg-secondary: hsl(0 0% 8%);
-    --colors-bg-button: hsl(0 0% 13%);
+    --colors-bg-primary: hsl(0 0% 8.5%);
+    --colors-bg-secondary: hsl(0 0% 11%);
+    --colors-bg-button: hsl(0 0% 14%);
     --colors-bg-dock: rgba(22, 22, 22, 0.8);
     --colors-bg-dock-button: rgba(70, 70, 70, 0.25);
     --colors-border-primary: rgba(255, 255, 255, 0.085);

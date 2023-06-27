@@ -1,24 +1,16 @@
 import { createElement, forwardRef, useMemo } from 'react'
-import { css, cx, cva, assignCss } from '../css/index.mjs'
-import { splitProps, normalizeHTMLProps } from '../helpers.mjs'
-import { isCssProperty } from './is-valid-prop.mjs'
+import { css, cx, cva, assignCss } from '../css/index.mjs';
+import { splitProps, normalizeHTMLProps } from '../helpers.mjs';
+import { isCssProperty } from './is-valid-prop.mjs';
 
 function styledFn(Dynamic, configOrCva = {}) {
-  const cvaFn =
-    configOrCva.__cva__ || configOrCva.__recipe__
-      ? configOrCva
-      : cva(configOrCva)
-
+  const cvaFn = configOrCva.__cva__ || configOrCva.__recipe__ ? configOrCva : cva(configOrCva)
+  
   const StyledComponent = forwardRef(function StyledComponent(props, ref) {
     const { as: Element = Dynamic, ...restProps } = props
 
     const [variantProps, styleProps, htmlProps, elementProps] = useMemo(() => {
-      return splitProps(
-        restProps,
-        cvaFn.variantKeys,
-        isCssProperty,
-        normalizeHTMLProps.keys
-      )
+      return splitProps(restProps, cvaFn.variantKeys, isCssProperty, normalizeHTMLProps.keys)
     }, [restProps])
 
     function recipeClass() {
@@ -26,7 +18,7 @@ function styledFn(Dynamic, configOrCva = {}) {
       const styles = assignCss(propStyles, cssStyles)
       return cx(cvaFn(variantProps), css(styles), elementProps.className)
     }
-
+    
     function cvaClass() {
       const { css: cssStyles, ...propStyles } = styleProps
       const cvaStyles = cvaFn.resolve(variantProps)
@@ -40,10 +32,10 @@ function styledFn(Dynamic, configOrCva = {}) {
       ref,
       ...elementProps,
       ...normalizeHTMLProps(htmlProps),
-      className: classes()
+      className: classes(),
     })
   })
-
+  
   StyledComponent.displayName = `styled.${Dynamic}`
   return StyledComponent
 }
@@ -60,7 +52,7 @@ function createJsxFactory() {
         cache.set(el, styledFn(el))
       }
       return cache.get(el)
-    }
+    },
   })
 }
 
