@@ -1,3 +1,3 @@
 {
-  "**/*.+(ts|tsx|json|css)": ["pnpm static:fix"]
+  "src/**/*.+(ts|tsx|json|css)": ["pnpm static:check"]
 }
