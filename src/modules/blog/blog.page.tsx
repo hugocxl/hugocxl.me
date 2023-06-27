@@ -17,11 +17,7 @@ export const metadata: Metadata = {
 }
 
 export async function Blog() {
-  const posts = await notionClient.getDatabase(
-    process.env.NOTION_BLOG_DB_ID,
-    null,
-    true
-  )
+  const posts = await notionClient.getDatabase(process.env.NOTION_BLOG_DB_ID)
 
   return (
     <Page>

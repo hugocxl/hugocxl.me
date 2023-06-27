@@ -65,7 +65,7 @@ export const PAGES: Pages = [
   HOME,
   BLOG,
   HANDBOOKS,
-  // PROJECTS,
+  PROJECTS,
   STACK,
   RADAR,
   ABOUT

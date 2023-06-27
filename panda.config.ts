@@ -60,7 +60,7 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           base: 'hsl(0 0% 100%)',
-          _dark: 'hsl(0 0% 5%)'
+          _dark: 'hsl(0 0% 8.5%)'
         }
       },
       secondary: {

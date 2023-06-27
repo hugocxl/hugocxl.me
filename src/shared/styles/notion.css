@@ -253,11 +253,11 @@
 }
 
 .notion-inline-code {
-  color: var(--colors-primary);
+  color: var(--colors-text-secondary);
   padding: 0.3em 0.6em;
-  background: var(--colors-bg-secondary);
-  border-radius: 4px;
-  font-size: 80% !important;
+  background: var(--colors-bg-button);
+  border-radius: var(--radii-sm);
+  font-size: var(--font-sizes-sm);
   font-family: Menlo, monospace;
 }
 
@@ -486,7 +486,6 @@
 }
 
 .notion-callout {
-  font-size: 0.9rem;
   padding: var(--spacing-md);
   display: inline-flex;
   width: 100%;
@@ -496,7 +495,6 @@
   align-items: flex-start;
   box-sizing: border-box;
   backdrop-filter: blur(8px);
-  /* border: none; */
 }
 
 .notion-callout-text {

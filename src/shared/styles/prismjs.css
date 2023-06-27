@@ -11,29 +11,25 @@ pre[class*='language-'] {
   white-space: pre-wrap;
   word-wrap: normal;
   font-family: Menlo, Monaco, 'Courier New', monospace;
-  font-size: 0.9rem;
+  font-size: 13px;
+  line-height: 1.4;
   color: #76d9e6;
   text-shadow: none;
-}
-
-pre > code[class*='language-'] {
-  font-size: 13px;
-  line-height: 1.5rem;
 }
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
   background: var(--colors-bg-secondary);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(160, 160, 160, 0.1);
+  border: var(--borders-primary);
 }
 
 pre[class*='language-'] {
-  padding: 1rem;
-  border-radius: 8px;
+  padding: var(--spacing-md);
+  border-radius: var(--radii-sm);
   overflow: auto;
   position: relative;
   max-width: 90vw;
+  width: 100%;
 }
 
 pre[class*='language-'] code {

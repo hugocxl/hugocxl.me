@@ -18,9 +18,7 @@ export const metadata: Metadata = {
 
 export async function Handbooks() {
   const handbooks = await notionClient.getDatabase(
-    process.env.NOTION_HANDBOOKS_DB_ID,
-    null,
-    true
+    process.env.NOTION_HANDBOOKS_DB_ID
   )
 
   return (

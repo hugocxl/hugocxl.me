@@ -21,9 +21,7 @@ export const metadata: Metadata = {
 
 export async function generateStaticParams() {
   const posts = await notionClient.getDatabase(
-    process.env.NOTION_HANDBOOKS_DB_ID,
-    null,
-    true
+    process.env.NOTION_HANDBOOKS_DB_ID
   )
   const params = getPageParams(posts)
 
