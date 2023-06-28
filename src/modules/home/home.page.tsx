@@ -59,7 +59,7 @@ export const Home: NextPage = () => {
         justifyContent={'center'}
         flexDirection={'column'}
       >
-        <span style={{ fontFamily: 'Menlo' }}>@hugoclx</span>
+        <span style={{ fontFamily: 'Menlo' }}>@hugocxl</span>
         <Typography color={'text.dimmed'} fontSize={28} lineHeight={1.2}>
           creative software engineer.
           <b> passionate to craft amazing digital products</b>

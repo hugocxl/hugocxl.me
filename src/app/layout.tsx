@@ -16,12 +16,12 @@ import '@/shared/styles/prismjs.css'
 
 export const metadata: Metadata = {
   title: {
-    template: 'hugoclx • %s',
-    default: 'hugoclx'
+    template: 'hugocxl • %s',
+    default: 'hugocxl'
   },
   manifest: '/manifest.json',
   generator: 'Next.js',
-  applicationName: 'hugoclx',
+  applicationName: 'hugocxl',
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'TDD', 'DDD'],
   creator: 'Hugo Corta',
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png'
   },
   openGraph: {
-    title: 'hugoclx',
+    title: 'hugocxl',
     description: 'Personal website',
     url: 'https://hugocorta.com/',
-    siteName: 'hugoclx',
+    siteName: 'hugocxl',
     locale: 'en_US',
     type: 'website'
   }
