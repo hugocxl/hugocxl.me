@@ -11,8 +11,7 @@ import { BLOG } from '@/shared/constants'
 import { Metadata } from 'next'
 
 // Components
-import { NotionRenderer } from '@/shared/components/notion-renderer'
-import { Page } from '@/shared/components/page'
+import { Article } from '@/shared/components'
 
 export const revalidate = 86400 * 3
 export const metadata: Metadata = {
@@ -27,14 +26,10 @@ export async function generateStaticParams() {
 }
 
 export async function BlogPost({ params }) {
-  const [{ name, content }] = await notionClient.getPage(
+  const [article] = await notionClient.getPage(
     process.env.NOTION_BLOG_DB_ID,
     params.slug
   )
 
-  return (
-    <Page title={name}>
-      <NotionRenderer content={content} />
-    </Page>
-  )
+  return <Article {...article} />
 }

@@ -78,17 +78,10 @@ const semanticTokens = defineSemanticTokens({
       dock: {
         value: {
           base: 'rgba(255, 255, 255, 0.7)',
-          _dark: 'rgba(22, 22, 22, 0.3)'
+          _dark: 'rgba(255, 255, 255, 0.1)'
         }
       },
-      dockButton: {
-        value: {
-          base: 'linear-gradient(10deg, rgba(210,210,210,0.5), rgba(240,240,240,0.5))',
-          _dark:
-            'linear-gradient(10deg, rgba(30,30,30,0.5), rgba(70,70,70,0.5))'
-        }
-      },
-      dockButtonHover: {
+      'dock-button': {
         value: {
           base: 'linear-gradient(10deg, rgba(230,230,230,1), rgba(250,250,250,1))',
           _dark: 'linear-gradient(10deg, rgba(20,20,20,1), rgba(50,50,50,1))'
@@ -114,13 +107,13 @@ const semanticTokens = defineSemanticTokens({
         value: { base: 'hsl(0 0% 0%)', _dark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { base: 'hsl(0 0% 25%)', _dark: 'hsl(0 0% 75%)' }
+        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 80%)' }
       },
       tertiary: {
-        value: { base: 'hsl(0 0% 50%)', _dark: 'hsl(0 0% 50%)' }
+        value: { base: 'hsl(0 0% 40%)', _dark: 'hsl(0 0% 60%)' }
       },
       dimmed: {
-        value: { base: 'hsl(0 0% 70%)', _dark: 'hsl(0 0% 30%)' }
+        value: { base: 'hsl(0 0% 60%)', _dark: 'hsl(0 0% 40%)' }
       }
     }
   }
@@ -138,7 +131,10 @@ const globalCss = defineGlobalStyles({
     color: 'text.tertiary',
     padding: 'sm',
     borderRadius: 'sm',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   a: {
     color: 'text.secondary',
@@ -188,9 +184,9 @@ const globalCss = defineGlobalStyles({
     marginTop: '2.5rem',
     marginBottom: '0.25rem'
   },
-  '::-selection': {
+  '::selection': {
     color: 'black',
-    backgroundColor: 'yellow'
+    background: 'primary'
   },
   '::-webkit-scrollbar': {
     width: '4px',

@@ -21,7 +21,7 @@ export async function Radar() {
   const repos = await githubClient.getStarredRepos()
 
   return (
-    <Page maxWidth={'80dvw'}>
+    <Page maxWidth={'80dvw'} title={RADAR.title}>
       <Box columns={'360px'} gap={'sm'}>
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link

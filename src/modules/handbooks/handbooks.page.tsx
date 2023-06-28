@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { HANDBOOKS } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Box } from '@/shared/components'
+import { Link, Stack, Typography, Page, Box, Grid } from '@/shared/components'
 
 export const revalidate = 86400 * 3
 export const metadata: Metadata = {
@@ -22,38 +22,31 @@ export async function Handbooks() {
   )
 
   return (
-    <Page>
-      <Stack gap={'sm'}>
+    <Page title={HANDBOOKS.title}>
+      <Stack gap={'lg'}>
         {handbooks.map(({ name, slug, updatedAt }) => {
           return (
-            <Link
+            <Grid
               key={slug}
-              href={`${HANDBOOKS.href}/${slug}`}
-              p={'md'}
-              transition={'all 0.17s ease'}
-              rounded={'sm'}
               gap={'sm'}
-              display={'grid'}
               gridTemplateColumns={'auto 1fr auto'}
               alignItems={'flex-end'}
-              textDecoration={'none'}
-              fontWeight={'normal'}
-              _hover={{
-                bg: 'bg.secondary'
-              }}
             >
-              <Typography
+              <Link
                 lineHeight={1}
-                color={'text.secondary'}
-                fontWeight={'bold'}
+                href={`${HANDBOOKS.href}/${slug}`}
+                textDecoration={'none'}
+                _hover={{
+                  textDecoration: 'underline'
+                }}
               >
                 {name}
-              </Typography>
+              </Link>
               <Box w={'100%'} borderBottom={'secondary'}></Box>
-              <Typography color={'text.dimmed'} fontSize={'sm'} lineHeight={1}>
+              <Typography lineHeight={1} color={'text.dimmed'} fontSize={'sm'}>
                 {updatedAt}
               </Typography>
-            </Link>
+            </Grid>
           )
         })}
       </Stack>

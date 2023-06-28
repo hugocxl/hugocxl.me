@@ -1,4 +1,5 @@
 export * from './app-shell'
+export * from './article'
 export * from './box'
 export * from './button'
 export * from './container'

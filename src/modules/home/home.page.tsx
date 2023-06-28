@@ -61,9 +61,8 @@ export const Home: NextPage = () => {
       >
         <span style={{ fontFamily: 'Menlo' }}>@hugoclx</span>
         <Typography color={'text.dimmed'} fontSize={28} lineHeight={1.2}>
-          creative software engineer.{' '}
-          <b>passionate to craft amazing digital products. </b>
-          6+ years of experience offering high-impact web solutions
+          creative software engineer.
+          <b> passionate to craft amazing digital products</b>
         </Typography>
 
         <Stack direction={'row'}>
@@ -77,8 +76,8 @@ export const Home: NextPage = () => {
             </button>
           </a>
           <a
-            href={'https://github.com/hcorta'}
-            title={'GitHub @hcorta'}
+            href={'https://github.com/hugocxl'}
+            title={'GitHub @hugocxl'}
             target={'_blank'}
           >
             <button>
@@ -86,8 +85,8 @@ export const Home: NextPage = () => {
             </button>
           </a>
           <a
-            href={'https://twitter.com/hcorta'}
-            title={'Twitter @hcorta'}
+            href={'https://twitter.com/hugocxl'}
+            title={'Twitter @hugocxl'}
             target={'_blank'}
           >
             <button>
@@ -95,8 +94,8 @@ export const Home: NextPage = () => {
             </button>
           </a>
           <a
-            href={'https://www.linkedin.com/in/hugocorta'}
-            title={'LinkedIn @hugocorta'}
+            href={'https://www.linkedin.com/in/hugocxl'}
+            title={'LinkedIn @hugocxl'}
             target={'_blank'}
           >
             <button>

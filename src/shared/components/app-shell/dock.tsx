@@ -1,7 +1,7 @@
 'use client'
 
 // Components
-import { Button, Stack, Link, Box } from '@/shared/components'
+import { Button, Stack, Link, Image } from '@/shared/components'
 
 // Constants
 import { PAGES } from '@/shared/constants'
@@ -9,19 +9,18 @@ import { css } from '@/shared/styles'
 
 // Types
 import { Page } from '@/shared/types'
-import { IconMoon, IconSun } from '@tabler/icons'
+// import { IconMoon, IconSun } from '@tabler/icons'
 
 // Hooks
-import { useState, useEffect, useRef, MutableRefObject, Fragment } from 'react'
-
-const isBrowser = () =>
-  typeof window !== 'undefined' && typeof document !== 'undefined'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect, useRef, MutableRefObject } from 'react'
 
 export function Dock() {
   const parentRef = useRef<HTMLDivElement>()
-  const [update, setUpdate] = useState(0)
   const [scrollDirection, setScrollDirection] = useState('up')
   const [horizontalHover, setHorizontalHover] = useState<false | number>(false)
+  const pathname = usePathname()
+  console.log(horizontalHover)
 
   function onMouseOver(event) {
     const containerWidth = parentRef.current.offsetWidth
@@ -55,18 +54,19 @@ export function Dock() {
 
   return (
     <Stack
+      onMouseMove={onMouseOver}
+      onMouseLeave={() => setHorizontalHover(false)}
       shadow={'lg'}
       ref={parentRef}
-      onMouseOver={onMouseOver}
-      onMouseLeave={() => setHorizontalHover(false)}
+      maxWidth={'100%'}
       p={'sm'}
-      maxHeight={56}
+      maxHeight={60}
       bottom={20}
       bg={'bg.dock'}
       borderRadius={'200px'}
       border={'primary'}
       backdropFilter={'blur(8px)'}
-      transition={'all 0.2s ease-in-out'}
+      transition={'all 0.1s ease'}
       direction={'row'}
       transformOrigin={'center bottom'}
       position={'fixed'}
@@ -77,45 +77,31 @@ export function Dock() {
           ? 'translateX(-50%)'
           : 'translateX(-50%) translateY(calc(100% + 22px))'
       }
-      _hover={{
-        '& button': {
-          bg: 'bg.dockButtonHover'
-        }
-      }}
-      _before={{
-        width: '100%',
-        height: '1px',
-        content: '""',
-        position: 'absolute',
-        top: -1,
-        zIndex: -1,
-        left: 0,
-        background:
-          'linear-gradient(to right, transparent, rgba(255,255,255,0.2) 70%, transparent)'
-      }}
     >
-      <Stack direction={'row'} align={'flex-end'}>
+      <Stack zIndex={1} direction={'row'} align={'flex-end'}>
         {PAGES.map(page => {
           return (
-            <NavButton
-              {...page}
-              update={update}
+            <Link
               key={page.title}
-              onClick={() => {
-                setUpdate(prev => prev + 1)
-              }}
-              horizontalHover={horizontalHover}
-              parentRef={parentRef}
-            />
+              href={page.href}
+              title={page.title}
+              textDecoration={'none'}
+            >
+              <NavButton
+                {...page}
+                isActive={pathname === page.href}
+                horizontalHover={horizontalHover}
+                parentRef={parentRef}
+              />
+            </Link>
           )
         })}
-        <Box h={'100%'} borderRight={'primary'} />
+        {/* <Box h={'100%'} borderRight={'primary'} />
         <NavButton
-          update={update}
           title={'Theme'}
-          // icon={IconMoon}
           icon={(() => {
             if (!isBrowser()) return IconSun
+
             const htmlElement = document.querySelector('html')
             const theme = htmlElement.getAttribute('data-theme-mode')
             const isDarkMode = theme === 'dark'
@@ -125,6 +111,7 @@ export function Dock() {
           parentRef={parentRef}
           onClick={() => {
             if (!isBrowser()) return
+
             const htmlElement = document.querySelector('html')
             const theme = htmlElement.getAttribute('data-theme-mode')
             const isDarkMode = theme === 'dark'
@@ -132,9 +119,8 @@ export function Dock() {
               'data-theme-mode',
               isDarkMode ? 'light' : 'dark'
             )
-            setUpdate(prev => prev + 1)
           }}
-        />
+        /> */}
       </Stack>
     </Stack>
   )
@@ -144,23 +130,22 @@ interface NavButtonProps {
   icon: Page['icon']
   title: Page['title']
   href?: string
-  update: number
+  isActive?: boolean
   onClick?: () => void
   horizontalHover: false | number
   parentRef: MutableRefObject<HTMLDivElement>
 }
 
 function NavButton({
-  href,
+  icon,
   title,
-  icon: Icon,
   onClick,
   horizontalHover,
-  parentRef
+  parentRef,
+  isActive
 }: NavButtonProps) {
   const childRef = useRef<HTMLDivElement>()
-  const { iconSize, ...rest } = getTransform()
-  const Wrapper = href ? Link : Fragment
+  const { ...rest } = getTransform()
 
   function getTransform() {
     if (!horizontalHover || !childRef.current || !parentRef.current)
@@ -178,12 +163,10 @@ function NavButton({
       ? horizontalHover - itemCenter
       : itemCenter - horizontalHover
     const x = Number((100 - itemToScroll) / 100)
-    const isBelowMin = x * 2 > 1
-    const scale = isBelowMin ? 2 * x : 1
-    const iconSize = isBelowMin ? 100 - scale * 20 : 100
+    const isAboveMin = x * 2 > 1
+    const scale = isAboveMin ? 2 * x : 1
 
     return {
-      iconSize,
       width: scale * 38,
       height: scale * 38
     }
@@ -192,50 +175,60 @@ function NavButton({
   return (
     <div
       onClick={onClick}
-      key={href}
       ref={childRef}
       style={{
+        transition: 'all 0.1s ease',
         transformOrigin: 'center bottom',
-        transition: 'all 0.2s ease',
         ...rest
       }}
     >
-      <Wrapper
+      <Button
+        p={'sm'}
         h={'100%'}
         w={'100%'}
-        transition={'all 0.2s ease'}
-        href={href}
-        title={title}
-        textDecoration={'none'}
+        background={'bg.dock-button'}
+        overflow={'hidden'}
+        // background={'transparent'}
+        borderRadius={'sm'}
+        position={'relative'}
+        transformOrigin={'center bottom'}
+        transition={'all 0.1s ease'}
       >
-        <Button
-          p={'sm'}
-          h={'100%'}
-          w={'100%'}
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          background={'bg.dockButton'}
-          transition={'all 0.2s ease'}
-          borderRadius={'50%'}
-          position={'relative'}
-          transformOrigin={'center bottom'}
-
-          // color={
-          //   (href === '/'
-          //     ? window.location.pathname === '/'
-          //     : window.location.pathname.includes(href)) && 'text.primary'
-          // }
-        >
-          <Icon
-            strokeWidth={1}
-            size={`${iconSize}%`}
-            className={css({
-              transition: 'all 0.2s ease'
-            })}
-          />
-        </Button>
-      </Wrapper>
+        <div
+          className={css({
+            background: 'text.primary',
+            borderRadius: '50%',
+            position: 'absolute',
+            content: '""',
+            width: 4,
+            height: 4,
+            bottom: -6
+          })}
+          style={{
+            opacity: isActive ? 1 : 0
+          }}
+        />
+        <Image
+          opacity={0.5}
+          position={'absolute'}
+          top={0}
+          zIndex={1}
+          filter={'blur(10px)'}
+          alt={title}
+          src={icon}
+          height={'100%'}
+          width={'100%'}
+          transition={'all 0.1s ease'}
+        />
+        <Image
+          zIndex={2}
+          alt={title}
+          src={icon}
+          height={'100%'}
+          width={'100%'}
+          transition={'all 0.1s ease'}
+        />
+      </Button>
     </div>
   )
 }

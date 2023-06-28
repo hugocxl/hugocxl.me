@@ -1,12 +1,12 @@
 {
-  "name": "hugocorta.com",
+  "name": "hugocxl.me",
   "version": "2.7.5",
   "private": true,
   "description": "My personal site",
-  "homepage": "https://hugocorta.com",
+  "homepage": "https://hugocxl.me",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hcorta/hugocorta"
+    "url": "https://github.com/hugocxl/hugocxl.me"
   },
   "scripts": {
     "dev": "rm -rf .next && next dev",

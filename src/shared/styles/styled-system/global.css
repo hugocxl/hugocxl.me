@@ -53,6 +53,9 @@
     padding: var(--spacing-sm);
     border-radius: var(--radii-sm);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   a {
@@ -122,9 +125,9 @@
     margin-bottom: 0.25rem;
   }
 
-  ::-selection {
+  ::selection {
     color: black;
-    background-color: yellow;
+    background: var(--colors-primary);
   }
 
   ::-webkit-scrollbar {

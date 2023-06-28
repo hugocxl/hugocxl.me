@@ -20,7 +20,7 @@ export function Page({
   ...props
 }: AppShellProps) {
   return (
-    <Container py={'15vh'} {...props}>
+    <Container py={'15vh'} px={'md'} {...props}>
       {(title || description || cover) && (
         <Stack mb={'lg'} gap={0}>
           {title && <Title m={0}>{title}</Title>}

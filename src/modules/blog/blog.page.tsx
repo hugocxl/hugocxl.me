@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { BLOG } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Box } from '@/shared/components'
+import { Link, Stack, Typography, Page, Box, Grid } from '@/shared/components'
 
 export const revalidate = 86400 * 3
 export const metadata: Metadata = {
@@ -20,38 +20,31 @@ export async function Blog() {
   const posts = await notionClient.getDatabase(process.env.NOTION_BLOG_DB_ID)
 
   return (
-    <Page>
-      <Stack gap={'sm'}>
+    <Page title={BLOG.title}>
+      <Stack gap={'lg'}>
         {posts.map(({ name, slug, updatedAt }) => {
           return (
-            <Link
+            <Grid
               key={slug}
-              href={`${BLOG.href}/${slug}`}
-              p={'md'}
-              gap={'xs'}
-              transition={'all 0.2s ease'}
-              rounded={'sm'}
-              textDecoration={'none'}
-              fontWeight={'normal'}
-              display={'grid'}
+              gap={'sm'}
               gridTemplateColumns={'auto 1fr auto'}
               alignItems={'flex-end'}
-              _hover={{
-                bg: 'bg.secondary'
-              }}
             >
-              <Typography
+              <Link
                 lineHeight={1}
-                color={'text.secondary'}
-                fontWeight={'bold'}
+                href={`${BLOG.href}/${slug}`}
+                textDecoration={'none'}
+                _hover={{
+                  textDecoration: 'underline'
+                }}
               >
                 {name}
-              </Typography>
+              </Link>
               <Box w={'100%'} borderBottom={'secondary'}></Box>
-              <Typography color={'text.dimmed'} fontSize={'sm'} lineHeight={1}>
+              <Typography lineHeight={1} color={'text.dimmed'} fontSize={'sm'}>
                 {updatedAt}
               </Typography>
-            </Link>
+            </Grid>
           )
         })}
       </Stack>

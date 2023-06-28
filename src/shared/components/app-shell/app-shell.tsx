@@ -11,7 +11,7 @@ interface AppShellProps {
 
 export function AppShell(props: AppShellProps) {
   return (
-    <styled.main position={'relative'} p={'sm'}>
+    <styled.main position={'relative'}>
       {props.children}
       <Dock />
     </styled.main>

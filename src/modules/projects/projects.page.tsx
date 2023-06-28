@@ -23,13 +23,13 @@ export async function Projects() {
   )
 
   return (
-    <Page>
+    <Page title={PROJECTS.title}>
       <Stack>
         {projects.map(({ id, name, content, description, createdAt }) => {
           return (
             <Stack key={id} mb={100}>
               <Box
-                gap={'xs'}
+                gap={'sm'}
                 transition={'all 0.2s ease'}
                 rounded={'sm'}
                 textDecoration={'none'}

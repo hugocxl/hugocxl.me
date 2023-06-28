@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 
 export const About: NextPage = () => {
   return (
-    <Page>
+    <Page title={ABOUT.title}>
       <p>
-        Hi, I'm Hugo. Most folks know me as <b>hcorta</b> online.
+        Hi, I'm Hugo. Most folks know me as <b>hugocxl</b> online.
       </p>
 
       <p>
@@ -51,8 +51,8 @@ export const About: NextPage = () => {
           </button>
         </Link>
         <Link
-          href={'https://github.com/hcorta'}
-          title={'GitHub @hcorta'}
+          href={'https://github.com/hugocxl'}
+          title={'GitHub @hugocxl'}
           target={'_blank'}
         >
           <button>
@@ -60,8 +60,8 @@ export const About: NextPage = () => {
           </button>
         </Link>
         <Link
-          href={'https://twitter.com/hcorta'}
-          title={'Twitter @hcorta'}
+          href={'https://twitter.com/hugocxl'}
+          title={'Twitter @hugocxl'}
           target={'_blank'}
         >
           <button>

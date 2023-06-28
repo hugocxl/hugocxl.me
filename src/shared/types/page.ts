@@ -1,8 +1,8 @@
-import { TablerIcon } from '@tabler/icons'
+import { StaticImageData } from 'next/image'
 
 export interface Page {
   title: string
   href: string
-  icon: TablerIcon
+  icon: StaticImageData
   description: string
 }

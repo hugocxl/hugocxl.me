@@ -8,7 +8,7 @@ import { githubAdapters } from './github-client.adapters'
 import { Repository } from '@/shared/types/repository'
 import { ResponseRepository } from './github-client.types'
 
-const githubUsername = 'hcorta'
+const githubUsername = 'hugocxl'
 
 export const githubClient = {
   _starredReposCache: [],
