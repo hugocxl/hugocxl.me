@@ -1,13 +1,8 @@
-# hugOS
+# hugocxl.me
 
-Mi personal website, hosted at [hugocorta.com](https://hugocorta.com)
+Mi personal website, hosted at [hugocxl.me](https://hugocxl.me)
 
 - **Framework**: [Next.js](https://nextjs.org/)
+- **Styles**: [Panda](https://panda-css.com/docs)
 - **CMS**: [Notion](https://notion.so)
-- **UI Components**: [Mantine](https://mantine.dev/)
 - **E2E Test**: [Cypress](https://www.cypress.io/)
-- **Unit Test**: [Jest](https://www.jestjs.io/)
-
----
-
-![Preview](/public/img/preview.png)
