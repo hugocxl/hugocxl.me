@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { STACK } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
+import { Link, Stack, Typography, Page } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
@@ -38,20 +38,28 @@ export async function StackPage() {
 
           <Stack gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (
-              <Grid key={name} gap={'sm'} columns={2} alignItems={'flex-start'}>
-                <Link
-                  textDecoration={'none'}
-                  href={link}
-                  _hover={{
-                    textDecoration: 'underline'
-                  }}
+              <Link
+                borderRadius={'md'}
+                display={'grid'}
+                gap={'md'}
+                gridTemplateColumns={'1fr 1fr'}
+                alignItems={'flex-start'}
+                textDecoration={'none'}
+                key={link}
+                href={link}
+                _hover={{
+                  opacity: 0.7
+                }}
+              >
+                <Typography>{name}</Typography>
+                <Typography
+                  fontWeight={'medium'}
+                  color={'text.dimmed'}
+                  fontSize={'sm'}
                 >
-                  {name}
-                </Link>
-                <Typography color={'text.dimmed'} fontSize={'sm'}>
                   {description}
                 </Typography>
-              </Grid>
+              </Link>
             ))}
           </Stack>
         </div>

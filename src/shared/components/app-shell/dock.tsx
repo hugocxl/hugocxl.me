@@ -1,7 +1,9 @@
 'use client'
 
 // Components
-import { Button, Stack, Link, Image } from '@/shared/components'
+import { Button, Stack, Link, Image, Box } from '@/shared/components'
+import IconDark from '../../../../public/icons/dark.png'
+import IconLight from '../../../../public/icons/light.png'
 
 // Constants
 import { PAGES } from '@/shared/constants'
@@ -9,11 +11,13 @@ import { css } from '@/shared/styles'
 
 // Types
 import { Page } from '@/shared/types'
-// import { IconMoon, IconSun } from '@tabler/icons'
 
 // Hooks
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef, MutableRefObject } from 'react'
+
+const isBrowser = () =>
+  typeof window !== 'undefined' && typeof document !== 'undefined'
 
 export function Dock() {
   const parentRef = useRef<HTMLDivElement>()
@@ -95,19 +99,19 @@ export function Dock() {
             </Link>
           )
         })}
-        {/* <Box h={'100%'} borderRight={'primary'} />
+        <Box h={'100%'} borderRight={'primary'} />
         <NavButton
           title={'Theme'}
+          horizontalHover={horizontalHover}
+          parentRef={parentRef}
           icon={(() => {
-            if (!isBrowser()) return IconSun
+            if (!isBrowser()) return IconDark
 
             const htmlElement = document.querySelector('html')
             const theme = htmlElement.getAttribute('data-theme-mode')
             const isDarkMode = theme === 'dark'
-            return isDarkMode ? IconSun : IconMoon
+            return isDarkMode ? IconDark : IconLight
           })()}
-          horizontalHover={horizontalHover}
-          parentRef={parentRef}
           onClick={() => {
             if (!isBrowser()) return
 
@@ -119,7 +123,7 @@ export function Dock() {
               isDarkMode ? 'light' : 'dark'
             )
           }}
-        /> */}
+        />
       </Stack>
     </Stack>
   )
@@ -144,7 +148,7 @@ function NavButton({
   isActive
 }: NavButtonProps) {
   const childRef = useRef<HTMLDivElement>()
-  const { ...rest } = getTransform()
+  const styleProps = getTransform()
 
   function getTransform() {
     if (!horizontalHover || !childRef.current || !parentRef.current)
@@ -178,7 +182,7 @@ function NavButton({
       style={{
         transition: 'all 0.1s ease',
         transformOrigin: 'center bottom',
-        ...rest
+        ...styleProps
       }}
     >
       <Button
@@ -187,18 +191,19 @@ function NavButton({
         w={'100%'}
         background={'bg.dock-button'}
         overflow={'hidden'}
-        // background={'transparent'}
-        borderRadius={'sm'}
+        borderRadius={'50%'}
         position={'relative'}
         transformOrigin={'center bottom'}
         transition={'all 0.1s ease'}
+        _active={{
+          transform: 'translateY(-10%)'
+        }}
       >
         <div
           className={css({
             background: 'text.primary',
             borderRadius: '50%',
             position: 'absolute',
-            content: '""',
             width: 4,
             height: 4,
             bottom: -6
@@ -208,18 +213,7 @@ function NavButton({
           }}
         />
         <Image
-          opacity={0.5}
-          position={'absolute'}
-          top={0}
-          zIndex={1}
-          filter={'blur(10px)'}
-          alt={title}
-          src={icon}
-          height={'100%'}
-          width={'100%'}
-          transition={'all 0.1s ease'}
-        />
-        <Image
+          pointerEvents={'none'}
           zIndex={2}
           alt={title}
           src={icon}

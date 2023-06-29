@@ -22,9 +22,10 @@ export async function Radar() {
 
   return (
     <Page maxWidth={'80dvw'} title={RADAR.title}>
-      <Box columns={'320px'} gap={'sm'}>
+      <Box columns={'320px'} gap={'md'}>
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link
+            shadow={'sm'}
             position={'relative'}
             key={href}
             href={href}
@@ -37,32 +38,26 @@ export async function Radar() {
             justifyContent={'flex-end'}
             border={'primary'}
             rounded={'sm'}
-            marginBottom={'sm'}
+            marginBottom={'md'}
             overflow={'hidden'}
             fontWeight={'normal'}
-            _hover={{
-              transform: 'scale(1.02)'
+            _after={{
+              width: '100%',
+              height: '100%',
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              opacity: 1,
+              zIndex: -1,
+              background:
+                'linear-gradient(to bottom left, transparent 0%, var(--colors-bg-primary) 100%)'
             }}
-            _focus={{
-              transform: 'scale(1.02)'
-            }}
-            // _after={{
-            //   width: '100%',
-            //   height: '100%',
-            //   content: '""',
-            //   position: 'absolute',
-            //   top: 0,
-            //   left: 0,
-            //   opacity: 1,
-            //   zIndex: -1,
-            //   background:
-            //     'linear-gradient(to bottom, transparent 0%, var(--colors-bg-primary) 100%)'
-            // }}
           >
             <Image
               rounded={0}
-              opacity={1}
-              filter={'blur(80px)'}
+              opacity={0.7}
+              filter={'blur(40px)'}
               h={'100%'}
               w={'100%'}
               src={cover}
@@ -100,7 +95,7 @@ export async function Radar() {
                     {stars}
                   </Typography>
                   <Typography
-                    color={'text.tertiary'}
+                    color={'text.secondary'}
                     fontSize={'sm'}
                     fontWeight={'bold'}
                   >
@@ -111,7 +106,7 @@ export async function Radar() {
               <Typography color={'text.primary'} fontWeight={'bold'} mt={'md'}>
                 {name.split('/')[1]}
               </Typography>
-              <Typography fontSize={'sm'} color={'text.tertiary'}>
+              <Typography fontSize={'sm'} color={'text.secondary'}>
                 {description}
               </Typography>
             </Box>

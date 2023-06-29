@@ -29,32 +29,26 @@ export async function Projects() {
           return (
             <Stack key={id} mb={100}>
               <Box
-                gap={'sm'}
+                gap={'md'}
                 transition={'all 0.2s ease'}
                 rounded={'sm'}
                 textDecoration={'none'}
                 fontWeight={'normal'}
                 display={'grid'}
                 gridTemplateColumns={'auto 1fr auto'}
-                alignItems={'flex-end'}
+                alignItems={'center'}
               >
-                <Typography
-                  lineHeight={1}
-                  color={'text.primary'}
-                  fontWeight={'bold'}
-                >
+                <Typography color={'text.primary'} fontWeight={'bold'}>
                   {name}
                 </Typography>
                 <Box w={'100%'} borderBottom={'secondary'} />
-                <Typography
-                  color={'text.dimmed'}
-                  fontSize={'sm'}
-                  lineHeight={1}
-                >
+                <Typography color={'text.dimmed'} fontSize={'sm'}>
                   {createdAt}
                 </Typography>
               </Box>
-              <Typography mb={'lg'}>{description}</Typography>
+              <Typography color={'text.dimmed'} mb={'lg'}>
+                {description}
+              </Typography>
               {/* <Image height={'20vh'} mb={'lg'} src={cover} alt={name} /> */}
               <NotionRenderer content={content} />
             </Stack>

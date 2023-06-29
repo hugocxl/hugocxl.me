@@ -64,8 +64,8 @@
     --colors-bg-dock: rgba(255, 255, 255, 0.1);
     --colors-bg-dock-button: linear-gradient(
       10deg,
-      rgba(20, 20, 20, 1),
-      rgba(50, 50, 50, 1)
+      rgba(70, 70, 70, 1),
+      rgba(110, 110, 110, 1)
     );
     --colors-border-primary: rgba(255, 255, 255, 0.085);
     --colors-border-secondary: rgba(255, 255, 255, 0.06);

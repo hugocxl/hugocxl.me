@@ -81,14 +81,13 @@ export const About: NextPage = () => {
 
       <h2>{"What I'm doing now"}</h2>
       <p>
-        🌟 Combining my passions into one exciting journey, I run a blog where I
-        share captivating posts and handbooks on a wide range of topics that
-        spark my interest. Alongside this, my love for software development
-        drives me to create open-source software and libraries, contributing to
-        the thriving developer community. As a natural educator, I also find joy
-        in teaching web development at Ironhack, sharing my knowledge and
-        empowering aspiring developers to embark on their own digital
-        adventures. 🚀
+        On this website I share captivating posts and handbooks on a wide range
+        of topics that spark my interest. Alongside this, my love for software
+        development drives me to collaborate on open-source software and
+        libraries, contributing to the thriving developer community. As a
+        natural educator, I also find joy in teaching web development at
+        Ironhack, sharing my knowledge and empowering aspiring developers to
+        embark on their own digital adventures.
       </p>
 
       <h2>{'Principles'}</h2>
@@ -107,18 +106,17 @@ export const About: NextPage = () => {
 
       <h2>{'Random Facts'}</h2>
       <p>
-        I've lived in 5 different cities and I embrace an active lifestyle by
-        practicing sports daily. Weight lifting is my favorite, but I also find
-        joy in running, cycling, and exploring various other sports. With two
-        degrees in construction (Architectural Engineer and Civil Engineer), I
-        spent some years working in the field before transitioning into the
-        realm of development. When it comes to literature, sci-fi books like
-        Dune, The Foundation, and The Three Body Problem series captivate my
-        imagination. Additionally, I possess a knack for Photoshop, and while my
-        guitar skills are modest from learning at the age of 13, I still enjoy
-        playing. In my younger days, one of my beloved hobbies was creating
-        electronic music, although I shifted my focus to other interests a few
-        years ago.
+        I embrace an active lifestyle by practicing sports daily. Weight lifting
+        is my favorite, but I also find joy in running, cycling, and exploring
+        various other sports. With two degrees in construction (Architectural
+        Engineer and Civil Engineer), I spent some years working in the field
+        before transitioning into the realm of development. When it comes to
+        literature, sci-fi books like Dune, The Foundation, and The Three Body
+        Problem series captivate my imagination. Additionally, I possess a knack
+        for Photoshop, and while my guitar skills are modest from learning at
+        the age of 13, I still enjoy playing. In my younger days, one of my
+        beloved hobbies was creating electronic music, although I shifted my
+        focus to other interests a few years ago.
       </p>
 
       <h2>{'Experience'}</h2>

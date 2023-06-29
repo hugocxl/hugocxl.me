@@ -62,7 +62,7 @@
     color: var(--colors-text-secondary);
     font-weight: var(--font-weights-bold);
     text-decoration: underline;
-    text-decoration-color: var(--colors-text-dimmed);
+    text-decoration-color: var(--colors-border-primary);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
   }
@@ -153,7 +153,6 @@
   }
 
   a:hover {
-    color: var(--colors-text-primary);
-    text-decoration: none;
+    color: var(--colors-text-dimmed);
   }
 }

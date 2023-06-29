@@ -1,6 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
-import { Rubik } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 // Types
 import { ReactNode } from 'react'
@@ -23,7 +23,16 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   applicationName: 'hugocxl',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'TDD', 'DDD'],
+  keywords: [
+    'hugocxl',
+    'Hugo Corta',
+    'Next.js',
+    'React',
+    'JavaScript',
+    'TypeScript',
+    'TDD',
+    'DDD'
+  ],
   creator: 'Hugo Corta',
   publisher: 'Hugo Corta',
   formatDetection: {
@@ -46,7 +55,10 @@ export const metadata: Metadata = {
   }
 }
 
-const inter = Rubik({ subsets: ['latin'], weight: ['400', '500', '600'] })
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600']
+})
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

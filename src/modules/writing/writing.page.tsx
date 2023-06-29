@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { BLOG, HANDBOOKS, WRITING } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Box, Grid } from '@/shared/components'
+import { Link, Stack, Typography, Page } from '@/shared/components'
 import { styled } from '@/shared/styles'
 
 export const revalidate = 86400 * 3
@@ -28,7 +28,7 @@ export async function Writing() {
       <styled.h2 mt={0} mb={'md'}>
         {HANDBOOKS.title}
       </styled.h2>
-      <Stack gap={'lg'}>
+      <Stack gap={'md'}>
         {handbooks.map(handbook => (
           <Item
             key={handbook.id}
@@ -40,7 +40,7 @@ export async function Writing() {
       <styled.h2 mt={60} mb={'md'}>
         {BLOG.title}
       </styled.h2>
-      <Stack gap={'lg'}>
+      <Stack gap={'md'}>
         {posts.map(post => (
           <Item
             key={post.id}
@@ -56,31 +56,30 @@ export async function Writing() {
 function Item({
   name,
   href,
-  updatedAt
+  description
 }: {
   name: string
   href: string
-  updatedAt: string
+  description: string
 }) {
   return (
-    <Grid
+    <Link
+      borderRadius={'md'}
+      display={'grid'}
       gap={'md'}
-      gridTemplateColumns={'auto 1fr auto'}
-      alignItems={'center'}
+      gridTemplateColumns={'1fr 1fr'}
+      alignItems={'flex-start'}
+      textDecoration={'none'}
+      key={href}
+      href={href}
+      _hover={{
+        opacity: 0.7
+      }}
     >
-      <Link
-        href={href}
-        textDecoration={'none'}
-        _hover={{
-          textDecoration: 'underline'
-        }}
-      >
-        {name}
-      </Link>
-      <Box w={'100%'} borderBottom={'secondary'}></Box>
-      <Typography color={'text.dimmed'} fontSize={'sm'}>
-        {updatedAt}
+      <Typography>{name}</Typography>
+      <Typography fontWeight={'medium'} color={'text.dimmed'} fontSize={'sm'}>
+        {description}
       </Typography>
-    </Grid>
+    </Link>
   )
 }

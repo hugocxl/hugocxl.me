@@ -3,7 +3,6 @@ import { Page, Pages } from '@/shared/types'
 
 import IconHome from '../../../public/icons/home.png'
 import IconBlog from '../../../public/icons/blog.png'
-import IconHandbooks from '../../../public/icons/handbooks.png'
 import IconProjects from '../../../public/icons/projects.png'
 import IconStack from '../../../public/icons/stack.png'
 import IconRadar from '../../../public/icons/radar.png'
@@ -33,7 +32,7 @@ export const BLOG: Page = {
 export const HANDBOOKS: Page = {
   title: 'Handbooks',
   href: '/handbooks',
-  icon: IconHandbooks,
+  icon: IconBlog,
   description: 'My guides on different topics'
 }
 

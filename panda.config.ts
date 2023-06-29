@@ -84,7 +84,7 @@ const semanticTokens = defineSemanticTokens({
       'dock-button': {
         value: {
           base: 'linear-gradient(10deg, rgba(230,230,230,1), rgba(250,250,250,1))',
-          _dark: 'linear-gradient(10deg, rgba(20,20,20,1), rgba(50,50,50,1))'
+          _dark: 'linear-gradient(10deg, rgba(70,70,70,1), rgba(110,110,110,1))'
         }
       }
     },
@@ -140,12 +140,11 @@ const globalCss = defineGlobalStyles({
     color: 'text.secondary',
     fontWeight: 'bold',
     textDecoration: 'underline',
-    textDecorationColor: 'text.dimmed',
+    textDecorationColor: 'border.primary',
     textDecorationThickness: 2,
     textUnderlineOffset: 3,
     '&:hover': {
-      color: 'text.primary',
-      textDecoration: 'none'
+      color: 'text.dimmed'
     }
   },
   ul: {
