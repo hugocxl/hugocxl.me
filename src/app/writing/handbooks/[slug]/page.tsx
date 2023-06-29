@@ -1,6 +1,6 @@
 export {
   Handbook as default,
   revalidate,
-  metadata,
+  generateMetadata,
   generateStaticParams
-} from '@/modules/handbooks/handbook.page'
+} from '@/modules/handbooks'

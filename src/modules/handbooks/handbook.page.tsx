@@ -5,7 +5,7 @@ import { notionClient } from '@/shared/lib'
 import { getPageParams } from '@/shared/utils'
 
 // Constants
-import { HANDBOOKS } from '@/shared/constants'
+import { WRITING } from '@/shared/constants'
 
 // Types
 import { Metadata } from 'next'
@@ -14,9 +14,6 @@ import { Metadata } from 'next'
 import { Article } from '@/shared/components'
 
 export const revalidate = 86400 * 3
-export const metadata: Metadata = {
-  title: HANDBOOKS.title
-}
 
 export async function generateStaticParams() {
   const posts = await notionClient.getDatabase(
@@ -27,11 +24,23 @@ export async function generateStaticParams() {
   return params
 }
 
-export async function Handbook({ params }) {
-  const [article] = await notionClient.getPage(
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const article = await notionClient.getDatabaseItem(
     process.env.NOTION_HANDBOOKS_DB_ID,
     params.slug
   )
 
-  return <Article goBackHref={HANDBOOKS.href} {...article} />
+  return {
+    title: article.name,
+    description: article.description
+  }
+}
+
+export async function Handbook({ params }) {
+  const article = await notionClient.getPage(
+    process.env.NOTION_HANDBOOKS_DB_ID,
+    params.slug
+  )
+
+  return <Article goBackHref={WRITING.href} {...article} />
 }

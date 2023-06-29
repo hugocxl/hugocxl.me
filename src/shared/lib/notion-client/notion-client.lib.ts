@@ -46,19 +46,25 @@ export const notionClient = {
 
     return output
   },
+  getDatabaseItem: async (
+    databaseId: string,
+    slug: string
+  ): Promise<NotionItem> => {
+    const collection = await notionClient.getDatabase(databaseId)
+    return collection.find(entry => entry.slug === slug)
+  },
   getPage: async (
     databaseId: string,
     slug: string
-  ): Promise<[ExtendedNotionItem, NotionItem[]]> => {
-    const collection = await notionClient.getDatabase(databaseId)
-    const item = collection.find(entry => entry.slug === slug)
+  ): Promise<ExtendedNotionItem> => {
+    const item = await notionClient.getDatabaseItem(databaseId, slug)
     const content = await notionUnofficialClient.getPage(item.id)
     const page = {
       ...item,
       content
     }
 
-    return [page, collection]
+    return page
   },
   getPages: async (databaseId: string): Promise<ExtendedNotionItem[]> => {
     const collection = await notionClient.getDatabase(databaseId)

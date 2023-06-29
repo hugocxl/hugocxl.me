@@ -16,6 +16,13 @@ export const HOME: Page = {
   description: ''
 }
 
+export const WRITING: Page = {
+  title: 'Writing',
+  href: '/writing',
+  icon: IconBlog,
+  description: "I write about stuff I'm interested in"
+}
+
 export const BLOG: Page = {
   title: 'Blog',
   href: '/blog',
@@ -62,8 +69,9 @@ export const ABOUT: Page = {
 
 export const PAGES: Pages = [
   HOME,
-  BLOG,
-  HANDBOOKS,
+  // BLOG,
+  // HANDBOOKS,
+  WRITING,
   PROJECTS,
   STACK,
   RADAR,
