@@ -32,15 +32,15 @@ const tokens = {
     variable: 'var(--radii-lg)'
   },
   'shadows.sm': {
-    value: '0 5px 10px rgba(0, 0, 0, 0.12)',
+    value: '0 2px 6px rgba(0, 0, 0, 0.12)',
     variable: 'var(--shadows-sm)'
   },
   'shadows.md': {
-    value: '0 8px 30px rgba(0, 0, 0, 0.12)',
+    value: '0 8px 16px rgba(0, 0, 0, 0.12)',
     variable: 'var(--shadows-md)'
   },
   'shadows.lg': {
-    value: '0 30px 60px rgba(0, 0, 0, 0.12)',
+    value: '0 16px 32px rgba(0, 0, 0, 0.12)',
     variable: 'var(--shadows-lg)'
   },
   'sizes.sm': {

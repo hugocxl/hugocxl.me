@@ -23,9 +23,9 @@ const tokens = defineTokens({
     lg: { value: '16px' }
   },
   shadows: {
-    sm: { value: '0 5px 10px rgba(0, 0, 0, 0.12)' },
-    md: { value: '0 8px 30px rgba(0, 0, 0, 0.12)' },
-    lg: { value: '0 30px 60px rgba(0, 0, 0, 0.12)' }
+    sm: { value: '0 2px 6px rgba(0, 0, 0, 0.12)' },
+    md: { value: '0 8px 16px rgba(0, 0, 0, 0.12)' },
+    lg: { value: '0 16px 32px rgba(0, 0, 0, 0.12)' }
   },
   sizes: {
     sm: { value: '4px' },

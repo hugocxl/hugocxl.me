@@ -79,10 +79,11 @@ export function Dock() {
       shadow={'lg'}
       ref={parentRef}
       maxWidth={'100%'}
-      p={'sm'}
-      maxHeight={50}
+      py={'sm'}
+      px={'md'}
+      maxHeight={46}
       overflow={{
-        base: 'unset',
+        base: 'visible',
         smDown: 'auto'
       }}
       bottom={{
@@ -117,7 +118,7 @@ export function Dock() {
           : 'translateX(-50%) translateY(calc(100% + 22px))'
       }
     >
-      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'sm'}>
+      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'md'}>
         {PAGES.map(page => {
           return (
             <Link
@@ -174,10 +175,10 @@ interface NavButtonProps {
 function NavButton({
   icon,
   title,
-  onClick,
   horizontalHover,
   parentRef,
-  isActive
+  isActive,
+  onClick
 }: NavButtonProps) {
   const childRef = useRef<HTMLDivElement>()
   const styleProps = getTransform()
@@ -186,7 +187,8 @@ function NavButton({
     if (!horizontalHover || !childRef.current || !parentRef.current)
       return {
         width: 28,
-        height: 28
+        height: 28,
+        borderRadius: 8
       }
 
     const parentRect = parentRef.current.getBoundingClientRect()
@@ -202,6 +204,7 @@ function NavButton({
     const scale = isAboveMin ? 2 * x : 1
 
     return {
+      borderRadius: scale * 8,
       width: scale * 28,
       height: scale * 28
     }
@@ -209,18 +212,19 @@ function NavButton({
 
   return (
     <div
+      onClick={onClick}
       ref={childRef}
-      style={{
+      style={styleProps}
+      className={css({
         position: 'relative',
         transition: 'all 0.1s ease',
         transformOrigin: 'center bottom',
-        ...styleProps
-      }}
+        cursor: 'pointer'
+      })}
     >
       <Image
-        onClick={onClick}
         transformOrigin={'center bottom'}
-        zIndex={2}
+        zIndex={3}
         alt={title}
         src={icon}
         height={'100%'}
@@ -232,13 +236,14 @@ function NavButton({
       />
       <div
         className={css({
-          background: 'text.primary',
+          background: 'text.secondary',
           borderRadius: '50%',
           position: 'absolute',
           width: 4,
           height: 4,
           bottom: -6,
-          left: '50%'
+          left: '50%',
+          transform: 'translateX(-50%)'
         })}
         style={{
           opacity: isActive ? 1 : 0

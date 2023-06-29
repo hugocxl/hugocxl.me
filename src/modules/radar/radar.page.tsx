@@ -21,8 +21,14 @@ export async function Radar() {
   const repos = await githubClient.getStarredRepos()
 
   return (
-    <Page maxWidth={'80dvw'} title={RADAR.title}>
-      <Box columns={'320px'} gap={'md'}>
+    <Page
+      title={RADAR.title}
+      maxWidth={{
+        smDown: '100%',
+        base: '80dvw'
+      }}
+    >
+      <Box columns={'320px'} w={'100%'}>
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link
             shadow={'sm'}
@@ -65,13 +71,12 @@ export async function Radar() {
               position={'absolute'}
               top={0}
               zIndex={-2}
+              display={{
+                _light: 'none',
+                _dark: 'block'
+              }}
             />
-            <Box
-              padding={'md'}
-              display={'flex'}
-              flexDirection={'column'}
-              // bg={'bg.secondary'}
-            >
+            <Box padding={'md'} display={'flex'} flexDirection={'column'}>
               <Stack direction={'row'} align={'center'}>
                 <Image
                   border={'primary'}
