@@ -31,5 +31,5 @@ export async function BlogPost({ params }) {
     params.slug
   )
 
-  return <Article {...article} />
+  return <Article goBackHref={BLOG.href} {...article} />
 }

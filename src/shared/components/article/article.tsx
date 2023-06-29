@@ -5,11 +5,13 @@ import { NotionRenderer } from '@/shared/components/notion-renderer'
 // Types
 import { ExtendedNotionItem } from '@/shared/types'
 
-type ArticleProps = ExtendedNotionItem
+interface ArticleProps extends ExtendedNotionItem {
+  goBackHref?: string
+}
 
-export function Article({ name, content }: ArticleProps) {
+export function Article({ name, content, goBackHref }: ArticleProps) {
   return (
-    <Page title={name}>
+    <Page title={name} goBackHref={goBackHref}>
       <NotionRenderer content={content} />
     </Page>
   )

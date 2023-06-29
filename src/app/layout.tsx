@@ -1,6 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 
 // Types
 import { ReactNode } from 'react'
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   }
 }
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Rubik({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -32,7 +32,9 @@ export async function StackPage() {
       const sortedGroup = sortBy(groupedStack[tag], 'name')
       render.push(
         <div key={tag}>
-          <styled.h2 mt={0}>{tag}</styled.h2>
+          <styled.h2 mt={0} mb={'md'}>
+            {tag}
+          </styled.h2>
 
           <Stack gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (

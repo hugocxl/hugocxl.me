@@ -22,7 +22,7 @@ export async function Radar() {
 
   return (
     <Page maxWidth={'80dvw'} title={RADAR.title}>
-      <Box columns={'360px'} gap={'sm'}>
+      <Box columns={'320px'} gap={'sm'}>
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link
             position={'relative'}
@@ -35,7 +35,7 @@ export async function Radar() {
             display={'flex'}
             flexDirection={'column'}
             justifyContent={'flex-end'}
-            border={'secondary'}
+            border={'primary'}
             rounded={'sm'}
             marginBottom={'sm'}
             overflow={'hidden'}
@@ -59,7 +59,7 @@ export async function Radar() {
             //     'linear-gradient(to bottom, transparent 0%, var(--colors-bg-primary) 100%)'
             // }}
           >
-            {/* <Image
+            <Image
               rounded={0}
               opacity={1}
               filter={'blur(80px)'}
@@ -70,7 +70,7 @@ export async function Radar() {
               position={'absolute'}
               top={0}
               zIndex={-2}
-            /> */}
+            />
             <Box
               padding={'md'}
               display={'flex'}

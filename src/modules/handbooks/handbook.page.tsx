@@ -33,5 +33,5 @@ export async function Handbook({ params }) {
     params.slug
   )
 
-  return <Article {...article} />
+  return <Article goBackHref={HANDBOOKS.href} {...article} />
 }

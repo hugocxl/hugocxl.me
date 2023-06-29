@@ -20,7 +20,6 @@ export function Dock() {
   const [scrollDirection, setScrollDirection] = useState('up')
   const [horizontalHover, setHorizontalHover] = useState<false | number>(false)
   const pathname = usePathname()
-  console.log(horizontalHover)
 
   function onMouseOver(event) {
     const containerWidth = parentRef.current.offsetWidth
