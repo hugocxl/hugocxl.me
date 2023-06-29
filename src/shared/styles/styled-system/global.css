@@ -152,6 +152,11 @@
     background-color: var(--colors-bg-secondary);
   }
 
+  button:hover {
+    color: var(--colors-text-secondary);
+    background: var(--colors-bg-secondary);
+  }
+
   a:hover {
     color: var(--colors-text-dimmed);
   }

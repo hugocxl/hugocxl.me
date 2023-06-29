@@ -11,6 +11,7 @@ interface ImageProps extends JsxStyleProps {
   src: NextImageProps['src']
   alt: NextImageProps['alt']
   objectFit?: StandardLonghandProperties['objectFit']
+  onClick?: () => void
 }
 
 export const Image = ({

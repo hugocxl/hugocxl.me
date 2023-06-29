@@ -72,7 +72,7 @@ const semanticTokens = defineSemanticTokens({
       button: {
         value: {
           base: 'hsl(0 0% 94%)',
-          _dark: 'hsl(0 0% 13.7%)'
+          _dark: 'hsl(0 0% 15%)'
         }
       },
       dock: {
@@ -134,7 +134,11 @@ const globalCss = defineGlobalStyles({
     cursor: 'pointer',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    '&:hover': {
+      color: 'text.secondary',
+      bg: 'bg.secondary'
+    }
   },
   a: {
     color: 'text.secondary',

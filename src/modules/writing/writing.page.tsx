@@ -32,7 +32,7 @@ export async function Writing() {
         {handbooks.map(handbook => (
           <Item
             key={handbook.id}
-            href={`${WRITING.href}/${HANDBOOKS.href}/${handbook.slug}`}
+            href={`${HANDBOOKS.href}/${handbook.slug}`}
             {...handbook}
           />
         ))}
@@ -42,11 +42,7 @@ export async function Writing() {
       </styled.h2>
       <Stack gap={'md'}>
         {posts.map(post => (
-          <Item
-            key={post.id}
-            href={`${WRITING.href}/${BLOG.href}/${post.slug}`}
-            {...post}
-          />
+          <Item key={post.id} href={`${BLOG.href}/${post.slug}`} {...post} />
         ))}
       </Stack>
     </Page>

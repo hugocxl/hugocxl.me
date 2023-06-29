@@ -1,7 +1,7 @@
 'use client'
 
 // Components
-import { Button, Stack, Link, Image, Box } from '@/shared/components'
+import { Stack, Link, Image, Box } from '@/shared/components'
 import IconDark from '../../../../public/icons/dark.png'
 import IconLight from '../../../../public/icons/light.png'
 
@@ -25,7 +25,22 @@ export function Dock() {
   const [horizontalHover, setHorizontalHover] = useState<false | number>(false)
   const pathname = usePathname()
 
-  function onMouseOver(event) {
+  function isMobile() {
+    if (!isBrowser()) return
+
+    return window.innerWidth < 768
+  }
+
+  function getTheme() {
+    if (!isBrowser()) return
+
+    const htmlElement = document.querySelector('html')
+    const theme = htmlElement.getAttribute('data-theme-mode')
+
+    return theme
+  }
+
+  function onMouseMove(event) {
     const containerWidth = parentRef.current.offsetWidth
     const mouseX =
       event.clientX - parentRef.current.getBoundingClientRect().left
@@ -57,20 +72,41 @@ export function Dock() {
 
   return (
     <Stack
-      onMouseMove={onMouseOver}
-      onMouseLeave={() => setHorizontalHover(false)}
+      {...(!isMobile() && {
+        onMouseMove,
+        onMouseLeave: () => setHorizontalHover(false)
+      })}
       shadow={'lg'}
       ref={parentRef}
       maxWidth={'100%'}
       p={'sm'}
-      maxHeight={60}
-      bottom={20}
+      maxHeight={50}
+      overflow={{
+        base: 'unset',
+        smDown: 'auto'
+      }}
+      bottom={{
+        smDown: 0,
+        base: 20
+      }}
+      borderRadius={{
+        base: 200,
+        smDown: 0
+      }}
+      width={{
+        base: 'auto',
+        smDown: '100%'
+      }}
+      border={{
+        base: 'primary',
+        smDown: 'none'
+      }}
+      borderTop={'primary'}
       bg={'bg.dock'}
-      borderRadius={'200px'}
-      border={'primary'}
       backdropFilter={'blur(8px)'}
       transition={'all 0.1s ease'}
       direction={'row'}
+      justifyContent={'center'}
       transformOrigin={'center bottom'}
       position={'fixed'}
       zIndex={9999}
@@ -81,7 +117,7 @@ export function Dock() {
           : 'translateX(-50%) translateY(calc(100% + 22px))'
       }
     >
-      <Stack zIndex={1} direction={'row'} align={'flex-end'}>
+      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'sm'}>
         {PAGES.map(page => {
           return (
             <Link
@@ -105,12 +141,8 @@ export function Dock() {
           horizontalHover={horizontalHover}
           parentRef={parentRef}
           icon={(() => {
-            if (!isBrowser()) return IconDark
-
-            const htmlElement = document.querySelector('html')
-            const theme = htmlElement.getAttribute('data-theme-mode')
-            const isDarkMode = theme === 'dark'
-            return isDarkMode ? IconDark : IconLight
+            const theme = getTheme()
+            return theme === 'dark' ? IconDark : IconLight
           })()}
           onClick={() => {
             if (!isBrowser()) return
@@ -153,8 +185,8 @@ function NavButton({
   function getTransform() {
     if (!horizontalHover || !childRef.current || !parentRef.current)
       return {
-        width: 38,
-        height: 38
+        width: 28,
+        height: 28
       }
 
     const parentRect = parentRef.current.getBoundingClientRect()
@@ -170,58 +202,48 @@ function NavButton({
     const scale = isAboveMin ? 2 * x : 1
 
     return {
-      width: scale * 38,
-      height: scale * 38
+      width: scale * 28,
+      height: scale * 28
     }
   }
 
   return (
     <div
-      onClick={onClick}
       ref={childRef}
       style={{
+        position: 'relative',
         transition: 'all 0.1s ease',
         transformOrigin: 'center bottom',
         ...styleProps
       }}
     >
-      <Button
-        p={'sm'}
-        h={'100%'}
-        w={'100%'}
-        background={'bg.dock-button'}
-        overflow={'hidden'}
-        borderRadius={'50%'}
-        position={'relative'}
+      <Image
+        onClick={onClick}
         transformOrigin={'center bottom'}
+        zIndex={2}
+        alt={title}
+        src={icon}
+        height={'100%'}
+        width={'100%'}
         transition={'all 0.1s ease'}
         _active={{
           transform: 'translateY(-10%)'
         }}
-      >
-        <div
-          className={css({
-            background: 'text.primary',
-            borderRadius: '50%',
-            position: 'absolute',
-            width: 4,
-            height: 4,
-            bottom: -6
-          })}
-          style={{
-            opacity: isActive ? 1 : 0
-          }}
-        />
-        <Image
-          pointerEvents={'none'}
-          zIndex={2}
-          alt={title}
-          src={icon}
-          height={'100%'}
-          width={'100%'}
-          transition={'all 0.1s ease'}
-        />
-      </Button>
+      />
+      <div
+        className={css({
+          background: 'text.primary',
+          borderRadius: '50%',
+          position: 'absolute',
+          width: 4,
+          height: 4,
+          bottom: -6,
+          left: '50%'
+        })}
+        style={{
+          opacity: isActive ? 1 : 0
+        }}
+      />
     </div>
   )
 }

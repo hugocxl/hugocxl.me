@@ -60,7 +60,7 @@
   [data-theme-mode='dark'] {
     --colors-bg-primary: hsl(0 0% 8.5%);
     --colors-bg-secondary: hsl(0 0% 11.3%);
-    --colors-bg-button: hsl(0 0% 13.7%);
+    --colors-bg-button: hsl(0 0% 15%);
     --colors-bg-dock: rgba(255, 255, 255, 0.1);
     --colors-bg-dock-button: linear-gradient(
       10deg,
