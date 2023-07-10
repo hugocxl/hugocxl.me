@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^5.61.0
     version: 5.61.0(eslint@8.43.0)(typescript@5.1.3)
   cypress:
-    specifier: ^12.15.0
-    version: 12.15.0
+    specifier: ^12.17.0
+    version: 12.17.0
   eslint:
     specifier: ^8.43.0
     version: 8.43.0
@@ -3151,8 +3151,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /cypress@12.15.0:
-    resolution: {integrity: sha512-FqGbxsH+QgjStuTO9onXMIeF44eOrgVwPvlcvuzLIaePQMkl72YgBvpuHlBGRcrw3Q4SvqKfajN8iV5XWShAiQ==}
+  /cypress@12.17.0:
+    resolution: {integrity: sha512-nq0ug8Zrjq/2khHU1PTNxg+3/n1oqtmAFCxwQhS6QzkQ4mR6RLitX+cGIOuIMfnEbDAtVub0hZh661FOA16JxA==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     requiresBuild: true
@@ -3194,7 +3194,7 @@ packages:
       pretty-bytes: 5.6.0
       proxy-from-env: 1.0.0
       request-progress: 3.0.0
-      semver: 7.5.2
+      semver: 7.5.3
       supports-color: 8.1.1
       tmp: 0.2.1
       untildify: 4.0.0
