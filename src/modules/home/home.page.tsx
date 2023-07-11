@@ -24,35 +24,35 @@ export const Home: NextPage = () => {
       h={'100dvh'}
       position={'relative'}
       overflow={'hidden'}
-      _before={{
-        width: '100%',
-        height: '100%',
-        minHeight: '100dvh',
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: -9,
-        background:
-          'radial-gradient(circle,transparent 0%, var(--colors-bg-primary) 100%)'
-      }}
-      _after={{
-        width: '100%',
-        height: '100%',
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: -10,
-        opacity: 0.35,
-        backgroundImage: 'url(/img/grid.svg)',
-        _light: {
-          filter: 'invert(100%)'
-        }
-      }}
+      // _before={{
+      //   width: '100%',
+      //   height: '100%',
+      //   minHeight: '100dvh',
+      //   content: '""',
+      //   position: 'absolute',
+      //   top: 0,
+      //   left: 0,
+      //   zIndex: -9,
+      //   background:
+      //     'radial-gradient(circle,transparent 0%, var(--colors-bg-primary) 100%)'
+      // }}
+      // _after={{
+      //   width: '100%',
+      //   height: '100%',
+      //   content: '""',
+      //   position: 'absolute',
+      //   top: 0,
+      //   left: 0,
+      //   zIndex: -10,
+      //   opacity: 0.35,
+      //   backgroundImage: 'url(/img/grid.svg)',
+      //   _light: {
+      //     filter: 'invert(100%)'
+      //   }
+      // }}
     >
       <Container
-        gap={'lg'}
+        gap={'md'}
         h={'100%'}
         w={'100%'}
         display={'flex'}
@@ -61,8 +61,8 @@ export const Home: NextPage = () => {
       >
         <span style={{ fontFamily: 'Menlo' }}>@hugocxl</span>
         <Typography color={'text.dimmed'} fontSize={28} lineHeight={1.2}>
-          creative software engineer.
-          <b> passionate to craft amazing digital products</b>
+          Creative software engineer.
+          <b> Passionate to craft amazing digital products</b>
         </Typography>
 
         <Stack direction={'row'}>

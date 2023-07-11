@@ -1,6 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
 // Types
 import { ReactNode } from 'react'
@@ -13,6 +13,26 @@ import { AppShell } from '@/shared/components'
 import '@/shared/styles/global.css'
 import '@/shared/styles/notion.css'
 import '@/shared/styles/prismjs.css'
+
+const font = localFont({
+  src: [
+    {
+      path: '../../public/fonts/x/x-regular.woff2',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/x/x-medium.woff2',
+      weight: '500',
+      style: 'normal'
+    },
+    {
+      path: '../../public/fonts/x/x-medium.woff2',
+      weight: '600',
+      style: 'normal'
+    }
+  ]
+})
 
 export const metadata: Metadata = {
   title: {
@@ -55,14 +75,9 @@ export const metadata: Metadata = {
   }
 }
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600']
-})
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en' data-theme-mode='dark'>
+    <html lang={'en'} data-theme-mode={'dark'}>
       <head>
         <link
           rel='apple-touch-icon'
@@ -82,8 +97,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href='/favicon-16x16.png'
         />
         <link rel='manifest' href='/manifest.json' />
+        <meta name='viewport' content='viewport-fit=cover' />
       </head>
-      <body className={inter.className}>
+      <body className={font.className}>
         <AppShell>{children}</AppShell>
       </body>
       <Analytics />

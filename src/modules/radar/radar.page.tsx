@@ -22,7 +22,7 @@ export async function Radar() {
 
   return (
     <Page
-      title={RADAR.title}
+      // title={RADAR.title}
       maxWidth={{
         smDown: '100%',
         base: '80dvw'
@@ -31,7 +31,8 @@ export async function Radar() {
       <Box columns={'320px'} w={'100%'}>
         {repos.map(({ name, href, stars, description, cover }) => (
           <Link
-            shadow={'sm'}
+            bg={'bg.secondary'}
+            // shadow={'sm'}
             position={'relative'}
             key={href}
             href={href}
@@ -42,28 +43,27 @@ export async function Radar() {
             display={'flex'}
             flexDirection={'column'}
             justifyContent={'flex-end'}
-            border={'primary'}
             rounded={'sm'}
             marginBottom={'md'}
             overflow={'hidden'}
             fontWeight={'normal'}
-            _after={{
-              width: '100%',
-              height: '100%',
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              opacity: 1,
-              zIndex: -1,
-              background:
-                'linear-gradient(to bottom left, transparent 0%, var(--colors-bg-primary) 100%)'
-            }}
+            // _after={{
+            //   width: '100%',
+            //   height: '100%',
+            //   content: '""',
+            //   position: 'absolute',
+            //   top: 0,
+            //   left: 0,
+            //   opacity: 1,
+            //   zIndex: -1,
+            //   background:
+            //     'linear-gradient(to bottom left, transparent 0%, var(--colors-bg-primary) 100%)'
+            // }}
           >
-            <Image
+            {/* <Image
               rounded={0}
-              opacity={0.7}
-              filter={'blur(40px)'}
+              opacity={1}
+              filter={'blur(10px)'}
               h={'100%'}
               w={'100%'}
               src={cover}
@@ -75,7 +75,7 @@ export async function Radar() {
                 _light: 'none',
                 _dark: 'block'
               }}
-            />
+            /> */}
             <Box padding={'md'} display={'flex'} flexDirection={'column'}>
               <Stack direction={'row'} align={'center'}>
                 <Image

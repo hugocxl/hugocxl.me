@@ -54,7 +54,7 @@ export function Page({
               transform={'translateX(calc(-100% - 2rem))'}
             >
               <Button>
-                <IconArrowBackUp />
+                <IconArrowBackUp size={18} />
               </Button>
             </Link>
           )}

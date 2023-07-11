@@ -40,8 +40,8 @@ const tokens = defineTokens({
   },
   fontSizes: {
     sm: { value: '12px' },
-    md: { value: '14px' },
-    lg: { value: '20px' }
+    md: { value: '15px' },
+    lg: { value: '18px' }
   },
   borders: {}
 })
@@ -60,7 +60,7 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           base: 'hsl(0 0% 100%)',
-          _dark: 'hsl(0 0% 8.5%)'
+          _dark: 'hsl(0 0% 0%)'
         }
       },
       secondary: {
@@ -74,31 +74,19 @@ const semanticTokens = defineSemanticTokens({
           base: 'hsl(0 0% 94%)',
           _dark: 'hsl(0 0% 15%)'
         }
-      },
-      dock: {
-        value: {
-          base: 'rgba(255, 255, 255, 0.7)',
-          _dark: 'rgba(255, 255, 255, 0.1)'
-        }
-      },
-      'dock-button': {
-        value: {
-          base: 'linear-gradient(10deg, rgba(230,230,230,1), rgba(250,250,250,1))',
-          _dark: 'linear-gradient(10deg, rgba(70,70,70,1), rgba(110,110,110,1))'
-        }
       }
     },
     border: {
       primary: {
         value: {
           base: 'rgba(0,0,0,0.07)',
-          _dark: 'rgba(255,255,255,0.085)'
+          _dark: 'hsl(0 0% 25%)'
         }
       },
       secondary: {
         value: {
           base: 'rgba(0,0,0,0.04)',
-          _dark: 'rgba(255,255,255,0.06)'
+          _dark: 'hsl(0 0% 15%)'
         }
       }
     },
@@ -107,7 +95,7 @@ const semanticTokens = defineSemanticTokens({
         value: { base: 'hsl(0 0% 0%)', _dark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 80%)' }
+        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 85%)' }
       },
       tertiary: {
         value: { base: 'hsl(0 0% 40%)', _dark: 'hsl(0 0% 60%)' }
@@ -140,6 +128,9 @@ const globalCss = defineGlobalStyles({
       bg: 'bg.secondary'
     }
   },
+  i: {
+    fontStyle: 'italic'
+  },
   a: {
     color: 'text.secondary',
     fontWeight: 'bold',
@@ -156,8 +147,7 @@ const globalCss = defineGlobalStyles({
   },
   hr: {
     borderColor: 'border.primary',
-    borderStyle: 'solid',
-    borderWidth: '1px'
+    borderStyle: 'solid'
   },
   'b, strong': {
     color: 'text.secondary',
@@ -166,7 +156,6 @@ const globalCss = defineGlobalStyles({
   'h1, h2, h3, h4, h5, h6': {
     color: 'text.primary',
     fontWeight: 'bolder'
-    // letterSpacing: '-0.03rem'
   },
   'p, li, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
@@ -174,7 +163,6 @@ const globalCss = defineGlobalStyles({
     },
   h1: {
     fontSize: '1.2rem',
-    marginTop: '6rem',
     marginBottom: '1rem'
   },
   h2: {

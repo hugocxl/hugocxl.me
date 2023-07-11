@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { PROJECTS } from '@/shared/constants'
 
 // Components
-import { Stack, Typography, Page, Box } from '@/shared/components'
+import { Stack, Typography, Page, Image } from '@/shared/components'
 import { NotionRenderer } from '@/shared/components/notion-renderer'
 
 export const revalidate = 86400 * 7
@@ -23,33 +23,20 @@ export async function Projects() {
   )
 
   return (
-    <Page title={PROJECTS.title}>
+    <Page>
       <Stack>
-        {projects.map(({ id, name, content, description, createdAt }) => {
+        {projects.map(({ id, name, content, description, cover }) => {
           return (
-            <Stack key={id} mb={100}>
-              <Box
-                gap={'md'}
-                transition={'all 0.2s ease'}
-                rounded={'sm'}
-                textDecoration={'none'}
-                fontWeight={'normal'}
-                display={'grid'}
-                gridTemplateColumns={'auto 1fr auto'}
-                alignItems={'center'}
-              >
-                <Typography color={'text.primary'} fontWeight={'bold'}>
-                  {name}
-                </Typography>
-                <Box w={'100%'} borderBottom={'secondary'} />
-                <Typography color={'text.dimmed'} fontSize={'sm'}>
-                  {createdAt}
-                </Typography>
-              </Box>
-              <Typography color={'text.dimmed'} mb={'lg'}>
+            <Stack key={id} mb={40} gap={'md'}>
+              <Image
+                border={'secondary'}
+                height={'20vh'}
+                src={cover}
+                alt={name}
+              />
+              <Typography textAlign={'center'} color={'text.dimmed'}>
                 {description}
               </Typography>
-              {/* <Image height={'20vh'} mb={'lg'} src={cover} alt={name} /> */}
               <NotionRenderer content={content} />
             </Stack>
           )

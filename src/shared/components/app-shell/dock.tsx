@@ -2,8 +2,7 @@
 
 // Components
 import { Stack, Link, Image, Box } from '@/shared/components'
-import IconDark from '../../../../public/icons/dark.png'
-import IconLight from '../../../../public/icons/light.png'
+import IconSettings from '../../../../public/icons/settings.png'
 
 // Constants
 import { PAGES } from '@/shared/constants'
@@ -31,14 +30,14 @@ export function Dock() {
     return window.innerWidth < 768
   }
 
-  function getTheme() {
-    if (!isBrowser()) return
+  // function getTheme() {
+  //   if (!isBrowser()) return
 
-    const htmlElement = document.querySelector('html')
-    const theme = htmlElement.getAttribute('data-theme-mode')
+  //   const htmlElement = document.querySelector('html')
+  //   const theme = htmlElement.getAttribute('data-theme-mode')
 
-    return theme
-  }
+  //   return theme
+  // }
 
   function onMouseMove(event) {
     const containerWidth = parentRef.current.offsetWidth
@@ -76,35 +75,15 @@ export function Dock() {
         onMouseMove,
         onMouseLeave: () => setHorizontalHover(false)
       })}
-      shadow={'lg'}
       ref={parentRef}
-      maxWidth={'100%'}
-      py={'sm'}
-      px={'md'}
-      maxHeight={46}
-      overflow={{
-        base: 'visible',
-        smDown: 'auto'
-      }}
-      bottom={{
-        smDown: 0,
-        base: 20
-      }}
-      borderRadius={{
-        base: 200,
-        smDown: 0
-      }}
-      width={{
-        base: 'auto',
-        smDown: '100%'
-      }}
-      border={{
-        base: 'primary',
-        smDown: 'none'
-      }}
-      borderTop={'primary'}
-      bg={'bg.dock'}
-      backdropFilter={'blur(8px)'}
+      p={'4px'}
+      maxHeight={50}
+      overflow={'visible'}
+      bottom={'calc(env(safe-area-inset-bottom) + 8px)'}
+      borderRadius={'14px'}
+      border={'primary'}
+      bg={'rgba(180, 180, 180, 0.3)'}
+      backdropFilter={'blur(4px)'}
       transition={'all 0.1s ease'}
       direction={'row'}
       justifyContent={'center'}
@@ -118,7 +97,7 @@ export function Dock() {
           : 'translateX(-50%) translateY(calc(100% + 22px))'
       }
     >
-      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'md'}>
+      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'4px'}>
         {PAGES.map(page => {
           return (
             <Link
@@ -136,15 +115,12 @@ export function Dock() {
             </Link>
           )
         })}
-        <Box h={'100%'} borderRight={'primary'} />
+        <Box h={'100%'} borderRight={'primary'} borderRightWidth={2} />
         <NavButton
           title={'Theme'}
           horizontalHover={horizontalHover}
           parentRef={parentRef}
-          icon={(() => {
-            const theme = getTheme()
-            return theme === 'dark' ? IconDark : IconLight
-          })()}
+          icon={IconSettings}
           onClick={() => {
             if (!isBrowser()) return
 
@@ -186,9 +162,9 @@ function NavButton({
   function getTransform() {
     if (!horizontalHover || !childRef.current || !parentRef.current)
       return {
-        width: 28,
-        height: 28,
-        borderRadius: 8
+        width: 40,
+        height: 40
+        // borderRadius: 8
       }
 
     const parentRect = parentRef.current.getBoundingClientRect()
@@ -204,9 +180,9 @@ function NavButton({
     const scale = isAboveMin ? 2 * x : 1
 
     return {
-      borderRadius: scale * 8,
-      width: scale * 28,
-      height: scale * 28
+      // borderRadius: scale * 8,
+      width: scale * 40,
+      height: scale * 40
     }
   }
 
@@ -241,7 +217,7 @@ function NavButton({
           position: 'absolute',
           width: 4,
           height: 4,
-          bottom: -6,
+          bottom: -2,
           left: '50%',
           transform: 'translateX(-50%)'
         })}

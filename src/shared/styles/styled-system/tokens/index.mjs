@@ -96,11 +96,11 @@ const tokens = {
     variable: 'var(--font-sizes-sm)'
   },
   'fontSizes.md': {
-    value: '14px',
+    value: '15px',
     variable: 'var(--font-sizes-md)'
   },
   'fontSizes.lg': {
-    value: '20px',
+    value: '18px',
     variable: 'var(--font-sizes-lg)'
   },
   'breakpoints.sm': {
@@ -142,14 +142,6 @@ const tokens = {
   'colors.bg.button': {
     value: 'var(--colors-bg-button)',
     variable: 'var(--colors-bg-button)'
-  },
-  'colors.bg.dock': {
-    value: 'var(--colors-bg-dock)',
-    variable: 'var(--colors-bg-dock)'
-  },
-  'colors.bg.dock-button': {
-    value: 'var(--colors-bg-dock-button)',
-    variable: 'var(--colors-bg-dock-button)'
   },
   'colors.border.primary': {
     value: 'var(--colors-border-primary)',
@@ -202,14 +194,6 @@ const tokens = {
   'colors.colorPalette.button': {
     value: 'var(--colors-color-palette-button)',
     variable: 'var(--colors-color-palette-button)'
-  },
-  'colors.colorPalette.dock': {
-    value: 'var(--colors-color-palette-dock)',
-    variable: 'var(--colors-color-palette-dock)'
-  },
-  'colors.colorPalette.dock-button': {
-    value: 'var(--colors-color-palette-dock-button)',
-    variable: 'var(--colors-color-palette-dock-button)'
   },
   'colors.colorPalette.tertiary': {
     value: 'var(--colors-color-palette-tertiary)',

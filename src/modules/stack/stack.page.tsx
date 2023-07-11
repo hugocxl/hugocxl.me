@@ -12,7 +12,6 @@ import { Link, Stack, Typography, Page } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
-import { styled } from '@/shared/styles'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -32,18 +31,13 @@ export async function StackPage() {
       const sortedGroup = sortBy(groupedStack[tag], 'name')
       render.push(
         <div key={tag}>
-          <styled.h2 mt={0} mb={'md'}>
-            {tag}
-          </styled.h2>
+          <h1>{tag}</h1>
 
           <Stack gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (
               <Link
-                borderRadius={'md'}
-                display={'grid'}
-                gap={'md'}
-                gridTemplateColumns={'1fr 1fr'}
-                alignItems={'flex-start'}
+                display={'flex'}
+                flexDirection={'column'}
                 textDecoration={'none'}
                 key={link}
                 href={link}
@@ -52,11 +46,7 @@ export async function StackPage() {
                 }}
               >
                 <Typography>{name}</Typography>
-                <Typography
-                  fontWeight={'medium'}
-                  color={'text.dimmed'}
-                  fontSize={'sm'}
-                >
+                <Typography fontWeight={'medium'} color={'text.dimmed'}>
                   {description}
                 </Typography>
               </Link>
@@ -70,7 +60,7 @@ export async function StackPage() {
   }
 
   return (
-    <Page title={STACK.title}>
+    <Page>
       <Stack gap={60}>{render}</Stack>
     </Page>
   )

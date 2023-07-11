@@ -23,23 +23,18 @@ export async function Writing() {
   )
 
   return (
-    <Page title={WRITING.title}>
+    <Page>
       <Stack gap={'lg'}>
-        <Stack gap={'md'}>
-          {handbooks.map(handbook => (
-            <Item
-              key={handbook.id}
-              href={`${HANDBOOKS.href}/${handbook.slug}`}
-              {...handbook}
-            />
-          ))}
-        </Stack>
-        <hr />
-        <Stack gap={'md'}>
-          {posts.map(post => (
-            <Item key={post.id} href={`${BLOG.href}/${post.slug}`} {...post} />
-          ))}
-        </Stack>
+        {handbooks.map(handbook => (
+          <Item
+            key={handbook.id}
+            href={`${HANDBOOKS.href}/${handbook.slug}`}
+            {...handbook}
+          />
+        ))}
+        {posts.map(post => (
+          <Item key={post.id} href={`${BLOG.href}/${post.slug}`} {...post} />
+        ))}
       </Stack>
     </Page>
   )
@@ -60,7 +55,7 @@ function Item({
       display={'grid'}
       gap={'md'}
       gridTemplateColumns={'auto 1fr auto'}
-      alignItems={'center'}
+      alignItems={'baseline'}
       textDecoration={'none'}
       key={href}
       href={href}
