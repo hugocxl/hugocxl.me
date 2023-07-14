@@ -134,7 +134,7 @@ export const About: NextPage = () => {
       <h2>{'Experience'}</h2>
       <div>
         <CompanyItem
-          date={'Jan 2023 - Present'}
+          date={'Jan 2023 - July 2023'}
           // image={'/img/sygris.jpeg'}
           company={'Sygris'}
           title={'Lead Frontend Engineer'}

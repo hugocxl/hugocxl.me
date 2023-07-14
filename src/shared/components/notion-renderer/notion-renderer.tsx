@@ -50,6 +50,7 @@ export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
 
   return (
     <ReactNotionX
+      rootDomain={'https://www.hugocxl.me'}
       darkMode={isDarkMode()}
       recordMap={content}
       components={{

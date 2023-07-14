@@ -13,18 +13,33 @@ interface PageProps extends JsxStyleProps {
 
 export function Page({ title, description, children, ...props }: PageProps) {
   return (
-    <Container py={'15vh'} px={'md'} {...props}>
+    <Container
+      px={'md'}
+      py={{
+        base: '15vh',
+        smDown: 'lg'
+      }}
+      {...props}
+    >
       <Stack mb={60} gap={0} justify={'center'} align={'center'}>
         <Title mb={0}>{title}</Title>
-        <Typography fontSize={'lg'} color={'text.dimmed'} textAlign={'center'}>
+        <Typography
+          w={'100%'}
+          maxWidth={'640px'}
+          fontSize={'lg'}
+          color={'text.dimmed'}
+          textAlign={'center'}
+        >
           {description}
         </Typography>
         <Image
-          transform={'scale(0.5)'}
+          mt={'sm'}
+          objectFit={'contain'}
           _dark={{
             filter: 'invert(1)'
           }}
-          height={'28px'}
+          width={'320px'}
+          height={'20px'}
           src={'/img/header-divider.png'}
           alt={'divider'}
         />

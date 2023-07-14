@@ -2,7 +2,8 @@
 
 // Components
 import { Stack, Link, Image, Box } from '@/shared/components'
-import IconSettings from '../../../../public/icons/settings.png'
+import IconDark from '../../../../public/icons/dark.png'
+import IconLight from '../../../../public/icons/light.png'
 
 // Constants
 import { PAGES } from '@/shared/constants'
@@ -24,6 +25,15 @@ const isMobile = () => {
   if (!isBrowser()) return
 
   return window.innerWidth < 768
+}
+
+const getTheme = () => {
+  if (!isBrowser()) return
+
+  const htmlElement = document.querySelector('html')
+  const theme = htmlElement.getAttribute('data-theme-mode')
+
+  return theme
 }
 
 export function Dock() {
@@ -70,11 +80,14 @@ export function Dock() {
       })}
       ref={parentRef}
       p={'4px'}
-      maxHeight={50}
+      maxHeight={48}
       overflow={'visible'}
-      bottom={'calc(env(safe-area-inset-bottom) + 8px)'}
+      bottom={'calc(env(safe-area-inset-bottom) + 12px)'}
       borderRadius={'14px'}
-      bg={'rgba(160, 160, 160, 0.2)'}
+      bg={{
+        _dark: 'rgba(100, 100, 100, 0.2)',
+        _light: 'rgba(160, 160, 160, 0.2)'
+      }}
       backdropFilter={'blur(4px)'}
       transition={'all 0.1s ease'}
       direction={'row'}
@@ -89,7 +102,13 @@ export function Dock() {
           : 'translateX(-50%) translateY(calc(100% + 22px))'
       }
     >
-      <Stack zIndex={1} direction={'row'} align={'flex-end'} gap={'4px'}>
+      <Stack
+        zIndex={1}
+        direction={'row'}
+        align={'flex-end'}
+        gap={'sm'}
+        p={'6px'}
+      >
         {PAGES.map(page => {
           return (
             <Link
@@ -112,7 +131,10 @@ export function Dock() {
           title={'Theme'}
           horizontalHover={horizontalHover}
           parentRef={parentRef}
-          icon={IconSettings}
+          icon={(() => {
+            const theme = getTheme()
+            return theme === 'dark' ? IconDark : IconLight
+          })()}
           {...(!isMobile() && {
             onClick: () => {
               const htmlElement = document.querySelector('html')
@@ -154,8 +176,8 @@ function NavButton({
   function getTransform() {
     if (!horizontalHover || !childRef.current || !parentRef.current)
       return {
-        width: 40,
-        height: 40
+        width: 28,
+        height: 28
       }
 
     const parentRect = parentRef.current.getBoundingClientRect()
@@ -171,8 +193,8 @@ function NavButton({
     const scale = isAboveMin ? 2 * x : 1
 
     return {
-      width: scale * 40,
-      height: scale * 40
+      width: scale * 28,
+      height: scale * 28
     }
   }
 
@@ -207,7 +229,7 @@ function NavButton({
           position: 'absolute',
           width: 4,
           height: 4,
-          bottom: -2,
+          bottom: -6,
           left: '50%',
           transform: 'translateX(-50%)'
         })}

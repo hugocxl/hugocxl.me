@@ -22,7 +22,8 @@ export async function Radar() {
 
   return (
     <Page
-      // title={RADAR.title}
+      title={RADAR.title}
+      description={RADAR.description}
       maxWidth={{
         smDown: '100%',
         base: '80dvw'
@@ -47,35 +48,7 @@ export async function Radar() {
             marginBottom={'md'}
             overflow={'hidden'}
             fontWeight={'normal'}
-            // _after={{
-            //   width: '100%',
-            //   height: '100%',
-            //   content: '""',
-            //   position: 'absolute',
-            //   top: 0,
-            //   left: 0,
-            //   opacity: 1,
-            //   zIndex: -1,
-            //   background:
-            //     'linear-gradient(to bottom left, transparent 0%, var(--colors-bg-primary) 100%)'
-            // }}
           >
-            {/* <Image
-              rounded={0}
-              opacity={1}
-              filter={'blur(10px)'}
-              h={'100%'}
-              w={'100%'}
-              src={cover}
-              alt={name}
-              position={'absolute'}
-              top={0}
-              zIndex={-2}
-              display={{
-                _light: 'none',
-                _dark: 'block'
-              }}
-            /> */}
             <Box padding={'md'} display={'flex'} flexDirection={'column'}>
               <Stack direction={'row'} align={'center'}>
                 <Image
