@@ -1,4 +1,5 @@
 // Components
+import { IconArrowBackUp } from '@tabler/icons'
 import {
   Container,
   Typography,
@@ -10,9 +11,8 @@ import {
 } from '@/shared/components'
 
 // Types
-import { JsxStyleProps } from '@/shared/styles'
-import { IconArrowBackUp } from '@tabler/icons'
 import { ReactNode } from 'react'
+import { JsxStyleProps } from '@styled-system/types'
 
 interface PageProps extends JsxStyleProps {
   children: ReactNode

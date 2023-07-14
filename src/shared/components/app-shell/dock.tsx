@@ -6,7 +6,6 @@ import IconSettings from '../../../../public/icons/settings.png'
 
 // Constants
 import { PAGES } from '@/shared/constants'
-import { css } from '@/shared/styles'
 
 // Types
 import { Page } from '@/shared/types'
@@ -15,29 +14,23 @@ import { Page } from '@/shared/types'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef, MutableRefObject } from 'react'
 
+// Utils
+import { css } from '@styled-system/css'
+
 const isBrowser = () =>
   typeof window !== 'undefined' && typeof document !== 'undefined'
+
+const isMobile = () => {
+  if (!isBrowser()) return
+
+  return window.innerWidth < 768
+}
 
 export function Dock() {
   const parentRef = useRef<HTMLDivElement>()
   const [scrollDirection, setScrollDirection] = useState('up')
   const [horizontalHover, setHorizontalHover] = useState<false | number>(false)
   const pathname = usePathname()
-
-  function isMobile() {
-    if (!isBrowser()) return
-
-    return window.innerWidth < 768
-  }
-
-  // function getTheme() {
-  //   if (!isBrowser()) return
-
-  //   const htmlElement = document.querySelector('html')
-  //   const theme = htmlElement.getAttribute('data-theme-mode')
-
-  //   return theme
-  // }
 
   function onMouseMove(event) {
     const containerWidth = parentRef.current.offsetWidth
@@ -121,17 +114,17 @@ export function Dock() {
           horizontalHover={horizontalHover}
           parentRef={parentRef}
           icon={IconSettings}
-          onClick={() => {
-            if (!isBrowser()) return
-
-            const htmlElement = document.querySelector('html')
-            const theme = htmlElement.getAttribute('data-theme-mode')
-            const isDarkMode = theme === 'dark'
-            htmlElement.setAttribute(
-              'data-theme-mode',
-              isDarkMode ? 'light' : 'dark'
-            )
-          }}
+          {...(!isMobile() && {
+            onClick: () => {
+              const htmlElement = document.querySelector('html')
+              const theme = htmlElement.getAttribute('data-theme-mode')
+              const isDarkMode = theme === 'dark'
+              htmlElement.setAttribute(
+                'data-theme-mode',
+                isDarkMode ? 'light' : 'dark'
+              )
+            }
+          })}
         />
       </Stack>
     </Stack>
@@ -164,7 +157,6 @@ function NavButton({
       return {
         width: 40,
         height: 40
-        // borderRadius: 8
       }
 
     const parentRect = parentRef.current.getBoundingClientRect()
@@ -180,7 +172,6 @@ function NavButton({
     const scale = isAboveMin ? 2 * x : 1
 
     return {
-      // borderRadius: scale * 8,
       width: scale * 40,
       height: scale * 40
     }

@@ -36,4 +36,130 @@
     --scale-x: 1;
     --scale-y: 1;
   }
+
+  html {
+    background-color: var(--colors-bg-primary);
+    font-size: var(--font-sizes-md);
+    line-height: var(--line-heights-normal);
+  }
+
+  html,
+  button {
+    color: var(--colors-text-tertiary);
+  }
+
+  button {
+    background-color: var(--colors-bg-button);
+    padding: var(--spacing-sm);
+    border-radius: var(--radii-sm);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  a {
+    color: var(--colors-text-secondary);
+    font-weight: var(--font-weights-bold);
+    text-decoration: underline;
+    text-decoration-color: var(--colors-border-primary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  hr {
+    border-color: var(--colors-border-primary);
+    border-style: solid;
+  }
+
+  b,
+  strong {
+    color: var(--colors-text-secondary);
+    font-weight: var(--font-weights-bold);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--colors-text-primary);
+    font-weight: var(--font-weights-bolder);
+  }
+
+  p,
+  li,
+  .notion-text,
+  .notion-toggle,
+  .notion-code,
+  .notion-quote,
+  .notion-callout,
+  .notion-asset-wrapper {
+    margin-bottom: var(--spacing-md);
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  ::selection {
+    color: black;
+    background: var(--colors-primary);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar:vertical {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--colors-bg-secondary);
+  }
+
+  button:hover {
+    color: var(--colors-text-secondary);
+    background: var(--colors-bg-secondary);
+  }
+
+  a:hover {
+    color: var(--colors-text-dimmed);
+  }
 }

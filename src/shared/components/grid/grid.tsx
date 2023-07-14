@@ -1,1 +1,1 @@
-export { Grid } from '@/shared/styles/styled-system/jsx'
+export { Grid } from '@styled-system/jsx'

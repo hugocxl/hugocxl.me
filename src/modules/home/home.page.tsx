@@ -1,16 +1,9 @@
 // Components
-import { Box, Container, Stack, Typography } from '@/shared/components'
-import {
-  IconMail,
-  IconBrandGithub,
-  IconBrandTwitter,
-  IconBrandLinkedin
-} from '@tabler/icons'
+import { Box, Typography, Container } from '@/shared/components'
+import { IconBox, IconMoon } from '@tabler/icons'
 
 // Types
 import { Metadata, NextPage } from 'next'
-
-// Constants
 
 export const metadata: Metadata = {
   title: 'Hugo Corta · Software Craftsman',
@@ -18,39 +11,15 @@ export const metadata: Metadata = {
 }
 
 export const Home: NextPage = () => {
+  const iconsProps = {
+    size: 20,
+    style: {
+      display: 'inline !important'
+    }
+  }
+
   return (
-    <Box
-      w={'100%'}
-      h={'100dvh'}
-      position={'relative'}
-      overflow={'hidden'}
-      // _before={{
-      //   width: '100%',
-      //   height: '100%',
-      //   minHeight: '100dvh',
-      //   content: '""',
-      //   position: 'absolute',
-      //   top: 0,
-      //   left: 0,
-      //   zIndex: -9,
-      //   background:
-      //     'radial-gradient(circle,transparent 0%, var(--colors-bg-primary) 100%)'
-      // }}
-      // _after={{
-      //   width: '100%',
-      //   height: '100%',
-      //   content: '""',
-      //   position: 'absolute',
-      //   top: 0,
-      //   left: 0,
-      //   zIndex: -10,
-      //   opacity: 0.35,
-      //   backgroundImage: 'url(/img/grid.svg)',
-      //   _light: {
-      //     filter: 'invert(100%)'
-      //   }
-      // }}
-    >
+    <Box w={'100%'} h={'100dvh'} position={'relative'} overflow={'hidden'}>
       <Container
         gap={'md'}
         h={'100%'}
@@ -59,50 +28,18 @@ export const Home: NextPage = () => {
         justifyContent={'center'}
         flexDirection={'column'}
       >
-        <span style={{ fontFamily: 'Menlo' }}>@hugocxl</span>
-        <Typography color={'text.dimmed'} fontSize={28} lineHeight={1.2}>
-          Creative software engineer.
-          <b> Passionate to craft amazing digital products</b>
+        <b>@hugocxl</b>
+        <Typography color={'text.dimmed'}>
+          <Typography color={'text.primary'}>software craftsman. </Typography>
+          unsatisfiably curious.{' '}
+          <span>
+            <IconMoon style={{ display: 'inline !important' }} />
+          </span>
+          passionate about software design. love to craft amazing digital
+          products. open source contributor{' '}
+          <IconBox style={{ display: 'inline !important' }} />. currently
+          full-stack at @incloud.
         </Typography>
-
-        <Stack direction={'row'}>
-          <a
-            href={'mailto:corta.hugo@gmail.com'}
-            title={'Mail'}
-            target={'_blank'}
-          >
-            <button>
-              <IconMail size={18} />
-            </button>
-          </a>
-          <a
-            href={'https://github.com/hugocxl'}
-            title={'GitHub @hugocxl'}
-            target={'_blank'}
-          >
-            <button>
-              <IconBrandGithub size={18} />
-            </button>
-          </a>
-          <a
-            href={'https://twitter.com/hugocxl'}
-            title={'Twitter @hugocxl'}
-            target={'_blank'}
-          >
-            <button>
-              <IconBrandTwitter size={18} />
-            </button>
-          </a>
-          <a
-            href={'https://www.linkedin.com/in/hugocxl'}
-            title={'LinkedIn @hugocxl'}
-            target={'_blank'}
-          >
-            <button>
-              <IconBrandLinkedin size={18} />
-            </button>
-          </a>
-        </Stack>
       </Container>
     </Box>
   )

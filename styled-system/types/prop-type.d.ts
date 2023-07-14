@@ -624,23 +624,7 @@ type PropertyValueTypes = {
   stroke: Tokens['colors']
   srOnly: boolean
   debug: boolean
-  colorPalette:
-    | 'rose'
-    | 'pink'
-    | 'fuchsia'
-    | 'purple'
-    | 'indigo'
-    | 'blue'
-    | 'sky'
-    | 'cyan'
-    | 'teal'
-    | 'green'
-    | 'lime'
-    | 'yellow'
-    | 'orange'
-    | 'red'
-    | 'gray'
-    | 'slate'
+  colorPalette: 'bg' | 'border' | 'text'
   textStyle:
     | 'xs'
     | 'sm'

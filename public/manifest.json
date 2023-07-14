@@ -28,6 +28,6 @@
       "type": "image/png"
     }
   ],
-  "background_color": "#fff",
+  "background_color": "hsl(0 0% 6%)",
   "display": "standalone"
 }

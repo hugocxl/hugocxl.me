@@ -1,5 +1,8 @@
-import { Box } from '@/shared/components'
-import { JsxStyleProps } from '@/shared/styles/styled-system/types'
+// Components
+import { Box } from '../box'
+
+// Types
+import { JsxStyleProps } from '@styled-system/types'
 import { ReactNode } from 'react'
 
 interface ContainerProps extends JsxStyleProps {

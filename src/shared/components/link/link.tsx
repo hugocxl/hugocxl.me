@@ -1,4 +1,8 @@
-import { JsxStyleProps, styled } from '@/shared/styles'
+// Utils
+import { styled } from '@styled-system/jsx'
+
+// Types
+import { JsxStyleProps } from '@styled-system/types'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { ReactNode } from 'react'
 

@@ -1,8 +1,8 @@
 // Utils
-import { styled } from '@/shared/styles'
+import { styled } from '@styled-system/jsx'
 
 // Types
-import { JsxStyleProps } from '@/shared/styles'
+import { JsxStyleProps } from '@styled-system/types'
 import { ReactNode } from 'react'
 
 interface ButtonProps extends JsxStyleProps {

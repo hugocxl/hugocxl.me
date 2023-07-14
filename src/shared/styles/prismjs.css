@@ -11,7 +11,7 @@ pre[class*='language-'] {
   white-space: pre-wrap;
   word-wrap: normal;
   font-family: Menlo, Monaco, 'Courier New', monospace;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
   color: #76d9e6;
   text-shadow: none;
@@ -19,7 +19,7 @@ pre[class*='language-'] {
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: var(--colors-bg-secondary);
+  background: var(--colors-bg-code);
   border: var(--borders-primary);
 }
 

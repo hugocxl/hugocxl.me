@@ -1,1 +1,1 @@
-export { Stack } from '@/shared/styles/styled-system/jsx'
+export { Stack } from '@styled-system/jsx'

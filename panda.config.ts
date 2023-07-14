@@ -60,7 +60,7 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           base: 'hsl(0 0% 100%)',
-          _dark: 'hsl(0 0% 0%)'
+          _dark: 'hsl(0 0% 6%)'
         }
       },
       secondary: {
@@ -68,6 +68,9 @@ const semanticTokens = defineSemanticTokens({
           base: 'hsl(0 0% 97%)',
           _dark: 'hsl(0 0% 11.3%)'
         }
+      },
+      code: {
+        value: 'hsl(0 0% 1%)'
       },
       button: {
         value: {
@@ -95,7 +98,7 @@ const semanticTokens = defineSemanticTokens({
         value: { base: 'hsl(0 0% 0%)', _dark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 85%)' }
+        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 80%)' }
       },
       tertiary: {
         value: { base: 'hsl(0 0% 40%)', _dark: 'hsl(0 0% 60%)' }
@@ -212,6 +215,5 @@ export default defineConfig({
     light: '[data-theme-mode=light] &',
     dark: '[data-theme-mode=dark] &'
   },
-  outdir: './src/shared/styles/styled-system',
   jsxFramework: 'react'
 })

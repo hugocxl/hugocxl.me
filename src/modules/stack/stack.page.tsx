@@ -8,10 +8,11 @@ import { Metadata } from 'next'
 import { STACK } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page } from '@/shared/components'
+import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
+import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -33,8 +34,11 @@ export async function StackPage() {
         <div key={tag}>
           <h1>{tag}</h1>
 
-          <Stack gap={'md'}>
-            {sortedGroup.map(({ link, name, description }) => (
+          <Grid
+            gridTemplateColumns={'repeat(auto-fit, minmax(160px, 1fr))'}
+            gap={'md'}
+          >
+            {sortedGroup.map(({ link, name, description, cover }) => (
               <Link
                 display={'flex'}
                 flexDirection={'column'}
@@ -45,13 +49,20 @@ export async function StackPage() {
                   opacity: 0.7
                 }}
               >
-                <Typography>{name}</Typography>
+                <styled.img
+                  src={cover}
+                  alt={name}
+                  h={140}
+                  borderRadius={'sm'}
+                  objectFit={'cover'}
+                />
+                <Typography mt={'md'}>{name}</Typography>
                 <Typography fontWeight={'medium'} color={'text.dimmed'}>
                   {description}
                 </Typography>
               </Link>
             ))}
-          </Stack>
+          </Grid>
         </div>
       )
     }

@@ -1,1 +1,1 @@
-export { Box } from '@/shared/styles/styled-system/jsx'
+export { Box } from '@styled-system/jsx'

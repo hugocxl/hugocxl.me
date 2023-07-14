@@ -1,5 +1,8 @@
-import { styled } from '@/shared/styles/styled-system/jsx'
-import { JsxStyleProps } from '@/shared/styles/styled-system/types'
+// Utils
+import { styled } from '@styled-system/jsx'
+
+// Types
+import { JsxStyleProps } from '@styled-system/types'
 import { ReactNode } from 'react'
 
 interface TitleProps extends JsxStyleProps {

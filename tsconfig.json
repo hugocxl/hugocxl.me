@@ -13,7 +13,8 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@styled-system/*": ["./styled-system/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",

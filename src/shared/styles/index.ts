@@ -1,5 +1,0 @@
-export { styled } from './styled-system/jsx'
-export { type JsxStyleProps } from './styled-system/types'
-export * from './styled-system/css'
-export * from './styled-system/patterns'
-export * from './styled-system/tokens'

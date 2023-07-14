@@ -1,5 +1,5 @@
 // Components
-import { styled } from '@/shared/styles'
+import { styled } from '@styled-system/jsx'
 import { Dock } from './dock'
 
 // Types
@@ -11,7 +11,21 @@ interface AppShellProps {
 
 export function AppShell(props: AppShellProps) {
   return (
-    <styled.main position={'relative'}>
+    <styled.main
+      minHeight={'100dvh'}
+      position={'relative'}
+      _before={{
+        content: '""',
+        position: 'absolute',
+        inset: 0,
+        zIndex: -100,
+        backgroundImage:
+          'url(/img/header-gradient.svg), url(/img/footer-gradient.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center top, center bottom',
+        backgroundSize: '1400px'
+      }}
+    >
       {props.children}
       <Dock />
     </styled.main>

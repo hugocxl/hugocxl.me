@@ -4,8 +4,8 @@ import { Box } from '@/shared/components'
 
 // Types
 import { ImageProps as NextImageProps } from 'next/image'
-import { JsxStyleProps } from '@/shared/styles'
-import { StandardLonghandProperties } from '@/shared/styles/styled-system/types/csstype'
+import { JsxStyleProps } from '@styled-system/types'
+import { StandardLonghandProperties } from '@styled-system/types/csstype'
 
 interface ImageProps extends JsxStyleProps {
   src: NextImageProps['src']
