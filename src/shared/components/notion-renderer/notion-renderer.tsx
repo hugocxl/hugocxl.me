@@ -2,8 +2,6 @@
 
 // Deps
 import dynamic from 'next/dynamic'
-// import Image from 'next/image'
-// import Link from 'next/link'
 
 // Types
 import { ExtendedRecordMap } from 'notion-types'
@@ -40,10 +38,19 @@ const Modal = dynamic(
 )
 
 export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
+  const isDarkMode = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return true
+
+    const htmlElement = document.querySelector('html')
+    const theme = htmlElement.getAttribute('data-theme-mode')
+
+    return theme === 'dark'
+  }
+
   return (
     <ReactNotionX
-      // darkMode={themeMode === 'dark'}
-      darkMode={true}
+      darkMode={isDarkMode()}
       recordMap={content}
       components={{
         Image: NextImage,

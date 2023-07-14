@@ -23,7 +23,7 @@ export async function Projects() {
   )
 
   return (
-    <Page>
+    <Page title={PROJECTS.title} description={PROJECTS.description}>
       <Stack>
         {projects.map(({ id, name, content, description, cover }) => {
           return (

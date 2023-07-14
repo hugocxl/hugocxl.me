@@ -23,7 +23,7 @@ export async function Writing() {
   )
 
   return (
-    <Page>
+    <Page title={WRITING.title} description={WRITING.description}>
       <Stack gap={'lg'}>
         {handbooks.map(handbook => (
           <Item

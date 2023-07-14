@@ -63,16 +63,7 @@ export const ABOUT: Page = {
   title: 'About',
   href: '/about',
   icon: IconAbout,
-  description: `Here's some additional information about me.`
+  description: `Little about me. Also, It's not hard to find my contact, just search hugocxl.`
 }
 
-export const PAGES: Pages = [
-  HOME,
-  // BLOG,
-  // HANDBOOKS,
-  WRITING,
-  PROJECTS,
-  STACK,
-  RADAR,
-  ABOUT
-]
+export const PAGES: Pages = [HOME, WRITING, PROJECTS, STACK, RADAR, ABOUT]

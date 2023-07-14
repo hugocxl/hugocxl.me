@@ -74,8 +74,7 @@ export function Dock() {
       overflow={'visible'}
       bottom={'calc(env(safe-area-inset-bottom) + 8px)'}
       borderRadius={'14px'}
-      border={'primary'}
-      bg={'rgba(180, 180, 180, 0.3)'}
+      bg={'rgba(160, 160, 160, 0.2)'}
       backdropFilter={'blur(4px)'}
       transition={'all 0.1s ease'}
       direction={'row'}

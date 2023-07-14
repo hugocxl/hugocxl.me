@@ -63,6 +63,9 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+# Panda files
+styled-system/
+
 # Optional npm cache directory
 .npm
 

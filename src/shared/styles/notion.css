@@ -490,11 +490,9 @@
   display: inline-flex;
   width: 100%;
   border-radius: var(--radii-sm);
-  border-width: 1px;
-  border-style: solid;
   align-items: flex-start;
   box-sizing: border-box;
-  backdrop-filter: blur(8px);
+  border: none;
 }
 
 .notion-callout-text {

@@ -1,6 +1,6 @@
 // Components
 import { Box, Typography, Container } from '@/shared/components'
-import { IconBox, IconMoon } from '@tabler/icons'
+import { IconBox, IconHeart } from '@tabler/icons'
 
 // Types
 import { Metadata, NextPage } from 'next'
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export const Home: NextPage = () => {
-  const iconsProps = {
+  const iconProps = {
     size: 20,
     style: {
       display: 'inline !important'
@@ -30,15 +30,13 @@ export const Home: NextPage = () => {
       >
         <b>@hugocxl</b>
         <Typography color={'text.dimmed'}>
-          <Typography color={'text.primary'}>software craftsman. </Typography>
-          unsatisfiably curious.{' '}
-          <span>
-            <IconMoon style={{ display: 'inline !important' }} />
-          </span>
-          passionate about software design. love to craft amazing digital
-          products. open source contributor{' '}
-          <IconBox style={{ display: 'inline !important' }} />. currently
-          full-stack at @incloud.
+          corta, hugo.
+          <Typography color={'text.primary'}> software craftsman. </Typography>
+          unsatisfiably curious. passionate about software design.{' '}
+          <Typography color={'text.secondary'}>
+            <IconHeart {...iconProps} /> love to craft amazing digital products.
+          </Typography>{' '}
+          <IconBox {...iconProps} /> open source contributor.
         </Typography>
       </Container>
     </Box>

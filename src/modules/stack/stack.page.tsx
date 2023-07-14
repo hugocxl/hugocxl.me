@@ -40,6 +40,7 @@ export async function StackPage() {
           >
             {sortedGroup.map(({ link, name, description, cover }) => (
               <Link
+                mb={'lg'}
                 display={'flex'}
                 flexDirection={'column'}
                 textDecoration={'none'}
@@ -52,12 +53,17 @@ export async function StackPage() {
                 <styled.img
                   src={cover}
                   alt={name}
-                  h={140}
+                  width={'100%'}
+                  aspectRatio={'1/1'}
                   borderRadius={'sm'}
                   objectFit={'cover'}
                 />
                 <Typography mt={'md'}>{name}</Typography>
-                <Typography fontWeight={'medium'} color={'text.dimmed'}>
+                <Typography
+                  fontSize={'sm'}
+                  fontWeight={'medium'}
+                  color={'text.dimmed'}
+                >
                   {description}
                 </Typography>
               </Link>
@@ -71,7 +77,7 @@ export async function StackPage() {
   }
 
   return (
-    <Page>
+    <Page title={STACK.title} description={STACK.description}>
       <Stack gap={60}>{render}</Stack>
     </Page>
   )

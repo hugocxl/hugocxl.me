@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export const About: NextPage = () => {
   return (
-    <Page>
+    <Page title={ABOUT.title} description={ABOUT.description}>
       <p>
         Hi, I'm Hugo. Most folks know me as <b>hugocxl</b> online.
       </p>
