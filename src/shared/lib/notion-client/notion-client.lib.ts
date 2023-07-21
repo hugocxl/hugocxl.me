@@ -4,6 +4,7 @@ import { notionAdapters } from './notion-client.adapters'
 // Dependencies
 import { Client } from '@notionhq/client'
 import { NotionCompatAPI } from 'notion-compat'
+import { getPageTableOfContents } from 'notion-utils'
 
 // Types
 import { NotionEntry } from './notion-client.types'
@@ -59,8 +60,17 @@ export const notionClient = {
   ): Promise<ExtendedNotionItem> => {
     const item = await notionClient.getDatabaseItem(databaseId, slug)
     const content = await notionUnofficialClient.getPage(item.id)
+    const pageBlock = content.block[Object.keys(content.block)[0]]?.value
+    const tableOfContents = getPageTableOfContents(pageBlock, content).map(
+      el => ({
+        ...el,
+        id: el.id.replaceAll('-', '')
+      })
+    )
+
     const page = {
       ...item,
+      tableOfContents,
       content
     }
 
@@ -70,11 +80,9 @@ export const notionClient = {
     const collection = await notionClient.getDatabase(databaseId)
     const pages = await Promise.all(
       collection.map(async page => {
-        const content = await notionUnofficialClient.getPage(page.id)
-        return {
-          ...page,
-          content
-        }
+        const fetchedPage = await notionUnofficialClient.getPage(page.id)
+
+        return fetchedPage
       })
     )
 

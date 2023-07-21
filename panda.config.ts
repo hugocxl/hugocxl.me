@@ -15,7 +15,7 @@ const tokens = defineTokens({
   fontWeights: {
     medium: { value: '400' },
     bold: { value: '500' },
-    bolder: { value: '600' }
+    bolder: { value: '700' }
   },
   radii: {
     sm: { value: '8px' },
@@ -40,7 +40,7 @@ const tokens = defineTokens({
   },
   fontSizes: {
     sm: { value: '12px' },
-    md: { value: '15px' },
+    md: { value: '16px' },
     lg: { value: '18px' }
   },
   borders: {}
@@ -59,52 +59,58 @@ const semanticTokens = defineSemanticTokens({
     bg: {
       primary: {
         value: {
-          base: 'hsl(0 0% 100%)',
-          _dark: 'hsl(0 0% 5%)'
+          _osLight: 'hsl(0 0% 100%)',
+          _osDark: 'hsl(0 0% 10%)'
         }
       },
       secondary: {
         value: {
-          base: 'hsl(0 0% 97%)',
-          _dark: 'hsl(0 0% 11.3%)'
+          _osLight: 'hsl(0 0% 97%)',
+          _osDark: 'hsl(0 0% 14%)'
         }
       },
       code: {
-        value: 'hsl(0 0% 1%)'
+        value: {
+          _osLight: 'hsl(0 0% 97%)',
+          _osDark: 'hsl(0 0% 14%)'
+        }
       },
       button: {
         value: {
-          base: 'hsl(0 0% 94%)',
-          _dark: 'hsl(0 0% 15%)'
+          _osLight: 'hsl(0 0% 94%)',
+          _osDark: 'hsl(0 0% 15%)'
         }
       }
     },
     border: {
       primary: {
         value: {
-          base: 'rgba(0,0,0,0.07)',
-          _dark: 'hsl(0 0% 25%)'
+          _osLight: 'rgba(0,0,0,0.07)',
+          _osDark: 'hsl(0 0% 25%)'
         }
       },
       secondary: {
         value: {
-          base: 'rgba(0,0,0,0.04)',
-          _dark: 'hsl(0 0% 15%)'
+          _osLight: 'rgba(0,0,0,0.04)',
+          _osDark: 'hsl(0 0% 15%)'
         }
       }
     },
     text: {
       primary: {
-        value: { base: 'hsl(0 0% 0%)', _dark: 'hsl(0 0% 100%)' }
+        value: { _osLight: 'hsl(0 0% 5%)', _osDark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { base: 'hsl(0 0% 20%)', _dark: 'hsl(0 0% 80%)' }
+        value: { _osLight: 'hsl(0 0% 20%)', _osDark: 'hsl(0 0% 100%)' }
       },
       tertiary: {
-        value: { base: 'hsl(0 0% 40%)', _dark: 'hsl(0 0% 60%)' }
+        value: {
+          _osLight: 'hsl(0 0% 22%)',
+          _osDark: 'hsl(216deg 12.2% 83.92%)'
+        }
       },
       dimmed: {
-        value: { base: 'hsl(0 0% 60%)', _dark: 'hsl(0 0% 40%)' }
+        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0 0% 50%)' }
       }
     }
   }
@@ -116,6 +122,10 @@ const globalCss = defineGlobalStyles({
     color: 'text.tertiary',
     fontSize: 'md',
     lineHeight: 'normal'
+  },
+  body: {
+    fontFamily:
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
   button: {
     backgroundColor: 'bg.button',
@@ -135,8 +145,8 @@ const globalCss = defineGlobalStyles({
     fontStyle: 'italic'
   },
   a: {
-    color: 'text.secondary',
-    fontWeight: 'bold',
+    color: 'text.primary',
+    fontWeight: 'medium',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
     textDecorationThickness: 2,
@@ -146,7 +156,8 @@ const globalCss = defineGlobalStyles({
     }
   },
   ul: {
-    listStyle: 'disc'
+    listStyle: 'disc',
+    paddingInlineStart: '2rem'
   },
   hr: {
     borderColor: 'border.primary',
@@ -165,17 +176,22 @@ const globalCss = defineGlobalStyles({
       marginBottom: 'md'
     },
   h1: {
-    fontSize: '1.2rem',
+    fontSize: '1.3rem',
     marginBottom: '1rem'
   },
   h2: {
-    fontSize: '1rem',
+    fontSize: '1.15rem',
     marginTop: '4rem',
-    marginBottom: '0.5rem'
+    marginBottom: '0.75rem'
   },
   h3: {
-    fontSize: '1rem',
+    fontSize: '1.05rem',
     marginTop: '2.5rem',
+    marginBottom: '0.5rem'
+  },
+  h4: {
+    fontSize: '1rem',
+    marginTop: '1.5rem',
     marginBottom: '0.25rem'
   },
   '::selection': {

@@ -10,5 +10,5 @@ interface ContainerProps extends JsxStyleProps {
 }
 
 export function Container(props: ContainerProps) {
-  return <Box w={'100%'} maxWidth={'75ch'} margin={'0 auto'} {...props} />
+  return <Box w={'100%'} maxWidth={'680px'} margin={'0 auto'} {...props} />
 }

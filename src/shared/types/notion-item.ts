@@ -1,4 +1,5 @@
 import { ExtendedRecordMap } from 'notion-types'
+import { TableOfContentsEntry } from 'notion-utils'
 
 export interface NotionItem {
   id: string
@@ -15,4 +16,5 @@ export interface NotionItem {
 
 export interface ExtendedNotionItem extends NotionItem {
   content: ExtendedRecordMap
+  tableOfContents: TableOfContentsEntry[]
 }

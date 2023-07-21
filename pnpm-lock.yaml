@@ -23,6 +23,9 @@ dependencies:
   notion-types:
     specifier: ^6.16.0
     version: 6.16.0
+  notion-utils:
+    specifier: ^6.16.0
+    version: 6.16.0
   react:
     specifier: ^18.2.0
     version: 18.2.0

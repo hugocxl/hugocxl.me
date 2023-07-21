@@ -1,5 +1,5 @@
 // Components
-import { Container, Typography, Stack, Title, Image } from '@/shared/components'
+import { Container, Typography, Stack, Title } from '@/shared/components'
 
 // Types
 import { ReactNode } from 'react'
@@ -16,33 +16,14 @@ export function Page({ title, description, children, ...props }: PageProps) {
     <Container
       px={'md'}
       py={{
-        base: '15vh',
+        base: '10vh',
         smDown: 'lg'
       }}
       {...props}
     >
-      <Stack mb={60} gap={0} justify={'center'} align={'center'}>
+      <Stack mb={60} gap={0} justify={'center'} align={'flex-start'}>
         <Title mb={0}>{title}</Title>
-        <Typography
-          w={'100%'}
-          maxWidth={'640px'}
-          fontSize={'lg'}
-          color={'text.dimmed'}
-          textAlign={'center'}
-        >
-          {description}
-        </Typography>
-        <Image
-          mt={'sm'}
-          objectFit={'contain'}
-          _dark={{
-            filter: 'invert(1)'
-          }}
-          width={'320px'}
-          height={'20px'}
-          src={'/img/header-divider.png'}
-          alt={'divider'}
-        />
+        <Typography color={'text.dimmed'}>{description}</Typography>
       </Stack>
       {children}
     </Container>

@@ -4,7 +4,8 @@ import {
   Container,
   Link,
   Stack,
-  NotionRenderer
+  NotionRenderer,
+  Typography
 } from '@/shared/components'
 
 // Types
@@ -15,9 +16,20 @@ interface ArticleProps extends ExtendedNotionItem {
   goBackHref: string
 }
 
-export function Article({ name, content, goBackHref }: ArticleProps) {
+export function Article({
+  name,
+  content,
+  goBackHref,
+  tableOfContents
+}: ArticleProps) {
   return (
-    <Container py={'15vh'} px={'md'}>
+    <Container
+      py={{
+        base: '10vh',
+        smDown: 'lg'
+      }}
+      px={'md'}
+    >
       <Stack mb={'lg'} gap={0} position={'relative'}>
         <h1>{name}</h1>
         <Link
@@ -29,12 +41,38 @@ export function Article({ name, content, goBackHref }: ArticleProps) {
           position={'absolute'}
           top={0}
           left={0}
-          transform={'translateX(calc(-100% - 2rem))'}
+          transform={'translateX(calc(-100% - 3rem))'}
         >
           <Button>
             <IconArrowBackUp size={18} />
           </Button>
         </Link>
+        <Stack
+          display={{
+            md: 'flex',
+            sm: 'none'
+          }}
+          gap={'xs'}
+          position={'absolute'}
+          top={80}
+          left={0}
+          transform={'translateX(calc(-100% - 3rem))'}
+        >
+          {tableOfContents.map(el => {
+            return (
+              <Link
+                href={'#' + el.id}
+                key={el.id}
+                textDecoration={'none'}
+                fontSize={'sm'}
+                textAlign={'right'}
+                color={'text.dimmed'}
+              >
+                {el.text}
+              </Link>
+            )
+          })}
+        </Stack>
       </Stack>
       <NotionRenderer content={content} />
     </Container>

@@ -134,6 +134,27 @@ export const About: NextPage = () => {
       <h2>{'Experience'}</h2>
       <div>
         <CompanyItem
+          date={'July 2023 - Present'}
+          // image={'/img/sygris.jpeg'}
+          company={'InCloudForever'}
+          title={'Fullstack Engineer'}
+          stack={'Next, Nest'}
+          // description={
+          //   <ul>
+          //     <li>
+          //       Assumed full responsibility for the frontend-side project's
+          //       inception and establishment, orchestrating the complete setup of
+          //       the different repositories involved from scratch
+          //     </li>
+          //     <li>
+          //       Mentored junior engineers, conducting regular code reviews and
+          //       providing technical guidance, leading to an improvement in
+          //       overall code quality and team productivity
+          //     </li>
+          //   </ul>
+          // }
+        />
+        <CompanyItem
           date={'Jan 2023 - July 2023'}
           // image={'/img/sygris.jpeg'}
           company={'Sygris'}
