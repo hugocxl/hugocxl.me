@@ -17,18 +17,7 @@ import '@/shared/styles/prismjs.css'
 const font = localFont({
   src: [
     {
-      path: '../../public/fonts/x/x-regular.woff2',
-      weight: '400',
-      style: 'normal'
-    },
-    {
-      path: '../../public/fonts/x/x-medium.woff2',
-      weight: '500',
-      style: 'normal'
-    },
-    {
-      path: '../../public/fonts/x/x-medium.woff2',
-      weight: '600',
+      path: '../../public/fonts/sf-pro/sf-pro.ttf',
       style: 'normal'
     }
   ]

@@ -223,25 +223,10 @@ export const About: NextPage = () => {
           // }
         />
         <CompanyItem
-          date={'June 2017 - June 2019'}
-          // image={'/img/npaw.jpg'}
-          company={'NPAW'}
-          title={'Frontend Developer'}
-          stack={'Backbone, React'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Utilised React to translate design concepts into functional web
-          //       elements employing best practices
-          //     </li>
-          //   </ul>
-          // }
-        />
-        <CompanyItem
           date={'2019, 2021'}
           // image={'/img/ironhack.jpeg'}
           company={'Ironhack'}
-          title={'Lead Instructor'}
+          title={'Instructor'}
           stack={'HTML, CSS, JS'}
           // description={
           //   <ul>
@@ -255,6 +240,21 @@ export const About: NextPage = () => {
           //       practical exercises, effectively conveying complex design
           //       implementation concepts and techniques to students of varying
           //       skill levels
+          //     </li>
+          //   </ul>
+          // }
+        />
+        <CompanyItem
+          date={'June 2017 - June 2019'}
+          // image={'/img/npaw.jpg'}
+          company={'NPAW'}
+          title={'Frontend Developer'}
+          stack={'Backbone, React'}
+          // description={
+          //   <ul>
+          //     <li>
+          //       Utilised React to translate design concepts into functional web
+          //       elements employing best practices
           //     </li>
           //   </ul>
           // }
@@ -284,7 +284,7 @@ function CompanyItem({
       alignItems={'baseline'}
     >
       <Stack gap={0}>
-        <Typography color={'text.secondary'} fontWeight={'bold'}>
+        <Typography color={'text.primary'} fontWeight={'bold'}>
           {title}
         </Typography>
         <Typography fontSize={'sm'}>{company}</Typography>

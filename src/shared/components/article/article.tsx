@@ -4,8 +4,7 @@ import {
   Container,
   Link,
   Stack,
-  NotionRenderer,
-  Typography
+  NotionRenderer
 } from '@/shared/components'
 
 // Types
@@ -49,8 +48,8 @@ export function Article({
         </Link>
         <Stack
           display={{
-            md: 'flex',
-            sm: 'none'
+            lg: 'flex',
+            md: 'none'
           }}
           gap={'xs'}
           position={'absolute'}
@@ -65,7 +64,7 @@ export function Article({
                 key={el.id}
                 textDecoration={'none'}
                 fontSize={'sm'}
-                textAlign={'right'}
+                textAlign={'left'}
                 color={'text.dimmed'}
               >
                 {el.text}

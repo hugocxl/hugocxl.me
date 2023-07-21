@@ -15,7 +15,7 @@ const tokens = defineTokens({
   fontWeights: {
     medium: { value: '400' },
     bold: { value: '500' },
-    bolder: { value: '700' }
+    bolder: { value: '600' }
   },
   radii: {
     sm: { value: '8px' },
@@ -39,8 +39,8 @@ const tokens = defineTokens({
     lg: { value: '32px' }
   },
   fontSizes: {
-    sm: { value: '12px' },
-    md: { value: '16px' },
+    sm: { value: '13px' },
+    md: { value: '15px' },
     lg: { value: '18px' }
   },
   borders: {}
@@ -85,28 +85,25 @@ const semanticTokens = defineSemanticTokens({
     border: {
       primary: {
         value: {
-          _osLight: 'rgba(0,0,0,0.07)',
+          _osLight: 'hsl(0 0% 80%)',
           _osDark: 'hsl(0 0% 25%)'
         }
       },
       secondary: {
         value: {
-          _osLight: 'rgba(0,0,0,0.04)',
+          _osLight: 'hsl(0 0% 90%)',
           _osDark: 'hsl(0 0% 15%)'
         }
       }
     },
     text: {
       primary: {
-        value: { _osLight: 'hsl(0 0% 5%)', _osDark: 'hsl(0 0% 100%)' }
+        value: { _osLight: 'hsl(0 0% 0%)', _osDark: 'hsl(0 0% 100%)' }
       },
       secondary: {
-        value: { _osLight: 'hsl(0 0% 20%)', _osDark: 'hsl(0 0% 100%)' }
-      },
-      tertiary: {
         value: {
-          _osLight: 'hsl(0 0% 22%)',
-          _osDark: 'hsl(216deg 12.2% 83.92%)'
+          _osLight: 'hsl(0 0% 30%)',
+          _osDark: 'hsl(0 0% 80%)'
         }
       },
       dimmed: {
@@ -117,9 +114,12 @@ const semanticTokens = defineSemanticTokens({
 })
 
 const globalCss = defineGlobalStyles({
+  '*': {
+    textRendering: 'optimizeLegibility'
+  },
   html: {
     backgroundColor: 'bg.primary',
-    color: 'text.tertiary',
+    color: 'text.secondary',
     fontSize: 'md',
     lineHeight: 'normal'
   },
@@ -129,7 +129,7 @@ const globalCss = defineGlobalStyles({
   },
   button: {
     backgroundColor: 'bg.button',
-    color: 'text.tertiary',
+    color: 'text.secondary',
     padding: 'sm',
     borderRadius: 'sm',
     cursor: 'pointer',
@@ -141,15 +141,12 @@ const globalCss = defineGlobalStyles({
       bg: 'bg.secondary'
     }
   },
-  i: {
-    fontStyle: 'italic'
-  },
   a: {
-    color: 'text.primary',
+    color: 'text.secondary',
     fontWeight: 'medium',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
-    textDecorationThickness: 2,
+    textDecorationThickness: 1,
     textUnderlineOffset: 3,
     '&:hover': {
       color: 'text.dimmed'
@@ -157,35 +154,42 @@ const globalCss = defineGlobalStyles({
   },
   ul: {
     listStyle: 'disc',
-    paddingInlineStart: '2rem'
+    paddingInlineStart: '1rem'
   },
   hr: {
     borderColor: 'border.primary',
     borderStyle: 'solid'
   },
+  i: {
+    fontStyle: 'italic'
+  },
   'b, strong': {
-    color: 'text.secondary',
-    fontWeight: 'bold'
+    color: 'text.primary',
+    fontWeight: 'medium',
+    fontStyle: 'italic'
   },
   'h1, h2, h3, h4, h5, h6': {
     color: 'text.primary',
     fontWeight: 'bolder'
   },
-  'p, li, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
+  li: {
+    marginBottom: 'md'
+  },
+  'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: 'md'
+      marginBottom: 'lg'
     },
   h1: {
-    fontSize: '1.3rem',
+    fontSize: '1rem',
     marginBottom: '1rem'
   },
   h2: {
-    fontSize: '1.15rem',
+    fontSize: '1rem',
     marginTop: '4rem',
     marginBottom: '0.75rem'
   },
   h3: {
-    fontSize: '1.05rem',
+    fontSize: '1rem',
     marginTop: '2.5rem',
     marginBottom: '0.5rem'
   },

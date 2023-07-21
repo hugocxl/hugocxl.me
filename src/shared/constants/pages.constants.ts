@@ -9,7 +9,7 @@ import IconRadar from '../../../public/icons/radar.png'
 import IconAbout from '../../../public/icons/about.png'
 
 export const HOME: Page = {
-  title: 'Home',
+  title: 'hugocxl',
   href: '/',
   icon: IconHome,
   description: ''

@@ -8,11 +8,10 @@ import { Metadata } from 'next'
 import { STACK } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
+import { Link, Stack, Typography, Page } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
-import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -34,41 +33,32 @@ export async function StackPage() {
         <div key={tag}>
           <h1>{tag}</h1>
 
-          <Grid
-            gridTemplateColumns={'repeat(auto-fit, minmax(160px, 1fr))'}
-            gap={'md'}
-          >
-            {sortedGroup.map(({ link, name, description, cover }) => (
-              <Link
-                mb={'lg'}
-                display={'flex'}
-                flexDirection={'column'}
-                textDecoration={'none'}
-                key={link}
-                href={link}
-                _hover={{
-                  opacity: 0.7
-                }}
-              >
-                <styled.img
-                  src={cover}
-                  alt={name}
-                  width={'100%'}
-                  aspectRatio={'1/1'}
-                  borderRadius={'sm'}
-                  objectFit={'cover'}
-                />
-                <Typography mt={'md'}>{name}</Typography>
-                <Typography
-                  fontSize={'sm'}
-                  fontWeight={'medium'}
-                  color={'text.dimmed'}
+          <ul>
+            {sortedGroup.map(({ link, name, description }) => (
+              <li key={link}>
+                <Link
+                  display={'flex'}
+                  textDecoration={'none'}
+                  flexDirection={'column'}
+                  href={link}
+                  _hover={{
+                    opacity: 0.7
+                  }}
                 >
-                  {description}
-                </Typography>
-              </Link>
+                  <Typography fontWeight={'bold'} color={'text.primary'}>
+                    {name}
+                  </Typography>
+                  <Typography
+                    // fontSize={'sm'}
+                    fontWeight={'medium'}
+                    color={'text.dimmed'}
+                  >
+                    {description}
+                  </Typography>
+                </Link>
+              </li>
             ))}
-          </Grid>
+          </ul>
         </div>
       )
     }
@@ -77,7 +67,7 @@ export async function StackPage() {
   }
 
   return (
-    <Page title={STACK.title} description={STACK.description}>
+    <Page title={STACK.title}>
       <Stack gap={60}>{render}</Stack>
     </Page>
   )

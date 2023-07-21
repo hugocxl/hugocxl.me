@@ -253,7 +253,7 @@
 }
 
 .notion-inline-code {
-  color: var(--colors-text-tertiary);
+  color: var(--colors-text-secondary);
   padding: 0.2em 0.5em;
   background: var(--colors-bg-button);
   border-radius: 4px;

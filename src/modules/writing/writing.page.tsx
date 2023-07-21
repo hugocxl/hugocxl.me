@@ -23,19 +23,23 @@ export async function Writing() {
   )
 
   return (
-    <Page title={WRITING.title} description={WRITING.description}>
-      <Stack gap={'lg'}>
+    <Page title={WRITING.title}>
+      <h2>{HANDBOOKS.title}</h2>
+      <ul>
         {handbooks.map(handbook => (
-          <Item
-            key={handbook.id}
-            href={`${HANDBOOKS.href}/${handbook.slug}`}
-            {...handbook}
-          />
+          <li key={handbook.id}>
+            <Item href={`${HANDBOOKS.href}/${handbook.slug}`} {...handbook} />
+          </li>
         ))}
+      </ul>
+      <h2>{BLOG.title}</h2>
+      <ul>
         {posts.map(post => (
-          <Item key={post.id} href={`${BLOG.href}/${post.slug}`} {...post} />
+          <li key={post.id}>
+            <Item href={`${BLOG.href}/${post.slug}`} {...post} />
+          </li>
         ))}
-      </Stack>
+      </ul>
     </Page>
   )
 }
@@ -43,27 +47,27 @@ export async function Writing() {
 function Item({
   name,
   href,
-  updatedAt
+  updatedAt,
+  description
 }: {
   name: string
   href: string
+  description: string
   updatedAt: string
 }) {
   return (
     <Link
-      borderRadius={'md'}
-      display={'grid'}
-      gap={'md'}
-      gridTemplateColumns={'auto 1fr auto'}
-      alignItems={'baseline'}
+      display={'flex'}
+      flexDirection={'column'}
       textDecoration={'none'}
       key={href}
       href={href}
     >
-      <Typography>{name}</Typography>
-      <Box borderBottom={'secondary'} width={'100%'} />
-      <Typography fontWeight={'medium'} color={'text.dimmed'} fontSize={'sm'}>
-        {updatedAt}
+      <Typography fontWeight={'bold'} color={'text.primary'}>
+        {name}
+      </Typography>
+      <Typography fontWeight={'medium'} color={'text.dimmed'}>
+        {description}
       </Typography>
     </Link>
   )

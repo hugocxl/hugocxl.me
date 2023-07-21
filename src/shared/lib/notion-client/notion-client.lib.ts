@@ -80,7 +80,7 @@ export const notionClient = {
     const collection = await notionClient.getDatabase(databaseId)
     const pages = await Promise.all(
       collection.map(async page => {
-        const fetchedPage = await notionUnofficialClient.getPage(page.id)
+        const fetchedPage = await notionClient.getPage(databaseId, page.slug)
 
         return fetchedPage
       })
