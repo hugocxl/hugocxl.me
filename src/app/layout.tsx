@@ -15,10 +15,10 @@ import '@/shared/styles/notion.css'
 import '@/shared/styles/prismjs.css'
 
 const font = localFont({
+  preload: true,
   src: [
     {
-      path: '../../public/fonts/sf-pro/sf-pro.ttf',
-      style: 'normal'
+      path: '../../public/fonts/sohne/sohne.woff2'
     }
   ]
 })

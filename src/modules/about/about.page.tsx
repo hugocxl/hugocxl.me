@@ -279,7 +279,7 @@ function CompanyItem({
   return (
     <Grid
       gap={'sm'}
-      mb={'lg'}
+      mb={'md'}
       gridTemplateColumns={'auto 1fr 200px'}
       alignItems={'baseline'}
     >

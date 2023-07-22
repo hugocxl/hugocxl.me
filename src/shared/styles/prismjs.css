@@ -10,10 +10,8 @@ pre[class*='language-'] {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: normal;
-  font-family: Menlo, monospace;
-  font-size: 13px;
   line-height: 1.4;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--colors-text-secondary);
   text-shadow: none;
 }

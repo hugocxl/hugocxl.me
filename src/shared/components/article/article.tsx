@@ -1,10 +1,12 @@
 // Components
 import {
   Button,
-  Container,
   Link,
   Stack,
-  NotionRenderer
+  NotionRenderer,
+  Grid,
+  Box,
+  Title
 } from '@/shared/components'
 
 // Types
@@ -22,58 +24,77 @@ export function Article({
   tableOfContents
 }: ArticleProps) {
   return (
-    <Container
+    <Grid
+      mdDown={{
+        display: 'flex',
+        flexDirection: 'column',
+        maxWidth: 680,
+        margin: '0 auto'
+      }}
+      gap={'60px'}
+      px={'md'}
+      gridTemplateColumns={{
+        base: 'auto 620px auto',
+        mdDown: '620px'
+      }}
       py={{
         base: '10vh',
         smDown: 'lg'
       }}
-      px={'md'}
     >
-      <Stack mb={'lg'} gap={0} position={'relative'}>
-        <h1>{name}</h1>
+      <Box
+        display={{
+          lg: 'initial',
+          mdDown: 'none'
+        }}
+      >
         <Link
-          display={{
-            md: 'inherit',
-            sm: 'none'
-          }}
           href={goBackHref}
-          position={'absolute'}
-          top={0}
-          left={0}
-          transform={'translateX(calc(-100% - 3rem))'}
+          position={'sticky'}
+          top={'10vh'}
+          float={'right'}
         >
           <Button>
             <IconArrowBackUp size={18} />
           </Button>
         </Link>
-        <Stack
-          display={{
-            lg: 'flex',
-            md: 'none'
-          }}
-          gap={'xs'}
-          position={'absolute'}
-          top={80}
-          left={0}
-          transform={'translateX(calc(-100% - 3rem))'}
-        >
+      </Box>
+
+      <Box>
+        <Title mb={'lg'}>{name}</Title>
+        <NotionRenderer content={content} />
+      </Box>
+
+      <Box
+        display={{
+          lg: 'initial',
+          mdDown: 'none'
+        }}
+      >
+        <Stack gap={0} position={'sticky'} top={'10vh'}>
           {tableOfContents.map(el => {
             return (
               <Link
-                href={'#' + el.id}
                 key={el.id}
+                fontFamily={'Newspaper'}
+                href={'#' + el.id}
                 textDecoration={'none'}
                 fontSize={'sm'}
-                textAlign={'left'}
                 color={'text.dimmed'}
+                transition={'all .3s ease'}
+                _hover={{
+                  textDecoration: 'none',
+                  color: 'text.secondary'
+                }}
               >
-                {el.text}
+                <span style={{ paddingLeft: el.indentLevel * 8 }}>
+                  {el.text}
+                </span>
               </Link>
             )
           })}
         </Stack>
-      </Stack>
-      <NotionRenderer content={content} />
-    </Container>
+      </Box>
+    </Grid>
   )
 }

@@ -38,20 +38,9 @@ const Modal = dynamic(
 )
 
 export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
-  const isDarkMode = () => {
-    if (typeof window === 'undefined' || typeof document === 'undefined')
-      return true
-
-    const htmlElement = document.querySelector('html')
-    const theme = htmlElement.getAttribute('data-theme-mode')
-
-    return theme === 'dark'
-  }
-
   return (
     <ReactNotionX
       rootDomain={'https://www.hugocxl.me'}
-      darkMode={isDarkMode()}
       recordMap={content}
       components={{
         Image: NextImage,

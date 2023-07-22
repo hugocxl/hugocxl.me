@@ -10,7 +10,7 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    normal: { value: '1.6' }
+    normal: { value: '28px' }
   },
   fontWeights: {
     medium: { value: '400' },
@@ -39,9 +39,9 @@ const tokens = defineTokens({
     lg: { value: '32px' }
   },
   fontSizes: {
-    sm: { value: '13px' },
-    md: { value: '15px' },
-    lg: { value: '18px' }
+    sm: { value: '12px' },
+    md: { value: '16px' },
+    lg: { value: '20px' }
   },
   borders: {}
 })
@@ -103,7 +103,7 @@ const semanticTokens = defineSemanticTokens({
       secondary: {
         value: {
           _osLight: 'hsl(0 0% 30%)',
-          _osDark: 'hsl(0 0% 80%)'
+          _osDark: 'hsl(0 0% 70%)'
         }
       },
       dimmed: {
@@ -142,8 +142,6 @@ const globalCss = defineGlobalStyles({
     }
   },
   a: {
-    color: 'text.secondary',
-    fontWeight: 'medium',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
     textDecorationThickness: 1,
@@ -163,14 +161,23 @@ const globalCss = defineGlobalStyles({
   i: {
     fontStyle: 'italic'
   },
-  'b, strong': {
-    color: 'text.primary',
+  'b, strong, a': {
+    color: 'text.secondary',
     fontWeight: 'medium',
-    fontStyle: 'italic'
+    fontFamily: 'Newspaper',
+    fontSize: 'calc(1rem + 1px)',
+    _osDark: {
+      color: 'text.primary'
+    }
   },
   'h1, h2, h3, h4, h5, h6': {
+    fontFamily: 'Newspaper',
     color: 'text.primary',
     fontWeight: 'bolder'
+  },
+  code: {
+    fontFamily: 'Menlo, monospace',
+    fontSize: 'sm'
   },
   li: {
     marginBottom: 'md'
@@ -180,7 +187,7 @@ const globalCss = defineGlobalStyles({
       marginBottom: 'lg'
     },
   h1: {
-    fontSize: '1rem',
+    fontSize: '1.3rem',
     marginBottom: '1rem'
   },
   h2: {
@@ -189,14 +196,12 @@ const globalCss = defineGlobalStyles({
     marginBottom: '0.75rem'
   },
   h3: {
-    fontSize: '1rem',
-    marginTop: '2.5rem',
-    marginBottom: '0.5rem'
+    fontSize: '0.9rem',
+    marginTop: '2.5rem'
   },
   h4: {
-    fontSize: '1rem',
-    marginTop: '1.5rem',
-    marginBottom: '0.25rem'
+    fontSize: '0.9rem',
+    marginTop: '1.5rem'
   },
   '::selection': {
     color: 'black',

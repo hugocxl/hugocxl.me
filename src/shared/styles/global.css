@@ -1,1 +1,11 @@
 @layer reset, base, tokens, recipes, utilities;
+
+@font-face {
+  font-family: 'Newspaper';
+  src: url('/fonts/newsreader/newsreader.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'SF-Mono';
+  src: url('/fonts/sf-mono/sf-mono.otf');
+}
