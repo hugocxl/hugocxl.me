@@ -492,7 +492,7 @@
   border-radius: var(--radii-sm);
   align-items: flex-start;
   box-sizing: border-box;
-  border: none;
+  /* border: 1px solid; */
 }
 
 .notion-callout-text {

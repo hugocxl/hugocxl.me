@@ -1,5 +1,1 @@
-'use client'
-
-import { Home } from '@/modules/home'
-
-export default Home
+export { Home as default } from '@/modules/home'

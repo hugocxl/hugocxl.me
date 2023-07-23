@@ -6,9 +6,11 @@ import { Metadata } from 'next'
 
 // Constants
 import { PHOTOS } from '@/shared/constants'
+
+// Libs
 import { instagramClient } from '@/shared/lib'
 
-export const revalidate = 86400 * 3
+export const revalidate = 86400 * 1
 export const metadata: Metadata = {
   title: PHOTOS.title,
   description: PHOTOS.description
@@ -22,6 +24,9 @@ export async function Photos() {
       <Grid
         columns={3}
         mdDown={{
+          gridTemplateColumns: '1fr 1fr'
+        }}
+        smDown={{
           gridTemplateColumns: '1fr'
         }}
       >

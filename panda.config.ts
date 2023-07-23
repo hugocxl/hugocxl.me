@@ -10,7 +10,7 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    normal: { value: '28px' }
+    normal: { value: '1.7' }
   },
   fontWeights: {
     medium: { value: '400' },
@@ -30,7 +30,8 @@ const tokens = defineTokens({
   sizes: {
     sm: { value: '4px' },
     md: { value: '12px' },
-    lg: { value: '20px' }
+    lg: { value: '20px' },
+    content: { value: '680px' }
   },
   spacing: {
     xs: { value: '4px' },
@@ -39,11 +40,14 @@ const tokens = defineTokens({
     lg: { value: '32px' }
   },
   fontSizes: {
-    sm: { value: '12px' },
+    sm: { value: '13px' },
     md: { value: '16px' },
-    lg: { value: '20px' }
+    lg: { value: '18px' }
   },
-  borders: {}
+  borders: {},
+  contentWidth: {
+    value: '640px'
+  }
 })
 
 const semanticTokens = defineSemanticTokens({
@@ -60,25 +64,25 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           _osLight: 'hsl(0 0% 100%)',
-          _osDark: 'hsl(0 0% 10%)'
+          _osDark: 'hsl(0 0% 0%)'
         }
       },
       secondary: {
         value: {
           _osLight: 'hsl(0 0% 97%)',
-          _osDark: 'hsl(0 0% 14%)'
+          _osDark: 'hsl(0 0% 8%)'
         }
       },
       code: {
         value: {
           _osLight: 'hsl(0 0% 97%)',
-          _osDark: 'hsl(0 0% 14%)'
+          _osDark: 'hsl(0 0% 10%)'
         }
       },
       button: {
         value: {
           _osLight: 'hsl(0 0% 94%)',
-          _osDark: 'hsl(0 0% 15%)'
+          _osDark: 'hsl(0 0% 10%)'
         }
       }
     },
@@ -86,13 +90,13 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           _osLight: 'hsl(0 0% 80%)',
-          _osDark: 'hsl(0 0% 25%)'
+          _osDark: 'hsl(0 0% 20%)'
         }
       },
       secondary: {
         value: {
           _osLight: 'hsl(0 0% 90%)',
-          _osDark: 'hsl(0 0% 15%)'
+          _osDark: 'hsl(0 0% 10%)'
         }
       }
     },
@@ -102,12 +106,12 @@ const semanticTokens = defineSemanticTokens({
       },
       secondary: {
         value: {
-          _osLight: 'hsl(0 0% 30%)',
-          _osDark: 'hsl(0 0% 70%)'
+          _osLight: 'hsl(0 0% 20%)',
+          _osDark: 'hsl(0 0% 80%)'
         }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0 0% 50%)' }
+        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0 0% 40%)' }
       }
     }
   }
@@ -121,11 +125,11 @@ const globalCss = defineGlobalStyles({
     backgroundColor: 'bg.primary',
     color: 'text.secondary',
     fontSize: 'md',
-    lineHeight: 'normal'
-  },
-  body: {
-    fontFamily:
-      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+    lineHeight: 'normal',
+    letterSpacing: '-0.3px',
+    mdDown: {
+      fontSize: 'sm'
+    }
   },
   button: {
     backgroundColor: 'bg.button',
@@ -142,10 +146,12 @@ const globalCss = defineGlobalStyles({
     }
   },
   a: {
+    color: 'text.primary',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
     textDecorationThickness: 1,
     textUnderlineOffset: 3,
+    transition: 'color 0.2s ease-in-out',
     '&:hover': {
       color: 'text.dimmed'
     }
@@ -155,53 +161,48 @@ const globalCss = defineGlobalStyles({
     paddingInlineStart: '1rem'
   },
   hr: {
-    borderColor: 'border.primary',
+    borderColor: 'border.secondary',
     borderStyle: 'solid'
   },
   i: {
     fontStyle: 'italic'
   },
-  'b, strong, a': {
-    color: 'text.secondary',
+  'b, strong': {
+    letterSpacing: 0,
+    lineHeight: 1.3,
     fontWeight: 'medium',
     fontFamily: 'Newspaper',
     fontSize: 'calc(1rem + 1px)',
-    _osDark: {
-      color: 'text.primary'
-    }
+    color: 'text.primary'
   },
   'h1, h2, h3, h4, h5, h6': {
-    fontFamily: 'Newspaper',
     color: 'text.primary',
     fontWeight: 'bolder'
   },
   code: {
     fontFamily: 'Menlo, monospace',
-    fontSize: 'sm'
+    fontSize: '0.85rem',
+    letterSpacing: 0
   },
   li: {
     marginBottom: 'md'
   },
   'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: 'lg'
+      marginBottom: '1.5rem'
     },
   h1: {
-    fontSize: '1.3rem',
     marginBottom: '1rem'
   },
   h2: {
-    fontSize: '1rem',
-    marginTop: '4rem',
+    marginTop: '3rem',
     marginBottom: '0.75rem'
   },
   h3: {
-    fontSize: '0.9rem',
-    marginTop: '2.5rem'
+    marginTop: '2rem'
   },
   h4: {
-    fontSize: '0.9rem',
-    marginTop: '1.5rem'
+    marginTop: '1rem'
   },
   '::selection': {
     color: 'black',

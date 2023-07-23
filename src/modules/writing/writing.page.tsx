@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { BLOG, HANDBOOKS, WRITING } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Box } from '@/shared/components'
+import { Link, Stack, Typography, Page, Flex } from '@/shared/components'
 
 export const revalidate = 86400 * 3
 export const metadata: Metadata = {
@@ -23,23 +23,19 @@ export async function Writing() {
   )
 
   return (
-    <Page title={WRITING.title}>
-      <h2>{HANDBOOKS.title}</h2>
-      <ul>
+    <Page {...WRITING}>
+      <Stack gap={'md'}>
         {handbooks.map(handbook => (
-          <li key={handbook.id}>
-            <Item href={`${HANDBOOKS.href}/${handbook.slug}`} {...handbook} />
-          </li>
+          <Item
+            key={handbook.id}
+            href={`${HANDBOOKS.href}/${handbook.slug}`}
+            {...handbook}
+          />
         ))}
-      </ul>
-      <h2>{BLOG.title}</h2>
-      <ul>
         {posts.map(post => (
-          <li key={post.id}>
-            <Item href={`${BLOG.href}/${post.slug}`} {...post} />
-          </li>
+          <Item key={post.id} href={`${BLOG.href}/${post.slug}`} {...post} />
         ))}
-      </ul>
+      </Stack>
     </Page>
   )
 }
@@ -47,28 +43,20 @@ export async function Writing() {
 function Item({
   name,
   href,
-  updatedAt,
-  description
+  updatedAt
 }: {
   name: string
   href: string
-  description: string
   updatedAt: string
 }) {
   return (
-    <Link
-      display={'flex'}
-      flexDirection={'column'}
-      textDecoration={'none'}
-      key={href}
-      href={href}
-    >
-      <Typography fontWeight={'bold'} color={'text.primary'}>
+    <Flex justifyContent={'space-between'}>
+      <Link href={href} whiteSpace={'nowrap'}>
         {name}
-      </Typography>
+      </Link>
       <Typography fontWeight={'medium'} color={'text.dimmed'}>
-        {description}
+        {updatedAt}
       </Typography>
-    </Link>
+    </Flex>
   )
 }

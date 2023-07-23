@@ -1,6 +1,8 @@
 {
-  "name": "Hugo Corta",
-  "short_name": "Hugo Corta",
+  "name": "hugocxl",
+  "short_name": "hugocxl",
+  "display": "fullscreen",
+  "background_color": "#000",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -27,7 +29,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "background_color": "hsl(0 0% 5%)",
-  "display": "standalone"
+  ]
 }

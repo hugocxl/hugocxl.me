@@ -1,13 +1,5 @@
 // Components
-import {
-  Button,
-  Link,
-  Stack,
-  NotionRenderer,
-  Grid,
-  Box,
-  Title
-} from '@/shared/components'
+import { Button, Link, Stack, NotionRenderer, Page } from '@/shared/components'
 
 // Types
 import { ExtendedNotionItem } from '@/shared/types'
@@ -24,77 +16,50 @@ export function Article({
   tableOfContents
 }: ArticleProps) {
   return (
-    <Grid
-      mdDown={{
-        display: 'flex',
-        flexDirection: 'column',
-        maxWidth: 680,
-        margin: '0 auto'
-      }}
-      gap={'60px'}
-      px={'md'}
-      gridTemplateColumns={{
-        base: 'auto 620px auto',
-        mdDown: '620px'
-      }}
-      py={{
-        base: '10vh',
-        smDown: 'lg'
-      }}
-    >
-      <Box
-        display={{
-          lg: 'initial',
-          mdDown: 'none'
+    <Page title={name}>
+      <Link
+        mdDown={{
+          display: 'none'
         }}
+        href={goBackHref}
+        position={'absolute'}
+        left={-40}
+        transform={'translateX(-100%)'}
       >
-        <Link
-          href={goBackHref}
-          position={'sticky'}
-          top={'10vh'}
-          float={'right'}
-        >
-          <Button>
-            <IconArrowBackUp size={18} />
-          </Button>
-        </Link>
-      </Box>
+        <Button>
+          <IconArrowBackUp size={18} />
+        </Button>
+      </Link>
+      <NotionRenderer content={content} />
 
-      <Box>
-        <Title mb={'lg'}>{name}</Title>
-        <NotionRenderer content={content} />
-      </Box>
-
-      <Box
-        display={{
-          lg: 'initial',
-          mdDown: 'none'
+      <Stack
+        mdDown={{
+          display: 'none'
         }}
+        position={'absolute'}
+        right={-40}
+        transform={'translateX(100%)'}
       >
-        <Stack gap={0} position={'sticky'} top={'10vh'}>
-          {tableOfContents.map(el => {
-            return (
-              <Link
-                key={el.id}
-                fontFamily={'Newspaper'}
-                href={'#' + el.id}
-                textDecoration={'none'}
-                fontSize={'sm'}
-                color={'text.dimmed'}
-                transition={'all .3s ease'}
-                _hover={{
-                  textDecoration: 'none',
-                  color: 'text.secondary'
-                }}
-              >
-                <span style={{ paddingLeft: el.indentLevel * 8 }}>
-                  {el.text}
-                </span>
-              </Link>
-            )
-          })}
-        </Stack>
-      </Box>
-    </Grid>
+        {tableOfContents.map(el => {
+          return (
+            <Link
+              pb={'2px'}
+              key={el.id}
+              href={'#' + el.id}
+              textDecoration={'none'}
+              fontSize={'sm'}
+              color={'text.dimmed'}
+              transition={'all .3s ease'}
+              _hover={{
+                textDecoration: 'none',
+                color: 'text.secondary'
+              }}
+            >
+              <span style={{ paddingLeft: el.indentLevel * 8 }}>{el.text}</span>
+            </Link>
+          )
+        })}
+      </Stack>
+    </Page>
   )
 }

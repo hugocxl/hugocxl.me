@@ -1,43 +1,66 @@
 // Components
-import { Page } from '@/shared/components'
+import { Link, Page } from '@/shared/components'
+
+// Constants
 import { HOME } from '@/shared/constants'
 
 // Types
-import { Metadata, NextPage } from 'next'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Hugo Corta · Software Craftsman',
   description: 'Welcome to my personal rambling space'
 }
 
-export const Home: NextPage = () => {
+export function Home() {
   return (
     <Page title={HOME.title}>
       <p>
-        corta, hugo. software craftsman. unsatisfiably curious. passionate about
-        software design. love to craft amazing digital products. open source
-        contributor.
+        <b>Corta, Hugo.</b> Software craftsman. Unsatisfiably curious.
+        Passionate about software design and crafting digital products. Open
+        source contributor.
       </p>
+
+      <h2>{'Now'}</h2>
       <p>
-        My passion for software design runs deep, and it's what truly sets my
-        heart on fire. There's something magical about creating elegant and
-        efficient solutions that not only work flawlessly but also leave a
-        lasting impact on users. Whether it's crafting intuitive user interfaces
-        or architecting robust backend systems, I find joy in every step of the
-        process.
+        On this website I <b>share posts on a wide range of topics</b> that
+        spark my interest. Alongside this, my love for software development
+        drives me to
+        <b> collaborate on open-source software and libraries</b>, contributing
+        to the thriving developer community. As a natural educator, I also find
+        joy in <b>teaching web development</b>, sharing my knowledge and
+        empowering aspiring developers to embark on their own digital
+        adventures.
       </p>
+      <h2>Radar</h2>
       <p>
-        Speaking of joy, one of the things that truly brings me happiness is
-        being able to build amazing digital products. From the conceptualization
-        phase to the final polish, I pour my heart and soul into each project,
-        ensuring it exceeds expectations. Every line of code I write is
-        carefully crafted with precision and attention to detail, as I believe
-        that even the smallest nuances can make a significant difference in the
-        end product.
+        I keep myself up-to-date with the latest trends, innovations, and
+        breakthroughs in the dynamic world of software development.{' '}
+        <Link
+          href={'https://github.com/hugocxl?tab=stars'}
+          title='GitHub Stars'
+        >
+          Check my stars on GitHub
+        </Link>
       </p>
+      <h2>Connect</h2>
       <p>
-        You can gain further insights into my background and interests through
-        my written works, projects, and various social media profiles.
+        Reach me at{' '}
+        <Link
+          href={'https://twitter.com/hugocxl'}
+          title={'Twitter @hugocxl'}
+          target={'_blank'}
+        >
+          {'@hugocxl'}
+        </Link>{' '}
+        or{' '}
+        <Link
+          href={'mailto:corta.hugo@gmail.com'}
+          title={'Mail'}
+          target={'_blank'}
+        >
+          {'corta.hugo@gmail.com'}
+        </Link>
       </p>
     </Page>
   )

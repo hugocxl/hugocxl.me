@@ -8506,7 +8506,7 @@ packages:
   /node-addon-api@6.1.0:
     resolution:
       {
-        integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==
+        integrity: sha512-+eawOlIgy640F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==
       }
 
   /node-eval@2.0.0:

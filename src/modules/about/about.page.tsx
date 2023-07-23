@@ -1,22 +1,8 @@
 // Components
-import {
-  Box,
-  Grid,
-  // Image,
-  Link,
-  Page,
-  Stack,
-  Typography
-} from '@/shared/components'
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconMail
-} from '@tabler/icons'
+import { Grid, Page, Stack, Typography } from '@/shared/components'
 
 // Types
-import { Metadata, NextPage } from 'next'
+import { Metadata } from 'next'
 
 // Constants
 import { ABOUT } from '@/shared/constants'
@@ -26,9 +12,9 @@ export const metadata: Metadata = {
   description: ABOUT.description
 }
 
-export const About: NextPage = () => {
+export function About() {
   return (
-    <Page title={ABOUT.title} description={ABOUT.description}>
+    <Page {...ABOUT}>
       <p>
         Hi, I'm Hugo. Most folks know me as <b>hugocxl</b> online.
       </p>
@@ -48,55 +34,9 @@ export const About: NextPage = () => {
         across every rung of abstraction.
       </p>
 
-      <Stack direction={'row'}>
-        <Link
-          href={'mailto:corta.hugo@gmail.com'}
-          title={'Mail'}
-          target={'_blank'}
-        >
-          <button>
-            <IconMail size={18} />
-          </button>
-        </Link>
-        <Link
-          href={'https://github.com/hugocxl'}
-          title={'GitHub @hugocxl'}
-          target={'_blank'}
-        >
-          <button>
-            <IconBrandGithub size={18} />
-          </button>
-        </Link>
-        <Link
-          href={'https://twitter.com/hugocxl'}
-          title={'Twitter @hugocxl'}
-          target={'_blank'}
-        >
-          <button>
-            <IconBrandTwitter size={18} />
-          </button>
-        </Link>
-        <Link
-          href={'https://www.linkedin.com/in/hugocorta'}
-          title={'LinkedIn @hugocorta'}
-          target={'_blank'}
-        >
-          <button>
-            <IconBrandLinkedin size={18} />
-          </button>
-        </Link>
-      </Stack>
-
-      <h2>{"What I'm doing now"}</h2>
       <p>
-        On this website I <b>share posts on a wide range of topics</b> that
-        spark my interest. Alongside this, my love for software development
-        drives me to
-        <b> collaborate on open-source software and libraries</b>, contributing
-        to the thriving developer community. As a natural educator, I also find
-        joy in <b>teaching web development</b>, sharing my knowledge and
-        empowering aspiring developers to embark on their own digital
-        adventures.
+        You can gain further insights into my background and interests through
+        my written works, projects, and various social media profiles.
       </p>
 
       <h2>{'Principles'}</h2>
@@ -135,165 +75,67 @@ export const About: NextPage = () => {
       <div>
         <CompanyItem
           date={'July 2023 - Present'}
-          // image={'/img/sygris.jpeg'}
           company={'InCloudForever'}
           title={'Fullstack Engineer'}
           stack={'Next, Nest'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Assumed full responsibility for the frontend-side project's
-          //       inception and establishment, orchestrating the complete setup of
-          //       the different repositories involved from scratch
-          //     </li>
-          //     <li>
-          //       Mentored junior engineers, conducting regular code reviews and
-          //       providing technical guidance, leading to an improvement in
-          //       overall code quality and team productivity
-          //     </li>
-          //   </ul>
-          // }
         />
         <CompanyItem
           date={'Jan 2023 - July 2023'}
-          // image={'/img/sygris.jpeg'}
           company={'Sygris'}
           title={'Lead Frontend Engineer'}
           stack={'Rollup, Nx, Vite, Next, React'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Assumed full responsibility for the frontend-side project's
-          //       inception and establishment, orchestrating the complete setup of
-          //       the different repositories involved from scratch
-          //     </li>
-          //     <li>
-          //       Mentored junior engineers, conducting regular code reviews and
-          //       providing technical guidance, leading to an improvement in
-          //       overall code quality and team productivity
-          //     </li>
-          //   </ul>
-          // }
         />
         <CompanyItem
           date={'Feb 2022 - Oct 2022'}
-          // image={'/img/champion-games.jpeg'}
           company={'Champion Games'}
           title={'Fullstack Engineer'}
           stack={'Rollup, Rush, Nest, Next, React, Vue'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Assumed full responsibility for the React project's inception
-          //       and establishment, orchestrating the complete setup from scratch
-          //     </li>
-          //     <li>
-          //       Executed end-to-end development of multiple game features,
-          //       encompassing both backend (using Nest.js to implement RESTful
-          //       APIs and backend services) and frontend (using Next.js to create
-          //       engaging UI features) components
-          //     </li>
-          //   </ul>
-          // }
         />
         <CompanyItem
           date={'June 2019 - Feb 2022'}
-          // image={'/img/npaw.jpg'}
           company={'NPAW'}
           title={'Lead Frontend Engineer'}
           stack={'Webpack, React, Redux'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Effectively led and managed a team of 5 software engineers in a
-          //       successful full rewrite of the company's main application
-          //     </li>
-          //     <li>
-          //       Designed and implemented an efficient and scalable architecture,
-          //       resulting in improved system stability and reduced maintenance
-          //       efforts
-          //     </li>
-          //     <li>UI Design system definition and implementation</li>
-          //     <li>
-          //       Collaborated with cross-functional teams, including product
-          //       managers and designers, to gather requirements, prioritise
-          //       features, and ensure timely delivery of high-quality software.
-          //     </li>
-          //   </ul>
-          // }
         />
         <CompanyItem
           date={'2019, 2021'}
-          // image={'/img/ironhack.jpeg'}
           company={'Ironhack'}
           title={'Instructor'}
           stack={'HTML, CSS, JS'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Development of my own comprehensive and industry-relevant
-          //       curriculum for the Design Implementation Course, ensuring
-          //       alignment with current design trends, tools, and best practices
-          //     </li>
-          //     <li>
-          //       Designed and delivered engaging lectures, workshops, and
-          //       practical exercises, effectively conveying complex design
-          //       implementation concepts and techniques to students of varying
-          //       skill levels
-          //     </li>
-          //   </ul>
-          // }
         />
         <CompanyItem
           date={'June 2017 - June 2019'}
-          // image={'/img/npaw.jpg'}
           company={'NPAW'}
           title={'Frontend Developer'}
           stack={'Backbone, React'}
-          // description={
-          //   <ul>
-          //     <li>
-          //       Utilised React to translate design concepts into functional web
-          //       elements employing best practices
-          //     </li>
-          //   </ul>
-          // }
         />
       </div>
-
-      {/* <Link download href={'/cv/Hugo_Corta__Resume.pdf'}>
-        Click here to download a PDF version of my resume
-      </Link> */}
     </Page>
   )
 }
 
-function CompanyItem({
-  company,
-  title,
-  // image,
-  date,
-  stack
-  // description
-}) {
+function CompanyItem({ company, title, date, stack }) {
   return (
     <Grid
+      rounded={'md'}
+      bg={'bg.secondary'}
       gap={'sm'}
+      p={'md'}
       mb={'md'}
-      gridTemplateColumns={'auto 1fr 200px'}
+      columns={2}
       alignItems={'baseline'}
     >
       <Stack gap={0}>
         <Typography color={'text.primary'} fontWeight={'bold'}>
           {title}
         </Typography>
-        <Typography fontSize={'sm'}>{company}</Typography>
-      </Stack>
-      <Box borderBottom={'secondary'} width={'100%'} />
-      <Stack gap={0}>
-        <Typography color={'text.secondary'} fontSize={'sm'}>
-          {stack}
+        <Typography color={'text.dimmed'} fontSize={'sm'}>
+          {company}
         </Typography>
+      </Stack>
+
+      <Stack gap={0} textAlign={'right'}>
+        <Typography color={'text.secondary'}>{stack}</Typography>
         <Typography color={'text.dimmed'} fontSize={'sm'}>
           {date}
         </Typography>
