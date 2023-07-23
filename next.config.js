@@ -29,6 +29,14 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 's3.us-west-2.amazonaws.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent-mad2-1.cdninstagram.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'scontent-mad1-1.cdninstagram.com'
       }
     ]
   }
