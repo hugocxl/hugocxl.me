@@ -15,7 +15,7 @@ const tokens = defineTokens({
   fontWeights: {
     medium: { value: '400' },
     bold: { value: '500' },
-    bolder: { value: '600' }
+    bolder: { value: '700' }
   },
   radii: {
     sm: { value: '8px' },
@@ -41,7 +41,7 @@ const tokens = defineTokens({
   },
   fontSizes: {
     sm: { value: '13px' },
-    md: { value: '16px' },
+    md: { value: '15px' },
     lg: { value: '18px' }
   },
   borders: {},
@@ -89,8 +89,8 @@ const semanticTokens = defineSemanticTokens({
     border: {
       primary: {
         value: {
-          _osLight: 'hsl(0 0% 80%)',
-          _osDark: 'hsl(0 0% 20%)'
+          _osLight: 'hsl(0 0% 70%)',
+          _osDark: 'hsl(0 0% 30%)'
         }
       },
       secondary: {

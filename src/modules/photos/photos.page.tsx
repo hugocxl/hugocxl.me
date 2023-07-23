@@ -1,5 +1,5 @@
 // Components
-import { Grid, Page, Image } from '@/shared/components'
+import { Grid, Page } from '@/shared/components'
 
 // Types
 import { Metadata } from 'next'
@@ -31,7 +31,8 @@ export async function Photos() {
         }}
       >
         {photos.map(photo => (
-          <Image key={photo.id} src={photo.media_url} alt={photo.media_url} />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={photo.id} src={photo.media_url} alt={photo.media_url} />
         ))}
       </Grid>
     </Page>

@@ -91,13 +91,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <styled.body
         w={'100%'}
         maxWidth={'content'}
+        className={font.className}
+        px={'md'}
         margin={'0 auto'}
         py={{
           base: '10vh',
           smDown: 'lg'
         }}
-        className={font.className}
-        px={'md'}
       >
         <styled.main mb={'60px'}>{children}</styled.main>
 

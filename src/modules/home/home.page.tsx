@@ -37,6 +37,7 @@ export function Home() {
         I keep myself up-to-date with the latest trends, innovations, and
         breakthroughs in the dynamic world of software development.{' '}
         <Link
+          target={'_blank'}
           href={'https://github.com/hugocxl?tab=stars'}
           title='GitHub Stars'
         >

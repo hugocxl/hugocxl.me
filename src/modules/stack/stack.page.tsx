@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { STACK } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
+import { Link, Stack, Typography, Page, Title } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
@@ -32,16 +32,8 @@ export async function StackPage() {
 
       render.push(
         <div key={tag}>
-          <Grid gridTemplateColumns={'90px 1fr'}>
-            <div
-              style={{
-                gridRow: `span ${sortedGroup.length}`
-              }}
-            >
-              <Typography fontWeight={'bold'} color={'text.primary'}>
-                {tag}
-              </Typography>
-            </div>
+          <Title mt={0}>{tag}</Title>
+          <Stack gap={'sm'}>
             {sortedGroup.map(({ link, name, description }) => (
               <Stack gap={0} key={link}>
                 <Link href={link}>{name}</Link>
@@ -50,7 +42,7 @@ export async function StackPage() {
                 </Typography>
               </Stack>
             ))}
-          </Grid>
+          </Stack>
         </div>
       )
     }
