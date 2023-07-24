@@ -16,7 +16,7 @@ export function Article({
   tableOfContents
 }: ArticleProps) {
   return (
-    <Page title={name}>
+    <Page title={name} showNav={false}>
       <Link
         mdDown={{
           display: 'none'

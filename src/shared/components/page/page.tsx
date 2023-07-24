@@ -9,9 +9,10 @@ import { PAGES } from '@/shared/constants'
 interface PageProps extends JsxStyleProps {
   children: ReactNode
   title: string
+  showNav?: boolean
 }
 
-export function Page({ title, children }: PageProps) {
+export function Page({ title, children, showNav = true }: PageProps) {
   return (
     <Stack position={'relative'}>
       <Flex
@@ -30,22 +31,26 @@ export function Page({ title, children }: PageProps) {
         }}
       >
         <Title mb={0}>{title}</Title>
-        <Flex gap={'sm'} alignItems={'center'}>
-          {PAGES.filter(page => page.title !== title).map(page => (
-            <>
-              <Link
-                display={'flex'}
-                gap={'sm'}
-                href={page.href}
-                fontSize={'sm'}
-                key={page.href}
-              >
-                {page.title}
-              </Link>
-              <span>•</span>
-            </>
-          ))}
-        </Flex>
+        {showNav && (
+          <Flex gap={'xs'} alignItems={'baseline'}>
+            {PAGES.filter(page => page.title !== title).map(page => (
+              <>
+                <Link
+                  color={'text.dimmed'}
+                  textDecoration={'none'}
+                  display={'flex'}
+                  gap={'sm'}
+                  href={page.href}
+                  fontSize={'sm'}
+                  key={page.href}
+                >
+                  {page.title}
+                </Link>
+                <span>•</span>
+              </>
+            ))}
+          </Flex>
+        )}
       </Flex>
       {children}
     </Stack>

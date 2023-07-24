@@ -10,7 +10,7 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    normal: { value: '1.7' }
+    normal: { value: '1.65' }
   },
   fontWeights: {
     medium: { value: '400' },
@@ -106,12 +106,12 @@ const semanticTokens = defineSemanticTokens({
       },
       secondary: {
         value: {
-          _osLight: 'hsl(0 0% 20%)',
-          _osDark: 'hsl(0 0% 80%)'
+          _osLight: 'hsl(0 0% 0%)',
+          _osDark: 'hsl(0 0% 90%)'
         }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0 0% 40%)' }
+        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 45%)' }
       }
     }
   }
@@ -126,7 +126,8 @@ const globalCss = defineGlobalStyles({
     color: 'text.secondary',
     fontSize: 'md',
     lineHeight: 'normal',
-    letterSpacing: '-0.3px',
+    fontFamily:
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol',
     mdDown: {
       fontSize: 'sm'
     }
@@ -168,28 +169,27 @@ const globalCss = defineGlobalStyles({
     fontStyle: 'italic'
   },
   'b, strong': {
-    letterSpacing: 0,
     lineHeight: 1.3,
     fontWeight: 'medium',
     fontFamily: 'Newspaper',
-    fontSize: 'calc(1rem + 1px)',
+    fontSize: 'calc(1rem + 2px)',
     color: 'text.primary'
   },
   'h1, h2, h3, h4, h5, h6': {
+    letterSpacing: '-.04em',
     color: 'text.primary',
     fontWeight: 'bolder'
   },
   code: {
     fontFamily: 'Menlo, monospace',
-    fontSize: '0.85rem',
-    letterSpacing: 0
+    fontSize: '0.85rem'
   },
   li: {
-    marginBottom: 'md'
+    marginBottom: 'sm'
   },
   'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: '1.5rem'
+      marginBottom: 'lg'
     },
   h1: {
     marginBottom: '1rem'
@@ -199,10 +199,12 @@ const globalCss = defineGlobalStyles({
     marginBottom: '0.75rem'
   },
   h3: {
-    marginTop: '2rem'
+    marginTop: '2rem',
+    marginBottom: '0.5rem'
   },
   h4: {
-    marginTop: '1rem'
+    marginTop: '1rem',
+    marginBottom: '0.5rem'
   },
   '::selection': {
     color: 'black',

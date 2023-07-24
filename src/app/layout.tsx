@@ -1,6 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
-import localFont from 'next/font/local'
+// import localFont from 'next/font/local'
 
 // Types
 import { ReactNode } from 'react'
@@ -15,14 +15,14 @@ import '@/shared/styles/notion.css'
 import '@/shared/styles/prismjs.css'
 import { styled } from '@styled-system/jsx'
 
-const font = localFont({
-  preload: true,
-  src: [
-    {
-      path: '../../public/fonts/sf-pro/sf-pro.ttf'
-    }
-  ]
-})
+// const font = localFont({
+//   preload: true,
+//   src: [
+//     {
+//       path: '../../public/fonts/sf-pro/sf-pro.ttf'
+//     }
+//   ]
+// })
 
 export const metadata: Metadata = {
   title: {
@@ -69,19 +69,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={'en'} data-theme-mode={'dark'}>
       <head>
-        <link rel='manifest' href='/manifest.json' />
+        <link color={'text.dimmed'} rel='manifest' href='/manifest.json' />
         <link
+          color={'text.dimmed'}
           rel='apple-touch-icon'
           sizes='180x180'
           href='/apple-touch-icon.png'
         />
         <link
+          color={'text.dimmed'}
           rel='icon'
           type='image/png'
           sizes='32x32'
           href='/favicon-32x32.png'
         />
         <link
+          color={'text.dimmed'}
           rel='icon'
           type='image/png'
           sizes='16x16'
@@ -91,7 +94,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <styled.body
         w={'100%'}
         maxWidth={'content'}
-        className={font.className}
+        // className={font.className}
         px={'md'}
         margin={'0 auto'}
         py={{
@@ -116,8 +119,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {'CC BY-NC 4.0 2023 © Hugo Corta.'}
           </Typography>
 
-          <Flex gap={'sm'} alignItems={'center'}>
+          <Flex gap={'xs'} alignItems={'center'} color={'text.dimmed'}>
             <Link
+              color={'text.dimmed'}
+              textDecoration={'none'}
               fontSize={'sm'}
               href={'mailto:corta.hugo@gmail.com'}
               title={'Mail'}
@@ -127,6 +132,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <span>•</span>
             <Link
+              color={'text.dimmed'}
+              textDecoration={'none'}
               fontSize={'sm'}
               href={'https://github.com/hugocxl'}
               title={'GitHub @hugocxl'}
@@ -136,6 +143,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <span>•</span>
             <Link
+              color={'text.dimmed'}
+              textDecoration={'none'}
               fontSize={'sm'}
               href={'https://twitter.com/hugocxl'}
               title={'Twitter @hugocxl'}
@@ -145,6 +154,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <span>•</span>
             <Link
+              color={'text.dimmed'}
+              textDecoration={'none'}
               fontSize={'sm'}
               href={'https://www.linkedin.com/in/hugocorta'}
               title={'LinkedIn @hugocorta'}

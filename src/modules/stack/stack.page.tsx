@@ -32,11 +32,15 @@ export async function StackPage() {
 
       render.push(
         <div key={tag}>
-          <Title mt={0}>{tag}</Title>
-          <Stack gap={'sm'}>
+          <Title mt={0} variant={'h2'}>
+            {tag}
+          </Title>
+          <Stack gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (
-              <Stack gap={0} key={link}>
-                <Link href={link}>{name}</Link>
+              <Stack key={link}>
+                <Link href={link} target={'_blank'}>
+                  {name}
+                </Link>
                 <Typography fontWeight={'medium'} color={'text.dimmed'}>
                   {description}
                 </Typography>
