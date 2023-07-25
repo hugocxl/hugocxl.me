@@ -93,9 +93,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <styled.body
         w={'100%'}
+        minHeight={'100dvh'}
         maxWidth={'content'}
         className={font.className}
         px={'md'}
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'space-between'}
         margin={'0 auto'}
         py={{
           base: '10vh',
@@ -104,9 +108,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <styled.main mb={'60px'}>{children}</styled.main>
 
-        <hr />
-
         <styled.footer
+          borderTop={'secondary'}
           justifyContent={'space-between'}
           pt={'md'}
           display={'flex'}

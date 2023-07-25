@@ -3,7 +3,7 @@ import { Button, Link, Stack, NotionRenderer, Page } from '@/shared/components'
 
 // Types
 import { ExtendedNotionItem } from '@/shared/types'
-import { IconArrowBackUp } from '@tabler/icons'
+import { IconArrowBackUp } from '@tabler/icons-react'
 
 interface ArticleProps extends ExtendedNotionItem {
   goBackHref: string
@@ -27,7 +27,7 @@ export function Article({
         transform={'translateX(-100%)'}
       >
         <Button>
-          <IconArrowBackUp size={18} />
+          <IconArrowBackUp size={18} z />
         </Button>
       </Link>
       <NotionRenderer content={content} />

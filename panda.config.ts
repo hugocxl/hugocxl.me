@@ -10,7 +10,9 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    normal: { value: '1.7' }
+    sm: { value: '1.5' },
+    md: { value: '1.7' },
+    lg: { value: '1.9' }
   },
   fontWeights: {
     medium: { value: '400' },
@@ -90,7 +92,7 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           _osLight: 'hsl(0 0% 70%)',
-          _osDark: 'hsl(0 0% 30%)'
+          _osDark: 'hsl(0 0% 40%)'
         }
       },
       secondary: {
@@ -107,26 +109,25 @@ const semanticTokens = defineSemanticTokens({
       secondary: {
         value: {
           _osLight: 'hsl(0 0% 20%)',
-          _osDark: 'hsl(0 0% 80%)'
+          _osDark: 'hsl(0 0% 90%)'
         }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 45%)' }
+        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 55%)' }
       }
     }
   }
 })
 
 const globalCss = defineGlobalStyles({
-  '*': {
-    textRendering: 'optimizeLegibility'
-  },
   html: {
     backgroundColor: 'bg.primary',
+    textRendering: 'optimizeLegibility',
     color: 'text.secondary',
     fontSize: 'md',
-    lineHeight: 'normal',
+    lineHeight: 'md',
     mdDown: {
+      lineHeight: 'sm',
       fontSize: 'sm'
     }
   },
@@ -149,7 +150,7 @@ const globalCss = defineGlobalStyles({
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
     textDecorationThickness: 1,
-    textUnderlineOffset: 3,
+    textUnderlineOffset: 4,
     transition: 'color 0.2s ease-in-out',
     '&:hover': {
       color: 'text.dimmed'

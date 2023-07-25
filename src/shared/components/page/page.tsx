@@ -32,21 +32,19 @@ export function Page({ title, children, showNav = true }: PageProps) {
       >
         <Title mb={0}>{title}</Title>
         {showNav && (
-          <Flex gap={'xs'} alignItems={'baseline'}>
+          <Flex gap={'md'} alignItems={'baseline'}>
             {PAGES.filter(page => page.title !== title).map(page => (
               <>
                 <Link
                   color={'text.dimmed'}
                   textDecoration={'none'}
-                  display={'flex'}
-                  gap={'sm'}
                   href={page.href}
                   fontSize={'sm'}
                   key={page.href}
                 >
                   {page.title}
                 </Link>
-                <span>•</span>
+                {/* <span>•</span> */}
               </>
             ))}
           </Flex>
