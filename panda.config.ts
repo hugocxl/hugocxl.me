@@ -12,13 +12,13 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    sm: { value: '1.4' },
-    md: { value: '1.5' },
+    sm: { value: '1.35' },
+    md: { value: '1.4' },
     lg: { value: '1.9' }
   },
   fontWeights: {
     medium: { value: '400' },
-    bold: { value: '500' }
+    bold: { value: '600' }
   },
   radii: {
     sm: { value: '8px' },
@@ -30,12 +30,6 @@ const tokens = defineTokens({
     md: { value: '0 8px 16px rgba(0, 0, 0, 0.12)' },
     lg: { value: '0 16px 32px rgba(0, 0, 0, 0.12)' }
   },
-  sizes: {
-    sm: { value: '4px' },
-    md: { value: '12px' },
-    lg: { value: '20px' },
-    content: { value: '720px' }
-  },
   spacing: {
     xs: { value: '4px' },
     sm: { value: '8px' },
@@ -44,12 +38,8 @@ const tokens = defineTokens({
   },
   fontSizes: {
     sm: { value: '12px' },
-    md: { value: '13px' },
+    md: { value: '14px' },
     lg: { value: '24px' }
-  },
-  borders: {},
-  contentWidth: {
-    value: '620px'
   }
 })
 
@@ -66,40 +56,40 @@ const semanticTokens = defineSemanticTokens({
     bg: {
       primary: {
         value: {
-          _osLight: hsl(100),
-          _osDark: hsl(6)
+          _osLight: hsl(97),
+          _osDark: hsl(7)
         }
       },
       secondary: {
         value: {
-          _osLight: hsl(97),
-          _osDark: 'hsl(0 0% 8%)'
+          _osLight: hsl(95),
+          _osDark: hsl(10)
         }
       },
       code: {
         value: {
-          _osLight: hsl(97),
-          _osDark: 'hsl(0 0% 10%)'
+          _osLight: hsl(92),
+          _osDark: hsl(12)
         }
       },
       button: {
         value: {
-          _osLight: 'hsl(0 0% 94%)',
-          _osDark: 'hsl(0 0% 10%)'
+          _osLight: hsl(92),
+          _osDark: hsl(12)
         }
       }
     },
     border: {
       primary: {
         value: {
-          _osLight: 'hsl(0 0% 70%)',
-          _osDark: 'hsl(0 0% 40%)'
+          _osLight: hsl(70),
+          _osDark: hsl(40)
         }
       },
       secondary: {
         value: {
-          _osLight: 'hsl(0 0% 90%)',
-          _osDark: 'hsl(0 0% 10%)'
+          _osLight: hsl(90),
+          _osDark: hsl(10)
         }
       }
     },
@@ -108,10 +98,10 @@ const semanticTokens = defineSemanticTokens({
         value: { _osLight: hsl(0), _osDark: hsl(100) }
       },
       secondary: {
-        value: { _osLight: 'hsl(0 0% 20%)', _osDark: hsl(75) }
+        value: { _osLight: hsl(0), _osDark: hsl(75) }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 40%)' }
+        value: { _osLight: hsl(60), _osDark: hsl(40) }
       }
     }
   }
@@ -158,7 +148,7 @@ const globalCss = defineGlobalStyles({
   },
   ul: {
     listStyle: 'disc',
-    paddingInlineStart: '1rem'
+    paddingInlineStart: '2rem'
   },
   hr: {
     borderColor: 'border.secondary',
@@ -166,7 +156,7 @@ const globalCss = defineGlobalStyles({
   },
   'b, strong': {
     color: 'text.primary',
-    fontWeight: 'medium'
+    fontWeight: 'bold'
   },
   'h1, h2, h3, h4, h5, h6': {
     letterSpacing: '.15em',
@@ -177,7 +167,7 @@ const globalCss = defineGlobalStyles({
   },
   code: {
     fontFamily: 'Menlo, monospace',
-    fontSize: '0.95rem'
+    fontSize: '0.85rem'
   },
   li: {
     marginBottom: 'sm'

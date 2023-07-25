@@ -1,11 +1,11 @@
 // Dependencies
 import { styled } from '@styled-system/jsx'
+import localFont from 'next/font/local'
 
 // Components
 import { Flex } from '../flex'
 import { Link } from '../link'
 import { Typography } from '../typography'
-import { Inter } from 'next/font/google'
 
 // Constants
 import { PAGES } from '@/shared/constants'
@@ -13,7 +13,21 @@ import { PAGES } from '@/shared/constants'
 // Types
 import { ReactNode } from 'react'
 
-const font = Inter({ subsets: ['latin'] })
+const font = localFont({
+  preload: true,
+  src: [
+    {
+      path: '../../../../public/fonts/sohne/medium.otf',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../../../../public/fonts/sohne/bold.otf',
+      weight: '600',
+      style: 'normal'
+    }
+  ]
+})
 
 type AppShellProps = {
   children: ReactNode
@@ -35,23 +49,27 @@ export function AppShell({ children }: AppShellProps) {
         display={'flex'}
         alignItems={'center'}
         justifyContent={'space-between'}
+        pt={'lg'}
+        pb={'60px'}
       >
-        <Flex gap={'sm'}>
+        {/* <Flex gap={'xs'}>
           <Typography color={'text.secondary'} fontWeight={'bold'}>
-            {'@Hugo Corta'}
+            {'Hugo Corta'}
           </Typography>
           |
-          <Typography color={'text.secondary'} fontWeight={'bold'}>
+          <Typography color={'text.dimmed'} fontWeight={'bold'}>
             {'Tech Lead'}
           </Typography>
-        </Flex>
-        <Flex gap={'md'} alignItems={'baseline'}>
+        </Flex> */}
+        <Flex gap={'sm'} alignItems={'baseline'}>
           {PAGES.map(page => (
             <Link
-              color={'text.dimmed'}
+              fontWeight={'normal'}
+              textStyle={'xl'}
+              // color={'text.dimmed'}
               textDecoration={'none'}
               href={page.href}
-              fontSize={'sm'}
+              // fontSize={'xl'}
               key={page.href}
             >
               {page.title}

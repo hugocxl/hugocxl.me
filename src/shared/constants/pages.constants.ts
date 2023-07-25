@@ -2,50 +2,50 @@
 import { Page, Pages } from '@/shared/types'
 
 export const HOME: Page = {
-  title: 'Home',
+  title: 'home',
   href: '/',
   description: ''
 }
 
 export const WRITING: Page = {
-  title: 'Writing',
+  title: 'writing',
   href: '/writing',
   description: "I write about stuff I'm interested in"
 }
 
 export const BLOG: Page = {
-  title: 'Blog',
+  title: 'blog',
   href: '/blog',
   description: "I write about stuff I'm interested in"
 }
 
 export const HANDBOOKS: Page = {
-  title: 'Handbooks',
+  title: 'handbooks',
   href: '/handbooks',
   description: 'My guides on different topics'
 }
 
 export const PROJECTS: Page = {
-  title: 'Projects',
+  title: 'projects',
   href: '/projects',
   description: 'Some personal projects I work on'
 }
 
 export const STACK: Page = {
-  title: 'Stack',
+  title: 'stack',
   href: '/stack',
   description:
     "A small review about specific pieces of software or hardware I use. This not a static page, it's a living document with everything that I'm using nowadays."
 }
 
 export const PHOTOS: Page = {
-  title: 'Photos',
+  title: 'photos',
   href: '/photos',
   description: `Some pics`
 }
 
 export const ABOUT: Page = {
-  title: 'About',
+  title: 'about',
   href: '/about',
   description: `Little about me. Also, It's not hard to find my contact, just search hugocxl.`
 }
