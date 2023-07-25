@@ -9,6 +9,7 @@ import { ExtendedRecordMap } from 'notion-types'
 // Components
 import { NotionRenderer as ReactNotionX } from 'react-notion-x'
 import { Tweet } from 'react-tweet'
+import { Image } from '../image'
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(m => m.Code)
@@ -41,15 +42,15 @@ export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
       rootDomain={'https://www.hugocxl.me'}
       recordMap={content}
       components={{
-        // Image: NextImage,
+        Image: Image,
         // Link: NextLink,
         Code,
         Collection,
         Equation,
         Modal,
         Pdf,
-        Tweet
-        // nextImage: NextImage,
+        Tweet,
+        nextImage: Image
         // nextLink: NextLink
       }}
     />

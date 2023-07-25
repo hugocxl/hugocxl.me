@@ -1,5 +1,5 @@
 // Components
-import { Grid, Page } from '@/shared/components'
+import { Grid, Page, Image } from '@/shared/components'
 
 // Types
 import { Metadata } from 'next'
@@ -10,7 +10,7 @@ import { PHOTOS } from '@/shared/constants'
 // Libs
 import { instagramClient } from '@/shared/lib'
 
-export const revalidate = 86400 * 1
+export const revalidate = 3600
 export const metadata: Metadata = {
   title: PHOTOS.title,
   description: PHOTOS.description
@@ -31,8 +31,7 @@ export async function Photos() {
         }}
       >
         {photos.map(photo => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={photo.id} src={photo.media_url} alt={photo.media_url} />
+          <Image key={photo.id} src={photo.media_url} alt={photo.media_url} />
         ))}
       </Grid>
     </Page>

@@ -1,6 +1,8 @@
+'use client'
+
 // Components
 import NextImage from 'next/image'
-import { Box } from '@/shared/components'
+import { Box } from '../box'
 
 // Types
 import { ImageProps as NextImageProps } from 'next/image'
@@ -29,7 +31,13 @@ export const Image = ({
       position={'relative'}
       {...props}
     >
-      <NextImage fill src={src} alt={alt} style={{ objectFit }} />
+      <NextImage
+        fill={true}
+        src={src}
+        loader={() => src as string}
+        alt={alt}
+        style={{ objectFit }}
+      />
     </Box>
   )
 }
