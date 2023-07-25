@@ -1,6 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
-// import localFont from 'next/font/local'
+import localFont from 'next/font/local'
 
 // Types
 import { ReactNode } from 'react'
@@ -15,14 +15,14 @@ import '@/shared/styles/notion.css'
 import '@/shared/styles/prismjs.css'
 import { styled } from '@styled-system/jsx'
 
-// const font = localFont({
-//   preload: true,
-//   src: [
-//     {
-//       path: '../../public/fonts/sf-pro/sf-pro.ttf'
-//     }
-//   ]
-// })
+const font = localFont({
+  preload: true,
+  src: [
+    {
+      path: '../../public/fonts/x/x.woff2'
+    }
+  ]
+})
 
 export const metadata: Metadata = {
   title: {
@@ -94,7 +94,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <styled.body
         w={'100%'}
         maxWidth={'content'}
-        // className={font.className}
+        className={font.className}
         px={'md'}
         margin={'0 auto'}
         py={{

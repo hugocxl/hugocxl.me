@@ -10,7 +10,7 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    normal: { value: '1.65' }
+    normal: { value: '1.7' }
   },
   fontWeights: {
     medium: { value: '400' },
@@ -31,7 +31,7 @@ const tokens = defineTokens({
     sm: { value: '4px' },
     md: { value: '12px' },
     lg: { value: '20px' },
-    content: { value: '680px' }
+    content: { value: '720px' }
   },
   spacing: {
     xs: { value: '4px' },
@@ -41,7 +41,7 @@ const tokens = defineTokens({
   },
   fontSizes: {
     sm: { value: '13px' },
-    md: { value: '15px' },
+    md: { value: '16px' },
     lg: { value: '18px' }
   },
   borders: {},
@@ -106,8 +106,8 @@ const semanticTokens = defineSemanticTokens({
       },
       secondary: {
         value: {
-          _osLight: 'hsl(0 0% 0%)',
-          _osDark: 'hsl(0 0% 90%)'
+          _osLight: 'hsl(0 0% 20%)',
+          _osDark: 'hsl(0 0% 80%)'
         }
       },
       dimmed: {
@@ -126,8 +126,6 @@ const globalCss = defineGlobalStyles({
     color: 'text.secondary',
     fontSize: 'md',
     lineHeight: 'normal',
-    fontFamily:
-      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol',
     mdDown: {
       fontSize: 'sm'
     }
@@ -172,11 +170,12 @@ const globalCss = defineGlobalStyles({
     lineHeight: 1.3,
     fontWeight: 'medium',
     fontFamily: 'Newspaper',
-    fontSize: 'calc(1rem + 2px)',
+    fontSize: 'calc(1rem + 1px)',
     color: 'text.primary'
   },
   'h1, h2, h3, h4, h5, h6': {
-    letterSpacing: '-.04em',
+    fontFamily: 'SF-Pro, system-ui',
+    letterSpacing: '-.03em',
     color: 'text.primary',
     fontWeight: 'bolder'
   },
@@ -189,7 +188,10 @@ const globalCss = defineGlobalStyles({
   },
   'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: 'lg'
+      marginBottom: 'md',
+      mdDown: {
+        marginBottom: 'sm'
+      }
     },
   h1: {
     marginBottom: '1rem'
