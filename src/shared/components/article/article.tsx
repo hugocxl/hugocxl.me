@@ -27,7 +27,7 @@ export function Article({
         transform={'translateX(-100%)'}
       >
         <Button>
-          <IconArrowBackUp size={18} z />
+          <IconArrowBackUp size={18} />
         </Button>
       </Link>
       <NotionRenderer content={content} />
