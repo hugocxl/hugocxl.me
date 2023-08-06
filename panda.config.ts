@@ -10,7 +10,7 @@ const tokens = defineTokens({
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
-    sm: { value: '1.5' },
+    sm: { value: '1.4' },
     md: { value: '1.7' },
     lg: { value: '1.9' }
   },
@@ -48,7 +48,7 @@ const tokens = defineTokens({
   },
   borders: {},
   contentWidth: {
-    value: '640px'
+    value: '620px'
   }
 })
 
@@ -109,11 +109,11 @@ const semanticTokens = defineSemanticTokens({
       secondary: {
         value: {
           _osLight: 'hsl(0 0% 20%)',
-          _osDark: 'hsl(0 0% 90%)'
+          _osDark: 'hsl(0 0% 80%)'
         }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 55%)' }
+        value: { _osLight: 'hsl(0 0% 40%)', _osDark: 'hsl(0deg 0% 60%)' }
       }
     }
   }
@@ -129,7 +129,9 @@ const globalCss = defineGlobalStyles({
     mdDown: {
       lineHeight: 'sm',
       fontSize: 'sm'
-    }
+    },
+    fontFamily:
+      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol'
   },
   button: {
     backgroundColor: 'bg.button',
@@ -168,14 +170,13 @@ const globalCss = defineGlobalStyles({
     fontStyle: 'italic'
   },
   'b, strong': {
-    lineHeight: 1.3,
+    lineHeight: '1',
     fontWeight: 'medium',
     fontFamily: 'Newspaper',
-    fontSize: 'calc(1rem + 1px)',
-    color: 'text.primary'
+    fontSize: 'calc(1rem + 2px)',
+    color: 'text.dimmed'
   },
   'h1, h2, h3, h4, h5, h6': {
-    fontFamily: 'SF-Pro, system-ui',
     letterSpacing: '-.03em',
     color: 'text.primary',
     fontWeight: 'bolder'
@@ -189,10 +190,7 @@ const globalCss = defineGlobalStyles({
   },
   'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: 'md',
-      mdDown: {
-        marginBottom: 'sm'
-      }
+      marginBottom: 'md'
     },
   h1: {
     marginBottom: '1rem'

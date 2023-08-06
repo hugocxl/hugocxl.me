@@ -4,8 +4,3 @@
   font-family: 'Newspaper';
   src: url('/fonts/newsreader/newsreader.woff2') format('woff2');
 }
-
-@font-face {
-  font-family: 'SF-Pro';
-  src: url('/fonts/sf-pro/sf-pro.otf');
-}
