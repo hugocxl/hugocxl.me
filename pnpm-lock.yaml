@@ -39,8 +39,8 @@ dependencies:
     specifier: ^6.16.0
     version: 6.16.0(@babel/runtime@7.22.6)(react-dom@18.2.0)(react@18.2.0)(webpack@5.88.2)
   react-tweet:
-    specifier: ^3.0.4
-    version: 3.0.4(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^3.1.0
+    version: 3.1.0(react-dom@18.2.0)(react@18.2.0)
   sharp:
     specifier: ^0.32.4
     version: 0.32.4
@@ -1633,7 +1633,6 @@ packages:
 
   /@types/node@20.4.8:
     resolution: {integrity: sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==}
-    dev: true
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -5276,7 +5275,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.17.3
+      '@types/node': 20.4.8
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -7026,8 +7025,8 @@ packages:
       - worker-loader
     dev: false
 
-  /react-tweet@3.0.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cp2O8OnW3O5unYU4Txv2AW8g8HnqMx2kpFokTB4XnGbTt65zY2pzklWVM6pAg1lIO5n1Uikreh2cKszUKdAB/g==}
+  /react-tweet@3.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TZrCzqJIM3mUPZZQgChenrPxEEnswbPkyqMjXgLy3fJSOgcSEaslQqWMeNdcuCjSgLkYfITRBFjX4jQ1EGBPAw==}
     peerDependencies:
       react: '>= 18.0.0'
       react-dom: '>= 18.0.0'
