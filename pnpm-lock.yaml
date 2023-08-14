@@ -39,8 +39,8 @@ dependencies:
     specifier: ^6.16.0
     version: 6.16.0(@babel/runtime@7.22.6)(react-dom@18.2.0)(react@18.2.0)(webpack@5.88.2)
   react-tweet:
-    specifier: ^3.0.4
-    version: 3.0.4(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^3.1.0
+    version: 3.1.0(react-dom@18.2.0)(react@18.2.0)
   sharp:
     specifier: ^0.32.4
     version: 0.32.4
@@ -7042,8 +7042,8 @@ packages:
       - worker-loader
     dev: false
 
-  /react-tweet@3.0.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cp2O8OnW3O5unYU4Txv2AW8g8HnqMx2kpFokTB4XnGbTt65zY2pzklWVM6pAg1lIO5n1Uikreh2cKszUKdAB/g==}
+  /react-tweet@3.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-TZrCzqJIM3mUPZZQgChenrPxEEnswbPkyqMjXgLy3fJSOgcSEaslQqWMeNdcuCjSgLkYfITRBFjX4jQ1EGBPAw==}
     peerDependencies:
       react: '>= 18.0.0'
       react-dom: '>= 18.0.0'
