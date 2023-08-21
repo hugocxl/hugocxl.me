@@ -32,7 +32,7 @@
     "update:release": "pnpm version --allow-same-version=false --git-tag-version=true --new-version $v"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.10",
+    "@notionhq/client": "^2.2.11",
     "@tabler/icons": "^2.31.0",
     "@tabler/icons-react": "^2.31.0",
     "@vercel/analytics": "^1.0.2",
