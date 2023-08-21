@@ -36,7 +36,7 @@
     "@tabler/icons": "^2.31.0",
     "@tabler/icons-react": "^2.30.0",
     "@vercel/analytics": "^1.0.2",
-    "next": "^13.4.13",
+    "next": "^13.4.19",
     "notion-compat": "^6.16.0",
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
