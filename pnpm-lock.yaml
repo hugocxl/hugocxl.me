@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@notionhq/client':
-    specifier: ^2.2.11
-    version: 2.2.11
+    specifier: ^2.2.12
+    version: 2.2.12
   '@tabler/icons':
     specifier: ^2.31.0
     version: 2.31.0
@@ -22,7 +22,7 @@ dependencies:
     version: 13.4.19(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
   notion-compat:
     specifier: ^6.16.0
-    version: 6.16.0(@notionhq/client@2.2.11)
+    version: 6.16.0(@notionhq/client@2.2.12)
   notion-types:
     specifier: ^6.16.0
     version: 6.16.0
@@ -1176,8 +1176,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@notionhq/client@2.2.11:
-    resolution: {integrity: sha512-yTKeVu0fB9PtlK9eQwN6y+MEq0J0vu1MPP7j5bme9+KTenH4OTcOAx/70+LgvN4Z4RSsymQxdXrtcLHMFN9ZuA==}
+  /@notionhq/client@2.2.12:
+    resolution: {integrity: sha512-LCzbOyVjVtui9GQPFEuvFd8JIWZbY/tgyCqrmxzGSjpGCwqjsEldeNC4qYjsMzVB4MIbP5y1vlWzLsUw/M9QAQ==}
     engines: {node: '>=12'}
     dependencies:
       '@types/node-fetch': 2.6.4
@@ -6232,13 +6232,13 @@ packages:
     engines: {node: '>=12.20'}
     dev: false
 
-  /notion-compat@6.16.0(@notionhq/client@2.2.11):
+  /notion-compat@6.16.0(@notionhq/client@2.2.12):
     resolution: {integrity: sha512-Ue67pAC6s3GwvzL7gtfFPUA0kT9FI/WKP8aRCfRuJ/SDedPSuXREI19qSr9wpRDhxMKtOZlT2X6Hxoc9FFFupg==}
     engines: {node: '>=12'}
     peerDependencies:
       '@notionhq/client': ^1.0.4
     dependencies:
-      '@notionhq/client': 2.2.11
+      '@notionhq/client': 2.2.12
       notion-types: 6.16.0
       notion-utils: 6.16.0
       p-queue: 7.3.4
