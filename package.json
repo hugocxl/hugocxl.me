@@ -49,7 +49,7 @@
   "devDependencies": {
     "@next/env": "^13.5.2",
     "@pandacss/dev": "^0.15.1",
-    "@types/node": "^20.6.2",
+    "@types/node": "^20.6.5",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
