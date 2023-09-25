@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.2.13
     version: 2.2.13
   '@tabler/icons':
-    specifier: ^2.34.0
-    version: 2.34.0
+    specifier: ^2.35.0
+    version: 2.35.0
   '@tabler/icons-react':
     specifier: ^2.34.0
     version: 2.34.0(react@18.2.0)
@@ -1483,6 +1483,10 @@ packages:
     resolution: {integrity: sha512-65GsJsT4ZBETWcdrNxbsjsbRoZvbVk3CcU2SafaElrzP1wpOeuAn9aELVEbxhdyZyP9dg2SCfgH6iAArJgp7lw==}
     dev: false
 
+  /@tabler/icons@2.35.0:
+    resolution: {integrity: sha512-qW/itKdmFvfGw6mAQ+cZy+2MYTXb0XdGAVhO3obYLJEfsSPMwQRO0S9ckFk1xMQX/Tj7REC3TEmWUBWNi3/o3g==}
+    dev: false
+
   /@ts-morph/common@0.20.0:
     resolution: {integrity: sha512-7uKjByfbPpwuzkstL3L5MQyuXPSKdoNG93Fmi2JoDcTf3pEP731JdRFAduRVkOs8oqxPsXKA+ScrWkdQ8t/I+Q==}
     dependencies:
@@ -1600,10 +1604,6 @@ packages:
   /@types/node@18.17.17:
     resolution: {integrity: sha512-cOxcXsQ2sxiwkykdJqvyFS+MLQPLvIdwh5l6gNg8qF6s+C7XSkEWOZjK+XhUZd+mYvHV/180g2cnCcIl4l06Pw==}
     dev: true
-
-  /@types/node@20.6.0:
-    resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==}
-    dev: false
 
   /@types/node@20.6.2:
     resolution: {integrity: sha512-Y+/1vGBHV/cYk6OI1Na/LHzwnlNCAfU3ZNGrc1LdRe/LAIbdDPTTv/HU3M7yXN448aTVDq3eKRm2cg7iKLb8gw==}
@@ -5236,7 +5236,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.6.0
+      '@types/node': 20.6.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
