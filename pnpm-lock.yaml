@@ -42,8 +42,8 @@ dependencies:
     specifier: ^3.1.1
     version: 3.1.1(react-dom@18.2.0)(react@18.2.0)
   sharp:
-    specifier: ^0.32.5
-    version: 0.32.5
+    specifier: ^0.32.6
+    version: 0.32.6
 
 devDependencies:
   '@next/env':
@@ -51,7 +51,7 @@ devDependencies:
     version: 13.5.2
   '@pandacss/dev':
     specifier: ^0.15.1
-    version: 0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.5)(typescript@5.2.2)
+    version: 0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2)
   '@types/node':
     specifier: ^20.6.5
     version: 20.6.5
@@ -205,7 +205,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(@types/node@20.6.5)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.6.5)(sharp@0.32.6)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1240,7 +1240,7 @@ packages:
       ts-pattern: 5.0.5
     dev: true
 
-  /@pandacss/dev@0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/dev@0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-KNCFliWAwQWcWlgFbL5l6S2cin30ajxKBfRGP2B4HIl0GWtFd5NtSvAQFfV+mdDwle1s87JmtV17IXJdPtGrsA==}
     hasBin: true
     dependencies:
@@ -1252,7 +1252,7 @@ packages:
       '@pandacss/postcss': 0.15.1(typescript@5.2.2)
       '@pandacss/preset-panda': 0.15.1
       '@pandacss/shared': 0.15.1
-      '@pandacss/studio': 0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.5)(typescript@5.2.2)
+      '@pandacss/studio': 0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2)
       '@pandacss/token-dictionary': 0.15.1
       '@pandacss/types': 0.15.1
       cac: 6.7.14
@@ -1403,7 +1403,7 @@ packages:
     resolution: {integrity: sha512-vJXU2DT2aiUozvrvYGICVbmFhnh0lAVOsovzwbUgcEL5ixAtXniaS47+R7yd8geElyTjcmSrU2HJAEveHmhtQA==}
     dev: true
 
-  /@pandacss/studio@0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/studio@0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.5)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-t3EO/ltBjwK/J+uq+XruH9dsXOwJ+6sx+df8rJZYMhOHdYOuapbyUUvewo34w/zlyOmXYZ9NZFkVYPsNlPutbQ==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1414,7 +1414,7 @@ packages:
       '@pandacss/shared': 0.15.1
       '@pandacss/token-dictionary': 0.15.1
       '@pandacss/types': 0.15.1
-      astro: 2.9.6(@types/node@20.6.5)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.6.5)(sharp@0.32.6)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1610,10 +1610,6 @@ packages:
   /@types/node@18.17.17:
     resolution: {integrity: sha512-cOxcXsQ2sxiwkykdJqvyFS+MLQPLvIdwh5l6gNg8qF6s+C7XSkEWOZjK+XhUZd+mYvHV/180g2cnCcIl4l06Pw==}
     dev: true
-
-  /@types/node@20.6.2:
-    resolution: {integrity: sha512-Y+/1vGBHV/cYk6OI1Na/LHzwnlNCAfU3ZNGrc1LdRe/LAIbdDPTTv/HU3M7yXN448aTVDq3eKRm2cg7iKLb8gw==}
-    dev: false
 
   /@types/node@20.6.5:
     resolution: {integrity: sha512-2qGq5LAOTh9izcc0+F+dToFigBWiK1phKPt7rNhOqJSr35y8rlIBjDwGtFSgAI6MGIhjwOVNSQZVdJsZJ2uR1w==}
@@ -2745,7 +2741,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro@2.9.6(@types/node@20.6.5)(sharp@0.32.5):
+  /astro@2.9.6(@types/node@20.6.5)(sharp@0.32.6):
     resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -2801,7 +2797,7 @@ packages:
       rehype: 12.0.1
       semver: 7.5.4
       server-destroy: 1.0.1
-      sharp: 0.32.5
+      sharp: 0.32.6
       shiki: 0.14.3
       string-width: 5.1.2
       strip-ansi: 7.1.0
@@ -5242,7 +5238,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.6.2
+      '@types/node': 20.6.5
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -7389,8 +7385,8 @@ packages:
     engines: {node: '>=6.9'}
     dev: false
 
-  /sharp@0.32.5:
-    resolution: {integrity: sha512-0dap3iysgDkNaPOaOL4X/0akdu0ma62GcdC2NBQ+93eqpePdDdr2/LM0sFdDSMmN7yS+odyZtPsb7tx/cYBKnQ==}
+  /sharp@0.32.6:
+    resolution: {integrity: sha512-KyLTWwgcR9Oe4d9HwCwNM2l7+J0dUQwn/yf7S0EnTtb0eVS4RxO0eUSvxPtzT4F3SY+C4K6fqdv/DO27sJ/v/w==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
