@@ -47,8 +47,8 @@ dependencies:
 
 devDependencies:
   '@next/env':
-    specifier: ^13.4.19
-    version: 13.4.19
+    specifier: ^13.5.2
+    version: 13.5.2
   '@pandacss/dev':
     specifier: ^0.15.1
     version: 0.15.1(@internationalized/date@3.3.0)(@types/node@20.6.2)(@types/react-dom@18.2.7)(@types/react@18.2.22)(sharp@0.32.5)(typescript@5.2.2)
@@ -1082,13 +1082,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@next/env@13.4.19:
-    resolution: {integrity: sha512-FsAT5x0jF2kkhNkKkukhsyYOrRqtSxrEhfliniIq0bwWbuXLgyt3Gv0Ml+b91XwjwArmuP7NxCiGd++GGKdNMQ==}
-    dev: true
-
   /@next/env@13.5.2:
     resolution: {integrity: sha512-dUseBIQVax+XtdJPzhwww4GetTjlkRSsXeQnisIJWBaHsnxYcN2RGzsPHi58D6qnkATjnhuAtQTJmR1hKYQQPg==}
-    dev: false
 
   /@next/eslint-plugin-next@13.4.19:
     resolution: {integrity: sha512-N/O+zGb6wZQdwu6atMZHbR7T9Np5SUFUjZqCbj0sXm+MwQO35M8TazVB4otm87GkXYs2l6OPwARd3/PUWhZBVQ==}
