@@ -47,7 +47,7 @@
     "sharp": "^0.32.6"
   },
   "devDependencies": {
-    "@next/env": "^13.5.2",
+    "@next/env": "^13.5.3",
     "@pandacss/dev": "^0.15.4",
     "@types/node": "^20.6.5",
     "@types/react": "^18.2.22",
