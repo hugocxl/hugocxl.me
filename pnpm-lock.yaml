@@ -51,13 +51,13 @@ devDependencies:
     version: 13.5.3
   '@pandacss/dev':
     specifier: ^0.15.4
-    version: 0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2)
+    version: 0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.24)(sharp@0.32.6)(typescript@5.2.2)
   '@types/node':
     specifier: ^20.8.0
     version: 20.8.0
   '@types/react':
-    specifier: ^18.2.22
-    version: 18.2.22
+    specifier: ^18.2.24
+    version: 18.2.24
   '@types/react-dom':
     specifier: ^18.2.8
     version: 18.2.8
@@ -229,7 +229,7 @@ packages:
       prismjs: 1.29.0
     dev: true
 
-  /@astrojs/react@2.2.1(@types/react-dom@18.2.8)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0):
+  /@astrojs/react@2.2.1(@types/react-dom@18.2.8)(@types/react@18.2.24)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-nq5Zr8iWdwjSp5fh1NReaCplwsnL4w5PXAY5XWu1jE/frxEfF/ycGHrrhwWW0uJHX9G+kUtmQLR0GBhlR4FmAw==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -240,7 +240,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.9
       '@babel/plugin-transform-react-jsx': 7.22.5(@babel/core@7.22.9)
-      '@types/react': 18.2.22
+      '@types/react': 18.2.24
       '@types/react-dom': 18.2.8
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1240,7 +1240,7 @@ packages:
       ts-pattern: 5.0.5
     dev: true
 
-  /@pandacss/dev@0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2):
+  /@pandacss/dev@0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.24)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-4rEYnvyl4ITojpzJUZRFEv1mUZqlDaMaAUHvtvpjwSQyK2Z2dNFyHDkznzJ3lRKSbm4DGbUhc82+2VSjzpuKIg==}
     hasBin: true
     dependencies:
@@ -1252,7 +1252,7 @@ packages:
       '@pandacss/postcss': 0.15.4(typescript@5.2.2)
       '@pandacss/preset-panda': 0.15.4
       '@pandacss/shared': 0.15.4
-      '@pandacss/studio': 0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2)
+      '@pandacss/studio': 0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.24)(sharp@0.32.6)(typescript@5.2.2)
       '@pandacss/token-dictionary': 0.15.4
       '@pandacss/types': 0.15.4
       cac: 6.7.14
@@ -1403,11 +1403,11 @@ packages:
     resolution: {integrity: sha512-uG2JEf+8ftO190lHeZXkzTVklFX+kmFK6f7gS0JmMsBbHCRaL6J80RdMyd8p9crxxTJhsCqE3uEQEFtyLXfJVA==}
     dev: true
 
-  /@pandacss/studio@0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.22)(sharp@0.32.6)(typescript@5.2.2):
+  /@pandacss/studio@0.15.4(@internationalized/date@3.3.0)(@types/node@20.8.0)(@types/react-dom@18.2.8)(@types/react@18.2.24)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-W8fHmfC13ZDCTHBVIJ5WqkT7mj37wp5GRXsdJ3ZwhLF4NYhPTJP3ovPLehVbdpoKubj0tDRUVrv5ky8MobxH/w==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
-      '@astrojs/react': 2.2.1(@types/react-dom@18.2.8)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)
+      '@astrojs/react': 2.2.1(@types/react-dom@18.2.8)(@types/react@18.2.24)(react-dom@18.2.0)(react@18.2.0)
       '@pandacss/config': 0.15.4
       '@pandacss/logger': 0.15.4
       '@pandacss/node': 0.15.4(typescript@5.2.2)
@@ -1607,10 +1607,6 @@ packages:
     resolution: {integrity: sha512-cOxcXsQ2sxiwkykdJqvyFS+MLQPLvIdwh5l6gNg8qF6s+C7XSkEWOZjK+XhUZd+mYvHV/180g2cnCcIl4l06Pw==}
     dev: true
 
-  /@types/node@20.6.5:
-    resolution: {integrity: sha512-2qGq5LAOTh9izcc0+F+dToFigBWiK1phKPt7rNhOqJSr35y8rlIBjDwGtFSgAI6MGIhjwOVNSQZVdJsZJ2uR1w==}
-    dev: false
-
   /@types/node@20.8.0:
     resolution: {integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==}
 
@@ -1624,11 +1620,11 @@ packages:
   /@types/react-dom@18.2.8:
     resolution: {integrity: sha512-bAIvO5lN/U8sPGvs1Xm61rlRHHaq5rp5N3kp9C+NJ/Q41P8iqjkXSu0+/qu8POsjH9pNWb0OYabFez7taP7omw==}
     dependencies:
-      '@types/react': 18.2.22
+      '@types/react': 18.2.24
     dev: true
 
-  /@types/react@18.2.22:
-    resolution: {integrity: sha512-60fLTOLqzarLED2O3UQImc/lsNRgG0jE/a1mPW9KjMemY0LMITWEsbS4VvZ4p6rorEHd5YKxxmMKSDK505GHpA==}
+  /@types/react@18.2.24:
+    resolution: {integrity: sha512-Ee0Jt4sbJxMu1iDcetZEIKQr99J1Zfb6D4F3qfUWoR1JpInkY1Wdg4WwCyBjL257D0+jGqSl1twBjV8iCaC0Aw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -5232,7 +5228,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.6.5
+      '@types/node': 20.8.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -5766,7 +5762,7 @@ packages:
   /merge-refs@1.2.1:
     resolution: {integrity: sha512-pRPz39HQz2xzHdXAGvtJ9S8aEpNgpUjzb5yPC3ytozodmsHg+9nqgRs7/YOmn9fM/TLzntAC8AdGTidKxOq9TQ==}
     dependencies:
-      '@types/react': 18.2.22
+      '@types/react': 18.2.24
     dev: false
 
   /merge-stream@2.0.0:
