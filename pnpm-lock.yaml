@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.39.0
     version: 2.39.0
   '@tabler/icons-react':
-    specifier: ^2.38.0
-    version: 2.38.0(react@18.2.0)
+    specifier: ^2.39.0
+    version: 2.39.0(react@18.2.0)
   '@vercel/analytics':
     specifier: ^1.1.0
     version: 1.1.0
@@ -1475,18 +1475,14 @@ packages:
     dependencies:
       tslib: 2.6.1
 
-  /@tabler/icons-react@2.38.0(react@18.2.0):
-    resolution: {integrity: sha512-4oLo7z7HkFQXZNNAo3tmhpdZTeFrSNSxngmrEOGZ6WsjT2WRlc6kcEHMVxfCekV19JeB6Yprg30Bdr4sUYJLiQ==}
+  /@tabler/icons-react@2.39.0(react@18.2.0):
+    resolution: {integrity: sha512-MyUK1jqtmHPZBnDXqIc1Y5OnfoqG+tGaSB1/gcl0mlY462fJ5f3QB0ZIZzAHMAGYb6K2iJSdFIFavhcgpDDZ7Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tabler/icons': 2.38.0
+      '@tabler/icons': 2.39.0
       prop-types: 15.8.1
       react: 18.2.0
-    dev: false
-
-  /@tabler/icons@2.38.0:
-    resolution: {integrity: sha512-icDKK6n8jUYAavHK+L2Xe0/tYjwZVS7uhVazhCMVjdm3RfJLFbeLSNEIWcYdGOg6QAock9yqWse8hnhvsy2M3w==}
     dev: false
 
   /@tabler/icons@2.39.0:
