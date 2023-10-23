@@ -51,7 +51,7 @@ devDependencies:
     version: 13.5.4
   '@pandacss/dev':
     specifier: ^0.17.0
-    version: 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.13)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2)
+    version: 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.14)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2)
   '@types/node':
     specifier: ^20.8.7
     version: 20.8.7
@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^18.2.31
     version: 18.2.31
   '@types/react-dom':
-    specifier: ^18.2.13
-    version: 18.2.13
+    specifier: ^18.2.14
+    version: 18.2.14
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.62.0
     version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.52.0)(typescript@5.2.2)
@@ -229,7 +229,7 @@ packages:
       prismjs: 1.29.0
     dev: true
 
-  /@astrojs/react@2.2.1(@types/react-dom@18.2.13)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0):
+  /@astrojs/react@2.2.1(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-nq5Zr8iWdwjSp5fh1NReaCplwsnL4w5PXAY5XWu1jE/frxEfF/ycGHrrhwWW0uJHX9G+kUtmQLR0GBhlR4FmAw==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
@@ -241,7 +241,7 @@ packages:
       '@babel/core': 7.22.9
       '@babel/plugin-transform-react-jsx': 7.22.5(@babel/core@7.22.9)
       '@types/react': 18.2.31
-      '@types/react-dom': 18.2.13
+      '@types/react-dom': 18.2.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -1251,7 +1251,7 @@ packages:
       ts-pattern: 5.0.5
     dev: true
 
-  /@pandacss/dev@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.13)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2):
+  /@pandacss/dev@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.14)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-b94jtf8nMgDIxnHEXvXwrHSGlPrZLl4E17fIfat2P29JkGmBbnT9qbKg9wk3f8KlQdzHpbVuKkgnrvnGCZI9Ow==}
     hasBin: true
     dependencies:
@@ -1263,7 +1263,7 @@ packages:
       '@pandacss/postcss': 0.17.0(typescript@5.2.2)
       '@pandacss/preset-panda': 0.17.0
       '@pandacss/shared': 0.17.0
-      '@pandacss/studio': 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.13)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2)
+      '@pandacss/studio': 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.14)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2)
       '@pandacss/token-dictionary': 0.17.0
       '@pandacss/types': 0.17.0
       cac: 6.7.14
@@ -1414,11 +1414,11 @@ packages:
     resolution: {integrity: sha512-h7bcC/ZbE1ZhXMH4S5QFkmMoV7X8bAl02Z92Nx8HDYa1J1B7ot2z8a4XQePdvWDrtfMYSW4/lhEGVwQcsB4t7w==}
     dev: true
 
-  /@pandacss/studio@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.13)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2):
+  /@pandacss/studio@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.7)(@types/react-dom@18.2.14)(@types/react@18.2.31)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-XamCB+Zc/wETSu5qb/9c3VydcnD2Wx2l3IHjNPm5SPgS7O+ISnQpmCPj1IRQbOWwknLlFBj1L135icFmzKwRqw==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
-      '@astrojs/react': 2.2.1(@types/react-dom@18.2.13)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
+      '@astrojs/react': 2.2.1(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
       '@pandacss/config': 0.17.0
       '@pandacss/logger': 0.17.0
       '@pandacss/node': 0.17.0(typescript@5.2.2)
@@ -1630,8 +1630,8 @@ packages:
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom@18.2.13:
-    resolution: {integrity: sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw==}
+  /@types/react-dom@18.2.14:
+    resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
       '@types/react': 18.2.31
     dev: true
