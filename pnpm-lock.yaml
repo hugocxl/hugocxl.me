@@ -68,8 +68,8 @@ devDependencies:
     specifier: ^5.62.0
     version: 5.62.0(eslint@8.53.0)(typescript@5.2.2)
   cypress:
-    specifier: ^13.4.0
-    version: 13.4.0
+    specifier: ^13.5.0
+    version: 13.5.0
   eslint:
     specifier: ^8.53.0
     version: 8.53.0
@@ -3393,8 +3393,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /cypress@13.4.0:
-    resolution: {integrity: sha512-KeWNC9xSHG/ewZURVbaQsBQg2mOKw4XhjJZFKjWbEjgZCdxpPXLpJnfq5Jns1Gvnjp6AlnIfpZfWFlDgVKXdWQ==}
+  /cypress@13.5.0:
+    resolution: {integrity: sha512-oh6U7h9w8wwHfzNDJQ6wVcAeXu31DlIYlNOBvfd6U4CcB8oe4akawQmH+QJVOMZlM42eBoCne015+svVqdwdRQ==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
