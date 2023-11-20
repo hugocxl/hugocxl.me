@@ -47,8 +47,8 @@ dependencies:
 
 devDependencies:
   '@next/env':
-    specifier: ^14.0.2
-    version: 14.0.2
+    specifier: ^14.0.3
+    version: 14.0.3
   '@pandacss/dev':
     specifier: ^0.18.3
     version: 0.18.3(@types/node@20.9.2)(@types/react-dom@18.2.15)(@types/react@18.2.37)(sharp@0.32.6)(typescript@5.2.2)
@@ -1021,13 +1021,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@next/env@14.0.2:
-    resolution: {integrity: sha512-HAW1sljizEaduEOes/m84oUqeIDAUYBR1CDwu2tobNlNDFP3cSm9d6QsOsGeNlIppU1p/p1+bWbYCbvwjFiceA==}
-    dev: true
-
   /@next/env@14.0.3:
     resolution: {integrity: sha512-7xRqh9nMvP5xrW4/+L0jgRRX+HoNRGnfJpD+5Wq6/13j3dsdzxO3BCXn7D3hMqsDb+vjZnJq+vI7+EtgrYZTeA==}
-    dev: false
 
   /@next/eslint-plugin-next@14.0.3:
     resolution: {integrity: sha512-j4K0n+DcmQYCVnSAM+UByTVfIHnYQy2ODozfQP+4RdwtRDfobrIvKq1K4Exb2koJ79HSSa7s6B2SA8T/1YR3RA==}
@@ -1551,12 +1546,6 @@ packages:
   /@types/node@18.17.17:
     resolution: {integrity: sha512-cOxcXsQ2sxiwkykdJqvyFS+MLQPLvIdwh5l6gNg8qF6s+C7XSkEWOZjK+XhUZd+mYvHV/180g2cnCcIl4l06Pw==}
     dev: true
-
-  /@types/node@20.9.0:
-    resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: false
 
   /@types/node@20.9.2:
     resolution: {integrity: sha512-WHZXKFCEyIUJzAwh3NyyTHYSR35SevJ6mZ1nWwJafKtiQbqRTIKSRcw3Ma3acqgsent3RRDqeVwpHntMk+9irg==}
@@ -4725,7 +4714,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.9.0
+      '@types/node': 20.9.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
