@@ -34,7 +34,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.13",
     "@tabler/icons": "^2.40.0",
-    "@tabler/icons-react": "^2.40.0",
+    "@tabler/icons-react": "^2.41.0",
     "@vercel/analytics": "^1.1.1",
     "next": "^14.0.2",
     "notion-compat": "^6.16.0",
