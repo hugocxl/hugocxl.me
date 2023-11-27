@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.2.13
     version: 2.2.13
   '@tabler/icons':
-    specifier: ^2.41.0
-    version: 2.41.0
+    specifier: ^2.42.0
+    version: 2.42.0
   '@tabler/icons-react':
     specifier: ^2.42.0
     version: 2.42.0(react@18.2.0)
@@ -1421,10 +1421,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@2.41.0:
-    resolution: {integrity: sha512-n7a4Qx/Narn4thV/FxnWb0GoOSGdFTA5ZRLuvgshXn3YxwP0Z7KLzgQ5tQs1gpwdNF5f+HI3dhVTfv/ZG6Zahw==}
-    dev: false
-
   /@tabler/icons@2.42.0:
     resolution: {integrity: sha512-ynV4iaC1c1mUhuAr9HRaoq8KrWYmZ0bJEpOh7qTBE+OfdDsdvQUe+0S7FW+DHkJ4RuxQMdO8djrZK7HrUw9YMA==}
     dev: false
@@ -1551,12 +1547,6 @@ packages:
     resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
     dependencies:
       undici-types: 5.26.5
-
-  /@types/node@20.9.2:
-    resolution: {integrity: sha512-WHZXKFCEyIUJzAwh3NyyTHYSR35SevJ6mZ1nWwJafKtiQbqRTIKSRcw3Ma3acqgsent3RRDqeVwpHntMk+9irg==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: false
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -4720,7 +4710,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.9.2
+      '@types/node': 20.10.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
