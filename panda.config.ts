@@ -5,19 +5,20 @@ import {
   defineTokens
 } from '@pandacss/dev'
 
+const hsl = n => `hsl(0 0% ${n}%)`
+
 const tokens = defineTokens({
   colors: {
     primary: { value: '#76d9e6' }
   },
   lineHeights: {
     sm: { value: '1.4' },
-    md: { value: '1.7' },
+    md: { value: '1.5' },
     lg: { value: '1.9' }
   },
   fontWeights: {
     medium: { value: '400' },
-    bold: { value: '500' },
-    bolder: { value: '700' }
+    bold: { value: '500' }
   },
   radii: {
     sm: { value: '8px' },
@@ -42,9 +43,9 @@ const tokens = defineTokens({
     lg: { value: '32px' }
   },
   fontSizes: {
-    sm: { value: '13px' },
-    md: { value: '16px' },
-    lg: { value: '18px' }
+    sm: { value: '12px' },
+    md: { value: '14px' },
+    lg: { value: '24px' }
   },
   borders: {},
   contentWidth: {
@@ -65,19 +66,19 @@ const semanticTokens = defineSemanticTokens({
     bg: {
       primary: {
         value: {
-          _osLight: 'hsl(0 0% 100%)',
-          _osDark: 'hsl(0 0% 0%)'
+          _osLight: hsl(100),
+          _osDark: hsl(5)
         }
       },
       secondary: {
         value: {
-          _osLight: 'hsl(0 0% 97%)',
+          _osLight: hsl(97),
           _osDark: 'hsl(0 0% 8%)'
         }
       },
       code: {
         value: {
-          _osLight: 'hsl(0 0% 97%)',
+          _osLight: hsl(97),
           _osDark: 'hsl(0 0% 10%)'
         }
       },
@@ -104,16 +105,13 @@ const semanticTokens = defineSemanticTokens({
     },
     text: {
       primary: {
-        value: { _osLight: 'hsl(0 0% 0%)', _osDark: 'hsl(0 0% 100%)' }
+        value: { _osLight: hsl(0), _osDark: hsl(100) }
       },
       secondary: {
-        value: {
-          _osLight: 'hsl(0 0% 20%)',
-          _osDark: 'hsl(0 0% 80%)'
-        }
+        value: { _osLight: 'hsl(0 0% 20%)', _osDark: hsl(75) }
       },
       dimmed: {
-        value: { _osLight: 'hsl(0 0% 40%)', _osDark: 'hsl(0deg 0% 60%)' }
+        value: { _osLight: 'hsl(0 0% 60%)', _osDark: 'hsl(0deg 0% 40%)' }
       }
     }
   }
@@ -125,17 +123,16 @@ const globalCss = defineGlobalStyles({
     textRendering: 'optimizeLegibility',
     color: 'text.secondary',
     fontSize: 'md',
+    fontWeight: 'medium',
     lineHeight: 'md',
-    mdDown: {
+    smDown: {
       lineHeight: 'sm',
       fontSize: 'sm'
-    },
-    fontFamily:
-      'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol'
+    }
   },
   button: {
     backgroundColor: 'bg.button',
-    color: 'text.secondary',
+    color: 'text.primary',
     padding: 'sm',
     borderRadius: 'sm',
     cursor: 'pointer',
@@ -149,6 +146,7 @@ const globalCss = defineGlobalStyles({
   },
   a: {
     color: 'text.primary',
+    fontWeight: 'bold',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
     textDecorationThickness: 1,
@@ -166,24 +164,20 @@ const globalCss = defineGlobalStyles({
     borderColor: 'border.secondary',
     borderStyle: 'solid'
   },
-  i: {
-    fontStyle: 'italic'
-  },
   'b, strong': {
-    lineHeight: '1',
-    fontWeight: 'medium',
-    fontFamily: 'Newspaper',
-    fontSize: 'calc(1rem + 2px)',
-    color: 'text.dimmed'
+    color: 'text.primary',
+    fontWeight: 'medium'
   },
   'h1, h2, h3, h4, h5, h6': {
-    letterSpacing: '-.03em',
-    color: 'text.primary',
-    fontWeight: 'bolder'
+    letterSpacing: '.15em',
+    color: 'text.dimmed',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    fontSize: '0.75rem'
   },
   code: {
     fontFamily: 'Menlo, monospace',
-    fontSize: '0.85rem'
+    fontSize: '0.95rem'
   },
   li: {
     marginBottom: 'sm'
@@ -193,7 +187,11 @@ const globalCss = defineGlobalStyles({
       marginBottom: 'md'
     },
   h1: {
-    marginBottom: '1rem'
+    marginBottom: '1rem',
+    fontSize: 'lg',
+    color: 'text.primary',
+    textTransform: 'capitalize',
+    letterSpacing: 'inherit'
   },
   h2: {
     marginTop: '3rem',

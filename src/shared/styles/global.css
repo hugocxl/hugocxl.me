@@ -1,6 +1,1 @@
 @layer reset, base, tokens, recipes, utilities;
-
-@font-face {
-  font-family: 'Newspaper';
-  src: url('/fonts/newsreader/newsreader.woff2') format('woff2');
-}

@@ -1,5 +1,6 @@
 // Deps
 import { Analytics } from '@vercel/analytics/react'
+import { Inter } from 'next/font/google'
 
 // Types
 import { ReactNode } from 'react'
@@ -13,6 +14,9 @@ import '@/shared/styles/global.css'
 import '@/shared/styles/notion.css'
 import '@/shared/styles/prismjs.css'
 import { styled } from '@styled-system/jsx'
+import { PAGES } from '@/shared/constants'
+
+const font = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -84,24 +88,38 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <styled.body
         w={'100%'}
         minHeight={'100dvh'}
-        maxWidth={'content'}
-        // className={font.className}
-        px={'md'}
+        className={font.className}
+        p={'md'}
         display={'flex'}
         flexDirection={'column'}
         justifyContent={'space-between'}
-        margin={'0 auto'}
-        py={{
-          base: '10vh',
-          smDown: 'lg'
-        }}
       >
+        <styled.header
+          display={'flex'}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+        >
+          <Typography color={'text.secondary'} fontWeight={'bold'}>
+            {'@hugocxl'}
+          </Typography>
+          <Flex gap={'md'} alignItems={'baseline'}>
+            {PAGES.map(page => (
+              <Link
+                color={'text.dimmed'}
+                textDecoration={'none'}
+                href={page.href}
+                fontSize={'sm'}
+                key={page.href}
+              >
+                {page.title}
+              </Link>
+            ))}
+          </Flex>
+        </styled.header>
         <styled.main mb={'60px'}>{children}</styled.main>
 
         <styled.footer
-          borderTop={'secondary'}
           justifyContent={'space-between'}
-          pt={'md'}
           display={'flex'}
           smDown={{
             flexDirection: 'column',
@@ -109,10 +127,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         >
           <Typography fontSize={'sm'} color={'text.dimmed'}>
-            {'CC BY-NC 4.0 2023 © Hugo Corta.'}
+            {'CC BY-NC 4.0 2023 © Hugo Corta'}
           </Typography>
 
-          <Flex gap={'xs'} alignItems={'center'} color={'text.dimmed'}>
+          <Flex gap={'md'} alignItems={'center'} color={'text.dimmed'}>
             <Link
               color={'text.dimmed'}
               textDecoration={'none'}
@@ -123,7 +141,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               {'Mail'}
             </Link>
-            <span>•</span>
             <Link
               color={'text.dimmed'}
               textDecoration={'none'}
@@ -134,7 +151,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               {'GitHub'}
             </Link>
-            <span>•</span>
             <Link
               color={'text.dimmed'}
               textDecoration={'none'}
@@ -145,7 +161,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               {'Twitter'}
             </Link>
-            <span>•</span>
             <Link
               color={'text.dimmed'}
               textDecoration={'none'}

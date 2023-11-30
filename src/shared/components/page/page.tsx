@@ -1,20 +1,26 @@
 // Components
-import { Title, Link, Flex, Stack } from '@/shared/components'
+import { Title, Flex, Stack } from '@/shared/components'
 
 // Types
 import { ReactNode } from 'react'
 import { JsxStyleProps } from '@styled-system/types'
-import { PAGES } from '@/shared/constants'
 
 interface PageProps extends JsxStyleProps {
   children: ReactNode
   title: string
-  showNav?: boolean
 }
 
-export function Page({ title, children, showNav = true }: PageProps) {
+export function Page({ title, children }: PageProps) {
   return (
-    <Stack position={'relative'}>
+    <Stack
+      margin={'0 auto'}
+      maxW={'content'}
+      position={'relative'}
+      // py={{
+      //   base: '20vh',
+      //   smDown: 'lg'
+      // }}
+    >
       <Flex
         mb={'40px'}
         w={'100%'}
@@ -31,24 +37,6 @@ export function Page({ title, children, showNav = true }: PageProps) {
         }}
       >
         <Title mb={0}>{title}</Title>
-        {showNav && (
-          <Flex gap={'md'} alignItems={'baseline'}>
-            {PAGES.filter(page => page.title !== title).map(page => (
-              <>
-                <Link
-                  color={'text.dimmed'}
-                  textDecoration={'none'}
-                  href={page.href}
-                  fontSize={'sm'}
-                  key={page.href}
-                >
-                  {page.title}
-                </Link>
-                {/* <span>•</span> */}
-              </>
-            ))}
-          </Flex>
-        )}
       </Flex>
       {children}
     </Stack>

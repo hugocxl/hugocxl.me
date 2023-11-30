@@ -22,12 +22,12 @@ const Collection = dynamic(() =>
 const Equation = dynamic(() =>
   import('react-notion-x/build/third-party/equation').then(m => m.Equation)
 )
-const Pdf = dynamic(
-  () => import('react-notion-x/build/third-party/pdf').then(m => m.Pdf),
-  {
-    ssr: false
-  }
-)
+// const Pdf = dynamic(
+//   () => import('react-notion-x/build/third-party/pdf').then(m => m.Pdf),
+//   {
+//     ssr: false
+//   }
+// )
 
 const Modal = dynamic(
   () => import('react-notion-x/build/third-party/modal').then(m => m.Modal),
@@ -48,7 +48,7 @@ export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
         Collection,
         Equation,
         Modal,
-        Pdf,
+        // Pdf,
         Tweet,
         nextImage: Image
         // nextLink: NextLink

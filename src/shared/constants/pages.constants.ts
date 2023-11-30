@@ -50,4 +50,4 @@ export const ABOUT: Page = {
   description: `Little about me. Also, It's not hard to find my contact, just search hugocxl.`
 }
 
-export const PAGES: Pages = [HOME, WRITING, PROJECTS, PHOTOS, STACK, ABOUT]
+export const PAGES: Pages = [WRITING, PROJECTS, PHOTOS, STACK, ABOUT]
