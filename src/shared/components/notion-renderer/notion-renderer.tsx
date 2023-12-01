@@ -41,6 +41,9 @@ export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
     <ReactNotionX
       rootDomain={'https://www.hugocxl.me'}
       recordMap={content}
+      mapImageUrl={(url, block) => {
+        return url
+      }}
       components={{
         Image: Image,
         // Link: NextLink,
@@ -51,7 +54,7 @@ export const NotionRenderer = ({ content }: { content: ExtendedRecordMap }) => {
         // Pdf,
         Tweet,
         nextImage: Image
-        // nextLink: NextLink
+        // nextLink: NextLink,
       }}
     />
   )

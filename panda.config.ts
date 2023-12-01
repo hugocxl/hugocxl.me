@@ -80,13 +80,13 @@ const semanticTokens = defineSemanticTokens({
       primary: {
         value: {
           _osLight: hsl(90),
-          _osDark: hsl(40)
+          _osDark: hsl(15)
         }
       },
       secondary: {
         value: {
           _osLight: hsl(90),
-          _osDark: hsl(10)
+          _osDark: hsl(12)
         }
       }
     },
@@ -95,7 +95,7 @@ const semanticTokens = defineSemanticTokens({
         value: { _osLight: hsl(0), _osDark: hsl(100) }
       },
       secondary: {
-        value: { _osLight: hsl(0), _osDark: hsl(70) }
+        value: { _osLight: hsl(0), _osDark: hsl(60) }
       },
       dimmed: {
         value: { _osLight: hsl(60), _osDark: hsl(40) }
@@ -126,16 +126,16 @@ const globalCss = defineGlobalStyles({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    transition: 'all 0.2s ease-in-out',
     '&:hover': {
-      color: 'text.secondary',
+      color: 'text.dimmed',
       bg: 'bg.secondary'
     }
   },
   a: {
-    // color: 'text.secondary',
     fontWeight: 'bold',
     textDecoration: 'underline',
-    textDecorationColor: 'border.primary',
+    textDecorationColor: 'text.dimmed',
     textDecorationThickness: 1,
     textUnderlineOffset: 4,
     transition: 'color 0.2s ease-in-out',

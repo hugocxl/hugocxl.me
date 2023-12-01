@@ -43,7 +43,7 @@ export function Article({
               transition={'all .3s ease'}
               _hover={{
                 textDecoration: 'none',
-                color: 'text.secondary'
+                color: 'text.primary'
               }}
             >
               <span style={{ paddingLeft: el.indentLevel * 16 }}>

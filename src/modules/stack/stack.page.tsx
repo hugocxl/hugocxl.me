@@ -12,6 +12,7 @@ import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
+import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export async function StackPage() {
 
       render.push(
         <div key={tag}>
-          <h2>{tag}</h2>
+          <styled.h2 mt={0}>{tag}</styled.h2>
           <Stack gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (
               <Grid gridTemplateColumns={'0.5fr 1fr'} key={link}>
@@ -52,7 +53,7 @@ export async function StackPage() {
 
   return (
     <Page {...STACK}>
-      <Stack gap={'sm'}>{render}</Stack>
+      <Stack gap={60}>{render}</Stack>
     </Page>
   )
 }

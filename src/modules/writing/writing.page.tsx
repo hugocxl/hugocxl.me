@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { BLOG, HANDBOOKS, WRITING } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Flex } from '@/shared/components'
+import { Link, Stack, Typography, Page, Flex, Grid } from '@/shared/components'
 
 export const revalidate = 86400 * 3
 export const metadata: Metadata = {
@@ -43,20 +43,27 @@ export async function Writing() {
 function Item({
   name,
   href,
-  updatedAt
+  description
 }: {
   name: string
+  description: string
   href: string
   updatedAt: string
 }) {
   return (
-    <Flex justifyContent={'space-between'}>
+    <Grid
+      gridTemplateColumns={'0.5fr 1fr'}
+      mdDown={{
+        gridTemplateColumns: '1fr',
+        gridTemplateRows: 'auto 1fr'
+      }}
+    >
       <Link href={href} whiteSpace={'nowrap'}>
         {name}
       </Link>
       <Typography fontWeight={'medium'} color={'text.dimmed'}>
-        {updatedAt}
+        {description}
       </Typography>
-    </Flex>
+    </Grid>
   )
 }

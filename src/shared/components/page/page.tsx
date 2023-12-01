@@ -9,6 +9,7 @@ import { IconArrowBackUp } from '@tabler/icons-react'
 export type PageProps = JsxStyleProps & {
   children: ReactNode
   title: string
+  description?: string
   goBackProps?: { title: string; href: string }
   showGoBack?: boolean
 }
@@ -16,6 +17,7 @@ export type PageProps = JsxStyleProps & {
 export function Page({
   title,
   children,
+  description,
   showGoBack = true,
   goBackProps
 }: PageProps) {
@@ -25,7 +27,10 @@ export function Page({
         <Link
           textDecoration={'none'}
           mdDown={{
-            position: 'inherit'
+            position: 'inherit',
+            left: 0,
+            transform: 'none',
+            mb: 'lg'
           }}
           href={goBackProps?.href || '/'}
           position={'absolute'}
@@ -55,6 +60,7 @@ export function Page({
         }}
       >
         <h1>{title}</h1>
+        {description && <p>{description}</p>}
       </Stack>
 
       {children}

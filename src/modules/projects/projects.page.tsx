@@ -14,7 +14,8 @@ import {
   Stack,
   Page,
   Grid,
-  Typography
+  Typography,
+  Link
 } from '@/shared/components'
 
 export const revalidate = 86400 * 7
@@ -37,18 +38,18 @@ export async function Projects() {
           }
         }}
       >
-        {projects.map(({ id, name, content, description }) => {
+        {projects.map(({ id, name, content, description, link }) => {
           return (
             <Grid
               py={'lg'}
-              gridTemplateColumns={'0.5fr 1fr'}
               key={id}
+              gridTemplateColumns={'0.25fr 1fr'}
               mdDown={{
                 gridTemplateColumns: '1fr',
                 gridTemplateRows: 'auto 1fr'
               }}
             >
-              <styled.h2 m={0}>{name}</styled.h2>
+              <Link href={link}>{name}</Link>
               <Stack gap={'lg'}>
                 <Typography color={'text.dimmed'}>{description}</Typography>
                 <NotionRenderer content={content} />
