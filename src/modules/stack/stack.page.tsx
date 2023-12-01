@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import { STACK } from '@/shared/constants'
 
 // Components
-import { Link, Stack, Typography, Page, Title, Grid } from '@/shared/components'
+import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'

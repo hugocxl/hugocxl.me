@@ -1,6 +1,5 @@
 // Components
 import {
-  Button,
   Link,
   Stack,
   NotionRenderer,
