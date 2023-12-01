@@ -7,9 +7,6 @@ import { Flex } from '../flex'
 import { Link } from '../link'
 import { Typography } from '../typography'
 
-// Constants
-import { PAGES } from '@/shared/constants'
-
 // Types
 import { ReactNode } from 'react'
 
@@ -33,105 +30,76 @@ type AppShellProps = {
   children: ReactNode
 }
 
+const linkProps = {
+  color: 'text.dimmed',
+  textDecoration: 'none',
+  fontSize: 'sm',
+  target: '_blank',
+  fontWeight: 'medium'
+}
+
 export function AppShell({ children }: AppShellProps) {
   return (
     <styled.body
       w={'100%'}
       minHeight={'100dvh'}
-      maxW={'720px'}
-      margin={'0 auto'}
       className={font.className}
-      p={'md'}
       display={'grid'}
-      gridTemplateRows={'auto 1fr auto'}
+      gridTemplateRows={'1fr auto'}
     >
-      <styled.header
-        display={'flex'}
-        alignItems={'center'}
-        justifyContent={'space-between'}
-        pt={'lg'}
-        pb={'60px'}
+      <styled.main
+        w={'100%'}
+        maxW={'720px'}
+        margin={'0 auto'}
+        px={'md'}
+        py={'12dvh'}
       >
-        {/* <Flex gap={'xs'}>
-          <Typography color={'text.secondary'} fontWeight={'bold'}>
-            {'Hugo Corta'}
+        {children}
+      </styled.main>
+
+      <styled.footer borderTop={'primary'} width={'100%'}>
+        <Flex
+          maxW={'720px'}
+          py={'sm'}
+          px={'md'}
+          margin={'0 auto'}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+        >
+          <Typography fontSize={'sm'} color={'text.dimmed'}>
+            {'CC BY-NC 4.0 2023 © Hugo Corta'}
           </Typography>
-          |
-          <Typography color={'text.dimmed'} fontWeight={'bold'}>
-            {'Tech Lead'}
-          </Typography>
-        </Flex> */}
-        <Flex gap={'sm'} alignItems={'baseline'}>
-          {PAGES.map(page => (
+
+          <Flex gap={'xs'} alignItems={'center'}>
             <Link
-              fontWeight={'normal'}
-              textStyle={'xl'}
-              // color={'text.dimmed'}
-              textDecoration={'none'}
-              href={page.href}
-              // fontSize={'xl'}
-              key={page.href}
+              {...linkProps}
+              href={'mailto:corta.hugo@gmail.com'}
+              title={'Mail'}
             >
-              {page.title}
+              {'Mail'}
             </Link>
-          ))}
-        </Flex>
-      </styled.header>
-      <styled.main padding={'xl'}>{children}</styled.main>
-
-      <styled.footer
-        justifyContent={'space-between'}
-        display={'flex'}
-        smDown={{
-          flexDirection: 'column',
-          flexFlow: 'column-reverse'
-        }}
-      >
-        <Typography fontSize={'sm'} color={'text.dimmed'}>
-          {'CC BY-NC 4.0 2023 © Hugo Corta'}
-        </Typography>
-
-        <Flex gap={'md'} alignItems={'center'} color={'text.dimmed'}>
-          <Link
-            color={'text.dimmed'}
-            textDecoration={'none'}
-            fontSize={'sm'}
-            href={'mailto:corta.hugo@gmail.com'}
-            title={'Mail'}
-            target={'_blank'}
-          >
-            {'Mail'}
-          </Link>
-          <Link
-            color={'text.dimmed'}
-            textDecoration={'none'}
-            fontSize={'sm'}
-            href={'https://github.com/hugocxl'}
-            title={'GitHub @hugocxl'}
-            target={'_blank'}
-          >
-            {'GitHub'}
-          </Link>
-          <Link
-            color={'text.dimmed'}
-            textDecoration={'none'}
-            fontSize={'sm'}
-            href={'https://twitter.com/hugocxl'}
-            title={'Twitter @hugocxl'}
-            target={'_blank'}
-          >
-            {'Twitter'}
-          </Link>
-          <Link
-            color={'text.dimmed'}
-            textDecoration={'none'}
-            fontSize={'sm'}
-            href={'https://www.linkedin.com/in/hugocorta'}
-            title={'LinkedIn @hugocorta'}
-            target={'_blank'}
-          >
-            {'LinkedIn'}
-          </Link>
+            <Link
+              {...linkProps}
+              href={'https://github.com/hugocxl'}
+              title={'GitHub @hugocxl'}
+            >
+              {'GitHub'}
+            </Link>
+            <Link
+              {...linkProps}
+              href={'https://twitter.com/hugocxl'}
+              title={'Twitter @hugocxl'}
+            >
+              {'Twitter'}
+            </Link>
+            <Link
+              {...linkProps}
+              href={'https://www.linkedin.com/in/hugocorta'}
+              title={'LinkedIn @hugocorta'}
+            >
+              {'LinkedIn'}
+            </Link>
+          </Flex>
         </Flex>
       </styled.footer>
     </styled.body>

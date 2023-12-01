@@ -1,5 +1,5 @@
 // Components
-import { Title, Flex, Stack } from '@/shared/components'
+import { Flex, Stack } from '@/shared/components'
 
 // Types
 import { ReactNode } from 'react'
@@ -12,17 +12,9 @@ interface PageProps extends JsxStyleProps {
 
 export function Page({ title, children }: PageProps) {
   return (
-    <Stack
-      margin={'0 auto'}
-      maxW={'content'}
-      position={'relative'}
-      // py={{
-      //   base: '20vh',
-      //   smDown: 'lg'
-      // }}
-    >
+    <Stack position={'relative'}>
       <Flex
-        mb={'40px'}
+        mb={'md'}
         w={'100%'}
         justifyContent={'space-between'}
         flexWrap={'wrap'}
@@ -36,7 +28,7 @@ export function Page({ title, children }: PageProps) {
           }
         }}
       >
-        <Title mb={0}>{title}</Title>
+        <h1>{title}</h1>
       </Flex>
       {children}
     </Stack>

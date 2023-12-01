@@ -1,8 +1,8 @@
 // Components
-import { Link, Page } from '@/shared/components'
+import { Grid, Link, Page, Stack } from '@/shared/components'
 
 // Constants
-import { HOME } from '@/shared/constants'
+import { HOME, PAGES } from '@/shared/constants'
 
 // Types
 import { Metadata } from 'next'
@@ -20,6 +20,16 @@ export function Home() {
         Passionate about software design and crafting digital products. Open
         source contributor.
       </p>
+
+      <h2>{'Explore'}</h2>
+      <Grid columns={2} gap={'sm'} alignItems={'baseline'}>
+        {PAGES.map(page => (
+          <Stack key={page.href}>
+            <Link href={page.href}>{page.title}</Link>
+            <p>{page.description}</p>
+          </Stack>
+        ))}
+      </Grid>
 
       <h2>{'Now'}</h2>
       <p>

@@ -8,7 +8,16 @@ import { Metadata } from 'next'
 import { PROJECTS } from '@/shared/constants'
 
 // Components
-import { NotionRenderer, Stack, Page, Title } from '@/shared/components'
+import {
+  NotionRenderer,
+  Stack,
+  Page,
+  Title,
+  Flex,
+  Grid,
+  Typography
+} from '@/shared/components'
+import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -23,16 +32,30 @@ export async function Projects() {
 
   return (
     <Page {...PROJECTS}>
-      <Stack gap={'lg'}>
-        {projects.map(({ id, name, content }) => {
+      <Stack
+        css={{
+          '& > div:not(:last-child)': {
+            borderBottom: 'secondary'
+          }
+        }}
+      >
+        {projects.map(({ id, name, content, description }) => {
           return (
-            <Stack key={id}>
-              <Title mt={0} variant={'h2'}>
-                {name}
-              </Title>
-
-              <NotionRenderer content={content} />
-            </Stack>
+            <Grid
+              py={'lg'}
+              gridTemplateColumns={'0.5fr 1fr'}
+              key={id}
+              mdDown={{
+                gridTemplateColumns: '1fr',
+                gridTemplateRows: 'auto 1fr'
+              }}
+            >
+              <styled.h2 m={0}>{name}</styled.h2>
+              <Stack gap={'lg'}>
+                <Typography color={'text.dimmed'}>{description}</Typography>
+                <NotionRenderer content={content} />
+              </Stack>
+            </Grid>
           )
         })}
       </Stack>

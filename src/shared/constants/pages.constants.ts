@@ -2,7 +2,7 @@
 import { Page, Pages } from '@/shared/types'
 
 export const HOME: Page = {
-  title: 'home',
+  title: 'Hugo Corta',
   href: '/',
   description: ''
 }
@@ -35,7 +35,7 @@ export const STACK: Page = {
   title: 'stack',
   href: '/stack',
   description:
-    "A small review about specific pieces of software or hardware I use. This not a static page, it's a living document with everything that I'm using nowadays."
+    'A small review about specific pieces of software or hardware I use'
 }
 
 export const PHOTOS: Page = {
@@ -47,7 +47,7 @@ export const PHOTOS: Page = {
 export const ABOUT: Page = {
   title: 'about',
   href: '/about',
-  description: `Little about me. Also, It's not hard to find my contact, just search hugocxl.`
+  description: `Little about me. Also, It's not hard to find my contact, just search hugocxl`
 }
 
-export const PAGES: Pages = [WRITING, PROJECTS, PHOTOS, STACK, ABOUT]
+export const PAGES: Pages = [WRITING, PROJECTS, STACK, ABOUT]

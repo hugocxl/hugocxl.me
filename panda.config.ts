@@ -8,12 +8,9 @@ import {
 const hsl = n => `hsl(0 0% ${n}%)`
 
 const tokens = defineTokens({
-  colors: {
-    primary: { value: '#76d9e6' }
-  },
   lineHeights: {
     sm: { value: '1.35' },
-    md: { value: '1.4' },
+    md: { value: '1.5' },
     lg: { value: '1.9' }
   },
   fontWeights: {
@@ -46,10 +43,16 @@ const tokens = defineTokens({
 const semanticTokens = defineSemanticTokens({
   borders: {
     primary: {
-      value: '1px solid {colors.border.primary}'
+      value: {
+        _osLight: `1px solid ${hsl(50)}`,
+        _osDark: `1px solid ${hsl(17)}`
+      }
     },
     secondary: {
-      value: '1px solid {colors.border.secondary}'
+      value: {
+        _osLight: `1px solid ${hsl(50)}`,
+        _osDark: `1px solid ${hsl(13)}`
+      }
     }
   },
   colors: {
@@ -98,7 +101,7 @@ const semanticTokens = defineSemanticTokens({
         value: { _osLight: hsl(0), _osDark: hsl(100) }
       },
       secondary: {
-        value: { _osLight: hsl(0), _osDark: hsl(75) }
+        value: { _osLight: hsl(0), _osDark: hsl(80) }
       },
       dimmed: {
         value: { _osLight: hsl(60), _osDark: hsl(40) }
@@ -178,7 +181,7 @@ const globalCss = defineGlobalStyles({
     },
   h1: {
     marginBottom: '1rem',
-    fontSize: 'lg',
+    fontSize: '1.3rem',
     color: 'text.primary',
     textTransform: 'capitalize',
     letterSpacing: 'inherit'
