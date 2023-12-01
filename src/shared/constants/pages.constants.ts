@@ -38,12 +38,6 @@ export const STACK: Page = {
     'A small review about specific pieces of software or hardware I use'
 }
 
-export const PHOTOS: Page = {
-  title: 'photos',
-  href: '/photos',
-  description: `Some pics`
-}
-
 export const ABOUT: Page = {
   title: 'about',
   href: '/about',

@@ -1,5 +1,6 @@
 // Lib
 import { notionClient } from '@/shared/lib'
+import { styled } from '@styled-system/jsx'
 
 // Types
 import { Metadata } from 'next'
@@ -12,12 +13,9 @@ import {
   NotionRenderer,
   Stack,
   Page,
-  Title,
-  Flex,
   Grid,
   Typography
 } from '@/shared/components'
-import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
