@@ -312,7 +312,8 @@
   padding: 0.3em;
   font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
+  transition:
+    background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
     color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
     border-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
   background-color: #f6f8fa;
@@ -531,7 +532,9 @@
   color: inherit !important;
   opacity: 1;
   font-weight: inherit;
-  transition: background 100ms ease-in, opacity 100ms ease-in;
+  transition:
+    background 100ms ease-in,
+    opacity 100ms ease-in;
   text-decoration: none;
   user-select: none;
   transition: background 20ms ease-in 0s;
@@ -727,7 +730,8 @@
 }
 
 .lazy-image-real.medium-zoom-image {
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
     opacity 400ms ease-out !important;
   will-change: opacity, transform;
 }
