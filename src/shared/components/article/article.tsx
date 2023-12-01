@@ -1,35 +1,26 @@
 // Components
-import { Button, Link, Stack, NotionRenderer, Page } from '@/shared/components'
+import {
+  Button,
+  Link,
+  Stack,
+  NotionRenderer,
+  Page,
+  PageProps
+} from '@/shared/components'
 
 // Types
 import { ExtendedNotionItem } from '@/shared/types'
-import { IconArrowBackUp } from '@tabler/icons-react'
 
-interface ArticleProps extends ExtendedNotionItem {
-  goBackHref: string
-}
+type ArticleProps = ExtendedNotionItem & Pick<PageProps, 'goBackProps'>
 
 export function Article({
   name,
   content,
-  goBackHref,
+  goBackProps,
   tableOfContents
 }: ArticleProps) {
   return (
-    <Page title={name}>
-      <Link
-        mdDown={{
-          display: 'none'
-        }}
-        href={goBackHref}
-        position={'absolute'}
-        left={-40}
-        transform={'translateX(-100%)'}
-      >
-        <Button>
-          <IconArrowBackUp size={18} />
-        </Button>
-      </Link>
+    <Page title={name} goBackProps={goBackProps}>
       <NotionRenderer content={content} />
 
       <Stack
@@ -43,10 +34,11 @@ export function Article({
         {tableOfContents.map(el => {
           return (
             <Link
-              pb={'2px'}
+              pb={'4px'}
               key={el.id}
               href={'#' + el.id}
               textDecoration={'none'}
+              fontWeight={'medium'}
               fontSize={'sm'}
               color={'text.dimmed'}
               transition={'all .3s ease'}
@@ -55,7 +47,9 @@ export function Article({
                 color: 'text.secondary'
               }}
             >
-              <span style={{ paddingLeft: el.indentLevel * 8 }}>{el.text}</span>
+              <span style={{ paddingLeft: el.indentLevel * 16 }}>
+                {el.text}
+              </span>
             </Link>
           )
         })}

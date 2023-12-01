@@ -43,16 +43,10 @@ const tokens = defineTokens({
 const semanticTokens = defineSemanticTokens({
   borders: {
     primary: {
-      value: {
-        _osLight: `1px solid ${hsl(50)}`,
-        _osDark: `1px solid ${hsl(17)}`
-      }
+      value: '1px solid {colors.border.primary}'
     },
     secondary: {
-      value: {
-        _osLight: `1px solid ${hsl(50)}`,
-        _osDark: `1px solid ${hsl(13)}`
-      }
+      value: '1px solid {colors.border.secondary}'
     }
   },
   colors: {
@@ -85,7 +79,7 @@ const semanticTokens = defineSemanticTokens({
     border: {
       primary: {
         value: {
-          _osLight: hsl(70),
+          _osLight: hsl(90),
           _osDark: hsl(40)
         }
       },
@@ -101,7 +95,7 @@ const semanticTokens = defineSemanticTokens({
         value: { _osLight: hsl(0), _osDark: hsl(100) }
       },
       secondary: {
-        value: { _osLight: hsl(0), _osDark: hsl(80) }
+        value: { _osLight: hsl(0), _osDark: hsl(70) }
       },
       dimmed: {
         value: { _osLight: hsl(60), _osDark: hsl(40) }
@@ -114,7 +108,7 @@ const globalCss = defineGlobalStyles({
   html: {
     backgroundColor: 'bg.primary',
     textRendering: 'optimizeLegibility',
-    color: 'text.secondary',
+    color: 'text.primary',
     fontSize: 'md',
     fontWeight: 'medium',
     lineHeight: 'md',
@@ -138,7 +132,7 @@ const globalCss = defineGlobalStyles({
     }
   },
   a: {
-    color: 'text.primary',
+    // color: 'text.secondary',
     fontWeight: 'bold',
     textDecoration: 'underline',
     textDecorationColor: 'border.primary',
@@ -158,7 +152,6 @@ const globalCss = defineGlobalStyles({
     borderStyle: 'solid'
   },
   'b, strong': {
-    color: 'text.primary',
     fontWeight: 'bold'
   },
   'h1, h2, h3, h4, h5, h6': {
@@ -180,27 +173,26 @@ const globalCss = defineGlobalStyles({
       marginBottom: 'md'
     },
   h1: {
-    marginBottom: '1rem',
-    fontSize: '1.3rem',
+    fontSize: '1.25rem',
     color: 'text.primary',
-    textTransform: 'capitalize',
+    textTransform: 'lowercase',
     letterSpacing: 'inherit'
   },
   h2: {
-    marginTop: '3rem',
-    marginBottom: '0.75rem'
+    marginTop: '3.5rem',
+    marginBottom: '1rem'
   },
   h3: {
-    marginTop: '2rem',
-    marginBottom: '0.5rem'
+    marginTop: '2.5rem',
+    marginBottom: '0.75rem'
   },
   h4: {
-    marginTop: '1rem',
-    marginBottom: '0.5rem'
+    marginTop: '2rem',
+    marginBottom: '0.75rem'
   },
   '::selection': {
-    color: 'black',
-    background: 'primary'
+    color: 'bg.primary',
+    background: 'text.primary'
   },
   '::-webkit-scrollbar': {
     width: '4px',

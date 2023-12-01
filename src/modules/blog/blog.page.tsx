@@ -40,5 +40,5 @@ export async function Blog({ params }) {
     params.slug
   )
 
-  return <Article goBackHref={WRITING.href} {...article} />
+  return <Article goBackProps={WRITING} {...article} />
 }

@@ -42,5 +42,5 @@ export async function Handbook({ params }) {
     params.slug
   )
 
-  return <Article goBackHref={WRITING.href} {...article} />
+  return <Article goBackProps={WRITING} {...article} />
 }

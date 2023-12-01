@@ -14,11 +14,10 @@ export const metadata: Metadata = {
 
 export function Home() {
   return (
-    <Page title={HOME.title}>
+    <Page title={HOME.title} showGoBack={false}>
       <p>
-        <b>Corta, Hugo.</b> Software craftsman. Unsatisfiably curious.
-        Passionate about software design and crafting digital products. Open
-        source contributor.
+        Software craftsman. Passionate about software design and crafting
+        digital products. Open source contributor.
       </p>
 
       <h2>{'Explore'}</h2>
@@ -33,14 +32,12 @@ export function Home() {
 
       <h2>{'Now'}</h2>
       <p>
-        On this website I <b>share posts on a wide range of topics</b> that
-        spark my interest. Alongside this, my love for software development
-        drives me to
-        <b> collaborate on open-source software and libraries</b>, contributing
-        to the thriving developer community. As a natural educator, I also find
-        joy in <b>teaching web development</b>, sharing my knowledge and
-        empowering aspiring developers to embark on their own digital
-        adventures.
+        On this website I share posts on a wide range of topics that spark my
+        interest. Alongside this, my love for software development drives me to
+        collaborate on open-source software and libraries, contributing to the
+        thriving developer community. As a natural educator, I also find joy in
+        teaching web development, sharing my knowledge and empowering aspiring
+        developers to embark on their own digital adventures.
       </p>
       <h2>Radar</h2>
       <p>
