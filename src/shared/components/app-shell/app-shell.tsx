@@ -52,7 +52,13 @@ export function AppShell({ children }: AppShellProps) {
         maxW={'720px'}
         margin={'0 auto'}
         px={'md'}
-        py={'12dvh'}
+        py={'15dvh'}
+        mdDown={{
+          py: '10dvh'
+        }}
+        smDown={{
+          py: '5dvh'
+        }}
       >
         {children}
       </styled.main>
