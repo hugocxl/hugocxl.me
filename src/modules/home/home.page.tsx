@@ -21,7 +21,7 @@ export function Home() {
       </p>
 
       <h2>{'Explore'}</h2>
-      <Grid columns={2} gap={'lg'} alignItems={'baseline'}>
+      <Grid columns={5} gap={'lg'} alignItems={'baseline'}>
         {PAGES.map(page => (
           <Stack key={page.href}>
             <Link href={page.href}>{page.title}</Link>

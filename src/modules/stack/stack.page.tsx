@@ -40,7 +40,9 @@ export async function StackPage() {
                 <Link href={link} target={'_blank'}>
                   {name}
                 </Link>
-                <Typography fontWeight={'medium'}>{description}</Typography>
+                <Typography color={'text.dimmed'} fontWeight={'medium'}>
+                  {description}
+                </Typography>
               </Grid>
             ))}
           </Stack>

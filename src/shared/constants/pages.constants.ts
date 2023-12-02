@@ -19,6 +19,12 @@ export const BLOG: Page = {
   description: "I write about stuff I'm interested in"
 }
 
+export const WORK: Page = {
+  title: 'work',
+  href: '/work',
+  description: 'My work experience'
+}
+
 export const HANDBOOKS: Page = {
   title: 'handbooks',
   href: '/handbooks',
@@ -44,4 +50,4 @@ export const ABOUT: Page = {
   description: `Little about me. Also, It's not hard to find my contact, just search hugocxl`
 }
 
-export const PAGES: Pages = [WRITING, PROJECTS, STACK, ABOUT]
+export const PAGES: Pages = [WRITING, PROJECTS, STACK, WORK, ABOUT]

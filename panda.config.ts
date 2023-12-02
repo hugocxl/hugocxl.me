@@ -179,15 +179,16 @@ const globalCss = defineGlobalStyles({
     letterSpacing: 'inherit'
   },
   h2: {
-    marginTop: '3.5rem',
-    marginBottom: '1rem'
+    marginTop: '4rem',
+    marginBottom: '1rem',
+    fontSize: '0.85rem'
   },
   h3: {
-    marginTop: '2.5rem',
+    marginTop: '3rem',
     marginBottom: '0.75rem'
   },
   h4: {
-    marginTop: '2rem',
+    marginTop: '2.5rem',
     marginBottom: '0.75rem'
   },
   '::selection': {

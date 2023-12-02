@@ -1,6 +1,5 @@
 // Lib
 import { notionClient } from '@/shared/lib'
-import { styled } from '@styled-system/jsx'
 
 // Types
 import { Metadata } from 'next'
@@ -38,23 +37,17 @@ export async function Projects() {
           }
         }}
       >
-        {projects.map(({ id, name, content, description, link }) => {
+        {projects.map(({ id, name, content, description }) => {
           return (
-            <Grid
-              py={'lg'}
-              key={id}
-              gridTemplateColumns={'0.25fr 1fr'}
-              mdDown={{
-                gridTemplateColumns: '1fr',
-                gridTemplateRows: 'auto 1fr'
-              }}
-            >
-              <Link href={link}>{name}</Link>
+            <Stack borderTop={'primary'} py={'md'} key={id}>
+              <Typography textStyle={'lg'} fontWeight={'bolder'}>
+                {name}
+              </Typography>
               <Stack gap={'lg'}>
                 <Typography color={'text.dimmed'}>{description}</Typography>
                 <NotionRenderer content={content} />
               </Stack>
-            </Grid>
+            </Stack>
           )
         })}
       </Stack>
