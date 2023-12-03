@@ -72,9 +72,16 @@ export function About() {
       </p>
 
       <h2>{'Experience'}</h2>
+      <p>A summary of my work so far:</p>
       <div>
         <CompanyItem
-          date={'July 2023 - Present'}
+          date={'Dec 2023 - Present'}
+          company={'Vitruve'}
+          title={'Tech Lead'}
+          stack={'Vite, React, Nest'}
+        />
+        <CompanyItem
+          date={'July 2023 - Dec 2023'}
           company={'InCloudForever'}
           title={'Fullstack Engineer'}
           stack={'Next, Nest'}
@@ -121,7 +128,7 @@ function CompanyItem({ company, title, date, stack }) {
       bg={'bg.secondary'}
       gap={'sm'}
       p={'md'}
-      mb={'md'}
+      mt={'md'}
       columns={2}
       alignItems={'baseline'}
     >
@@ -129,16 +136,12 @@ function CompanyItem({ company, title, date, stack }) {
         <Typography color={'text.primary'} fontWeight={'bold'}>
           {title}
         </Typography>
-        <Typography color={'text.dimmed'} fontSize={'sm'}>
-          {company}
-        </Typography>
+        <Typography color={'text.dimmed'}>{company}</Typography>
       </Stack>
 
       <Stack gap={0} textAlign={'right'}>
         <Typography color={'text.secondary'}>{stack}</Typography>
-        <Typography color={'text.dimmed'} fontSize={'sm'}>
-          {date}
-        </Typography>
+        <Typography color={'text.dimmed'}>{date}</Typography>
       </Stack>
     </Grid>
   )

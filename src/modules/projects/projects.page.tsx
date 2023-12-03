@@ -8,14 +8,7 @@ import { Metadata } from 'next'
 import { PROJECTS } from '@/shared/constants'
 
 // Components
-import {
-  NotionRenderer,
-  Stack,
-  Page,
-  Grid,
-  Typography,
-  Link
-} from '@/shared/components'
+import { NotionRenderer, Stack, Page, Typography } from '@/shared/components'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {
@@ -40,7 +33,11 @@ export async function Projects() {
         {projects.map(({ id, name, content, description }) => {
           return (
             <Stack borderTop={'primary'} py={'md'} key={id}>
-              <Typography textStyle={'lg'} fontWeight={'bolder'}>
+              <Typography
+                textStyle={'lg'}
+                fontWeight={'bolder'}
+                color={'text.primary'}
+              >
                 {name}
               </Typography>
               <Stack gap={'lg'}>

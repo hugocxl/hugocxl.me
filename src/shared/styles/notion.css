@@ -489,11 +489,9 @@
   padding: var(--spacing-md);
   display: inline-flex;
   width: 100%;
-  font-size: 0.9rem;
   border-radius: var(--radii-sm);
   align-items: flex-start;
   box-sizing: border-box;
-  /* border: 1px solid; */
 }
 
 .notion-callout-text {

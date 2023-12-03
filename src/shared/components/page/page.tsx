@@ -1,10 +1,10 @@
 // Components
 import { Button, Link, Stack } from '@/shared/components'
+import { IconArrowBackUp } from '@tabler/icons-react'
 
 // Types
 import { ReactNode } from 'react'
 import { JsxStyleProps } from '@styled-system/types'
-import { IconArrowBackUp } from '@tabler/icons-react'
 
 export type PageProps = JsxStyleProps & {
   children: ReactNode
@@ -60,7 +60,7 @@ export function Page({
         }}
       >
         <h1>{title}</h1>
-        {description && <p>{description}</p>}
+        {description && <span>{description}</span>}
       </Stack>
 
       {children}

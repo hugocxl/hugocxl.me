@@ -15,17 +15,17 @@ export const metadata: Metadata = {
 export function Home() {
   return (
     <Page title={HOME.title} showGoBack={false}>
-      <p>
+      <span>
         Software craftsman. Passionate about software design and crafting
         digital products. Open source contributor.
-      </p>
+      </span>
 
       <h2>{'Explore'}</h2>
-      <Grid columns={5} gap={'lg'} alignItems={'baseline'}>
+      <Grid mt={'md'} columns={2} gap={'lg'} alignItems={'baseline'}>
         {PAGES.map(page => (
           <Stack key={page.href}>
             <Link href={page.href}>{page.title}</Link>
-            <p>{page.description}</p>
+            <span>{page.description}</span>
           </Stack>
         ))}
       </Grid>

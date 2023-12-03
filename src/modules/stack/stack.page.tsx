@@ -33,8 +33,8 @@ export async function StackPage() {
 
       render.push(
         <div key={tag}>
-          <styled.h2 mt={0}>{tag}</styled.h2>
-          <Stack gap={'md'}>
+          <h2>{tag}</h2>
+          <Stack pt={'md'} gap={'md'}>
             {sortedGroup.map(({ link, name, description }) => (
               <Grid gridTemplateColumns={'0.5fr 1fr'} key={link}>
                 <Link href={link} target={'_blank'}>
@@ -55,7 +55,7 @@ export async function StackPage() {
 
   return (
     <Page {...STACK}>
-      <Stack gap={60}>{render}</Stack>
+      <Stack>{render}</Stack>
     </Page>
   )
 }

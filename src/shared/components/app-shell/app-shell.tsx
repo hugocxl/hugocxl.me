@@ -6,6 +6,12 @@ import localFont from 'next/font/local'
 import { Flex } from '../flex'
 import { Link } from '../link'
 import { Typography } from '../typography'
+import {
+  IconMail,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandX
+} from '@tabler/icons-react'
 
 // Types
 import { ReactNode } from 'react'
@@ -76,34 +82,42 @@ export function AppShell({ children }: AppShellProps) {
             {'CC BY-NC 4.0 2023 © Hugo Corta'}
           </Typography>
 
-          <Flex gap={'xs'} alignItems={'center'}>
+          <Flex gap={'sm'} alignItems={'center'}>
             <Link
               {...linkProps}
               href={'mailto:corta.hugo@gmail.com'}
               title={'Mail'}
             >
-              {'Mail'}
+              <IconMail size={'16px'} color='currentColor' strokeWidth={1} />
             </Link>
             <Link
               {...linkProps}
               href={'https://github.com/hugocxl'}
               title={'GitHub @hugocxl'}
             >
-              {'GitHub'}
+              <IconBrandGithub
+                size={'16px'}
+                color='currentColor'
+                strokeWidth={1}
+              />
             </Link>
             <Link
               {...linkProps}
               href={'https://twitter.com/hugocxl'}
               title={'Twitter @hugocxl'}
             >
-              {'Twitter'}
+              <IconBrandX size={'16px'} color='currentColor' strokeWidth={1} />
             </Link>
             <Link
               {...linkProps}
               href={'https://www.linkedin.com/in/hugocorta'}
               title={'LinkedIn @hugocorta'}
             >
-              {'LinkedIn'}
+              <IconBrandLinkedin
+                size={'16px'}
+                color='currentColor'
+                strokeWidth={1}
+              />
             </Link>
           </Flex>
         </Flex>

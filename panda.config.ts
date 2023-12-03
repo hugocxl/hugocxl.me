@@ -53,52 +53,52 @@ const semanticTokens = defineSemanticTokens({
     bg: {
       primary: {
         value: {
-          _osLight: hsl(97),
-          _osDark: hsl(7)
+          _light: hsl(97),
+          _dark: hsl(7)
         }
       },
       secondary: {
         value: {
-          _osLight: hsl(95),
-          _osDark: hsl(10)
+          _light: hsl(95),
+          _dark: hsl(10)
         }
       },
       code: {
         value: {
-          _osLight: hsl(92),
-          _osDark: hsl(12)
+          _light: hsl(92),
+          _dark: hsl(12)
         }
       },
       button: {
         value: {
-          _osLight: hsl(92),
-          _osDark: hsl(12)
+          _light: hsl(92),
+          _dark: hsl(12)
         }
       }
     },
     border: {
       primary: {
         value: {
-          _osLight: hsl(90),
-          _osDark: hsl(15)
+          _light: hsl(90),
+          _dark: hsl(15)
         }
       },
       secondary: {
         value: {
-          _osLight: hsl(90),
-          _osDark: hsl(12)
+          _light: hsl(90),
+          _dark: hsl(12)
         }
       }
     },
     text: {
       primary: {
-        value: { _osLight: hsl(0), _osDark: hsl(100) }
+        value: { _light: hsl(0), _dark: hsl(100) }
       },
       secondary: {
-        value: { _osLight: hsl(0), _osDark: hsl(60) }
+        value: { _light: hsl(30), _dark: hsl(85) }
       },
       dimmed: {
-        value: { _osLight: hsl(60), _osDark: hsl(40) }
+        value: { _light: hsl(60), _dark: hsl(40) }
       }
     }
   }
@@ -108,7 +108,7 @@ const globalCss = defineGlobalStyles({
   html: {
     backgroundColor: 'bg.primary',
     textRendering: 'optimizeLegibility',
-    color: 'text.primary',
+    color: 'text.secondary',
     fontSize: 'md',
     fontWeight: 'medium',
     lineHeight: 'md',
@@ -139,6 +139,7 @@ const globalCss = defineGlobalStyles({
     textDecorationThickness: 1,
     textUnderlineOffset: 4,
     transition: 'color 0.2s ease-in-out',
+    color: 'text.primary',
     '&:hover': {
       color: 'text.dimmed'
     }
@@ -152,6 +153,7 @@ const globalCss = defineGlobalStyles({
     borderStyle: 'solid'
   },
   'b, strong': {
+    color: 'text.primary',
     fontWeight: 'bold'
   },
   'h1, h2, h3, h4, h5, h6': {
@@ -165,13 +167,20 @@ const globalCss = defineGlobalStyles({
     fontFamily: 'Menlo, monospace',
     fontSize: '0.85rem'
   },
-  li: {
-    marginBottom: 'sm'
-  },
-  'p, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
+  'p, li, .notion-text, .notion-toggle, .notion-code, .notion-quote, .notion-callout, .notion-asset-wrapper':
     {
-      marginBottom: 'md'
+      marginTop: 'md'
     },
+  '.notion-callout': {
+    marginTop: 'lg',
+    marginBottom: 'lg'
+  },
+  '.notion-asset-wrapper-image > div': {
+    marginTop: 'lg',
+    marginBottom: 'lg',
+    maxWidth: '120%!',
+    width: '120%!'
+  },
   h1: {
     fontSize: '1.25rem',
     color: 'text.primary',
@@ -180,16 +189,13 @@ const globalCss = defineGlobalStyles({
   },
   h2: {
     marginTop: '4rem',
-    marginBottom: '1rem',
     fontSize: '0.85rem'
   },
   h3: {
-    marginTop: '3rem',
-    marginBottom: '0.75rem'
+    marginTop: '3rem'
   },
   h4: {
-    marginTop: '2.5rem',
-    marginBottom: '0.75rem'
+    marginTop: '2.5rem'
   },
   '::selection': {
     color: 'bg.primary',
