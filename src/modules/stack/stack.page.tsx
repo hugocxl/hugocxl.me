@@ -12,7 +12,6 @@ import { Link, Stack, Typography, Page, Grid } from '@/shared/components'
 
 // Utils
 import { groupBy, sortBy } from '@/shared/utils'
-import { styled } from '@styled-system/jsx'
 
 export const revalidate = 86400 * 7
 export const metadata: Metadata = {

@@ -1,5 +1,6 @@
 // Components
-import { Grid, Link, Page, Stack } from '@/shared/components'
+import { Grid, Link, Page } from '@/shared/components'
+import { styled } from '@styled-system/jsx'
 
 // Constants
 import { HOME, PAGES } from '@/shared/constants'
@@ -15,18 +16,40 @@ export const metadata: Metadata = {
 export function Home() {
   return (
     <Page title={HOME.title} showGoBack={false}>
-      <span>
+      <p>
+        Technical Lead at <Link href={'https://vitruve.fit/'}>@Vitruve</Link>
+      </p>
+      <p>
         Software craftsman. Passionate about software design and crafting
         digital products. Open source contributor.
-      </span>
+      </p>
 
       <h2>{'Explore'}</h2>
-      <Grid mt={'md'} columns={2} gap={'lg'} alignItems={'baseline'}>
+      <Grid mt={'md'} columns={2} gap={'sm'} alignItems={'baseline'}>
         {PAGES.map(page => (
-          <Stack key={page.href}>
-            <Link href={page.href}>{page.title}</Link>
-            <span>{page.description}</span>
-          </Stack>
+          <Link
+            href={page.href}
+            key={page.href}
+            css={{
+              textDecoration: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: 'sm',
+              bg: 'bg.secondary',
+              p: 'md',
+              fontWeight: 'medium',
+              border: 'primary'
+            }}
+          >
+            <styled.span
+              css={{ fontWeight: 'bold', textDecoration: 'underline' }}
+            >
+              {page.title}
+            </styled.span>
+            <styled.span css={{ color: 'text.secondary' }}>
+              {page.description}
+            </styled.span>
+          </Link>
         ))}
       </Grid>
 

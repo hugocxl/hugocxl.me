@@ -34,8 +34,7 @@ export const PROJECTS: Page = {
 export const STACK: Page = {
   title: 'stack',
   href: '/stack',
-  description:
-    'A small review about specific pieces of software or hardware I use'
+  description: 'Pieces of software or hardware I use'
 }
 
 export const ABOUT: Page = {
