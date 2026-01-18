@@ -1,5 +1,0 @@
-export * from './notion-item'
-export * from './page'
-export * from './repository'
-export * from './pages'
-export * from './params'

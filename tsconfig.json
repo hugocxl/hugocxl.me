@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext", "ES2015"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -30,5 +30,10 @@
     ]
   },
   "exclude": ["node_modules", "./cypress.config.ts", "./cypress"],
-  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"]
+  "include": [
+    "src",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ]
 }

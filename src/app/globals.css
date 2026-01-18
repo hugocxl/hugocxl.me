@@ -1,0 +1,277 @@
+:root {
+  --color-highlight: #111;
+  --color-body: #555;
+  --color-secondary: #888;
+  --bg: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-highlight: #fff;
+    --color-body: #a0a0a0;
+    --color-secondary: #666;
+    --bg: #0a0a0a;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-weight: 400;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family:
+    ui-rounded, -apple-system-ui-rounded, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--color-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -150px;
+  left: 0;
+  right: 0;
+  height: 659px;
+  background-image: url("/footer-gradient.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 1400px auto;
+  pointer-events: none;
+  z-index: -1;
+  transform: rotate(180deg);
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 4rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Hero section */
+.hero {
+  margin-bottom: 4rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--color-highlight);
+}
+
+.hero-title .light {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.hero-title .bold {
+  font-weight: 700;
+}
+
+.hero-avatar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0.9em;
+  height: 0.9em;
+  margin: 0 0.05em;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.hero-social a:hover {
+  color: var(--color-highlight);
+  opacity: 1;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-body);
+  margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+  color: var(--color-secondary);
+  font-size: 0.95rem;
+}
+
+.hero-tagline a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.hero-tagline a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+}
+
+h3 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 1.5rem;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Color utilities */
+.highlight {
+  color: var(--color-highlight);
+}
+
+.body {
+  color: var(--color-body);
+}
+
+.secondary {
+  color: var(--color-secondary);
+}
+
+/* Item styles */
+.item-title {
+  display: block;
+  color: var(--color-highlight);
+  font-weight: 600;
+}
+
+.item-description {
+  display: block;
+  color: var(--color-body);
+}
+
+.item-meta {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+}
+
+.item-link {
+  color: var(--color-highlight);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.item-link:hover {
+  opacity: 0.7;
+}
+
+/* Contact section */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.contact-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-highlight);
+  font-weight: 700;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+}
+
+.contact-row a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.contact-row a:hover {
+  color: var(--color-highlight);
+  opacity: 1;
+}
